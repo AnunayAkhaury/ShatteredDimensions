@@ -3,6 +3,21 @@
 [ext_resource type="Script" path="res://scripts/platformer/game_over.gd" id="1_aj66r"]
 [ext_resource type="Texture2D" uid="uid://cd2wq8kis8ka5" path="res://assets/300 Characters Free! 128x128/pixelart_skull.png" id="1_ftva7"]
 
+[sub_resource type="Animation" id="Animation_accgs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.259766, 0.259766)]
+}
+
 [sub_resource type="Animation" id="Animation_erfno"]
 resource_name = "expand"
 loop_mode = 2
@@ -17,21 +32,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.259766, 0.259766), Vector2(0.5, 0.5)]
-}
-
-[sub_resource type="Animation" id="Animation_accgs"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.259766, 0.259766)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tkajo"]
