@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ixineaxt6ila"]
+[gd_scene load_steps=3 format=3 uid="uid://ixineaxt6ila"]
 
+[ext_resource type="Script" path="res://scripts/platformer/traps/spike_ball.gd" id="1_sdjir"]
 [ext_resource type="Texture2D" uid="uid://l8466ted1x0u" path="res://assets/PixelAdventure/Traps/Spiked Ball/Spiked Ball.png" id="1_ytox5"]
 
 [node name="SpikeBall" type="Node2D"]
+script = ExtResource("1_sdjir")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.19196, 2.19196)

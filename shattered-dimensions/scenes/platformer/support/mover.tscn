@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6em42trvok0w"]
+
+[ext_resource type="Texture2D" uid="uid://b2wdmify4mw72" path="res://assets/PixelAdventure/Traps/Sand Mud Ice/Sand Particle.png" id="1_amy7c"]
+
+[node name="Mover" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_amy7c")
