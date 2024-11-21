@@ -60,6 +60,9 @@ func platformer_respawn():
 	if platformer_level == 1:
 		position.x = 65
 		position.y = 595
+	elif platformer_level == 2:
+		position.x = 65
+		position.y = 589
 	
 
 #func take_damage(damage:int) -> void:
