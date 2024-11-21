@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ixineaxt6ila"]
+[gd_scene load_steps=4 format=3 uid="uid://ixineaxt6ila"]
 
 [ext_resource type="Script" path="res://scripts/platformer/traps/spike_ball.gd" id="1_sdjir"]
 [ext_resource type="Texture2D" uid="uid://l8466ted1x0u" path="res://assets/PixelAdventure/Traps/Spiked Ball/Spiked Ball.png" id="1_ytox5"]
+[ext_resource type="PackedScene" uid="uid://bjb6qsjcxod2b" path="res://scenes/platformer/killzone.tscn" id="3_e766l"]
 
 [node name="SpikeBall" type="Node2D"]
 script = ExtResource("1_sdjir")
@@ -9,3 +10,9 @@ script = ExtResource("1_sdjir")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.19196, 2.19196)
 texture = ExtResource("1_ytox5")
+
+[node name="Killzone" parent="." instance=ExtResource("3_e766l")]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Killzone"]
+polygon = PackedVector2Array(8, -22, 8, -17, 13, -17, 13, -20, 22, -20, 22, -11, 20, -11, 20, -6, 24, -6, 30, 1, 24, 8, 20, 8, 20, 13.3125, 22, 13, 22, 22, 13, 22, 13, 20, 9, 20, 9, 24, 1, 30, -6, 24, -6, 20, -11, 20, -11, 22, -20, 22, -20, 13, -17, 13, -17, 8, -22, 8, -28, 1, -22, -6, -17, -6, -17, -11, -20, -11, -20, -20, -11, -20, -11, -17, -6, -17, -6, -22, 1, -28)

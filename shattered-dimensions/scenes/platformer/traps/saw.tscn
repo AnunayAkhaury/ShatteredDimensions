@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca2bt33gn8iep"]
+[gd_scene load_steps=5 format=3 uid="uid://ca2bt33gn8iep"]
 
 [ext_resource type="Texture2D" uid="uid://b0cnama65vthn" path="res://assets/PixelAdventure/Traps/Saw/Off.png" id="1_4p20i"]
 [ext_resource type="Script" path="res://scripts/platformer/traps/saw.gd" id="1_nsmd5"]
+[ext_resource type="PackedScene" uid="uid://bjb6qsjcxod2b" path="res://scenes/platformer/killzone.tscn" id="3_b24x2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xicft"]
+radius = 18.0
 
 [node name="Saw" type="Node2D"]
 script = ExtResource("1_nsmd5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_4p20i")
+
+[node name="Killzone" parent="." instance=ExtResource("3_b24x2")]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("CircleShape2D_xicft")

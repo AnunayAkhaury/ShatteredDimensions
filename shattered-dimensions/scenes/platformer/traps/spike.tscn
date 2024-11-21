@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1iv1met25ybc"]
+[gd_scene load_steps=3 format=3 uid="uid://b1iv1met25ybc"]
 
 [ext_resource type="Texture2D" uid="uid://bs3kokqyp6vm6" path="res://assets/PixelAdventure/Traps/Spikes/Idle.png" id="1_s3ogw"]
+[ext_resource type="PackedScene" uid="uid://bjb6qsjcxod2b" path="res://scenes/platformer/killzone.tscn" id="2_gaaw5"]
 
 [node name="Spike" type="Node2D"]
 
@@ -8,3 +9,11 @@
 position = Vector2(5.25, -5.25)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_s3ogw")
+
+[node name="Killzone" parent="." instance=ExtResource("2_gaaw5")]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Killzone"]
+position = Vector2(-3.825, -9.94375)
+scale = Vector2(-0.125, 3.3125)
+polygon = PackedVector2Array(-118.6, 1.19057, -102.6, 1.19057, -102.6, -0.318868, -78.6, -0.318868, -78.6, -1.22453, -62.6, -1.22453, -62.6, -0.318868, -46.6, -0.318868, -46.6, 1.19057, -22.6, 1.19057, -22.6, 2.7, -6.6, 2.7, -6, 4, -6, 4, -142.6, 3.90755, -142.6, 2.7, -118.6, 2.7)
