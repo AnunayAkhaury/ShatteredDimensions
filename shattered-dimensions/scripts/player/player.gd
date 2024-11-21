@@ -5,8 +5,11 @@ extends Character
 
 var _damaged:bool = false
 var _dead:bool = false
-var double_jump:bool = false
 var lives = 10
+
+# VARIABLES FOR PLATFORMER
+var double_jump:bool = false
+var platformer_level:int = 1
 
 #@onready var animation_tree:AnimationTree = $AnimationTree
 @onready var hitbox: CollisionShape2D = $CollisionShape2D
@@ -51,9 +54,12 @@ func _physics_process(delta: float):
 	#_manage_animation_tree_state()
 
 
-func respawn():
-	position.x = 65
-	position.y = 595
+# FUNCTIONS FOR PLATFORMER
+
+func platformer_respawn():
+	if platformer_level == 1:
+		position.x = 65
+		position.y = 595
 	
 
 #func take_damage(damage:int) -> void:
