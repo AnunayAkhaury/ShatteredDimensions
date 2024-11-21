@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1iv1met25ybc"]
+
+[ext_resource type="Texture2D" uid="uid://bs3kokqyp6vm6" path="res://assets/PixelAdventure/Traps/Spikes/Idle.png" id="1_s3ogw"]
+
+[node name="Spike" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.25, -5.25)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_s3ogw")

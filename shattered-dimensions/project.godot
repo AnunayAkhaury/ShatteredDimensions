@@ -21,3 +21,7 @@ window/size/window_width_override=2304
 window/size/window_height_override=1296
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

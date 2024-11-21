@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca2bt33gn8iep"]
+
+[ext_resource type="Texture2D" uid="uid://b0cnama65vthn" path="res://assets/PixelAdventure/Traps/Saw/Off.png" id="1_4p20i"]
+[ext_resource type="Script" path="res://scripts/platformer/traps/saw.gd" id="1_nsmd5"]
+
+[node name="Saw" type="Node2D"]
+script = ExtResource("1_nsmd5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4p20i")
