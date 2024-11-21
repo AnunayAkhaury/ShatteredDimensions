@@ -1,8 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://buvgjm6qx6jap"]
+[gd_scene load_steps=4 format=3 uid="uid://buvgjm6qx6jap"]
 
+[ext_resource type="Script" path="res://scripts/platformer/supports/bouncer.gd" id="1_0gjns"]
 [ext_resource type="Texture2D" uid="uid://41dpheerd5di" path="res://assets/PixelAdventure/Traps/Sand Mud Ice/Ice Particle.png" id="1_lxuca"]
 
-[node name="Bouncer" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ntfax"]
+radius = 5.0
+
+[node name="Bouncer" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+collision_priority = 2.0
+script = ExtResource("1_0gjns")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_lxuca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ntfax")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

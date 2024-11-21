@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfmefiwoc5g0s"]
+
+[ext_resource type="Script" path="res://scripts/platformer/game_over.gd" id="1_aj66r"]
+[ext_resource type="Texture2D" uid="uid://cd2wq8kis8ka5" path="res://assets/300 Characters Free! 128x128/pixelart_skull.png" id="1_ftva7"]
+
+[sub_resource type="Animation" id="Animation_erfno"]
+resource_name = "expand"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.259766, 0.259766), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_accgs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.259766, 0.259766)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tkajo"]
+_data = {
+"RESET": SubResource("Animation_accgs"),
+"expand": SubResource("Animation_erfno")
+}
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_aj66r")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1153.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -184.5
+offset_right = 135.0
+offset_bottom = -119.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 47
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = 160.5
+offset_right = 135.0
+offset_bottom = 225.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 31
+text = "Press 'R' to Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Devil" type="Node2D" parent="ColorRect"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect/Devil"]
+position = Vector2(578, 345)
+scale = Vector2(0.259766, 0.259766)
+texture = ExtResource("1_ftva7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/Devil"]
+libraries = {
+"": SubResource("AnimationLibrary_tkajo")
+}
+autoplay = "expand"

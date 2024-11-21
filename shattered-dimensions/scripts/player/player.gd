@@ -5,6 +5,8 @@ extends Character
 
 var _damaged:bool = false
 var _dead:bool = false
+var double_jump:bool = false
+var lives = 10
 
 #@onready var animation_tree:AnimationTree = $AnimationTree
 @onready var hitbox: CollisionShape2D = $CollisionShape2D
@@ -15,8 +17,9 @@ func _ready():
 
 
 func _physics_process(delta: float):
-	if _dead:
-		return
+	if lives == 0:
+		unbind_player_input_commands()
+		get_tree().change_scene_to_file("res://scenes/platformer/game_over.tscn")
 		
 	var move_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 
@@ -41,12 +44,17 @@ func _physics_process(delta: float):
 			#else:
 				#sprite.play("jump")
 	
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or double_jump):
 		up_cmd.execute(self)
 	
 	super(delta)
 	#_manage_animation_tree_state()
 
+
+func respawn():
+	position.x = 65
+	position.y = 595
+	
 
 #func take_damage(damage:int) -> void:
 	#health -= damage
