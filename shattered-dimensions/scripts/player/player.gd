@@ -27,7 +27,6 @@ func _physics_process(delta: float):
 		velocity.x = 0
 		hitbox.shape.size.y = 22
 		hitbox.position.y = 8
-		print(hitbox.shape.size)
 		sprite.play("crouch")
 		
 		
