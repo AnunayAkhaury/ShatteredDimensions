@@ -7,7 +7,7 @@ var _damaged:bool = false
 var _dead:bool = false
 
 #@onready var animation_tree:AnimationTree = $AnimationTree
-
+@onready var hitbox: CollisionShape2D = $CollisionShape2D
 
 func _ready():
 	#animation_tree.active = true
@@ -22,16 +22,25 @@ func _physics_process(delta: float):
 
 	#if Input.is_action_just_pressed("attack"):
 		#fire1.execute(self)
-	
-	if move_input > 0.1:
-		right_cmd.execute(self)
-	elif move_input < -0.1:
-		left_cmd.execute(self)
+		
+	if is_on_floor() and Input.is_action_pressed("crouch"):
+		velocity.x = 0
+		hitbox.shape.size.y = 22
+		hitbox.position.y = 8
+		print(hitbox.shape.size)
+		sprite.play("crouch")
+		
+		
 	else:
-		#if is_on_floor():
-		idle.execute(self)
-		#else:
-			#sprite.play("jump")
+		if move_input > 0.1:
+			right_cmd.execute(self)
+		elif move_input < -0.1:
+			left_cmd.execute(self)
+		else:
+			#if is_on_floor():
+			idle.execute(self)
+			#else:
+				#sprite.play("jump")
 	
 	if Input.is_action_just_pressed("jump"):
 		up_cmd.execute(self)
