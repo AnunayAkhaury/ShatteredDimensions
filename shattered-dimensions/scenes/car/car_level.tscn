@@ -1,6 +1,11 @@
-[gd_scene format=3 uid="uid://or47njd57g2a"]
+[gd_scene load_steps=2 format=3 uid="uid://or47njd57g2a"]
+
+[ext_resource type="PackedScene" uid="uid://bal3600g7v6vu" path="res://scenes/car/car.tscn" id="1_kpa4w"]
 
 [node name="CarLevel" type="Node2D"]
+
+[node name="Car" parent="." instance=ExtResource("1_kpa4w")]
+position = Vector2(361, 459)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

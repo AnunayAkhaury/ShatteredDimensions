@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvecnl1comnek"]
+[gd_scene load_steps=6 format=3 uid="uid://cvecnl1comnek"]
 
 [ext_resource type="Texture2D" uid="uid://dbd56xkbhcbhj" path="res://assets/humvee/tires.png" id="1_5bsee"]
+[ext_resource type="Script" path="res://scripts/car/car_basics/tire.gd" id="2_mlujt"]
 
 [sub_resource type="Animation" id="Animation_w2bnq"]
 length = 0.001
@@ -41,6 +42,7 @@ _data = {
 }
 
 [node name="Tires" type="Node2D"]
+script = ExtResource("2_mlujt")
 
 [node name="Tires" type="Sprite2D" parent="."]
 position = Vector2(2.4863, -2.77747)
@@ -48,6 +50,7 @@ scale = Vector2(0.833164, 0.802644)
 texture = ExtResource("1_5bsee")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Tires"]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_wilnj")
 }

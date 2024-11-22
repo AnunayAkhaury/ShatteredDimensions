@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://ixineaxt6ila" path="res://scenes/platformer/traps/spike_ball.tscn" id="5_v3y0j"]
 [ext_resource type="PackedScene" uid="uid://ch7m68cyg50qt" path="res://scenes/platformer/level1/moving_platform.tscn" id="6_kk4bj"]
 [ext_resource type="PackedScene" uid="uid://buvgjm6qx6jap" path="res://scenes/platformer/support/bouncer.tscn" id="7_jy77l"]
-[ext_resource type="PackedScene" uid="uid://b00thoqwoqjnq" path="res://scenes/platformer/next_world_door.tscn" id="8_200jn"]
+[ext_resource type="PackedScene" path="res://scenes/platformer/next_world_door.tscn" id="8_200jn"]
 [ext_resource type="PackedScene" uid="uid://bjb6qsjcxod2b" path="res://scenes/platformer/killzone.tscn" id="9_wton1"]
-[ext_resource type="PackedScene" uid="uid://pjrkl5sc0nvb" path="res://scenes/platformer/support/mover_platform.tscn" id="10_6vqf1"]
+[ext_resource type="PackedScene" path="res://scenes/platformer/support/mover_platform.tscn" id="10_6vqf1"]
 [ext_resource type="Script" path="res://scripts/platformer/lives.gd" id="11_kuwey"]
-[ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="12_nn4nu"]
+[ext_resource type="PackedScene" uid="uid://r5rqj2lb8use" path="res://scenes/player.tscn" id="12_nn4nu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pd8c1"]
 texture = ExtResource("2_qyxit")
