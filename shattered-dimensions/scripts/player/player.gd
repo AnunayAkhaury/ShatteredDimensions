@@ -5,11 +5,11 @@ extends Character
 
 var _damaged:bool = false
 var _dead:bool = false
-var lives = 10
 
 # VARIABLES FOR PLATFORMER
 var double_jump:bool = false
 var platformer_level:int = 1
+var lives = 20
 
 #@onready var animation_tree:AnimationTree = $AnimationTree
 @onready var hitbox: CollisionShape2D = $CollisionShape2D
@@ -35,8 +35,9 @@ func _physics_process(delta: float):
 		hitbox.position.y = 8
 		sprite.play("crouch")
 		
-		
 	else:
+		hitbox.shape.size.y = 28
+		hitbox.position.y = 5
 		if move_input > 0.1:
 			right_cmd.execute(self)
 		elif move_input < -0.1:
