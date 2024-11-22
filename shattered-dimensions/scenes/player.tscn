@@ -1,7 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://dh7lwrd6jqdep"]
+[gd_scene load_steps=27 format=3 uid="uid://r5rqj2lb8use"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_1w0xd"]
-[ext_resource type="PackedScene" uid="uid://fiianho52s3p" path="res://scenes/character.tscn" id="1_82jgl"]
+[ext_resource type="PackedScene" uid="uid://dvberjv2fsl3s" path="res://scenes/character.tscn" id="1_82jgl"]
 [ext_resource type="Texture2D" uid="uid://yieoc0r6y1m4" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-idle.png" id="2_xa7iq"]
 [ext_resource type="Script" path="res://scripts/player/animated_sprite_2d.gd" id="3_h0a6v"]
 [ext_resource type="Texture2D" uid="uid://cydnsk6xymx31" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-duck.png" id="3_sm6sh"]
