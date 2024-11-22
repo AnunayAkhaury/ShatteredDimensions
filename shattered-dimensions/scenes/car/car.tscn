@@ -18,7 +18,6 @@ flip_h = true
 
 [node name="Tires2" parent="Humvee" instance=ExtResource("3_7k1vw")]
 position = Vector2(253.782, 148.544)
-scale = Vector2(1, 1)
 
 [node name="Tires" parent="Humvee" instance=ExtResource("3_7k1vw")]
 position = Vector2(-269.008, 148.544)
