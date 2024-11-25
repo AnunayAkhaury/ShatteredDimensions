@@ -2218,7 +2218,6 @@ tile_set = SubResource("TileSet_6sug4")
 [node name="MovingPlatforms" type="Node2D" parent="MapLayers"]
 
 [node name="MovingPlatform" parent="MapLayers/MovingPlatforms" instance=ExtResource("6_kk4bj")]
-position = Vector2(232, 480)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MapLayers/MovingPlatforms/MovingPlatform"]
 libraries = {
