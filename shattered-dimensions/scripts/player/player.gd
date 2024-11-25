@@ -1,16 +1,23 @@
 class_name Player
 extends Character 
 
-@export var health:int = 100
+@export var health: int = 100
 
-var _damaged:bool = false
-var _dead:bool = false
+var _damaged: bool = false
+var _dead: bool = false
 
 # VARIABLES FOR PLATFORMER
-var double_jump:bool = false
-var platformer_level:int = 2
-var lives = 20
+var double_jump: bool = false
+var platformer_level: int = 2
+var lives: int = 20
 var on_trampoline: bool = false
+var checkpoint_num: int = 0
+var checkpoints: Array = [
+	[65, 589],
+	[967, 395],
+	[1152, 587],
+	[2209, 477]
+]
 
 #@onready var animation_tree:AnimationTree = $AnimationTree
 @onready var hitbox: CollisionShape2D = $CollisionShape2D
@@ -67,10 +74,8 @@ func platformer_respawn():
 		position.x = 65
 		position.y = 595
 	elif platformer_level == 2:
-		#position.x = 65
-		#position.y = 589
-		position.x = 1164
-		position.y = 582
+		position.x = checkpoints[checkpoint_num][0]
+		position.y = checkpoints[checkpoint_num][1]
 
 #func take_damage(damage:int) -> void:
 	#health -= damage

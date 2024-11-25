@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://cg6fpw1rgpq71"]
+[gd_scene load_steps=55 format=4 uid="uid://cg6fpw1rgpq71"]
 
 [ext_resource type="Texture2D" uid="uid://blkrwa1rinjmj" path="res://assets/Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="1_4po6a"]
 [ext_resource type="Texture2D" uid="uid://cpucqr5lldfid" path="res://assets/Fantasy Swamp Forest/Free/BG_1/BG_1.png" id="1_ls6fx"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="4_e8inl"]
 [ext_resource type="PackedScene" uid="uid://buvgjm6qx6jap" path="res://scenes/platformer/support/bouncer.tscn" id="4_opcv3"]
 [ext_resource type="PackedScene" uid="uid://ca2bt33gn8iep" path="res://scenes/platformer/traps/saw.tscn" id="4_ubu4c"]
+[ext_resource type="PackedScene" uid="uid://d6cfjv8fghub" path="res://scenes/platformer/level2/checkpoint.tscn" id="5_4wf1v"]
 [ext_resource type="PackedScene" uid="uid://bahc50eqoslqm" path="res://scenes/platformer/traps/spike_block.tscn" id="5_j25oh"]
 [ext_resource type="PackedScene" uid="uid://fh5s6s416b83" path="res://scenes/platformer/level2/ascend_level_2.tscn" id="6_n18j2"]
 [ext_resource type="PackedScene" uid="uid://vybkdqwn4qng" path="res://scenes/platformer/traps/pea.tscn" id="7_k2bhe"]
@@ -78,7 +79,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_1rfdv"]
 resource_name = "up_down"
-length = 2.0
+length = 2.5
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -87,7 +88,7 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 2.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(798, -60), Vector2(798, -150)]
@@ -854,16 +855,23 @@ offset_bottom = 655.0
 texture = ExtResource("1_4po6a")
 
 [node name="Background" type="TextureRect" parent="."]
-offset_left = -131.0
+offset_left = -582.0
 offset_top = 141.0
-offset_right = 2666.0
+offset_right = 2215.0
 offset_bottom = 721.0
 texture = ExtResource("1_ls6fx")
 
 [node name="Background3" type="TextureRect" parent="."]
-offset_left = 2025.0
+offset_left = 1156.0
 offset_top = 141.0
-offset_right = 4822.0
+offset_right = 3953.0
+offset_bottom = 721.0
+texture = ExtResource("1_ls6fx")
+
+[node name="Background4" type="TextureRect" parent="."]
+offset_left = -2155.0
+offset_top = 141.0
+offset_right = 642.0
 offset_bottom = 721.0
 texture = ExtResource("1_ls6fx")
 
@@ -886,9 +894,23 @@ libraries = {
 "": SubResource("AnimationLibrary_s31u8")
 }
 
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Checkpoint1" parent="Checkpoints" instance=ExtResource("5_4wf1v")]
+position = Vector2(976, 388)
+num = 1
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("5_4wf1v")]
+position = Vector2(1161, 581)
+num = 2
+
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("5_4wf1v")]
+position = Vector2(2217, 472)
+num = 3
+
 [node name="Player" parent="." instance=ExtResource("4_e8inl")]
 unique_name_in_owner = true
-position = Vector2(2059, 299)
+position = Vector2(65, 589)
 collision_layer = 2
 
 [node name="MapLayers" type="Node2D" parent="."]
@@ -917,16 +939,12 @@ rotation = 0.71733
 position = Vector2(652, -174)
 rotation = -1.5708
 
-[node name="Spike7" parent="MapLayers/Traps/Spikes" instance=ExtResource("2_hlvjk")]
-position = Vector2(632, -94)
-scale = Vector2(0.8, 0.8)
-
 [node name="Spike9" parent="MapLayers/Traps/Spikes" instance=ExtResource("2_hlvjk")]
 position = Vector2(581, -94)
 scale = Vector2(0.8, 0.8)
 
 [node name="Spike8" parent="MapLayers/Traps/Spikes" instance=ExtResource("2_hlvjk")]
-position = Vector2(649, -94)
+position = Vector2(638, -94)
 scale = Vector2(0.8, 0.8)
 
 [node name="Spike10" parent="MapLayers/Traps/Spikes" instance=ExtResource("2_hlvjk")]
@@ -962,16 +980,16 @@ position = Vector2(754, 98)
 scale = Vector2(0.9, 0.9)
 
 [node name="Spike15" parent="MapLayers/Traps/Spikes" instance=ExtResource("2_hlvjk")]
-position = Vector2(751, 0.99999)
+position = Vector2(764, 0.99999)
 scale = Vector2(0.6, 0.6)
 
 [node name="Spike11" parent="MapLayers/Traps/Spikes" instance=ExtResource("2_hlvjk")]
-position = Vector2(686, -170)
+position = Vector2(804, 24)
 rotation = 3.14159
 scale = Vector2(0.8, 0.8)
 
 [node name="Spike12" parent="MapLayers/Traps/Spikes" instance=ExtResource("2_hlvjk")]
-position = Vector2(750, -71)
+position = Vector2(592, -71)
 rotation = 3.14159
 scale = Vector2(0.8, 0.8)
 
@@ -1068,12 +1086,8 @@ scale = Vector2(0.7, 0.7)
 position = Vector2(1755, -15)
 scale = Vector2(0.7, 0.7)
 
-[node name="SpikeBall2" parent="MapLayers/Traps/SpikeBalls" instance=ExtResource("3_xobak")]
-position = Vector2(601, -69)
-scale = Vector2(0.5, 0.5)
-
 [node name="SpikeBall3" parent="MapLayers/Traps/SpikeBalls" instance=ExtResource("3_xobak")]
-position = Vector2(655, -75)
+position = Vector2(618, -68)
 scale = Vector2(0.6, 0.6)
 
 [node name="SpikeBall4" parent="MapLayers/Traps/SpikeBalls" instance=ExtResource("3_xobak")]
