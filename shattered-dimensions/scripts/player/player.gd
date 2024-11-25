@@ -8,8 +8,9 @@ var _dead:bool = false
 
 # VARIABLES FOR PLATFORMER
 var double_jump:bool = false
-var platformer_level:int = 1
+var platformer_level:int = 2
 var lives = 20
+var on_trampoline: bool = false
 
 #@onready var animation_tree:AnimationTree = $AnimationTree
 @onready var hitbox: CollisionShape2D = $CollisionShape2D
@@ -49,7 +50,11 @@ func _physics_process(delta: float):
 				#sprite.play("jump")
 	
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or double_jump):
-		up_cmd.execute(self)
+		if on_trampoline:
+			self.velocity.y = -650
+			on_trampoline = false
+		else:
+			up_cmd.execute(self)
 	
 	super(delta)
 	#_manage_animation_tree_state()
@@ -62,9 +67,10 @@ func platformer_respawn():
 		position.x = 65
 		position.y = 595
 	elif platformer_level == 2:
-		position.x = 65
-		position.y = 589
-	
+		#position.x = 65
+		#position.y = 589
+		position.x = 1164
+		position.y = 582
 
 #func take_damage(damage:int) -> void:
 	#health -= damage

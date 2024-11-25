@@ -153,9 +153,9 @@ health = 100
 
 [node name="Sprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_xoxd8")
-animation = &"crouch"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.526245
+frame_progress = 0.267165
 script = ExtResource("3_h0a6v")
 
 [node name="CollisionShape2D" parent="." index="1"]
