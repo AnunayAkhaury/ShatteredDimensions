@@ -16,7 +16,8 @@ var checkpoints: Array = [
 	[65, 589],
 	[967, 395],
 	[1152, 587],
-	[2209, 477]
+	[2209, 477],
+	[3329, 524]
 ]
 
 #@onready var animation_tree:AnimationTree = $AnimationTree
