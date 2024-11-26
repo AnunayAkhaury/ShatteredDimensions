@@ -4,6 +4,21 @@
 [ext_resource type="PackedScene" uid="uid://d0ypbobs2cf6k" path="res://scenes/platformer/traps/drop_trap/arrow.tscn" id="2_u7jyv"]
 [ext_resource type="Texture2D" uid="uid://ffegkmgrvjj2" path="res://assets/Fantasy Swamp Forest/Free/Terrain_and_Props.png" id="3_gsag3"]
 
+[sub_resource type="Animation" id="Animation_t4cp3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_7nrxs"]
 resource_name = "drop"
 length = 2.8
@@ -19,21 +34,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 15), Vector2(0, 15), Vector2(0, 270), Vector2(0, 270)]
-}
-
-[sub_resource type="Animation" id="Animation_t4cp3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8qe8g"]
