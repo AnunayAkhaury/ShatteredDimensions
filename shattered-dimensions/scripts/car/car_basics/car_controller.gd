@@ -1,14 +1,15 @@
 class_name CarController
 extends Node2D
 
+var _speed_factor: float
+
 @onready var _front_tire: Tire = %FrontTire
 @onready var _back_tire: Tire = %BackTire
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	_speed_factor = 1.25
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -16,7 +17,7 @@ func _process(delta: float) -> void:
 
 	if move_input > 0:
 		start_tires()
-		position.x += move_input
+		position.x += move_input * _speed_factor
 	else:
 		stop_tires()
 	

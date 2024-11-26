@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://r5rqj2lb8use" path="res://scenes/player.tscn" id="1_fld1o"]
 [ext_resource type="Script" path="res://scripts/car/car_basics/car_controller.gd" id="1_i6cf0"]
 [ext_resource type="Texture2D" uid="uid://civ3a8pns8i74" path="res://assets/humvee/humvee-no-tires.png" id="2_1lwij"]
-[ext_resource type="PackedScene" uid="uid://cvecnl1comnek" path="res://scenes/car/tires.tscn" id="3_7k1vw"]
+[ext_resource type="PackedScene" uid="uid://cvecnl1comnek" path="res://scenes/car/car_node/tires.tscn" id="3_7k1vw"]
 
 [node name="Car" type="Node2D"]
 script = ExtResource("1_i6cf0")
