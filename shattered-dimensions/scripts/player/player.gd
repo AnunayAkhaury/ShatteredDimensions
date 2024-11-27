@@ -2,6 +2,8 @@ class_name Player
 extends Character 
 
 @export var health:int = 100
+@export var default_run_animation: String = "run"  
+@export var default_idle_animation: String = "idle"
 
 var _damaged:bool = false
 var _dead:bool = false
@@ -10,6 +12,9 @@ var lives = 10
 # VARIABLES FOR PLATFORMER
 var double_jump:bool = false
 var platformer_level:int = 1
+
+var run_gun_run_animation: String
+var run_gun_idle_animation: String 
 
 #@onready var animation_tree:AnimationTree = $AnimationTree
 @onready var hitbox: CollisionShape2D = $CollisionShape2D
@@ -53,6 +58,8 @@ func _physics_process(delta: float):
 	super(delta)
 	#_manage_animation_tree_state()
 
+func set_level_specific_animations(run_anim: String) -> void:
+	run_gun_run_animation = run_anim
 
 # FUNCTIONS FOR PLATFORMER
 
@@ -116,7 +123,9 @@ func bind_player_input_commands():
 	up_cmd = JumpCommand.new()
 	#fire1 = AttackCommand.new()
 	idle = IdleCommand.new()
-
+	await get_tree().create_timer(1.0).timeout
+	right_cmd.set_animation(run_gun_run_animation if run_gun_run_animation else default_run_animation)
+	left_cmd.set_animation(run_gun_run_animation if run_gun_run_animation else default_run_animation)
 
 func unbind_player_input_commands():
 	right_cmd = Command.new()
