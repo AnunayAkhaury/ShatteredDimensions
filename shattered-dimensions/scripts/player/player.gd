@@ -8,7 +8,7 @@ var _dead: bool = false
 
 # VARIABLES FOR PLATFORMER
 var double_jump: bool = false
-var platformer_level: int = 2
+var platformer_level: int = 1
 var lives: int = 20
 var on_trampoline: bool = false
 var checkpoint_num: int = 0
