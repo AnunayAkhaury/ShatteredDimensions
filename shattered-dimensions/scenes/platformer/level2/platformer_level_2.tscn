@@ -2301,6 +2301,22 @@ scale = Vector2(0.8, 0.8)
 [node name="Spike3" parent="MapLayers/Traps/Spikes" instance=ExtResource("2_hlvjk")]
 position = Vector2(-46, 35)
 
+[node name="Spike7" parent="MapLayers/Traps/Spikes" instance=ExtResource("2_hlvjk")]
+position = Vector2(115, -28)
+
+[node name="Spike58" parent="MapLayers/Traps/Spikes" instance=ExtResource("2_hlvjk")]
+position = Vector2(130, -28)
+
+[node name="Spike59" parent="MapLayers/Traps/Spikes" instance=ExtResource("2_hlvjk")]
+position = Vector2(144, -28)
+
+[node name="Spike60" parent="MapLayers/Traps/Spikes" instance=ExtResource("2_hlvjk")]
+position = Vector2(159, -28)
+
+[node name="Spike61" parent="MapLayers/Traps/Spikes" instance=ExtResource("2_hlvjk")]
+position = Vector2(171, -28)
+scale = Vector2(0.6, 0.6)
+
 [node name="Spike4" parent="MapLayers/Traps/Spikes" instance=ExtResource("2_hlvjk")]
 position = Vector2(332, -172)
 rotation = -0.71733
@@ -2763,6 +2779,68 @@ position = Vector2(4257, 573)
 
 [node name="Bouncer2" parent="MapLayers/Bouncers" instance=ExtResource("4_opcv3")]
 position = Vector2(3643, 552)
+
+[node name="Labels" type="Node2D" parent="MapLayers"]
+
+[node name="Label2" type="Label" parent="MapLayers/Labels"]
+offset_left = 16.0
+offset_top = 464.0
+offset_right = 221.0
+offset_bottom = 487.0
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 10
+text = "Ready for something  harder..."
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MapLayers/Labels"]
+offset_left = 951.0
+offset_top = 468.0
+offset_right = 1156.0
+offset_bottom = 491.0
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 10
+text = "Watch out !!!"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="MapLayers/Labels"]
+offset_left = 1626.0
+offset_top = 348.0
+offset_right = 1831.0
+offset_bottom = 371.0
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 10
+text = "Trampoline - Jump way higher"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="MapLayers/Labels"]
+offset_left = 2059.0
+offset_top = 271.0
+offset_right = 2264.0
+offset_bottom = 294.0
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 10
+text = "Green orb - Descend"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="MapLayers/Labels"]
+offset_left = 4418.0
+offset_top = 463.0
+offset_right = 4623.0
+offset_bottom = 486.0
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 10
+text = "Beware..."
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="MapLayers/Labels"]
+offset_left = 833.0
+offset_top = 273.0
+offset_right = 1038.0
+offset_bottom = 296.0
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 10
+text = "Hit the checkpoints to save your progress"
+horizontal_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(340, 455)
