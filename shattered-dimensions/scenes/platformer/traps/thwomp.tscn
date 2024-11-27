@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2f0t40ijw6h2"]
+
+[ext_resource type="Texture2D" uid="uid://tg33j1bayg15" path="res://assets/PixelAdventure/Traps/Spike Head/Idle.png" id="1_hknbn"]
+[ext_resource type="PackedScene" uid="uid://bjb6qsjcxod2b" path="res://scenes/platformer/killzone.tscn" id="2_8pa0l"]
+
+[node name="Thwomp" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hknbn")
+
+[node name="Killzone" parent="." instance=ExtResource("2_8pa0l")]
+collision_mask = 2
+collision_priority = 2.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Killzone"]
+polygon = PackedVector2Array(-13, -13, -11, -15, -7, -20, -4.15629, -14.6079, -2, -15, 1, -20, 3.93879, -14.783, 6, -15, 9, -20, 12, -15, 14, -13, 15, -11, 22, -7, 15, -4, 15, -3, 22, 1, 15, 4, 15, 5, 22, 9, 14.9099, 11.5675, 15, 14, 12, 15, 8, 22, 4.9232, 15.6503, 3, 16, 0, 22, -2, 16, -4, 16, -8, 22, -11, 15, -13, 15, -14, 12, -21, 8, -14, 5, -14, 4, -20, 0, -13.8941, -2.09457, -14, -4, -21, -8, -13, -11)
