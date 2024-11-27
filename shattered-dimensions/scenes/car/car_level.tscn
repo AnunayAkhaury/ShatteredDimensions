@@ -1,15 +1,54 @@
-[gd_scene load_steps=2 format=3 uid="uid://or47njd57g2a"]
+[gd_scene load_steps=7 format=3 uid="uid://or47njd57g2a"]
 
-[ext_resource type="PackedScene" uid="uid://bal3600g7v6vu" path="res://scenes/car/car_node/car.tscn" id="1_kpa4w"]
+[ext_resource type="Texture2D" uid="uid://ct3g8yq7bpno6" path="res://assets/32 Backgrounds Free!/Horizontal/deep_forest.jpg" id="1_kgrrx"]
+[ext_resource type="PackedScene" uid="uid://bal3600g7v6vu" path="res://scenes/car/car.tscn" id="1_kpa4w"]
+[ext_resource type="Script" path="res://scenes/car/Terrain.gd" id="3_m84qx"]
+[ext_resource type="Texture2D" uid="uid://b62racdsrscac" path="res://assets/PhysicsCarGameAssets (1)/Images/Terrain/grass (1).png" id="4_vqeg3"]
+[ext_resource type="Texture2D" uid="uid://ci8jkdx4j2owu" path="res://assets/PhysicsCarGameAssets (1)/Images/Terrain/terrain_image.jpg" id="5_dv5e5"]
+
+[sub_resource type="Curve2D" id="Curve2D_r86vn"]
+_data = {
+"points": PackedVector2Array(-222.73, 23.546, 222.73, -23.546, -131.502, 763.029, -177.359, 11.773, 177.359, -11.773, 522.894, 869.071, 0, 0, 0, 0, 986.225, 787.267, 0, 0, 0, 0, 993.536, 1172.52, 0, 0, 0, 0, -834.315, 1169.49, 0, 0, 0, 0, -832.072, 870.586, -58.6055, 7.74439, 58.6055, -7.74439, -443.574, 861.497, 0, 0, 0, 0, -131.502, 761.514)
+}
+point_count = 8
 
 [node name="CarLevel" type="Node2D"]
 
-[node name="Car" parent="." instance=ExtResource("1_kpa4w")]
-position = Vector2(361, 459)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(604, 375)
+scale = Vector2(0.62806, 0.660115)
+texture = ExtResource("1_kgrrx")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Terrain" type="StaticBody2D" parent="Sprite2D"]
+position = Vector2(-119.415, -608.985)
+script = ExtResource("3_m84qx")
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Line2D" type="Line2D" parent="Sprite2D/Terrain"]
+texture_repeat = 2
+width = 55.0
+texture = ExtResource("4_vqeg3")
+texture_mode = 1
+
+[node name="Path2D" type="Path2D" parent="Sprite2D/Terrain"]
+curve = SubResource("Curve2D_r86vn")
+
+[node name="Polygon2D" type="Polygon2D" parent="Sprite2D/Terrain"]
+texture_repeat = 2
+texture = ExtResource("5_dv5e5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Terrain"]
+
+[node name="Car" parent="Sprite2D" instance=ExtResource("1_kpa4w")]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(-757.889, 266.62)
+scale = Vector2(1.59255, 1.51372)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Sprite2D/Car"]
+visible = false
+
+[node name="Label" type="Label" parent="Sprite2D/Car/CanvasLayer"]
+light_mask = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
