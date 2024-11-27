@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://scripts/platformer/lives.gd" id="11_kuwey"]
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="12_nn4nu"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pd8c1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_srkfe"]
 texture = ExtResource("2_qyxit")
 6:1/0 = 0
 20:1/0 = 0
@@ -898,9 +898,9 @@ texture = ExtResource("2_qyxit")
 57:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_xwqjn"]
-sources/0 = SubResource("TileSetAtlasSource_pd8c1")
+sources/0 = SubResource("TileSetAtlasSource_srkfe")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nxd5l"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lqmh"]
 texture = ExtResource("2_qyxit")
 6:1/0 = 0
 20:1/0 = 0
@@ -1919,7 +1919,7 @@ texture = ExtResource("2_qyxit")
 
 [sub_resource type="TileSet" id="TileSet_6sug4"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_nxd5l")
+sources/0 = SubResource("TileSetAtlasSource_2lqmh")
 
 [sub_resource type="Animation" id="Animation_g7dsq"]
 length = 0.001
@@ -2333,3 +2333,4 @@ script = ExtResource("11_kuwey")
 unique_name_in_owner = true
 position = Vector2(65, 595)
 collision_layer = 2
+platformer_level = 1

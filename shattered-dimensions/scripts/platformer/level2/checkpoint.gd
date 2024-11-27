@@ -9,8 +9,6 @@ var is_hit: bool = false
 
 func _on_body_entered(body: Node2D) -> void:
 	if not is_hit:
-		if body.platformer_level == 1:
-			body.platformer_level = 2
 		body.checkpoint_num = num
 		sprite.play("hit")
 		is_hit = true

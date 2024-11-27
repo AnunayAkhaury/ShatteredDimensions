@@ -8,7 +8,7 @@ var _dead: bool = false
 
 # VARIABLES FOR PLATFORMER
 var double_jump: bool = false
-var platformer_level: int = 1
+@export var platformer_level: int
 var lives: int = 20
 var on_trampoline: bool = false
 var checkpoint_num: int = 0
@@ -82,6 +82,9 @@ func platformer_respawn():
 	elif platformer_level == 2:
 		position.x = checkpoints[checkpoint_num][0]
 		position.y = checkpoints[checkpoint_num][1]
+	else:
+		position.x = 67
+		position.y = 590
 
 #func take_damage(damage:int) -> void:
 	#health -= damage
