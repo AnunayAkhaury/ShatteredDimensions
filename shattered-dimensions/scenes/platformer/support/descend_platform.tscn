@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://tsidoe03ugv7"]
+
+[ext_resource type="Texture2D" uid="uid://cekfyey1ybx8v" path="res://assets/PixelAdventure/Traps/Falling Platforms/Off.png" id="1_cdr7n"]
+[ext_resource type="Script" path="res://scripts/platformer/supports/descend_platform.gd" id="1_wwqsi"]
+[ext_resource type="PackedScene" uid="uid://dpvewmiltwb5v" path="res://scenes/platformer/support/descender.tscn" id="2_pgl7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4jge"]
+size = Vector2(30, 3.33333)
+
+[node name="DescendPlatform" type="Node2D"]
+scale = Vector2(1.2, 1.2)
+script = ExtResource("1_wwqsi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_cdr7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_d4jge")
+
+[node name="Descender" parent="." instance=ExtResource("2_pgl7i")]
+position = Vector2(0, -11.6667)
+scale = Vector2(0.7, 0.7)
+collision_mask = 2
+collision_priority = 2.0
+
+[connection signal="body_entered" from="Descender" to="." method="_on_descender_body_entered"]
+[connection signal="body_exited" from="Descender" to="." method="_on_descender_body_exited"]

@@ -4,14 +4,24 @@ extends Character
 @export var health:int = 100
 @export var default_run_animation: String = "run"  
 @export var default_idle_animation: String = "idle"
+@export var health: int = 100
 
-var _damaged:bool = false
-var _dead:bool = false
-var lives = 10
+var _damaged: bool = false
+var _dead: bool = false
 
 # VARIABLES FOR PLATFORMER
-var double_jump:bool = false
-var platformer_level:int = 1
+var double_jump: bool = false
+var platformer_level: int = 1
+var lives: int = 20
+var on_trampoline: bool = false
+var checkpoint_num: int = 0
+var checkpoints: Array = [
+	[65, 589],
+	[967, 395],
+	[1152, 587],
+	[2209, 477],
+	[3329, 524]
+]
 
 var run_gun_run_animation: String
 var run_gun_idle_animation: String 
@@ -40,8 +50,9 @@ func _physics_process(delta: float):
 		hitbox.position.y = 8
 		sprite.play("crouch")
 		
-		
 	else:
+		hitbox.shape.size.y = 28
+		hitbox.position.y = 5
 		if move_input > 0.1:
 			right_cmd.execute(self)
 		elif move_input < -0.1:
@@ -53,7 +64,11 @@ func _physics_process(delta: float):
 				#sprite.play("jump")
 	
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or double_jump):
-		up_cmd.execute(self)
+		if on_trampoline:
+			self.velocity.y = -650
+			on_trampoline = false
+		else:
+			up_cmd.execute(self)
 	
 	super(delta)
 	#_manage_animation_tree_state()
@@ -64,10 +79,17 @@ func set_level_specific_animations(run_anim: String) -> void:
 # FUNCTIONS FOR PLATFORMER
 
 func platformer_respawn():
+	Engine.time_scale = 0.3
+	await get_tree().create_timer(0.2).timeout
+	Engine.time_scale = 1
+	
+	print(platformer_level)
 	if platformer_level == 1:
 		position.x = 65
 		position.y = 595
-	
+	elif platformer_level == 2:
+		position.x = checkpoints[checkpoint_num][0]
+		position.y = checkpoints[checkpoint_num][1]
 
 #func take_damage(damage:int) -> void:
 	#health -= damage

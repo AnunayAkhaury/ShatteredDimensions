@@ -209,6 +209,7 @@ animations = [{
 "loop": true,
 "name": &"run_gun",
 "speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cx102"]
@@ -231,7 +232,9 @@ default_idle_animation = "idle"
 [node name="Sprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_xoxd8")
 animation = &"idle_gun"
+animation = &"run"
 autoplay = "idle"
+frame_progress = 0.0262518
 script = ExtResource("3_h0a6v")
 
 [node name="CollisionShape2D" parent="." index="1"]

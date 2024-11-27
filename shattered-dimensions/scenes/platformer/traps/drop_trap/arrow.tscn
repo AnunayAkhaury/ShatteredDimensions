@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0ypbobs2cf6k"]
+
+[ext_resource type="Texture2D" uid="uid://cxpu5r4bujujl" path="res://assets/PixelAdventure/Traps/Platforms/Grey Off.png" id="1_w4td4"]
+[ext_resource type="Texture2D" uid="uid://bs3kokqyp6vm6" path="res://assets/PixelAdventure/Traps/Spikes/Idle.png" id="2_2nb4p"]
+[ext_resource type="Texture2D" uid="uid://c8c1r681wvrih" path="res://assets/PixelAdventure/Traps/Spiked Ball/Chain.png" id="3_25yns"]
+[ext_resource type="PackedScene" uid="uid://bjb6qsjcxod2b" path="res://scenes/platformer/killzone.tscn" id="4_i5w6c"]
+
+[node name="Arrow" type="Node2D"]
+
+[node name="ArrowSprite" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ArrowSprite"]
+position = Vector2(0.5, -16)
+rotation = 1.5708
+texture = ExtResource("1_w4td4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ArrowSprite"]
+position = Vector2(-2.13163e-14, 4)
+rotation = -3.14159
+scale = Vector2(1.71, 2)
+texture = ExtResource("2_2nb4p")
+
+[node name="ColorRect" type="ColorRect" parent="ArrowSprite"]
+offset_left = -6.0
+offset_top = -4.0
+offset_right = 6.0
+offset_bottom = -3.0
+color = Color(0, 0.0470588, 0.133333, 1)
+
+[node name="Sprite2D3" type="Sprite2D" parent="ArrowSprite"]
+position = Vector2(-0.5, -34)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_25yns")
+
+[node name="Killzone" parent="." instance=ExtResource("4_i5w6c")]
+collision_mask = 2
+collision_priority = 2.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Killzone"]
+polygon = PackedVector2Array(-5, -31, -3, -31, -3, -30, -2, -30, -2, -4, -6, -4, -6, 1, -4, 1, -4, 5, -2, 5, -2, 9, -1, 9, 0, 11, 1, 9, 2, 9, 2, 5, 4, 5, 4, 1, 6, 1, 6, -4, 2, -4, 2, -30, 4, -30, 4, -31, 5, -31, 5, -35, 4, -35, 4, -37, 2, -37, 2, -38, -2, -38, -2, -37, -3, -37, -3, -35, -5, -35)

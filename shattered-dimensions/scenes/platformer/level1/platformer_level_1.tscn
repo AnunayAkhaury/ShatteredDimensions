@@ -1967,7 +1967,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(232, 483), Vector2(46, 483)]
+"values": [Vector2(232, 480), Vector2(46, 480)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_87tci"]
@@ -2218,7 +2218,6 @@ tile_set = SubResource("TileSet_6sug4")
 [node name="MovingPlatforms" type="Node2D" parent="MapLayers"]
 
 [node name="MovingPlatform" parent="MapLayers/MovingPlatforms" instance=ExtResource("6_kk4bj")]
-position = Vector2(632, 589)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MapLayers/MovingPlatforms/MovingPlatform"]
 libraries = {
@@ -2227,7 +2226,7 @@ libraries = {
 autoplay = "move"
 
 [node name="MovingPlatform2" parent="MapLayers/MovingPlatforms" instance=ExtResource("6_kk4bj")]
-position = Vector2(56, 483)
+position = Vector2(232, 480)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MapLayers/MovingPlatforms/MovingPlatform2"]
 libraries = {
