@@ -1,29 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://bal3600g7v6vu"]
+[gd_scene load_steps=4 format=3 uid="uid://bl2eeoldwnydu"]
 
-[ext_resource type="PackedScene" uid="uid://r5rqj2lb8use" path="res://scenes/player.tscn" id="1_fld1o"]
-[ext_resource type="Script" path="res://scripts/car/car_basics/car_controller.gd" id="1_i6cf0"]
-[ext_resource type="Texture2D" uid="uid://civ3a8pns8i74" path="res://assets/humvee/humvee-no-tires.png" id="2_1lwij"]
-[ext_resource type="PackedScene" uid="uid://cvecnl1comnek" path="res://scenes/car/car_node/tires.tscn" id="3_7k1vw"]
+[ext_resource type="Script" path="res://scripts/car/car_basics/car_controller.gd" id="1_0wm3u"]
+[ext_resource type="Texture2D" uid="uid://civ3a8pns8i74" path="res://assets/humvee/humvee-no-tires.png" id="1_wc20t"]
+[ext_resource type="PackedScene" uid="uid://c043eos3amkax" path="res://scenes/car/car_node/wheels.tscn" id="2_wt0ah"]
 
-[node name="Car" type="Node2D"]
-script = ExtResource("1_i6cf0")
-
-[node name="Character" parent="." instance=ExtResource("1_fld1o")]
-position = Vector2(9, -47)
-script = null
+[node name="Car" type="RigidBody2D"]
+position = Vector2(-10, 2)
+scale = Vector2(1, 0.988)
+mass = 10.0
+gravity_scale = 8.0
+script = ExtResource("1_0wm3u")
 
 [node name="Humvee" type="Sprite2D" parent="."]
 position = Vector2(-1, -44)
 scale = Vector2(0.19702, 0.201961)
-texture = ExtResource("2_1lwij")
+texture = ExtResource("1_wc20t")
 flip_h = true
 
-[node name="FrontTire" parent="." instance=ExtResource("3_7k1vw")]
-unique_name_in_owner = true
-position = Vector2(49.0001, -13.9999)
-scale = Vector2(0.19702, 0.201961)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-5, -39)
+polygon = PackedVector2Array(-64, 17, -69, 11, -68, -6, -37, -26, 30, -26, 75, 5, 76, 16, 72, 18, 30, 31, -25, 31)
 
-[node name="BackTire" parent="." instance=ExtResource("3_7k1vw")]
+[node name="BackWheel" parent="." instance=ExtResource("2_wt0ah")]
 unique_name_in_owner = true
-position = Vector2(-54, -13.9999)
-scale = Vector2(0.19702, 0.201961)
+position = Vector2(-55, -11.1336)
+
+[node name="FrontWheel" parent="." instance=ExtResource("2_wt0ah")]
+unique_name_in_owner = true
+position = Vector2(47, -10.1215)
+
+[node name="BackWheelHolder" type="PinJoint2D" parent="."]
+position = Vector2(-52, -13.1579)
+node_a = NodePath("..")
+node_b = NodePath("../BackWheel")
+
+[node name="FrontWheelHolder" type="PinJoint2D" parent="."]
+position = Vector2(49, -13.1579)
+node_a = NodePath("..")
+node_b = NodePath("../FrontWheel")

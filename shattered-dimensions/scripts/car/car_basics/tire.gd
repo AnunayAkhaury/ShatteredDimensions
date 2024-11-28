@@ -1,5 +1,5 @@
 class_name Tire
-extends Node2D
+extends RigidBody2D
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 

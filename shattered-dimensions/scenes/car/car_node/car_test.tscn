@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://blwtoa5stmbk8"]
+
+[ext_resource type="PackedScene" uid="uid://bdlhgt21nxrfn" path="res://scenes/car/car_node/wheels_1.tscn" id="1_du6x1"]
+[ext_resource type="Texture2D" uid="uid://dbm3gj8cuu3p5" path="res://assets/PhysicsCarGameAssets/Images/Car/Car.png" id="2_far87"]
+
+[node name="CarTest" type="RigidBody2D"]
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("Wheels")
+
+[node name="Wheels" parent="PinJoint2D2" instance=ExtResource("1_du6x1")]
+position = Vector2(-151, 88)
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("Wheels")
+
+[node name="Wheels" parent="PinJoint2D3" instance=ExtResource("1_du6x1")]
+position = Vector2(110, 89)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_far87")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-215, -49, -218, 67, -194, 92, 190, 99, 217, 64, 217, -4, 104, -50, 5, -58, -220, -59)
