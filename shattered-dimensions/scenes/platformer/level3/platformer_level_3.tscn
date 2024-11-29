@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://xo18sp17icwb"]
+[gd_scene load_steps=16 format=4 uid="uid://xo18sp17icwb"]
 
 [ext_resource type="Texture2D" uid="uid://dwty1wvfryik8" path="res://assets/Dungeon_brick_wall_grey.png.png" id="1_c8bcu"]
 [ext_resource type="PackedScene" uid="uid://norvan31e46p" path="res://scenes/platformer/level3/level3_door.tscn" id="2_yramb"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bjb6qsjcxod2b" path="res://scenes/platformer/killzone.tscn" id="6_4630l"]
 [ext_resource type="Script" path="res://scripts/platformer/lives.gd" id="8_s2lh0"]
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="9_v4hfv"]
+[ext_resource type="AudioStream" uid="uid://cfd1xf1m02um6" path="res://assets/Breezys Mega Quest - 1a Title Theme.wav" id="10_hlkua"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yinmm"]
 texture = ExtResource("5_nf6h7")
@@ -175,24 +176,12 @@ position = Vector2(354, 506)
 
 [node name="Saws" type="Node2D" parent="MapLayers/Traps"]
 
-[node name="SpikeBall" parent="MapLayers/Traps/Saws" instance=ExtResource("4_k60j0")]
-position = Vector2(201, -39)
-scale = Vector2(0.2, 0.2)
-
-[node name="SpikeBall2" parent="MapLayers/Traps/Saws" instance=ExtResource("4_k60j0")]
-position = Vector2(-124, -165)
-scale = Vector2(0.4, 0.4)
-
 [node name="SpikeBall7" parent="MapLayers/Traps/Saws" instance=ExtResource("4_k60j0")]
 position = Vector2(-241, -62)
 scale = Vector2(0.4, 0.4)
 
 [node name="SpikeBall8" parent="MapLayers/Traps/Saws" instance=ExtResource("4_k60j0")]
 position = Vector2(-322, -62)
-scale = Vector2(0.4, 0.4)
-
-[node name="SpikeBall3" parent="MapLayers/Traps/Saws" instance=ExtResource("4_k60j0")]
-position = Vector2(-51, -165)
 scale = Vector2(0.4, 0.4)
 
 [node name="SpikeBall4" parent="MapLayers/Traps/Saws" instance=ExtResource("4_k60j0")]
@@ -284,3 +273,7 @@ unique_name_in_owner = true
 position = Vector2(67, 590)
 collision_layer = 2
 platformer_level = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_hlkua")
+autoplay = true

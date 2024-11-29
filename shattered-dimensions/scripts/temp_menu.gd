@@ -3,7 +3,7 @@ extends Control
 
 
 func _on_platformer_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/platformer/level1/platformer_level_1.tscn")
+	get_tree().change_scene_to_file("res://scenes/platformer/level3/platformer_level_3.tscn")
 
 func _on_shooter_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/shooter_level.tscn")
