@@ -1,8 +1,8 @@
 class_name CarController
 extends RigidBody2D
 
-var _speed: float = 6000
-var _max_speed: float = 300
+var _speed: float = 500
+var _max_speed: float = 40
 var 	_speed_factor: float
 var _wheels = []
 

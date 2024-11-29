@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4hrc5xbxausp"]
+[gd_scene load_steps=8 format=3 uid="uid://b4hrc5xbxausp"]
 
 [ext_resource type="Texture2D" uid="uid://ct3g8yq7bpno6" path="res://assets/32 Backgrounds Free!/Horizontal/deep_forest.jpg" id="1_kgrrx"]
 [ext_resource type="Script" path="res://scenes/car/Terrain.gd" id="3_m84qx"]
 [ext_resource type="PackedScene" uid="uid://bl2eeoldwnydu" path="res://scenes/car/car_node/car.tscn" id="4_4lvlx"]
-[ext_resource type="PackedScene" uid="uid://blwtoa5stmbk8" path="res://scenes/car/car_node/car_test.tscn" id="4_8bgse"]
 [ext_resource type="Script" path="res://scripts/car/camera.gd" id="6_pwpbi"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jypei"]
@@ -50,9 +49,4 @@ script = ExtResource("6_pwpbi")
 
 [node name="Car" parent="." instance=ExtResource("4_4lvlx")]
 unique_name_in_owner = true
-position = Vector2(98, 500)
-
-[node name="CarTest" parent="." instance=ExtResource("4_8bgse")]
-unique_name_in_owner = true
-visible = false
-position = Vector2(5364, 211)
+position = Vector2(182, 501)
