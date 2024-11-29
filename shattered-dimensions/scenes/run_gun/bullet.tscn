@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://rp1u33a2mwid"]
+
+[ext_resource type="Texture2D" uid="uid://dl2p4qmn5wje0" path="res://assets/Super Grotto Escape Files/Assets/Fx/Spritesheets/player-shoot.png" id="1_7lgmm"]
+[ext_resource type="Script" path="res://scenes/run_gun/bullet.gd" id="2_kwdt8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6d8p"]
+atlas = ExtResource("1_7lgmm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sm6ij"]
+atlas = ExtResource("1_7lgmm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10mta"]
+atlas = ExtResource("1_7lgmm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn62t"]
+atlas = ExtResource("1_7lgmm")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cm538"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6d8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sm6ij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10mta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn62t")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 10.0
+}]
+
+[node name="Bullet" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_cm538")
+animation = &"shot"
+frame_progress = 0.768251
+script = ExtResource("2_kwdt8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -224,9 +224,9 @@ _data = {
 
 [node name="Character" instance=ExtResource("1_82jgl")]
 script = ExtResource("1_1w0xd")
-health = 100
-default_run_animation = "run"
-default_idle_animation = "idle"
+health = null
+default_run_animation = null
+default_idle_animation = null
 
 [node name="Sprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_xoxd8")
@@ -242,6 +242,3 @@ shape = SubResource("RectangleShape2D_cx102")
 libraries = {
 "": SubResource("AnimationLibrary_ee2sd")
 }
-
-[node name="Muzzle" type="Marker2D" parent="." index="3"]
-position = Vector2(16, 3)

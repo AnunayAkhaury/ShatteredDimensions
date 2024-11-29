@@ -8,7 +8,6 @@ extends Character
 var _damaged:bool = false
 var _dead:bool = false
 var lives = 10
-
 # VARIABLES FOR PLATFORMER
 var double_jump:bool = false
 var platformer_level:int = 1
@@ -19,10 +18,15 @@ var run_gun_idle_animation: String
 #@onready var animation_tree:AnimationTree = $AnimationTree
 @onready var hitbox: CollisionShape2D = $CollisionShape2D
 
+# VARIABLE FOR RUNGUN
+var bullet = preload("res://scenes/run_gun/bullet.tscn")
+@onready var muzzle : Marker2D = $Muzzle
+var muzzle_position
+
 func _ready():
 	#animation_tree.active = true
 	bind_player_input_commands()
-
+	muzzle_position = muzzle.position
 
 func _physics_process(delta: float):
 	if lives == 0:
@@ -30,31 +34,37 @@ func _physics_process(delta: float):
 		get_tree().change_scene_to_file("res://scenes/platformer/game_over.tscn")
 		
 	var move_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-
+	#flip_muzzle_position(move_input)
 	#if Input.is_action_just_pressed("attack"):
 		#fire1.execute(self)
-		
+
 	if is_on_floor() and Input.is_action_pressed("crouch"):
 		velocity.x = 0
 		hitbox.shape.size.y = 22
 		hitbox.position.y = 8
 		sprite.play("crouch")
-		
-		
-	else:
+		return
+	
+	if Input.is_action_just_pressed("shoot"):
 		if move_input > 0.1:
-			right_cmd.execute(self)
+			run_shoot_right.execute(self)
 		elif move_input < -0.1:
-			left_cmd.execute(self)
-		else:
+			run_shoot_left.execute(self)
+	
+	if move_input > 0.1:
+		right_cmd.execute(self)
+	elif move_input < -0.1:
+		left_cmd.execute(self)
+	else:
 			#if is_on_floor():
-			idle.execute(self)
+		idle.execute(self)
 			#else:
 				#sprite.play("jump")
 	
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or double_jump):
 		up_cmd.execute(self)
 	
+		
 	super(delta)
 	#_manage_animation_tree_state()
 
@@ -67,7 +77,7 @@ func platformer_respawn():
 	if platformer_level == 1:
 		position.x = 65
 		position.y = 595
-	
+
 
 #func take_damage(damage:int) -> void:
 	#health -= damage
@@ -123,6 +133,9 @@ func bind_player_input_commands():
 	up_cmd = JumpCommand.new()
 	#fire1 = AttackCommand.new()
 	idle = IdleCommand.new()
+	run_shoot_left = RunShootLeftCommand.new()
+	run_shoot_right = RunShootRightCommand.new()
+	
 	await get_tree().create_timer(1.0).timeout
 	right_cmd.set_animation(run_gun_run_animation if run_gun_run_animation else default_run_animation)
 	left_cmd.set_animation(run_gun_run_animation if run_gun_run_animation else default_run_animation)
@@ -133,7 +146,8 @@ func unbind_player_input_commands():
 	up_cmd = Command.new()
 	fire1 = Command.new()
 	idle = Command.new()
-
+	run_shoot_left = Command.new()
+	run_shoot_right = Command.new()
 #func command_callback(cmd_name:String) -> void:
 	#if "attack" == cmd_name:
 		#_play($Audio/attack)
@@ -150,3 +164,9 @@ func unbind_player_input_commands():
 func _play(player:AudioStreamPlayer2D) -> void:
 	if !player.playing:
 		player.play()
+
+func update_muzzle_position():
+	if facing == Character.Facing.RIGHT:
+		muzzle.position.x = abs(muzzle_position.x) 
+	else:
+		muzzle.position.x = -abs(muzzle_position.x)  
