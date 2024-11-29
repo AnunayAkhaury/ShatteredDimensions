@@ -49,3 +49,6 @@ func bind_player_input_commands():
 	#fire1 = AttackCommand.new()
 	idle = IdleCommand.new()
 	patrol = PatrolCommand.new()
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	print("enemy hit")

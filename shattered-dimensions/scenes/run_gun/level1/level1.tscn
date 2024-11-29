@@ -702,18 +702,6 @@ position_smoothing_enabled = true
 position = Vector2(2, 5)
 shape = SubResource("CapsuleShape2D_h7buo")
 
-[node name="Soldier" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("7_pfkpg")]
-position = Vector2(889, 341)
-patrol_points = NodePath("PatrolPoints")
-
-[node name="PatrolPoints" type="Node2D" parent="Soldier"]
-
-[node name="Point1" type="Marker2D" parent="Soldier/PatrolPoints"]
-position = Vector2(-171, 49)
-
-[node name="Point2" type="Marker2D" parent="Soldier/PatrolPoints"]
-position = Vector2(231, 49)
-
 [node name="MapLayers" type="Node2D" parent="."]
 position = Vector2(579, 313)
 
@@ -732,28 +720,44 @@ position = Vector2(576, 324)
 scale = Vector2(2.25, 2.53)
 texture = ExtResource("4_rg3lk")
 
-[node name="Platform2" parent="." instance=ExtResource("8_6xheq")]
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Soldier" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("7_pfkpg")]
+position = Vector2(889, 341)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node2D" parent="Enemies/Soldier"]
+
+[node name="Point1" type="Marker2D" parent="Enemies/Soldier/PatrolPoints"]
+position = Vector2(-171, 49)
+
+[node name="Point2" type="Marker2D" parent="Enemies/Soldier/PatrolPoints"]
+position = Vector2(231, 49)
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("8_6xheq")]
 position = Vector2(1643, 410)
 
-[node name="Platform" parent="." instance=ExtResource("8_6xheq")]
+[node name="Platform" parent="Platforms" instance=ExtResource("8_6xheq")]
 position = Vector2(1205, 410)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform"]
 libraries = {
 "": SubResource("AnimationLibrary_3cbyk")
 }
 autoplay = "move"
 
-[node name="Platform3" parent="." instance=ExtResource("8_6xheq")]
+[node name="Platform3" parent="Platforms" instance=ExtResource("8_6xheq")]
 position = Vector2(1764, 352)
 
-[node name="Platform4" parent="." instance=ExtResource("8_6xheq")]
+[node name="Platform4" parent="Platforms" instance=ExtResource("8_6xheq")]
 position = Vector2(1859, 352)
 
-[node name="Platform5" parent="." instance=ExtResource("8_6xheq")]
+[node name="Platform5" parent="Platforms" instance=ExtResource("8_6xheq")]
 position = Vector2(2045, 348)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform5"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform5"]
 libraries = {
 "": SubResource("AnimationLibrary_43fsb")
 }

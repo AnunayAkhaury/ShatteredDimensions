@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://rp1u33a2mwid"]
+[gd_scene load_steps=9 format=3 uid="uid://rp1u33a2mwid"]
 
 [ext_resource type="Texture2D" uid="uid://dl2p4qmn5wje0" path="res://assets/Super Grotto Escape Files/Assets/Fx/Spritesheets/player-shoot.png" id="1_7lgmm"]
-[ext_resource type="Script" path="res://scenes/run_gun/bullet.gd" id="2_kwdt8"]
+[ext_resource type="Script" path="res://scripts/run_gun/bullet.gd" id="2_kwdt8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x6d8p"]
 atlas = ExtResource("1_7lgmm")
@@ -44,10 +44,13 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hwd82"]
+radius = 6.08276
+
 [node name="Bullet" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_cm538")
 animation = &"shot"
-frame_progress = 0.768251
+frame_progress = 0.0331368
 script = ExtResource("2_kwdt8")
 
 [node name="Timer" type="Timer" parent="."]
@@ -55,4 +58,13 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_hwd82")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
