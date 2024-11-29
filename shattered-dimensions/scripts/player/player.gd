@@ -22,6 +22,9 @@ var checkpoints: Array = [
 
 #@onready var animation_tree:AnimationTree = $AnimationTree
 @onready var hitbox: CollisionShape2D = $CollisionShape2D
+@onready var jump_audio: AudioStreamPlayer = $JumpAudio
+@onready var trampoline_audio: AudioStreamPlayer = $TrampolineAudio
+@onready var death_audio: AudioStreamPlayer = $DeathAudio
 
 func _ready():
 	#animation_tree.active = true
@@ -61,8 +64,10 @@ func _physics_process(delta: float):
 		if on_trampoline:
 			self.velocity.y = -650
 			on_trampoline = false
+			trampoline_audio.play()
 		else:
 			up_cmd.execute(self)
+			jump_audio.play()
 	
 	super(delta)
 	#_manage_animation_tree_state()
@@ -71,6 +76,9 @@ func _physics_process(delta: float):
 # FUNCTIONS FOR PLATFORMER
 
 func platformer_respawn():
+	if lives <= 0:
+		return
+	death_audio.play()
 	Engine.time_scale = 0.3
 	await get_tree().create_timer(0.2).timeout
 	Engine.time_scale = 1
