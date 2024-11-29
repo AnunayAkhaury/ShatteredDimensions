@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://2j7ulvar0215"]
+
+[ext_resource type="Texture2D" uid="uid://d168qiwc8d7hy" path="res://assets/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1B.png" id="1_l8o1f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6ifc"]
+size = Vector2(96, 32)
+
+[node name="Platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l8o1f")
+region_enabled = true
+region_rect = Rect2(0, 32, 97, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k6ifc")
+one_way_collision = true

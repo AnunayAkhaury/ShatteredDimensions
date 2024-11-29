@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://c6vgmfhfwi8or"]
+
+[ext_resource type="Texture2D" uid="uid://catr16acbyja0" path="res://assets/Super Grotto Escape Files/Assets/Characters/Enemies/Mini Demon/SpriteSheets/idle.png" id="1_ea8yy"]
+[ext_resource type="Texture2D" uid="uid://vjfu2xgo1240" path="res://assets/Super Grotto Escape Files/Assets/Characters/Enemies/Mini Demon/SpriteSheets/run.png" id="2_fgl4m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vff74"]
+atlas = ExtResource("1_ea8yy")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnyeo"]
+atlas = ExtResource("1_ea8yy")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8hgc"]
+atlas = ExtResource("1_ea8yy")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0i54"]
+atlas = ExtResource("1_ea8yy")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2j7uh"]
+atlas = ExtResource("2_fgl4m")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3d2io"]
+atlas = ExtResource("2_fgl4m")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xgva"]
+atlas = ExtResource("2_fgl4m")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ske6w"]
+atlas = ExtResource("2_fgl4m")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csvgi"]
+atlas = ExtResource("2_fgl4m")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1l6sx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vff74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnyeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8hgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0i54")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2j7uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3d2io")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xgva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ske6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csvgi")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b3mfa"]
+radius = 19.2354
+
+[node name="DefaultEnemy" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1l6sx")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 7)
+shape = SubResource("CircleShape2D_b3mfa")
