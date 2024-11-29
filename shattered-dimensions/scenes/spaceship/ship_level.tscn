@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://c5cxli8knclox"]
+[gd_scene load_steps=41 format=3 uid="uid://c5cxli8knclox"]
 
 [ext_resource type="Script" path="res://scenes/spaceship/background.gd" id="1_komkh"]
 [ext_resource type="Texture2D" uid="uid://budnm0xkdtrqi" path="res://scenes/spaceship/Dynamic Space Background FREE/Nebula Blue.png" id="1_kq3ca"]
@@ -9,168 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://dsrbka47qigxy" path="res://scenes/spaceship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Bases/PNGs/Main Ship - Base - Damaged.png" id="7_vr74g"]
 [ext_resource type="Texture2D" uid="uid://fr0fklqaywvd" path="res://scenes/spaceship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Bases/PNGs/Main Ship - Base - Very damaged.png" id="8_i6g8p"]
 [ext_resource type="Texture2D" uid="uid://cipiwt1fhgjcj" path="res://scenes/spaceship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engines/PNGs/Main Ship - Engines - Supercharged Engine.png" id="9_84v42"]
-[ext_resource type="Texture2D" uid="uid://cadrxrgnbaehb" path="res://scenes/spaceship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Weapons/PNGs/Main Ship - Weapons - Rockets.png" id="10_e57rc"]
-[ext_resource type="Texture2D" uid="uid://o4kjlgikisng" path="res://scenes/spaceship/Foozle_2DS0011_Void_MainShip/Main ship weapons/PNGs/Main ship weapon - Projectile - Rocket.png" id="11_fxd5y"]
 [ext_resource type="Texture2D" uid="uid://dja6736y6ouxo" path="res://scenes/spaceship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engine Effects/PNGs/Main Ship - Engines - Supercharged Engine - Spritesheet.png" id="12_bnk6q"]
+[ext_resource type="PackedScene" uid="uid://g5a38prufoi7" path="res://scenes/spaceship/weapons_fire.tscn" id="12_m85wi"]
 [ext_resource type="Texture2D" uid="uid://vgt7alglvxgx" path="res://scenes/spaceship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Shields/PNGs/Main Ship - Shields - Round Shield.png" id="13_08rg7"]
-[ext_resource type="Texture2D" uid="uid://re60q3llelr8" path="res://scenes/spaceship/asteroid.png" id="13_ghw7n"]
-[ext_resource type="Texture2D" uid="uid://bx1y6x4ff3p4k" path="res://scenes/spaceship/asteroid2.png" id="14_0m6sl"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u8xp3"]
-atlas = ExtResource("10_e57rc")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g7fun"]
-atlas = ExtResource("10_e57rc")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_07xo1"]
-atlas = ExtResource("10_e57rc")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l08i5"]
-atlas = ExtResource("10_e57rc")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ox2ee"]
-atlas = ExtResource("10_e57rc")
-region = Rect2(192, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n1xnh"]
-atlas = ExtResource("10_e57rc")
-region = Rect2(240, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jm7vk"]
-atlas = ExtResource("10_e57rc")
-region = Rect2(288, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fxjih"]
-atlas = ExtResource("10_e57rc")
-region = Rect2(336, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_chhdm"]
-atlas = ExtResource("10_e57rc")
-region = Rect2(384, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g4g8n"]
-atlas = ExtResource("10_e57rc")
-region = Rect2(432, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u8k7n"]
-atlas = ExtResource("10_e57rc")
-region = Rect2(480, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q3bcf"]
-atlas = ExtResource("10_e57rc")
-region = Rect2(528, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_twpr7"]
-atlas = ExtResource("10_e57rc")
-region = Rect2(576, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_spa3r"]
-atlas = ExtResource("10_e57rc")
-region = Rect2(624, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ohi1w"]
-atlas = ExtResource("10_e57rc")
-region = Rect2(672, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_40ng8"]
-atlas = ExtResource("10_e57rc")
-region = Rect2(720, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rji5s"]
-atlas = ExtResource("10_e57rc")
-region = Rect2(768, 0, 48, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jf05u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u8xp3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g7fun")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_07xo1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l08i5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ox2ee")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n1xnh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jm7vk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fxjih")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_chhdm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g4g8n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u8k7n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q3bcf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_twpr7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_spa3r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ohi1w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_40ng8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rji5s")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mk27s"]
-atlas = ExtResource("11_fxd5y")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nhtql"]
-atlas = ExtResource("11_fxd5y")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q34jg"]
-atlas = ExtResource("11_fxd5y")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6y8u2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mk27s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nhtql")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q34jg")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Script" path="res://scenes/spaceship/asteroids.gd" id="14_g56xu"]
+[ext_resource type="PackedScene" uid="uid://rsdk8mltfkpq" path="res://scenes/spaceship/asteroid_1.tscn" id="15_1p6lo"]
+[ext_resource type="PackedScene" uid="uid://c6dxcam5a1ip3" path="res://scenes/spaceship/asteroid_2.tscn" id="16_yoa8q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_20ihf"]
 atlas = ExtResource("12_bnk6q")
@@ -307,476 +151,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ypdtd"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(0, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u0bvg"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(70, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wlxtb"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(140, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6lu3p"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(210, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c4x1m"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(280, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bhlhm"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(350, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fmes3"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(420, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yh5jm"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(490, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ywgl"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(560, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mligo"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(630, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ikwy"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(700, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_endhc"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(770, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r8ga4"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(840, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_optao"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(910, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bi2vd"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(980, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_822j6"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(1050, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c73b6"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(0, 70, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pryy1"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(70, 70, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rdu6p"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(140, 70, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_64ink"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(210, 70, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fbdq6"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(280, 70, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hpj57"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(350, 70, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kxrdl"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(420, 70, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rk378"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(490, 70, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_idf2q"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(560, 70, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_238bb"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(630, 70, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fqk7h"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(700, 70, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2m537"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(770, 70, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2j7n5"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(840, 70, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5nk33"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(910, 70, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qvfpt"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(980, 70, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3xmx2"]
-atlas = ExtResource("13_ghw7n")
-region = Rect2(1050, 70, 70, 70)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0noef"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ypdtd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u0bvg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wlxtb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6lu3p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c4x1m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bhlhm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fmes3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yh5jm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2ywgl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mligo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2ikwy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_endhc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r8ga4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_optao")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bi2vd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_822j6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c73b6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pryy1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rdu6p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_64ink")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fbdq6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hpj57")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kxrdl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rk378")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_idf2q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_238bb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fqk7h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2m537")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2j7n5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5nk33")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qvfpt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3xmx2")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r5tlp"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(0, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7mufa"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(60, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6u0sb"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(120, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tg8w2"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(180, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_10c54"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(240, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_53a18"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(300, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ns4hj"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(360, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ms2rr"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(420, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2k0s0"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(480, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ex1y"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(540, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u4kmi"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(600, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iivpv"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(660, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pof3u"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(720, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yewu0"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(780, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tvqrh"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(840, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jrdv4"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(900, 0, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yeyh2"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(0, 60, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ldei"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(60, 60, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y7yid"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(120, 60, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1khj0"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(180, 60, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_do2yo"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(240, 60, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x60cx"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(300, 60, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_osdto"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(360, 60, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_66gwn"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(420, 60, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_51j85"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(480, 60, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vsinx"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(540, 60, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s5ogg"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(600, 60, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nnbb3"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(660, 60, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8cxey"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(720, 60, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d8c6u"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(780, 60, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6ktoh"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(840, 60, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vvr0n"]
-atlas = ExtResource("14_0m6sl")
-region = Rect2(900, 60, 60, 60)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_e1yjm"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r5tlp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7mufa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6u0sb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tg8w2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_10c54")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_53a18")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ns4hj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ms2rr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2k0s0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5ex1y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u4kmi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iivpv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pof3u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yewu0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tvqrh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jrdv4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yeyh2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8ldei")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y7yid")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1khj0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_do2yo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x60cx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_osdto")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_66gwn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_51j85")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vsinx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s5ogg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nnbb3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8cxey")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d8c6u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6ktoh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vvr0n")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="Animation" id="Animation_sgxnp"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Spaceship/Weapons:frame")
+tracks/0/path = NodePath("Spaceship/Boost:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -788,202 +168,22 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Spaceship/Firing/Fire1:frame")
+tracks/1/path = NodePath("Spaceship/Boost:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Spaceship/Firing/Fire2:frame")
+tracks/2/path = NodePath("Spaceship/Shield:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Spaceship/Firing/Fire3:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Spaceship/Firing/Fire4:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Spaceship/Firing/Fire6:frame")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Spaceship/Firing/Fire5:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Spaceship/Boost:frame")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Spaceship/Firing/Fire1:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Spaceship/Firing/Fire2:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Spaceship/Firing/Fire3:visible")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Spaceship/Firing/Fire4:visible")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Spaceship/Firing/Fire6:visible")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Spaceship/Firing/Fire5:visible")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Spaceship/Boost:visible")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Asteroid1/AnimatedSprite:frame")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("Asteroid2/AnimatedSprite:frame")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("Spaceship/Shield:frame")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1023,46 +223,6 @@ resource_name = "moving_asteroids"
 length = 14.0
 loop_mode = 1
 step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Asteroid1/AnimatedSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [2, 1, 0, 4, 3, 6, 5, 12, 8, 9, 7, 14, 11, 13, 18, 17, 16, 19, 15, 22, 21, 24, 23, 20, 25, 26, 27, 28, 29, 30, 31]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Asteroid2/AnimatedSprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 5, 4, 8, 9, 10, 12, 13, 14, 15, 16, 11, 18, 19, 20, 21, 22, 23, 25, 24, 26, 27, 28, 29, 30, 31]
-}
-
-[sub_resource type="Animation" id="Animation_8lpvt"]
-resource_name = "release"
-length = 1.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Spaceship/Weapons:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
-}
 
 [sub_resource type="Animation" id="Animation_0s8b3"]
 resource_name = "shield"
@@ -1079,166 +239,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-}
-
-[sub_resource type="Animation" id="Animation_ndjvn"]
-resource_name = "shoot_missiles"
-length = 1.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Spaceship/Weapons:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 14, 16]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Spaceship/Firing/Fire1:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.10667, 1.13667, 1.16667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Spaceship/Firing/Fire2:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.64, 0.67, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Spaceship/Firing/Fire3:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.406667, 0.436667, 0.466667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Spaceship/Firing/Fire4:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.506667, 0.536667, 0.566667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = false
-tracks/5/path = NodePath("Spaceship/Firing/Fire6:frame")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1.20667, 1.23667, 1.26667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = false
-tracks/6/path = NodePath("Spaceship/Firing/Fire5:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0.873333, 0.903333, 0.933333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 2, 1]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Spaceship/Firing/Fire1:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 1.26667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Spaceship/Firing/Fire2:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.633333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Spaceship/Firing/Fire3:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.433333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Spaceship/Firing/Fire4:visible")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.533333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Spaceship/Firing/Fire6:visible")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Spaceship/Firing/Fire5:visible")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.933333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_0f2xo"]
@@ -1274,9 +274,7 @@ _data = {
 "RESET": SubResource("Animation_sgxnp"),
 "boost": SubResource("Animation_joj0d"),
 "moving_asteroids": SubResource("Animation_cir54"),
-"release": SubResource("Animation_8lpvt"),
 "shield": SubResource("Animation_0s8b3"),
-"shoot_missiles": SubResource("Animation_ndjvn"),
 "unboost": SubResource("Animation_0f2xo")
 }
 
@@ -1293,27 +291,30 @@ position = Vector2(-728, -414)
 motion_scale = Vector2(0.3, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SpaceBackground"]
-position = Vector2(2077, 426)
+position = Vector2(2077, 392)
+scale = Vector2(1, 0.536133)
 texture = ExtResource("1_kq3ca")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/SpaceBackground"]
-position = Vector2(6150, 427)
+position = Vector2(6150, 388)
+scale = Vector2(1, 0.533691)
 texture = ExtResource("1_kq3ca")
 
 [node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.4, 0.4)
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/Stars"]
-position = Vector2(1349, 16.9998)
-scale = Vector2(0.990723, 0.992676)
+position = Vector2(1349, -12.5001)
+scale = Vector2(0.990723, 0.531006)
 texture = ExtResource("3_qs3bp")
 
 [node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/Stars"]
-position = Vector2(5433, 22.4997)
-scale = Vector2(0.995606, 0.995362)
+position = Vector2(5433, -25.9999)
+scale = Vector2(0.995606, 0.533691)
 texture = ExtResource("3_qs3bp")
 
-[node name="Spaceship" type="Node2D" parent="."]
+[node name="Spaceship" type="CharacterBody2D" parent="."]
+disable_mode = 2
 script = ExtResource("4_gwj7x")
 fullhealth = ExtResource("5_mpxtp")
 damage1 = ExtResource("6_bbnxr")
@@ -1332,55 +333,10 @@ rotation = 1.5708
 scale = Vector2(1.94025, 1.89578)
 texture = ExtResource("9_84v42")
 
-[node name="Weapons" type="AnimatedSprite2D" parent="Spaceship"]
-position = Vector2(-378, 1)
-rotation = 1.5708
-scale = Vector2(2.84238, 3.26168)
-sprite_frames = SubResource("SpriteFrames_jf05u")
-
-[node name="Firing" type="Node2D" parent="Spaceship"]
-
-[node name="Fire1" type="AnimatedSprite2D" parent="Spaceship/Firing"]
-visible = false
-position = Vector2(-355, -41)
-rotation = 1.5708
-scale = Vector2(2.4375, 1.84375)
-sprite_frames = SubResource("SpriteFrames_6y8u2")
-
-[node name="Fire2" type="AnimatedSprite2D" parent="Spaceship/Firing"]
-visible = false
-position = Vector2(-342, -28)
-rotation = 1.5708
-scale = Vector2(2.4375, 1.84375)
-sprite_frames = SubResource("SpriteFrames_6y8u2")
-
-[node name="Fire3" type="AnimatedSprite2D" parent="Spaceship/Firing"]
-visible = false
-position = Vector2(-326, -18)
-rotation = 1.5708
-scale = Vector2(2.4375, 1.84375)
-sprite_frames = SubResource("SpriteFrames_6y8u2")
-
-[node name="Fire4" type="AnimatedSprite2D" parent="Spaceship/Firing"]
-visible = false
-position = Vector2(-325, 20)
-rotation = 1.5708
-scale = Vector2(2.4375, 1.84375)
-sprite_frames = SubResource("SpriteFrames_6y8u2")
-
-[node name="Fire5" type="AnimatedSprite2D" parent="Spaceship/Firing"]
-visible = false
-position = Vector2(-340, 32)
-rotation = 1.5708
-scale = Vector2(2.4375, 1.84375)
-sprite_frames = SubResource("SpriteFrames_6y8u2")
-
-[node name="Fire6" type="AnimatedSprite2D" parent="Spaceship/Firing"]
-visible = false
-position = Vector2(-356, 44)
-rotation = 1.5708
-scale = Vector2(2.4375, 1.84375)
-sprite_frames = SubResource("SpriteFrames_6y8u2")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spaceship"]
+position = Vector2(7.34489, 0.0992739)
+scale = Vector2(1.03448, 1.13358)
+polygon = PackedVector2Array(-329, 0, -396, -48, -419, -48, -402, -17, -403, -9, -426, -9, -430, -17, -443, -18, -444, -10, -435, -8, -435, 11, -445, 11, -445, 21, -436, 21, -428, 19, -428, 13, -407, 13, -407, 22, -422, 50, -423, 54, -399, 54, -358, 20)
 
 [node name="Boost" type="AnimatedSprite2D" parent="Spaceship"]
 visible = false
@@ -1392,33 +348,108 @@ sprite_frames = SubResource("SpriteFrames_ej0nc")
 [node name="Shield" type="AnimatedSprite2D" parent="Spaceship"]
 visible = false
 position = Vector2(-389, -3)
-rotation = 4.71239
+rotation = -1.5708
 scale = Vector2(2.68589, 2.84561)
 sprite_frames = SubResource("SpriteFrames_82m7y")
 
-[node name="Asteroid1" type="StaticBody2D" parent="."]
-
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="Asteroid1"]
-position = Vector2(-77, 39)
-sprite_frames = SubResource("SpriteFrames_0noef")
-speed_scale = 0.1
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Asteroid1"]
-position = Vector2(-77, 39)
-polygon = PackedVector2Array(15, -26, 18, -24, 19, -12, 22, -6, 24, -3, 28, 4, 28, 15, 23, 17, 19, 27, 12, 28, 7, 26, -4, 27, -9, 26, -13, 28, -23, 27, -28, 23, -28, 14, -28, 5, -25, 0, -21, -6, -18, -7, -12, -12, -10, -18, -4, -24, 1, -26, 5, -27)
-
-[node name="Asteroid2" type="StaticBody2D" parent="."]
-position = Vector2(-85, 81)
-
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="Asteroid2"]
-position = Vector2(-87, 55)
-sprite_frames = SubResource("SpriteFrames_e1yjm")
-speed_scale = 0.25
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Asteroid2"]
-polygon = PackedVector2Array(-82, 29, -77, 27, -73, 29, -64, 42, -62, 64, -60, 69, -67, 79, -75, 80, -80, 75, -93, 79, -101, 78, -108, 65, -108, 58, -112, 54, -112, 45, -98, 31, -84, 27, -81, 28, -77, 26, -83, 28)
+[node name="Weapons" parent="Spaceship" instance=ExtResource("12_m85wi")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_rv8mu")
 }
+
+[node name="Asteroids" type="Node2D" parent="."]
+script = ExtResource("14_g56xu")
+
+[node name="Asteroid1" parent="Asteroids" instance=ExtResource("15_1p6lo")]
+position = Vector2(1226, 585)
+
+[node name="Asteroid2" parent="Asteroids" instance=ExtResource("16_yoa8q")]
+position = Vector2(3392, 426)
+
+[node name="Asteroid3" parent="Asteroids" instance=ExtResource("15_1p6lo")]
+position = Vector2(1370, -503)
+
+[node name="Asteroid4" parent="Asteroids" instance=ExtResource("16_yoa8q")]
+position = Vector2(-54, 456)
+
+[node name="Asteroid5" parent="Asteroids" instance=ExtResource("15_1p6lo")]
+position = Vector2(2841, -237)
+
+[node name="Asteroid6" parent="Asteroids" instance=ExtResource("16_yoa8q")]
+position = Vector2(6306, -172)
+
+[node name="Asteroid7" parent="Asteroids" instance=ExtResource("15_1p6lo")]
+position = Vector2(3993, -307)
+
+[node name="Asteroid8" parent="Asteroids" instance=ExtResource("16_yoa8q")]
+position = Vector2(1781, 413)
+
+[node name="Asteroid9" parent="Asteroids" instance=ExtResource("15_1p6lo")]
+position = Vector2(2191, -881)
+
+[node name="Asteroid10" parent="Asteroids" instance=ExtResource("16_yoa8q")]
+position = Vector2(5309, 613)
+
+[node name="Asteroid11" parent="Asteroids" instance=ExtResource("15_1p6lo")]
+position = Vector2(5435, -470)
+
+[node name="Asteroid12" parent="Asteroids" instance=ExtResource("16_yoa8q")]
+position = Vector2(6504, 546)
+
+[node name="Asteroid13" parent="Asteroids" instance=ExtResource("15_1p6lo")]
+position = Vector2(343, -275)
+
+[node name="Asteroid14" parent="Asteroids" instance=ExtResource("16_yoa8q")]
+position = Vector2(688, 343)
+
+[node name="Asteroid15" parent="Asteroids" instance=ExtResource("15_1p6lo")]
+position = Vector2(2593, 717)
+
+[node name="Asteroid16" parent="Asteroids" instance=ExtResource("16_yoa8q")]
+position = Vector2(1033, -242)
+
+[node name="Asteroid17" parent="Asteroids" instance=ExtResource("15_1p6lo")]
+position = Vector2(4872, 864)
+
+[node name="Asteroid18" parent="Asteroids" instance=ExtResource("16_yoa8q")]
+position = Vector2(1858, 963)
+
+[node name="Asteroid19" parent="Asteroids" instance=ExtResource("15_1p6lo")]
+position = Vector2(4039, 155)
+
+[node name="Asteroid20" parent="Asteroids" instance=ExtResource("16_yoa8q")]
+position = Vector2(603, 901)
+
+[node name="Asteroid21" parent="Asteroids" instance=ExtResource("15_1p6lo")]
+position = Vector2(-491, -901)
+
+[node name="Asteroid22" parent="Asteroids" instance=ExtResource("16_yoa8q")]
+position = Vector2(7165, 472)
+
+[node name="Asteroid23" parent="Asteroids" instance=ExtResource("15_1p6lo")]
+position = Vector2(7109, -814)
+
+[node name="Asteroid24" parent="Asteroids" instance=ExtResource("16_yoa8q")]
+position = Vector2(4667, -739)
+
+[node name="Asteroid25" parent="Asteroids" instance=ExtResource("15_1p6lo")]
+position = Vector2(6009, 789)
+
+[node name="Asteroid26" parent="Asteroids" instance=ExtResource("16_yoa8q")]
+position = Vector2(4716, -68)
+
+[node name="Asteroid27" parent="Asteroids" instance=ExtResource("15_1p6lo")]
+position = Vector2(6518, -826)
+
+[node name="Asteroid28" parent="Asteroids" instance=ExtResource("16_yoa8q")]
+position = Vector2(4244, 746)
+
+[node name="Asteroid29" parent="Asteroids" instance=ExtResource("15_1p6lo")]
+position = Vector2(205, -913)
+
+[node name="Asteroid30" parent="Asteroids" instance=ExtResource("16_yoa8q")]
+position = Vector2(3387, -739)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="Spaceship" method="_on_animation_player_animation_finished"]
