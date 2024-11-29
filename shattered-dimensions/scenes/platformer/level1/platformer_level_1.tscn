@@ -1956,7 +1956,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ukk7l"]
 resource_name = "move_side"
-length = 2.5
+length = 2.7
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1965,10 +1965,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5),
+"times": PackedFloat32Array(0, 2.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(232, 480), Vector2(46, 480)]
+"values": [Vector2(232, 480), Vector2(50, 480)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_87tci"]
@@ -2058,7 +2058,7 @@ position = Vector2(354, 506)
 
 [node name="Spike3" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
 position = Vector2(-103, 90)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.6, 0.6)
 
 [node name="Spike24" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
 position = Vector2(-149, 89)
@@ -2092,7 +2092,8 @@ scale = Vector2(0.8, 0.8)
 position = Vector2(85, 89)
 
 [node name="Spike" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
-position = Vector2(67, 89)
+position = Vector2(72, 89)
+scale = Vector2(0.7, 0.7)
 
 [node name="Spike5" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
 position = Vector2(-151, -67)
@@ -2169,8 +2170,8 @@ position = Vector2(-273, -84)
 scale = Vector2(0.5, 0.5)
 
 [node name="Spike20" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
-position = Vector2(-159, -102)
-scale = Vector2(0.7, 0.7)
+position = Vector2(-155, -101)
+scale = Vector2(0.4, 0.4)
 
 [node name="Spike21" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
 position = Vector2(-77, -38)
@@ -2190,7 +2191,7 @@ scale = Vector2(0.8, 0.8)
 
 [node name="Spike31" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
 position = Vector2(31, -183)
-scale = Vector2(1.1, 1.1)
+scale = Vector2(0.9, 0.9)
 
 [node name="Saws" type="Node2D" parent="MapLayers/Traps"]
 
@@ -2209,7 +2210,7 @@ position = Vector2(108, -162)
 position = Vector2(64, -20)
 
 [node name="SpikeBall2" parent="MapLayers/Traps/SpikeBalls" instance=ExtResource("5_v3y0j")]
-position = Vector2(186, -255)
+position = Vector2(186, -258)
 
 [node name="Platforms" type="TileMapLayer" parent="MapLayers"]
 position = Vector2(-82, -10)
@@ -2227,7 +2228,7 @@ libraries = {
 autoplay = "move"
 
 [node name="MovingPlatform2" parent="MapLayers/MovingPlatforms" instance=ExtResource("6_kk4bj")]
-position = Vector2(232, 480)
+position = Vector2(168.321, 480)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MapLayers/MovingPlatforms/MovingPlatform2"]
 libraries = {

@@ -9,7 +9,7 @@ var _dead: bool = false
 # VARIABLES FOR PLATFORMER
 var double_jump: bool = false
 @export var platformer_level: int
-var lives: int = 20
+var lives: int = 30
 var on_trampoline: bool = false
 var checkpoint_num: int = 0
 var checkpoints: Array = [

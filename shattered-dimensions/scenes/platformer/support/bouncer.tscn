@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://41dpheerd5di" path="res://assets/PixelAdventure/Traps/Sand Mud Ice/Ice Particle.png" id="1_lxuca"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ntfax"]
-radius = 5.0
+radius = 7.0
 
 [sub_resource type="Animation" id="Animation_bjw6m"]
 length = 0.001
