@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://or47njd57g2a"]
+[gd_scene load_steps=9 format=3 uid="uid://b4hrc5xbxausp"]
 
 [ext_resource type="Texture2D" uid="uid://ct3g8yq7bpno6" path="res://assets/32 Backgrounds Free!/Horizontal/deep_forest.jpg" id="1_kgrrx"]
 [ext_resource type="Script" path="res://scenes/car/Terrain.gd" id="3_m84qx"]
@@ -43,19 +43,6 @@ texture_repeat = 2
 texture = SubResource("CompressedTexture2D_0tq8v")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Terrain"]
-position = Vector2(46.1735, 133.31)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(2059, -928)
-scale = Vector2(3.86358, 4.34491)
-polygon = PackedVector2Array(13.2002, 297.59, 188, 302, 257, 289, 301, 273, 326, 262, 346, 254, 374, 247, 396, 245, 431, 246, 480.901, 252.479, 525, 267, 562, 283, 587, 296, 607, 303, 656.904, 305.875, 690.033, 310.478, 771.823, 277.106, 865.519, 257.313, 954.038, 252.479, 1009.43, 257.313, 1006.58, 422.793, 11.1296, 412.667)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(149, 192)
-scale = Vector2(0.671041, 0.585062)
-polygon = PackedVector2Array(18, 311, 188, 302, 257, 289, 301, 273, 326, 262, 346, 254, 374, 247, 396, 245, 431, 246, 479, 253, 525, 267, 562, 283, 587, 296, 607, 303, 632, 303, 690.033, 310.478, 759.14, 312.089, 855.941, 313.7, 926.601, 313.01, 1005.54, 299.431, 1006.58, 422.793, 19, 411)
 
 [node name="CarCamera" type="Camera2D" parent="."]
 offset = Vector2(30, 0)
@@ -63,7 +50,7 @@ script = ExtResource("6_pwpbi")
 
 [node name="Car" parent="." instance=ExtResource("4_4lvlx")]
 unique_name_in_owner = true
-position = Vector2(2282, 303)
+position = Vector2(98, 500)
 
 [node name="CarTest" parent="." instance=ExtResource("4_8bgse")]
 unique_name_in_owner = true

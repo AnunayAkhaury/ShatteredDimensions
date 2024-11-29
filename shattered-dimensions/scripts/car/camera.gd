@@ -6,12 +6,12 @@ var _offset: float = 200
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	position.y = 375
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position.y = car.position.y
 	position.x = car.position.x + _offset
 	
 	pass
