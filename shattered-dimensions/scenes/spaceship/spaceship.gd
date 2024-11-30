@@ -7,13 +7,18 @@ extends CharacterBody2D
 @export var damage1: Texture2D
 @export var damage2: Texture2D
 @export var damage3: Texture2D
+@export var weapons_scene:PackedScene
+@export var new_weapons_scene:PackedScene
 
 @onready var appearance: Sprite2D = $Base
 @onready var camera: Camera2D = %Camera2D
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 @onready var boost: AnimatedSprite2D = $Boost
+#@onready var fire: WeaponsFire = $Fire
+
 
 @onready var firing: Node2D = $Firing
+#@onready var weapons: WeaponsFire = $Weapons
 
 var health: int = 100
 var speed: int = 175
@@ -22,14 +27,21 @@ var binded: bool = true
 var pushed: int = 0
 var bounce: bool = false
 var curr_boost: bool = false
+var weapons
 
 func _ready() -> void:
 	appearance.texture = fullhealth
 
 func _process(delta: float) -> void:
-	
+	#print(weapons.position, " ", position)
 	if binded and Input.is_action_just_pressed("fire"):
-		animation_player.play("shoot_missiles")
+		weapons = new_weapons_scene.instantiate() as NewWeapons
+		add_child(weapons)
+		weapons.position = Vector2(0,0)
+		#fire.startFire = true
+		weapons.startFire = true
+		print("started the fire from spaceship")
+		
 		
 	if binded and Input.is_action_just_pressed("boost"):
 		curr_boost = true

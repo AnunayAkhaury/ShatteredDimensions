@@ -1,78 +1,78 @@
-[gd_scene load_steps=35 format=3 uid="uid://g5a38prufoi7"]
+[gd_scene load_steps=35 format=3 uid="uid://cctswrfy5me8y"]
 
-[ext_resource type="Texture2D" uid="uid://cadrxrgnbaehb" path="res://scenes/spaceship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Weapons/PNGs/Main Ship - Weapons - Rockets.png" id="1_gqc2d"]
-[ext_resource type="Script" path="res://scenes/spaceship/fire.gd" id="1_mc4gy"]
-[ext_resource type="Texture2D" uid="uid://o4kjlgikisng" path="res://scenes/spaceship/Foozle_2DS0011_Void_MainShip/Main ship weapons/PNGs/Main ship weapon - Projectile - Rocket.png" id="2_ppeq4"]
+[ext_resource type="Texture2D" uid="uid://cadrxrgnbaehb" path="res://scenes/spaceship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Weapons/PNGs/Main Ship - Weapons - Rockets.png" id="1_4vuhp"]
+[ext_resource type="Script" path="res://scenes/new_fire.gd" id="1_b5lca"]
+[ext_resource type="Texture2D" uid="uid://o4kjlgikisng" path="res://scenes/spaceship/Foozle_2DS0011_Void_MainShip/Main ship weapons/PNGs/Main ship weapon - Projectile - Rocket.png" id="2_mikua"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u8xp3"]
-atlas = ExtResource("1_gqc2d")
+atlas = ExtResource("1_4vuhp")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g7fun"]
-atlas = ExtResource("1_gqc2d")
+atlas = ExtResource("1_4vuhp")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_07xo1"]
-atlas = ExtResource("1_gqc2d")
+atlas = ExtResource("1_4vuhp")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l08i5"]
-atlas = ExtResource("1_gqc2d")
+atlas = ExtResource("1_4vuhp")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ox2ee"]
-atlas = ExtResource("1_gqc2d")
+atlas = ExtResource("1_4vuhp")
 region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n1xnh"]
-atlas = ExtResource("1_gqc2d")
+atlas = ExtResource("1_4vuhp")
 region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jm7vk"]
-atlas = ExtResource("1_gqc2d")
+atlas = ExtResource("1_4vuhp")
 region = Rect2(288, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fxjih"]
-atlas = ExtResource("1_gqc2d")
+atlas = ExtResource("1_4vuhp")
 region = Rect2(336, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_chhdm"]
-atlas = ExtResource("1_gqc2d")
+atlas = ExtResource("1_4vuhp")
 region = Rect2(384, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g4g8n"]
-atlas = ExtResource("1_gqc2d")
+atlas = ExtResource("1_4vuhp")
 region = Rect2(432, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u8k7n"]
-atlas = ExtResource("1_gqc2d")
+atlas = ExtResource("1_4vuhp")
 region = Rect2(480, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3bcf"]
-atlas = ExtResource("1_gqc2d")
+atlas = ExtResource("1_4vuhp")
 region = Rect2(528, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_twpr7"]
-atlas = ExtResource("1_gqc2d")
+atlas = ExtResource("1_4vuhp")
 region = Rect2(576, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_spa3r"]
-atlas = ExtResource("1_gqc2d")
+atlas = ExtResource("1_4vuhp")
 region = Rect2(624, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohi1w"]
-atlas = ExtResource("1_gqc2d")
+atlas = ExtResource("1_4vuhp")
 region = Rect2(672, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_40ng8"]
-atlas = ExtResource("1_gqc2d")
+atlas = ExtResource("1_4vuhp")
 region = Rect2(720, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rji5s"]
-atlas = ExtResource("1_gqc2d")
+atlas = ExtResource("1_4vuhp")
 region = Rect2(768, 0, 48, 48)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_jf05u"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_wjwy5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -132,18 +132,18 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mk27s"]
-atlas = ExtResource("2_ppeq4")
+atlas = ExtResource("2_mikua")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nhtql"]
-atlas = ExtResource("2_ppeq4")
+atlas = ExtResource("2_mikua")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q34jg"]
-atlas = ExtResource("2_ppeq4")
+atlas = ExtResource("2_mikua")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_6y8u2"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_pxnw1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -160,22 +160,22 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cinhg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqq8y"]
 size = Vector2(5.33333, 13.5593)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvjrr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbpch"]
 size = Vector2(23, 12)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6onm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yerj"]
 size = Vector2(23, 12)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ceag"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sulok"]
 size = Vector2(23, 13)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wps3b"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckffd"]
 size = Vector2(23, 13)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsbry"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irkep"]
 size = Vector2(22, 13)
 
 [sub_resource type="Animation" id="Animation_ngny4"]
@@ -339,7 +339,7 @@ tracks/12/keys = {
 
 [sub_resource type="Animation" id="Animation_0su03"]
 resource_name = "release"
-length = 1.75
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -503,18 +503,19 @@ _data = {
 "release": SubResource("Animation_0su03")
 }
 
-[node name="Fire" type="Node2D"]
-script = ExtResource("1_mc4gy")
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_b5lca")
 
 [node name="Weapons" type="AnimatedSprite2D" parent="."]
 position = Vector2(-378, 1)
 rotation = 1.5708
 scale = Vector2(2.84238, 3.26168)
-sprite_frames = SubResource("SpriteFrames_jf05u")
+sprite_frames = SubResource("SpriteFrames_wjwy5")
 
 [node name="Firing" type="Node2D" parent="."]
 
 [node name="Arrow1" type="Area2D" parent="Firing"]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -523,15 +524,16 @@ visible = false
 position = Vector2(-355, -41)
 rotation = 1.5708
 scale = Vector2(2.4375, 1.84375)
-sprite_frames = SubResource("SpriteFrames_6y8u2")
+sprite_frames = SubResource("SpriteFrames_pxnw1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Firing/Arrow1"]
 position = Vector2(-356.5, -42.5)
 rotation = 1.5708
 scale = Vector2(2.4375, 1.84375)
-shape = SubResource("RectangleShape2D_cinhg")
+shape = SubResource("RectangleShape2D_fqq8y")
 
 [node name="Arrow2" type="Area2D" parent="Firing"]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -540,13 +542,14 @@ visible = false
 position = Vector2(-342, -28)
 rotation = 1.5708
 scale = Vector2(2.4375, 1.84375)
-sprite_frames = SubResource("SpriteFrames_6y8u2")
+sprite_frames = SubResource("SpriteFrames_pxnw1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Firing/Arrow2"]
 position = Vector2(-342.5, -29)
-shape = SubResource("RectangleShape2D_kvjrr")
+shape = SubResource("RectangleShape2D_fbpch")
 
 [node name="Arrow3" type="Area2D" parent="Firing"]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -555,13 +558,14 @@ visible = false
 position = Vector2(-326.324, -18)
 rotation = 1.5708
 scale = Vector2(2.4375, 2.03375)
-sprite_frames = SubResource("SpriteFrames_6y8u2")
+sprite_frames = SubResource("SpriteFrames_pxnw1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Firing/Arrow3"]
 position = Vector2(-326.5, -19)
-shape = SubResource("RectangleShape2D_x6onm")
+shape = SubResource("RectangleShape2D_1yerj")
 
 [node name="Arrow4" type="Area2D" parent="Firing"]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -570,13 +574,14 @@ visible = false
 position = Vector2(-325, 20)
 rotation = 1.5708
 scale = Vector2(2.4375, 1.84375)
-sprite_frames = SubResource("SpriteFrames_6y8u2")
+sprite_frames = SubResource("SpriteFrames_pxnw1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Firing/Arrow4"]
 position = Vector2(-325.5, 18.5)
-shape = SubResource("RectangleShape2D_4ceag")
+shape = SubResource("RectangleShape2D_sulok")
 
 [node name="Arrow5" type="Area2D" parent="Firing"]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -585,13 +590,14 @@ visible = false
 position = Vector2(-340, 32)
 rotation = 1.5708
 scale = Vector2(2.4375, 1.84375)
-sprite_frames = SubResource("SpriteFrames_6y8u2")
+sprite_frames = SubResource("SpriteFrames_pxnw1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Firing/Arrow5"]
 position = Vector2(-340.5, 30.5)
-shape = SubResource("RectangleShape2D_wps3b")
+shape = SubResource("RectangleShape2D_ckffd")
 
 [node name="Arrow6" type="Area2D" parent="Firing"]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -600,11 +606,11 @@ visible = false
 position = Vector2(-356, 44)
 rotation = 1.5708
 scale = Vector2(2.4375, 1.84375)
-sprite_frames = SubResource("SpriteFrames_6y8u2")
+sprite_frames = SubResource("SpriteFrames_pxnw1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Firing/Arrow6"]
 position = Vector2(-356, 42.5)
-shape = SubResource("RectangleShape2D_hsbry")
+shape = SubResource("RectangleShape2D_irkep")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
