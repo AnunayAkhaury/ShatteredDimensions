@@ -1,6 +1,6 @@
 extends Camera2D
 
-var _offset: float = 200
+var _offset: float = 400
 
 @onready var car: RigidBody2D = %Car
 
