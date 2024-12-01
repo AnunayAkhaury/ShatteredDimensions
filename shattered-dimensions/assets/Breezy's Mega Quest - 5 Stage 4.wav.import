@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dv31y7q52wnny"
+path="res://.godot/imported/Breezy's Mega Quest - 5 Stage 4.wav-50da10d8b32b3486f1ba31eaffd6392e.sample"
+
+[deps]
+
+source_file="res://assets/Breezy's Mega Quest - 5 Stage 4.wav"
+dest_files=["res://.godot/imported/Breezy's Mega Quest - 5 Stage 4.wav-50da10d8b32b3486f1ba31eaffd6392e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

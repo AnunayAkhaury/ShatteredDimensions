@@ -1,7 +1,10 @@
 extends Control
 
 
+func _on_restart_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/platformer/level1/platformer_level_1.tscn")
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("restart"):
-		get_tree().change_scene_to_file("res://scenes/platformer/level1/platformer_level_1.tscn")
+
+
+func _on_exit_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/lobby.tscn")

@@ -1,0 +1,127 @@
+[gd_scene load_steps=8 format=3 uid="uid://gbtrn4b4xvsw"]
+
+[ext_resource type="Texture2D" uid="uid://b6fgo14jilwgp" path="res://assets/tropy.png" id="1_ti2k3"]
+[ext_resource type="Script" path="res://scripts/platformer/victory.gd" id="1_y8ike"]
+[ext_resource type="AudioStream" uid="uid://r31beaifxdpx" path="res://assets/Breezys Mega Quest - 1c Fanfare.wav" id="3_26a4h"]
+
+[sub_resource type="Animation" id="Animation_accgs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.259766, 0.259766)]
+}
+
+[sub_resource type="Animation" id="Animation_erfno"]
+resource_name = "expand"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.259766, 0.259766), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tkajo"]
+_data = {
+"RESET": SubResource("Animation_accgs"),
+"expand": SubResource("Animation_erfno")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efkag"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_y8ike")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1153.0
+offset_bottom = 648.0
+color = Color(2.69532e-06, 0.644859, 0.924294, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -184.5
+offset_right = 135.0
+offset_bottom = -119.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.984443, 0.744358, 0, 1)
+theme_override_font_sizes/font_size = 47
+text = "!!! VICTORY !!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.0
+offset_top = 98.5
+offset_right = 252.0
+offset_bottom = 163.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 31
+text = "You have earned the golden key..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Win" type="Node2D" parent="ColorRect"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect/Win"]
+position = Vector2(578, 313)
+scale = Vector2(0.259766, 0.259766)
+texture = ExtResource("1_ti2k3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/Win"]
+libraries = {
+"": SubResource("AnimationLibrary_tkajo")
+}
+autoplay = "expand"
+
+[node name="Button" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 521.0
+offset_right = 662.0
+offset_bottom = 564.0
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_efkag")
+text = "Return"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_26a4h")
+autoplay = true
+
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
