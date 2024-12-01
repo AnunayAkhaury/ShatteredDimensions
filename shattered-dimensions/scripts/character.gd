@@ -24,6 +24,7 @@ var fire2 : Command
 var idle : Command
 var run_shoot_left : Command
 var run_shoot_right : Command
+var shoot : Command
 
 var facing:Facing = Facing.RIGHT
 var attacking : bool: 

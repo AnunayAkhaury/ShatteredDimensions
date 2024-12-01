@@ -4,7 +4,7 @@ var bullet_impact_effect = preload("res://scenes/run_gun/bullet_impact.tscn")
 
 var speed : int = 600
 var direction : int
-
+var damage_amount : int = 1
 func _physics_process(delta: float) -> void:
 	move_local_x(direction * speed * delta)
 
@@ -24,3 +24,6 @@ func bullet_impact():
 	bullet_impact_instance.global_position = global_position
 	get_parent().add_child(bullet_impact_instance)
 	queue_free()
+
+func get_damage_amount() -> int:
+		return damage_amount

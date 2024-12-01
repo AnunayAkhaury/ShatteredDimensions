@@ -16,12 +16,18 @@ var run_gun_run_animation: String
 var run_gun_idle_animation: String 
 
 #@onready var animation_tree:AnimationTree = $AnimationTree
-@onready var hitbox: CollisionShape2D = $CollisionShape2D
 
 # VARIABLE FOR RUNGUN
 var bullet = preload("res://scenes/run_gun/bullet.tscn")
 @onready var muzzle : Marker2D = $Muzzle
 var muzzle_position
+@onready var HitAnimationPlayer = $HitAnimationPlayer
+#var player_death_effect = preload("res://scenes/run_gun/player/player_death_effect.tscn")
+@onready var hitbox: CollisionShape2D = $CollisionShape2D
+@export var knockback_force: float = 300.0  
+var knockback_active: bool = false  
+@onready var knockback_timer: Timer = $KnockbackTimer
+var is_damagable: bool = true 
 
 func _ready():
 	#animation_tree.active = true
@@ -29,6 +35,10 @@ func _ready():
 	muzzle_position = muzzle.position
 
 func _physics_process(delta: float):
+	if knockback_active:
+		move_and_slide()
+		_apply_gravity(delta)
+		return 
 	if lives == 0:
 		unbind_player_input_commands()
 		get_tree().change_scene_to_file("res://scenes/platformer/game_over.tscn")
@@ -46,6 +56,8 @@ func _physics_process(delta: float):
 		return
 	
 	if Input.is_action_just_pressed("shoot"):
+		if move_input == 0.0:
+			shoot.execute(self)
 		if move_input > 0.1:
 			run_shoot_right.execute(self)
 		elif move_input < -0.1:
@@ -135,7 +147,7 @@ func bind_player_input_commands():
 	idle = IdleCommand.new()
 	run_shoot_left = RunShootLeftCommand.new()
 	run_shoot_right = RunShootRightCommand.new()
-	
+	shoot = ShootCommand.new()
 	await get_tree().create_timer(1.0).timeout
 	right_cmd.set_animation(run_gun_run_animation if run_gun_run_animation else default_run_animation)
 	left_cmd.set_animation(run_gun_run_animation if run_gun_run_animation else default_run_animation)
@@ -148,6 +160,7 @@ func unbind_player_input_commands():
 	idle = Command.new()
 	run_shoot_left = Command.new()
 	run_shoot_right = Command.new()
+	shoot = Command.new()
 #func command_callback(cmd_name:String) -> void:
 	#if "attack" == cmd_name:
 		#_play($Audio/attack)
@@ -170,3 +183,26 @@ func update_muzzle_position():
 		muzzle.position.x = abs(muzzle_position.x) 
 	else:
 		muzzle.position.x = -abs(muzzle_position.x)  
+
+#func _on_hurtbox_body_entered(body: Node2D) -> void:
+	#if body.is_in_group("enemy") and not knockback_active:
+		#print("ENEMY ENTERD", body.damage_amount)
+		#var knockback_direction: Vector2 = (position - body.position).normalized()
+		#velocity = knockback_direction * knockback_force
+		#knockback_active = true
+		#knockback_timer.start(0.5)
+		#HitAnimationPlayer.play("hit_flash")
+		#HealthManager.decrease_health(body.damage_amount)
+	#if HealthManager.current_health <= 0:
+		#print("PLAYING DEATH")
+		#player_death()
+#
+#func player_death() -> void:
+	#var player_death_instance = player_death_effect.instantiate() as Node2D
+	#player_death_instance.global_position = global_position
+	#print(player_death_instance)
+	#get_parent().add_child(player_death_instance)
+	#queue_free()
+	
+func _on_knockback_timer_timeout() -> void:
+	knockback_active = false

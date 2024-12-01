@@ -5,6 +5,7 @@ const GRAVITY = 1000
 const SPEED = 1500
   
 enum State {Idle, Walk}
+var enemy_death_effect = preload("res://scenes/run_gun/enemies/enemy_death_effect.tscn")
 var current_state : State
 var direction : Vector2 =  Vector2.LEFT
 var number_of_points : int
@@ -12,12 +13,15 @@ var point_positions : Array[Vector2] = []
 var current_point : Vector2
 var current_point_position: int
 var patrol : Command
+var attack_cooldown = 1.0
+var can_attack = true
 
 @export var speed: float = 100
-@export var health: int = 100
+@export var health: int = 3
 @export var patrol_points : Node
-
+@export var damage_amount : int = 1
 @onready var animatedsprite: AnimatedSprite2D = $AnimatedSprite2D
+
 
 func _ready() -> void:
 	bind_player_input_commands()
@@ -51,4 +55,13 @@ func bind_player_input_commands():
 	patrol = PatrolCommand.new()
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	print("enemy hit")
+	if area.get_parent().has_method("get_damage_amount"):
+		print("PROJECITLE ENTERED")
+		var node = area.get_parent() as Node
+		health -= node.damage_amount
+		print(health)
+		if health <= 0:
+			var enemy_death_effect_instance = enemy_death_effect.instantiate() as Node2D
+			enemy_death_effect_instance.global_position = global_position
+			get_parent().add_child(enemy_death_effect_instance)
+			queue_free()
