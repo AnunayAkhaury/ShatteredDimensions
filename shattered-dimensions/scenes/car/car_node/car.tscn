@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://bl2eeoldwnydu"]
 
-[ext_resource type="Script" path="res://scripts/car/car_basics/car_controller.gd" id="1_0wm3u"]
+[ext_resource type="Script" path="res://scripts/car/car_controller.gd" id="1_0wm3u"]
 [ext_resource type="Texture2D" uid="uid://civ3a8pns8i74" path="res://assets/humvee/humvee-no-tires.png" id="1_wc20t"]
 [ext_resource type="Texture2D" uid="uid://cydnsk6xymx31" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-duck.png" id="2_w5tmd"]
 [ext_resource type="PackedScene" uid="uid://c043eos3amkax" path="res://scenes/car/car_node/wheels.tscn" id="2_wt0ah"]
