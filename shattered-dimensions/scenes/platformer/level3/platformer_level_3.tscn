@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://xo18sp17icwb"]
+[gd_scene load_steps=17 format=4 uid="uid://xo18sp17icwb"]
 
 [ext_resource type="Texture2D" uid="uid://dwty1wvfryik8" path="res://assets/Dungeon_brick_wall_grey.png.png" id="1_c8bcu"]
 [ext_resource type="PackedScene" uid="uid://norvan31e46p" path="res://scenes/platformer/level3/level3_door.tscn" id="2_yramb"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c8k4l72kqj3rl" path="res://assets/Castle Platformer Tileset [16x16][FREE] - RottingPixels/castle-tileset.png" id="5_nf6h7"]
 [ext_resource type="PackedScene" uid="uid://bjb6qsjcxod2b" path="res://scenes/platformer/killzone.tscn" id="6_4630l"]
 [ext_resource type="Script" path="res://scripts/platformer/lives.gd" id="8_s2lh0"]
+[ext_resource type="PackedScene" uid="uid://bmoaon1yut05y" path="res://scenes/pause_menu.tscn" id="9_ipefb"]
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="9_v4hfv"]
 [ext_resource type="AudioStream" uid="uid://cfd1xf1m02um6" path="res://assets/Breezys Mega Quest - 1a Title Theme.wav" id="10_hlkua"]
 
@@ -259,6 +260,8 @@ theme_override_font_sizes/font_size = 20
 text = "Lives: 20"
 horizontal_alignment = 1
 script = ExtResource("8_s2lh0")
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_ipefb")]
 
 [node name="Player" parent="." instance=ExtResource("9_v4hfv")]
 unique_name_in_owner = true
