@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4hrc5xbxausp"]
+[gd_scene load_steps=9 format=3 uid="uid://b4hrc5xbxausp"]
 
-[ext_resource type="Texture2D" uid="uid://ct3g8yq7bpno6" path="res://assets/32 Backgrounds Free!/Horizontal/deep_forest.jpg" id="1_kgrrx"]
-[ext_resource type="Script" path="res://scenes/car/Terrain.gd" id="3_m84qx"]
+[ext_resource type="Script" path="res://scripts/car/terrains/terrain.gd" id="2_cwath"]
+[ext_resource type="PackedScene" uid="uid://b5yh853uf0prf" path="res://scenes/car/bg.tscn" id="2_fhgbu"]
+[ext_resource type="Texture2D" uid="uid://px7wrdvytfkg" path="res://assets/32 Backgrounds Free!/Horizontal/parallax background/Screenshot 2024-11-29 at 11.01.22 PM.png" id="3_7stbd"]
 [ext_resource type="PackedScene" uid="uid://bl2eeoldwnydu" path="res://scenes/car/car_node/car.tscn" id="4_4lvlx"]
 [ext_resource type="Script" path="res://scripts/car/camera.gd" id="6_pwpbi"]
 
@@ -10,44 +11,126 @@ load_path = "res://.godot/imported/grass (1).png-a40269199f52e59d686ff56d6f903c6
 
 [sub_resource type="Curve2D" id="Curve2D_r86vn"]
 _data = {
-"points": PackedVector2Array(-222.73, 23.546, 222.73, -23.546, -131.502, 763.029, -177.359, 11.773, 177.359, -11.773, 522.894, 869.071, 0, 0, 0, 0, 986.225, 787.267, 0, 0, 0, 0, 993.536, 1172.52, 0, 0, 0, 0, -834.315, 1169.49, 0, 0, 0, 0, -832.072, 870.586, -58.6055, 7.74439, 58.6055, -7.74439, -443.574, 861.497, 0, 0, 0, 0, -131.502, 761.514)
+"points": PackedVector2Array(0, 0, 0, 0, -1079.51, 316.611, -170.509, 98.5817, 170.509, -98.5817, -592.3, 295.403, -72.679, -14.9824, 72.679, 14.9824, -41.3973, 336.305, -159.894, 25.3549, 159.894, -25.3549, 391.682, 222.688, -241.052, 9.21996, 241.052, -9.21996, 719.676, 278.739, -176.852, -51.8623, 176.852, 51.8623, 1065.18, 371.147, -144.147, 9.21996, 144.147, -9.21996, 1405.92, 277.224, -259.222, 58.7772, 259.222, -58.7772, 2009.36, 375.692, -201.078, 19.5924, 201.078, -19.5924, 2362.83, 252.986, 0, 0, 0, 0, 2759.29, 346.909, 0, 0, 0, 0, 2754.51, 487.794, 0, 0, 0, 0, -1081.11, 490.823)
 }
-point_count = 8
+point_count = 12
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0tq8v"]
 load_path = "res://.godot/imported/terrain_image.jpg-c89c1b6aa5e7e94a7a2b867910ba54b6.ctex"
 
 [node name="CarLevel" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(604, 375)
+[node name="Bg" parent="." instance=ExtResource("2_fhgbu")]
+
+[node name="Terrain" type="StaticBody2D" parent="."]
+position = Vector2(571, 397)
 scale = Vector2(0.62806, 0.660115)
-texture = ExtResource("1_kgrrx")
+script = ExtResource("2_cwath")
 
-[node name="Terrain" type="StaticBody2D" parent="Sprite2D"]
-position = Vector2(-119.415, -608.985)
-script = ExtResource("3_m84qx")
-
-[node name="Line2D" type="Line2D" parent="Sprite2D/Terrain"]
+[node name="Line2D" type="Line2D" parent="Terrain"]
 texture_repeat = 2
-width = 55.0
+width = 65.0
 texture = SubResource("CompressedTexture2D_jypei")
 texture_mode = 1
 
-[node name="Path2D" type="Path2D" parent="Sprite2D/Terrain"]
+[node name="Path2D" type="Path2D" parent="Terrain"]
+position = Vector2(-14.3299, -118.161)
 curve = SubResource("Curve2D_r86vn")
 
-[node name="Polygon2D" type="Polygon2D" parent="Sprite2D/Terrain"]
+[node name="Polygon2D" type="Polygon2D" parent="Terrain"]
+texture_repeat = 2
+texture = ExtResource("3_7stbd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain"]
+
+[node name="Terrain2" type="StaticBody2D" parent="."]
+position = Vector2(2949, 397)
+scale = Vector2(0.62806, 0.660115)
+script = ExtResource("2_cwath")
+
+[node name="Line2D" type="Line2D" parent="Terrain2"]
+texture_repeat = 2
+width = 65.0
+texture = SubResource("CompressedTexture2D_jypei")
+texture_mode = 1
+
+[node name="Path2D" type="Path2D" parent="Terrain2"]
+position = Vector2(-14.3299, -118.161)
+curve = SubResource("Curve2D_r86vn")
+
+[node name="Polygon2D" type="Polygon2D" parent="Terrain2"]
 texture_repeat = 2
 texture = SubResource("CompressedTexture2D_0tq8v")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Terrain"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain2"]
+
+[node name="Terrain3" type="StaticBody2D" parent="."]
+position = Vector2(5320, 395)
+scale = Vector2(0.62806, 0.660115)
+script = ExtResource("2_cwath")
+
+[node name="Line2D" type="Line2D" parent="Terrain3"]
+texture_repeat = 2
+width = 65.0
+texture = SubResource("CompressedTexture2D_jypei")
+texture_mode = 1
+
+[node name="Path2D" type="Path2D" parent="Terrain3"]
+position = Vector2(-14.3299, -118.161)
+curve = SubResource("Curve2D_r86vn")
+
+[node name="Polygon2D" type="Polygon2D" parent="Terrain3"]
+texture_repeat = 2
+texture = SubResource("CompressedTexture2D_0tq8v")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain3"]
+
+[node name="Terrain4" type="StaticBody2D" parent="."]
+position = Vector2(7695, 392)
+scale = Vector2(0.62806, 0.660115)
+script = ExtResource("2_cwath")
+
+[node name="Line2D" type="Line2D" parent="Terrain4"]
+texture_repeat = 2
+width = 65.0
+texture = SubResource("CompressedTexture2D_jypei")
+texture_mode = 1
+
+[node name="Path2D" type="Path2D" parent="Terrain4"]
+position = Vector2(-14.3299, -118.161)
+curve = SubResource("Curve2D_r86vn")
+
+[node name="Polygon2D" type="Polygon2D" parent="Terrain4"]
+texture_repeat = 2
+texture = SubResource("CompressedTexture2D_0tq8v")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain4"]
+
+[node name="Terrain5" type="StaticBody2D" parent="."]
+position = Vector2(10075, 393)
+scale = Vector2(0.62806, 0.660115)
+script = ExtResource("2_cwath")
+
+[node name="Line2D" type="Line2D" parent="Terrain5"]
+texture_repeat = 2
+width = 65.0
+texture = SubResource("CompressedTexture2D_jypei")
+texture_mode = 1
+
+[node name="Path2D" type="Path2D" parent="Terrain5"]
+position = Vector2(-14.3299, -118.161)
+curve = SubResource("Curve2D_r86vn")
+
+[node name="Polygon2D" type="Polygon2D" parent="Terrain5"]
+texture_repeat = 2
+texture = SubResource("CompressedTexture2D_0tq8v")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain5"]
+
+[node name="Car" parent="." instance=ExtResource("4_4lvlx")]
+unique_name_in_owner = true
+position = Vector2(94, 528)
 
 [node name="CarCamera" type="Camera2D" parent="."]
 offset = Vector2(30, 0)
 script = ExtResource("6_pwpbi")
-
-[node name="Car" parent="." instance=ExtResource("4_4lvlx")]
-unique_name_in_owner = true
-position = Vector2(182, 501)
-mass = 5.0
