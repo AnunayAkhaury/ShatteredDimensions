@@ -184,15 +184,15 @@ func update_muzzle_position():
 	else:
 		muzzle.position.x = -abs(muzzle_position.x)  
 
-#func _on_hurtbox_body_entered(body: Node2D) -> void:
-	#if body.is_in_group("enemy") and not knockback_active:
-		#print("ENEMY ENTERD", body.damage_amount)
-		#var knockback_direction: Vector2 = (position - body.position).normalized()
-		#velocity = knockback_direction * knockback_force
-		#knockback_active = true
-		#knockback_timer.start(0.5)
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemy") and not knockback_active:
+		print("ENEMY ENTERD", body.damage_amount)
+		var knockback_direction: Vector2 = (position - body.position).normalized()
+		velocity = knockback_direction * knockback_force
+		knockback_active = true
+		knockback_timer.start(0.5)
 		#HitAnimationPlayer.play("hit_flash")
-		#HealthManager.decrease_health(body.damage_amount)
+		HealthManager.decrease_health(body.damage_amount)
 	#if HealthManager.current_health <= 0:
 		#print("PLAYING DEATH")
 		#player_death()

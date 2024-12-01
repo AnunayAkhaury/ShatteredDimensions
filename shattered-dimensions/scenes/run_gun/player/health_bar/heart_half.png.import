@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://206fw48xewkh"
-path="res://.godot/imported/tile_0045.png-f8a6e76f4fa7140a078ac45e715de4c5.ctex"
+path="res://.godot/imported/heart_half.png-75afc55f89aca0c4666bdbc70e685535.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Kenny/Tiles/tile_0045.png"
-dest_files=["res://.godot/imported/tile_0045.png-f8a6e76f4fa7140a078ac45e715de4c5.ctex"]
+source_file="res://scenes/run_gun/player/health_bar/heart_half.png"
+dest_files=["res://.godot/imported/heart_half.png-75afc55f89aca0c4666bdbc70e685535.ctex"]
 
 [params]
 

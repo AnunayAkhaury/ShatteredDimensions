@@ -1,9 +1,10 @@
 class_name PatrolCommand
 extends Command
 
+const Tolerance = 30
 
 func execute(character: Character) -> Status:
-	if abs(character.position.x - character.current_point.x) > 0.5:
+	if abs(character.position.x - character.current_point.x) > Tolerance:
 		character.velocity.x = character.direction.x * character.SPEED 
 	else:
 		character.current_point_position += 1

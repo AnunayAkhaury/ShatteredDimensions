@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bws33yf0htu6x"
-path="res://.godot/imported/tile_0046.png-2e00d3478833bcd3f718f1d1f3d8a0ed.ctex"
+uid="uid://bbtx83lkdhryw"
+path="res://.godot/imported/heart_full.png-2fbd2937e837835a552d937b8d2b06e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Kenny/Tiles/tile_0046.png"
-dest_files=["res://.godot/imported/tile_0046.png-2e00d3478833bcd3f718f1d1f3d8a0ed.ctex"]
+source_file="res://scenes/run_gun/player/health_bar/heart_full.png"
+dest_files=["res://.godot/imported/heart_full.png-2fbd2937e837835a552d937b8d2b06e6.ctex"]
 
 [params]
 

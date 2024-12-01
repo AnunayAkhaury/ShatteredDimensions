@@ -9,8 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://gvenal7c2o0m" path="res://assets/5. Industrial Tileset - Starter Pack 32p/2_Industrial_Tileset_1_Background.png" id="6_sikah"]
 [ext_resource type="PackedScene" uid="uid://d0rv1sddxvjit" path="res://scenes/run_gun/enemies/soldier.tscn" id="7_pfkpg"]
 [ext_resource type="PackedScene" uid="uid://2j7ulvar0215" path="res://scenes/run_gun/level1/platform.tscn" id="8_6xheq"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h7buo"]
+[ext_resource type="PackedScene" uid="uid://ckf8i51m5c8qf" path="res://scenes/run_gun/player/health_bar/game_screen.tscn" id="10_tv1su"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5olc5"]
 texture = ExtResource("3_hax1a")
@@ -607,6 +606,21 @@ sources/1 = SubResource("TileSetAtlasSource_oqars")
 sources/2 = SubResource("TileSetAtlasSource_rdgs1")
 sources/3 = SubResource("TileSetAtlasSource_sa15l")
 
+[sub_resource type="Animation" id="Animation_7n78m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1205, 410)]
+}
+
 [sub_resource type="Animation" id="Animation_1nfye"]
 resource_name = "move"
 length = 2.0
@@ -624,7 +638,13 @@ tracks/0/keys = {
 "values": [Vector2(1205, 410), Vector2(1464, 410)]
 }
 
-[sub_resource type="Animation" id="Animation_7n78m"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3cbyk"]
+_data = {
+"RESET": SubResource("Animation_7n78m"),
+"move": SubResource("Animation_1nfye")
+}
+
+[sub_resource type="Animation" id="Animation_mjgsi"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -636,13 +656,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1205, 410)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3cbyk"]
-_data = {
-"RESET": SubResource("Animation_7n78m"),
-"move": SubResource("Animation_1nfye")
+"values": [Vector2(2045, 348)]
 }
 
 [sub_resource type="Animation" id="Animation_6oyrb"]
@@ -662,21 +676,6 @@ tracks/0/keys = {
 "values": [Vector2(2045, 348), Vector2(2045, 176)]
 }
 
-[sub_resource type="Animation" id="Animation_mjgsi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2045, 348)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_43fsb"]
 _data = {
 "RESET": SubResource("Animation_mjgsi"),
@@ -688,7 +687,6 @@ script = ExtResource("1_hjbtq")
 
 [node name="Character" parent="." instance=ExtResource("2_7s41g")]
 position = Vector2(22, 301)
-collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
 zoom = Vector2(1.485, 1.485)
@@ -697,10 +695,6 @@ limit_top = 0
 limit_right = 1316134912
 limit_bottom = 1316134912
 position_smoothing_enabled = true
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Character"]
-position = Vector2(2, 5)
-shape = SubResource("CapsuleShape2D_h7buo")
 
 [node name="MapLayers" type="Node2D" parent="."]
 position = Vector2(579, 313)
@@ -762,3 +756,5 @@ libraries = {
 "": SubResource("AnimationLibrary_43fsb")
 }
 autoplay = "up_down"
+
+[node name="GameScreen" parent="." instance=ExtResource("10_tv1su")]
