@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmemxcryvtusx"]
+
+[ext_resource type="Script" path="res://scripts/car/enemy/bat.gd" id="1_xtndh"]
+[ext_resource type="PackedScene" uid="uid://c2tdqt5upjugx" path="res://scenes/car/enemy_animation/bat/bat_attack.tscn" id="2_bmxrc"]
+[ext_resource type="PackedScene" uid="uid://bljovci6cgitu" path="res://scenes/car/enemy_animation/bat/bat_death.tscn" id="3_7qrdr"]
+[ext_resource type="PackedScene" uid="uid://ds2aci78hcq3o" path="res://scenes/car/enemy_animation/bat/bat_flight.tscn" id="4_618uf"]
+
+[node name="BatAnimations" type="Node2D"]
+script = ExtResource("1_xtndh")
+
+[node name="BatAttack" parent="." instance=ExtResource("2_bmxrc")]
+scale = Vector2(2, 2)
+
+[node name="BatDeath" parent="." instance=ExtResource("3_7qrdr")]
+visible = false
+scale = Vector2(2, 2)
+
+[node name="BatIdle" parent="." instance=ExtResource("4_618uf")]
+visible = false
+scale = Vector2(2, 2)
