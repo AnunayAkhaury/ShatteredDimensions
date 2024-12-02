@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://blwtoa5stmbk8"]
+[gd_scene load_steps=4 format=3 uid="uid://ch6j2hqmagga3"]
 
-[ext_resource type="PackedScene" uid="uid://bdlhgt21nxrfn" path="res://scenes/car/car_node/wheels_1.tscn" id="1_du6x1"]
+[ext_resource type="PackedScene" uid="uid://cy6wck42u2ica" path="res://scenes/car/car_node/wheels_1.tscn" id="1_du6x1"]
 [ext_resource type="Script" path="res://scripts/car/car_controller.gd" id="1_hl6eg"]
 [ext_resource type="Texture2D" uid="uid://dbm3gj8cuu3p5" path="res://assets/PhysicsCarGameAssets/Images/Car/Car.png" id="2_far87"]
 

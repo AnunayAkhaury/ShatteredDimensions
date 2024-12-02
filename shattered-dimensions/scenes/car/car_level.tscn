@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4hrc5xbxausp"]
+[gd_scene load_steps=10 format=3 uid="uid://b4hrc5xbxausp"]
 
 [ext_resource type="Script" path="res://scripts/car/terrains/terrain.gd" id="2_cwath"]
 [ext_resource type="PackedScene" uid="uid://b5yh853uf0prf" path="res://scenes/car/bg.tscn" id="2_fhgbu"]
 [ext_resource type="Texture2D" uid="uid://px7wrdvytfkg" path="res://assets/32 Backgrounds Free!/Horizontal/parallax background/Screenshot 2024-11-29 at 11.01.22 PM.png" id="3_7stbd"]
 [ext_resource type="PackedScene" uid="uid://bl2eeoldwnydu" path="res://scenes/car/car_node/car.tscn" id="4_4lvlx"]
+[ext_resource type="PackedScene" uid="uid://i6arnh3jkabk" path="res://scenes/car/swat_node/swat_van.tscn" id="4_pn4bw"]
 [ext_resource type="Script" path="res://scripts/car/camera.gd" id="6_pwpbi"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jypei"]
@@ -127,9 +128,13 @@ texture = SubResource("CompressedTexture2D_0tq8v")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain5"]
 
+[node name="SwatVan" parent="." instance=ExtResource("4_pn4bw")]
+position = Vector2(92, 496)
+scale = Vector2(1, 0.976144)
+
 [node name="Car" parent="." instance=ExtResource("4_4lvlx")]
 unique_name_in_owner = true
-position = Vector2(94, 528)
+position = Vector2(336, 472)
 
 [node name="CarCamera" type="Camera2D" parent="."]
 offset = Vector2(30, 0)
