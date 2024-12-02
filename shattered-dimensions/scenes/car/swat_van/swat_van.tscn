@@ -189,3 +189,11 @@ node_b = NodePath("../FrontWheel")
 position = Vector2(-49, -16.1943)
 node_a = NodePath("..")
 node_b = NodePath("../BackWheel")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -53.0
+offset_top = -102.227
+offset_right = 97.0
+offset_bottom = -75.2267
+scale = Vector2(0.434742, 0.384409)

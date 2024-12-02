@@ -30,4 +30,6 @@ func _physics_process(delta: float) -> void:
 		escaped_label.position.y = %Car.position.y - 400
 		add_sibling(escaped_label)
 	
+	%HealthBar.value = health
+	
 	super(delta)
