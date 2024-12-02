@@ -32,6 +32,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		_shoot()
 		
+	%HealthBar.value = health
 	#if health <= 0:
 		#_lives -= 1
 		#health = 100

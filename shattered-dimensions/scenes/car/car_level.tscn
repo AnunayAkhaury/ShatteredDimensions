@@ -388,6 +388,7 @@ position = Vector2(-191, -240)
 scale = Vector2(1, 0.988)
 
 [node name="SwatVan" parent="." instance=ExtResource("4_pn4bw")]
+unique_name_in_owner = true
 position = Vector2(115, 459)
 scale = Vector2(1, 0.976144)
 

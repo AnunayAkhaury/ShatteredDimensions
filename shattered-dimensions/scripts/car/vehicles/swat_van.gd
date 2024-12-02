@@ -2,11 +2,13 @@ class_name SwatVan
 extends Vehicle
 
 var _defeated_by_player: bool
+var _showed_defeated_label: bool
 
 @onready var _escaped_label = preload("res://scenes/car/labels/defeated_police.tscn")
 
 func _init() -> void:
 	_defeated_by_player = false
+	_showed_defeated_label = false
 	_speed = 500
 	_max_speed = 60
 	super()
@@ -23,9 +25,9 @@ func _physics_process(delta: float) -> void:
 			if wheel.angular_velocity < _max_speed:
 				wheel.apply_torque_impulse(_speed * delta * 60)
 	
-	if health <= 0 and _defeated_by_player == true:
+	if health <= 0 and _defeated_by_player and !_showed_defeated_label:
 		var escaped_label = _escaped_label.instantiate() as Label
-		_defeated_by_player = false
+		_showed_defeated_label = true
 		escaped_label.position.x = %Car.position.x + 300
 		escaped_label.position.y = %Car.position.y - 400
 		add_sibling(escaped_label)

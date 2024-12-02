@@ -10,5 +10,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	position.x = car.position.x + _OFFSET
+	
+	if %SwatVan._defeated_by_player and _OFFSET < 200:
+		_OFFSET += 1
