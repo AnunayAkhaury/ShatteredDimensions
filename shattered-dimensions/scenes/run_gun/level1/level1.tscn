@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dcucy61y0vdtp"]
+[gd_scene load_steps=24 format=4 uid="uid://dcucy61y0vdtp"]
 
 [ext_resource type="Script" path="res://scripts/run_gun/run_gun_scene.gd" id="1_hjbtq"]
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="2_7s41g"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d0rv1sddxvjit" path="res://scenes/run_gun/enemies/soldier.tscn" id="7_pfkpg"]
 [ext_resource type="PackedScene" uid="uid://2j7ulvar0215" path="res://scenes/run_gun/level1/platform.tscn" id="8_6xheq"]
 [ext_resource type="PackedScene" uid="uid://ckf8i51m5c8qf" path="res://scenes/run_gun/player/health_bar/game_screen.tscn" id="10_tv1su"]
+[ext_resource type="PackedScene" uid="uid://dcx778gjmh3ll" path="res://scenes/run_gun/enemies/mech_unit.tscn" id="12_4ghep"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5olc5"]
 texture = ExtResource("3_hax1a")
@@ -767,3 +768,17 @@ autoplay = "up_down"
 position = Vector2(753, 200)
 is_shooter = true
 initial_facing = true
+
+[node name="MechUnit" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_4ghep")]
+position = Vector2(450, 258)
+speed = 33.0
+health = 5
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node2D" parent="MechUnit"]
+
+[node name="Point1" type="Marker2D" parent="MechUnit/PatrolPoints"]
+position = Vector2(122, 39)
+
+[node name="Point2" type="Marker2D" parent="MechUnit/PatrolPoints"]
+position = Vector2(-25, 40)

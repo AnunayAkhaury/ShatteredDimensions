@@ -39,7 +39,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"impact",
-"speed": 10.0
+"speed": 15.0
 }]
 
 [node name="BulletImpact" type="AnimatedSprite2D"]

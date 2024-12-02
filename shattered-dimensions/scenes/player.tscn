@@ -243,9 +243,8 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ftino"]
-radius = 9.0
-height = 32.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otmst"]
+size = Vector2(17, 30)
 
 [sub_resource type="Animation" id="Animation_iac7c"]
 resource_name = "idle"
@@ -308,8 +307,8 @@ autoplay = "idle"
 script = ExtResource("3_h0a6v")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(1, 3)
-shape = SubResource("CapsuleShape2D_ftino")
+position = Vector2(1.5, 4)
+shape = SubResource("RectangleShape2D_otmst")
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {

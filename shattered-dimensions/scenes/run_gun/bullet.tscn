@@ -50,7 +50,7 @@ radius = 6.08276
 [node name="Bullet" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_cm538")
 animation = &"shot"
-frame_progress = 0.0331368
+frame_progress = 0.0250814
 script = ExtResource("2_kwdt8")
 
 [node name="Timer" type="Timer" parent="."]

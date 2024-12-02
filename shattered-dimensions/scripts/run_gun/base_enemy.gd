@@ -64,6 +64,7 @@ func bind_player_input_commands():
 	shoot = EnemyShootCommand.new()
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
+	print("SHOT FIRED")
 	if area.get_parent().has_method("get_damage_amount"):
 		print("PROJECITLE ENTERED")
 		var node = area.get_parent() as Node

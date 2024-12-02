@@ -17,7 +17,7 @@ func bullet_impact():
 	get_parent().add_child(bullet_impact_instance)
 	queue_free()
 
-func get_damage_amount() -> int:
+func get_enemyproj_amount() -> int:
 		return damage_amount
 
 
