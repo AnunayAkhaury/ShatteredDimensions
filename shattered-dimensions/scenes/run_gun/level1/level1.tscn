@@ -722,7 +722,10 @@ texture = ExtResource("4_rg3lk")
 
 [node name="Soldier" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("7_pfkpg")]
 position = Vector2(889, 341)
+speed = 100.0
+health = 3
 patrol_points = NodePath("PatrolPoints")
+damage_amount = 1
 
 [node name="PatrolPoints" type="Node2D" parent="Enemies/Soldier"]
 
@@ -762,3 +765,10 @@ libraries = {
 autoplay = "up_down"
 
 [node name="GameScreen" parent="." instance=ExtResource("10_tv1su")]
+
+[node name="Soldier" parent="." instance=ExtResource("7_pfkpg")]
+position = Vector2(597, 202)
+rotation = 6.28319
+is_shooter = true
+health = 3
+damage_amount = 1

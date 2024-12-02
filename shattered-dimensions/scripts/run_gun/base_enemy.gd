@@ -13,6 +13,7 @@ var point_positions : Array[Vector2] = []
 var current_point : Vector2
 var current_point_position: int
 var patrol : Command
+var shoot_command: Command
 var attack_cooldown = 1.0
 var can_attack = true
 
@@ -22,6 +23,7 @@ var can_attack = true
 @export var damage_amount : int = 1
 @onready var animatedsprite: AnimatedSprite2D = $AnimatedSprite2D
 
+var bullet = preload("res://scenes/run_gun/enemies/enemy_projectile/enemy_bullet.tscn")
 
 func _ready() -> void:
 	bind_player_input_commands()
@@ -35,7 +37,10 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
-	
+	move_and_slide()
+	if patrol_points:
+		patrol.execute(self)
+		
 func apply_gravity(delta: float) -> void:
 	velocity.y += GRAVITY * delta
 
@@ -53,6 +58,7 @@ func bind_player_input_commands():
 	#fire1 = AttackCommand.new()
 	idle = IdleCommand.new()
 	patrol = PatrolCommand.new()
+	shoot = EnemyShootCommand.new()
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.get_parent().has_method("get_damage_amount"):
