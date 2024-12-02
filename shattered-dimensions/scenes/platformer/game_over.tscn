@@ -101,6 +101,7 @@ libraries = {
 autoplay = "expand"
 
 [node name="Exit" type="Button" parent="ColorRect"]
+layout_mode = 0
 offset_left = 493.0
 offset_top = 558.0
 offset_right = 662.0
@@ -110,6 +111,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_n8sum")
 text = "Return"
 
 [node name="Restart" type="Button" parent="ColorRect"]
+layout_mode = 0
 offset_left = 494.0
 offset_top = 500.0
 offset_right = 663.0

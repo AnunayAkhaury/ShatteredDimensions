@@ -262,6 +262,7 @@ horizontal_alignment = 1
 script = ExtResource("8_s2lh0")
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_ipefb")]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("9_v4hfv")]
 unique_name_in_owner = true
