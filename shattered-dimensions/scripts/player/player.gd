@@ -28,12 +28,18 @@ var player_death_effect = preload("res://scenes/run_gun/player/player_death_effe
 var knockback_active: bool = false  
 @onready var knockback_timer: Timer = $KnockbackTimer
 var is_damagable: bool = true 
+@onready var hurtbox : Area2D = $Hurtbox
+var crouching: bool = false
+var original_hit_box_shape : int
+var original_hit_box_y : int
+
 
 func _ready():
 	#animation_tree.active = true
 	bind_player_input_commands()
 	muzzle_position = muzzle.position
-
+	original_hit_box_shape = hitbox.shape.size.y
+	original_hit_box_y = hitbox.position.y
 func _physics_process(delta: float):
 	if knockback_active:
 		move_and_slide()
@@ -44,17 +50,27 @@ func _physics_process(delta: float):
 		get_tree().change_scene_to_file("res://scenes/platformer/game_over.tscn")
 		
 	var move_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	#flip_muzzle_position(move_input)
-	#if Input.is_action_just_pressed("attack"):
-		#fire1.execute(self)
 
 	if is_on_floor() and Input.is_action_pressed("crouch"):
-		velocity.x = 0
 		hitbox.shape.size.y = 22
 		hitbox.position.y = 8
+		if hurtbox != null and not crouching:
+			velocity.x = 0
+			crouching = true
+			hurtbox.scale = Vector2(0.8, 0.8)  
+			hurtbox.position.y = hurtbox.position.y + 10  
 		sprite.play("crouch")
+		move_and_slide()
 		return
-	
+		
+	if crouching and (!Input.is_action_pressed("crouch") or not is_on_floor()):
+		crouching = false
+		hitbox.position.y = original_hit_box_y
+		hitbox.shape.size.y = original_hit_box_shape
+		if hurtbox != null:
+			hurtbox.scale = Vector2(1, 1) 
+			hurtbox.position.y -= 10   
+			
 	if Input.is_action_just_pressed("shoot"):
 		if move_input == 0.0:
 			shoot.execute(self)
@@ -80,8 +96,6 @@ func _physics_process(delta: float):
 	super(delta)
 	#_manage_animation_tree_state()
 
-func set_level_specific_animations(run_anim: String) -> void:
-	run_gun_run_animation = run_anim
 
 # FUNCTIONS FOR PLATFORMER
 

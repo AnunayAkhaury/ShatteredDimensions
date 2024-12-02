@@ -4,9 +4,7 @@ extends Character
 const GRAVITY = 1000
 const SPEED = 1500
   
-enum State {Idle, Walk}
 var enemy_death_effect = preload("res://scenes/run_gun/enemies/enemy_death_effect.tscn")
-var current_state : State
 var direction : Vector2 =  Vector2.LEFT
 var number_of_points : int
 var point_positions : Array[Vector2] = []
@@ -14,8 +12,7 @@ var current_point : Vector2
 var current_point_position: int
 var patrol : Command
 var shoot_command: Command
-var attack_cooldown = 1.0
-var can_attack = true
+var damage_cooldown : bool =false
 
 @export var speed: float = 100
 @export var health: int = 3
@@ -23,6 +20,7 @@ var can_attack = true
 @export var damage_amount : int = 1
 @export var initial_facing: bool = false
 @onready var animatedsprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var hitflashplayer : AnimationPlayer = $HitFlashPlayer
 var bullet = preload("res://scenes/run_gun/enemies/enemy_projectile/enemy_bullet.tscn")
 
 func _ready() -> void:
@@ -64,9 +62,10 @@ func bind_player_input_commands():
 	shoot = EnemyShootCommand.new()
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	print("SHOT FIRED")
+	if damage_cooldown:
+		return
 	if area.get_parent().has_method("get_damage_amount"):
-		print("PROJECITLE ENTERED")
+		hitflashplayer.play("hit_flash")
 		var node = area.get_parent() as Node
 		health -= node.damage_amount
 		print(health)
@@ -75,3 +74,9 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			enemy_death_effect_instance.global_position = global_position
 			get_parent().add_child(enemy_death_effect_instance)
 			queue_free()
+		else:
+			$AttackTimer.start()
+			damage_cooldown = true
+
+func _on_attack_timer_timeout() -> void:
+	damage_cooldown = false

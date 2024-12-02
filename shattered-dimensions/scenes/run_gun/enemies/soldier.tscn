@@ -1,11 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0rv1sddxvjit"]
+[gd_scene load_steps=20 format=3 uid="uid://d0rv1sddxvjit"]
 
 [ext_resource type="Texture2D" uid="uid://b2pirall5f3na" path="res://assets/Sewers pack files/Assets/Spritesheets/soldier.png" id="1_ok2ug"]
 [ext_resource type="Script" path="res://scripts/run_gun/soldier.gd" id="1_yyatb"]
+[ext_resource type="Shader" uid="uid://cjlwlvtndb20s" path="res://scenes/run_gun/player/hit_flash.tres" id="2_pyhxj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oxhjs"]
 radius = 6.0
 height = 44.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ch78m"]
+shader = ExtResource("2_pyhxj")
+shader_parameter/enabled = false
+shader_parameter/ColorParameter = Color(0.897126, 0, 0.154434, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m7jvw"]
 atlas = ExtResource("1_ok2ug")
@@ -97,8 +103,33 @@ animations = [{
 radius = 14.0
 height = 54.0
 
+[sub_resource type="Animation" id="Animation_0tq5y"]
+length = 0.2667
+
+[sub_resource type="Animation" id="Animation_tnjpb"]
+resource_name = "hit_flash"
+length = 0.2667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ns45q"]
+_data = {
+"RESET": SubResource("Animation_0tq5y"),
+"hit_flash": SubResource("Animation_tnjpb")
+}
+
 [node name="Soldier" type="CharacterBody2D" groups=["enemy"]]
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.9, 0.9)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_yyatb")
@@ -108,6 +139,7 @@ position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_oxhjs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_ch78m")
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_xmun5")
 animation = &"shoot"
@@ -128,5 +160,15 @@ position = Vector2(29, -8)
 [node name="ShotTimer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="HitFlashPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ns45q")
+}
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.267
+one_shot = true
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
