@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://dr22enemd0ehl"]
+
+[ext_resource type="Texture2D" uid="uid://b85cecgjf4eil" path="res://assets/Legacy Collection/Legacy Collection/Assets/Misc/Explosions pack/explosion-1-f/Sprites.png" id="1_w3pn0"]
+[ext_resource type="Script" path="res://scripts/run_gun/enemy/enemy_bullet_impact.gd" id="2_hfvht"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbyf3"]
+atlas = ExtResource("1_w3pn0")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qr8k"]
+atlas = ExtResource("1_w3pn0")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by6v2"]
+atlas = ExtResource("1_w3pn0")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vox0v"]
+atlas = ExtResource("1_w3pn0")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcjyi"]
+atlas = ExtResource("1_w3pn0")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xii4n"]
+atlas = ExtResource("1_w3pn0")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18nea"]
+atlas = ExtResource("1_w3pn0")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xc76q"]
+atlas = ExtResource("1_w3pn0")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dr53y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbyf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qr8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by6v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vox0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcjyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xii4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18nea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xc76q")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"bullet_impact",
+"speed": 10.0
+}]
+
+[node name="EnemyBulletImpact" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_dr53y")
+animation = &"bullet_impact"
+autoplay = "bullet_impact"
+frame = 8
+frame_progress = 1.0
+script = ExtResource("2_hfvht")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

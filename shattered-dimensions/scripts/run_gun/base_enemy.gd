@@ -21,8 +21,8 @@ var can_attack = true
 @export var health: int = 3
 @export var patrol_points : Node
 @export var damage_amount : int = 1
+@export var initial_facing: bool = false
 @onready var animatedsprite: AnimatedSprite2D = $AnimatedSprite2D
-
 var bullet = preload("res://scenes/run_gun/enemies/enemy_projectile/enemy_bullet.tscn")
 
 func _ready() -> void:
@@ -34,7 +34,10 @@ func _ready() -> void:
 		for point in patrol_points.get_children():
 			point_positions.append(point.global_position)
 		current_point = point_positions[current_point_position]
-	
+	if initial_facing:
+		animatedsprite.flip_h = true
+		direction = Vector2.LEFT
+		
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
 	move_and_slide()

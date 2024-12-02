@@ -17,6 +17,11 @@ func _ready() -> void:
 	muzzle_position = muzzle.position
 	if is_shooter:
 		shot_timer.start()
+	if initial_facing:
+		animatedsprite.flip_h = true
+		direction = Vector2.LEFT
+		change_facing(Character.Facing.LEFT)
+		
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
 	move_and_slide()

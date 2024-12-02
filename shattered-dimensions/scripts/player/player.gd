@@ -194,7 +194,6 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 		HitAnimationPlayer.play("hit_flash")
 		HealthManager.decrease_health(body.damage_amount)
 	if HealthManager.current_health <= 0:
-		print("PLAYING DEATH")
 		player_death()
 
 func player_death() -> void:
@@ -206,3 +205,16 @@ func player_death() -> void:
 	
 func _on_knockback_timer_timeout() -> void:
 	knockback_active = false
+
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.get_parent().has_method("get_damage_amount") and not knockback_active:
+		var node = area.get_parent() as Node
+		var knockback_direction: Vector2 = (global_position - area.global_position).normalized()
+		velocity = knockback_direction * knockback_force
+		knockback_active = true
+		knockback_timer.start(0.33)
+		HitAnimationPlayer.play("hit_flash")
+		HealthManager.decrease_health(node.damage_amount)
+	if HealthManager.current_health <= 0:
+		player_death()
