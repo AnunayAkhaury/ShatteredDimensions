@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://b4hrc5xbxausp"]
+[gd_scene load_steps=10 format=4 uid="uid://b4hrc5xbxausp"]
 
 [ext_resource type="PackedScene" uid="uid://b5yh853uf0prf" path="res://scenes/car/bg.tscn" id="2_fhgbu"]
-[ext_resource type="PackedScene" uid="uid://bw2tt2h0046yk" path="res://scenes/car/car_node/T.tscn" id="2_qv8ml"]
+[ext_resource type="PackedScene" uid="uid://bw2tt2h0046yk" path="res://scenes/car/terrain.tscn" id="2_qv8ml"]
 [ext_resource type="PackedScene" uid="uid://bl2eeoldwnydu" path="res://scenes/car/car_node/car.tscn" id="4_4lvlx"]
 [ext_resource type="Texture2D" uid="uid://cusdkqvtkp0ou" path="res://assets/PhysicsCarGameAssets/Images/Terrain/jungle tileset.png" id="6_1a2t4"]
+[ext_resource type="PackedScene" uid="uid://bmemxcryvtusx" path="res://scenes/car/enemy_animation/bat/bat_animations.tscn" id="6_p3wkt"]
 [ext_resource type="Script" path="res://scripts/car/camera.gd" id="6_pwpbi"]
+[ext_resource type="PackedScene" uid="uid://cm8cgpnselc8i" path="res://scenes/car/enemy_animation/mushroom/mushroom_animals.tscn" id="7_d71j8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exbef"]
 texture = ExtResource("6_1a2t4")
@@ -119,10 +121,15 @@ texture = ExtResource("6_1a2t4")
 21:7/0 = 0
 27:7/0 = 0
 33:7/0 = 0
+33:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 34:7/0 = 0
+34:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 35:7/0 = 0
+35:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 36:7/0 = 0
+36:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 37:7/0 = 0
+37:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 41:7/0 = 0
 42:7/0 = 0
 43:7/0 = 0
@@ -140,7 +147,9 @@ texture = ExtResource("6_1a2t4")
 16:8/0 = 0
 17:8/0 = 0
 34:8/0 = 0
+34:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 36:8/0 = 0
+36:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 41:8/0 = 0
 42:8/0 = 0
 43:8/0 = 0
@@ -163,10 +172,15 @@ texture = ExtResource("6_1a2t4")
 30:9/0 = 0
 31:9/0 = 0
 33:9/0 = 0
+33:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 34:9/0 = 0
+34:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 35:9/0 = 0
+35:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 36:9/0 = 0
+36:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 37:9/0 = 0
+37:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 41:9/0 = 0
 42:9/0 = 0
 44:9/0 = 0
@@ -359,6 +373,7 @@ texture = ExtResource("6_1a2t4")
 25:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_upvmt"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_exbef")
 
 [node name="CarLevel" type="Node2D"]
@@ -378,8 +393,13 @@ offset = Vector2(30, 0)
 script = ExtResource("6_pwpbi")
 
 [node name="EnemyPlatform" type="TileMapLayer" parent="."]
-z_index = 1
 position = Vector2(-654, 607)
 scale = Vector2(1.34003, 1.44637)
 tile_map_data = PackedByteArray("AAC8APP/AAAUAAkAAAC8APX/AAAUAAsAAAC9APP/AAAVAAkAAAC9APX/AAAVAAsAAAC+APP/AAAWAAkAAAC+APX/AAAWAAsAAAC/APP/AAAXAAkAAAC/APT/AAAXAAoAAAC/APX/AAAXAAsAAADAAPP/AAAYAAkAAADAAPT/AAAYAAoAAADAAPX/AAAYAAsAAADBAPP/AAAZAAkAAADBAPX/AAAZAAsAAADCAPP/AAAaAAkAAADCAPX/AAAaAAsAAABEAfX/AAAUAAkAAABEAff/AAAUAAsAAABFAfX/AAAVAAkAAABFAff/AAAVAAsAAABGAfX/AAAWAAkAAABGAff/AAAWAAsAAABHAfX/AAAXAAkAAABHAfb/AAAXAAoAAABHAff/AAAXAAsAAABIAfX/AAAYAAkAAABIAfb/AAAYAAoAAABIAff/AAAYAAsAAABJAfX/AAAZAAkAAABJAff/AAAZAAsAAABKAfX/AAAaAAkAAABKAff/AAAaAAsAAACwAfX/AAAUAAkAAACwAff/AAAUAAsAAACxAfX/AAAVAAkAAACxAff/AAAVAAsAAACyAfX/AAAWAAkAAACyAff/AAAWAAsAAACzAfX/AAAXAAkAAACzAfb/AAAXAAoAAACzAff/AAAXAAsAAAC0AfX/AAAYAAkAAAC0Afb/AAAYAAoAAAC0Aff/AAAYAAsAAAC1AfX/AAAZAAkAAAC1Aff/AAAZAAsAAAC2AfX/AAAaAAkAAAC2Aff/AAAaAAsAAAABAu3/AAAUAAkAAAABAu//AAAUAAsAAAACAu3/AAAVAAkAAAACAu//AAAVAAsAAAADAu3/AAAWAAkAAAADAu//AAAWAAsAAAAEAu3/AAAXAAkAAAAEAu7/AAAXAAoAAAAEAu//AAAXAAsAAAAFAu3/AAAYAAkAAAAFAu7/AAAYAAoAAAAFAu//AAAYAAsAAAAGAu3/AAAZAAkAAAAGAu//AAAZAAsAAAAHAu3/AAAaAAkAAAAHAu//AAAaAAsAAAAsAvL/AAAUAAkAAAAsAvT/AAAUAAsAAAAtAvL/AAAVAAkAAAAtAvT/AAAVAAsAAAAuAvL/AAAWAAkAAAAuAvT/AAAWAAsAAAAvAvL/AAAXAAkAAAAvAvP/AAAXAAoAAAAvAvT/AAAXAAsAAAAwAvL/AAAYAAkAAAAwAvP/AAAYAAoAAAAwAvT/AAAYAAsAAAAxAvL/AAAZAAkAAAAxAvT/AAAZAAsAAAAyAvL/AAAaAAkAAAAyAvT/AAAaAAsAAAB9Aez/AAAdAAkAAAB9Ae3/AAAdAAoAAAB9Ae7/AAAdAAsAAAB+Aez/AAAeAAkAAAB+Ae7/AAAeAAsAAAB/Aez/AAAfAAkAAAB/Ae3/AAAfAAoAAAB/Ae7/AAAfAAsAAABcAuv/AAAdAAkAAABcAuz/AAAdAAoAAABcAu3/AAAdAAsAAABdAuv/AAAeAAkAAABdAu3/AAAeAAsAAABeAuv/AAAfAAkAAABeAuz/AAAfAAoAAABeAu3/AAAfAAsAAACbAvD/AAAdAAkAAACbAvH/AAAdAAoAAACbAvL/AAAdAAsAAACcAvD/AAAeAAkAAACcAvL/AAAeAAsAAACdAvD/AAAfAAkAAACdAvH/AAAfAAoAAACdAvL/AAAfAAsAAADjAOv/AAAdAAkAAADkAOv/AAAeAAkAAADjAOz/AAAdAAoAAADjAO3/AAAdAAsAAADkAO3/AAAeAAsAAADlAOv/AAAfAAkAAADlAOz/AAAfAAoAAADlAO3/AAAfAAsAAAA=")
 tile_set = SubResource("TileSet_upvmt")
+
+[node name="BatAnimations" parent="." instance=ExtResource("6_p3wkt")]
+position = Vector2(3395, 267)
+
+[node name="MushroomAnimals" parent="." instance=ExtResource("7_d71j8")]
+position = Vector2(4233, 66)
