@@ -21,10 +21,10 @@ var run_gun_idle_animation: String
 var bullet = preload("res://scenes/run_gun/bullet.tscn")
 @onready var muzzle : Marker2D = $Muzzle
 var muzzle_position
-@onready var HitAnimationPlayer = $HitAnimationPlayer
-#var player_death_effect = preload("res://scenes/run_gun/player/player_death_effect.tscn")
+@onready var HitAnimationPlayer = $AnimationPlayer
+var player_death_effect = preload("res://scenes/run_gun/player/player_death_effect.tscn")
 @onready var hitbox: CollisionShape2D = $CollisionShape2D
-@export var knockback_force: float = 300.0  
+@export var knockback_force: float = 300 
 var knockback_active: bool = false  
 @onready var knockback_timer: Timer = $KnockbackTimer
 var is_damagable: bool = true 
@@ -190,19 +190,19 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 		var knockback_direction: Vector2 = (position - body.position).normalized()
 		velocity = knockback_direction * knockback_force
 		knockback_active = true
-		knockback_timer.start(0.5)
-		#HitAnimationPlayer.play("hit_flash")
+		knockback_timer.start(0.33)
+		HitAnimationPlayer.play("hit_flash")
 		HealthManager.decrease_health(body.damage_amount)
-	#if HealthManager.current_health <= 0:
-		#print("PLAYING DEATH")
-		#player_death()
-#
-#func player_death() -> void:
-	#var player_death_instance = player_death_effect.instantiate() as Node2D
-	#player_death_instance.global_position = global_position
-	#print(player_death_instance)
-	#get_parent().add_child(player_death_instance)
-	#queue_free()
+	if HealthManager.current_health <= 0:
+		print("PLAYING DEATH")
+		player_death()
+
+func player_death() -> void:
+	var player_death_instance = player_death_effect.instantiate() as Node2D
+	player_death_instance.global_position = global_position
+	print(player_death_instance)
+	get_parent().add_child(player_death_instance)
+	queue_free()
 	
 func _on_knockback_timer_timeout() -> void:
 	knockback_active = false

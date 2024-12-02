@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=4 uid="uid://dcucy61y0vdtp"]
+[gd_scene load_steps=23 format=4 uid="uid://dcucy61y0vdtp"]
 
 [ext_resource type="Script" path="res://scripts/run_gun/run_gun_scene.gd" id="1_hjbtq"]
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="2_7s41g"]
+[ext_resource type="Script" path="res://scripts/player/player_camera.gd" id="3_2elpw"]
 [ext_resource type="Texture2D" uid="uid://bmiuqcsf1lhm" path="res://assets/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="3_hax1a"]
 [ext_resource type="Texture2D" uid="uid://d168qiwc8d7hy" path="res://assets/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1B.png" id="4_0l4ow"]
 [ext_resource type="Texture2D" uid="uid://csuhxb87lped7" path="res://assets/Free Pixel Art Futuristic City/PREVIEWS/City.png" id="4_rg3lk"]
@@ -688,13 +689,16 @@ script = ExtResource("1_hjbtq")
 [node name="Character" parent="." instance=ExtResource("2_7s41g")]
 position = Vector2(22, 301)
 
-[node name="Camera2D" type="Camera2D" parent="Character"]
+[node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(22, 301)
 zoom = Vector2(1.485, 1.485)
 limit_left = 0
 limit_top = 0
 limit_right = 1316134912
 limit_bottom = 1316134912
 position_smoothing_enabled = true
+script = ExtResource("3_2elpw")
+player = NodePath("../Character")
 
 [node name="MapLayers" type="Node2D" parent="."]
 position = Vector2(579, 313)
