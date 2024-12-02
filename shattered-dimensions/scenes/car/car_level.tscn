@@ -1,131 +1,373 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4hrc5xbxausp"]
+[gd_scene load_steps=8 format=4 uid="uid://b4hrc5xbxausp"]
 
-[ext_resource type="Script" path="res://scripts/car/terrains/terrain.gd" id="2_cwath"]
 [ext_resource type="PackedScene" uid="uid://b5yh853uf0prf" path="res://scenes/car/bg.tscn" id="2_fhgbu"]
-[ext_resource type="Texture2D" uid="uid://px7wrdvytfkg" path="res://assets/32 Backgrounds Free!/Horizontal/parallax background/Screenshot 2024-11-29 at 11.01.22 PM.png" id="3_7stbd"]
+[ext_resource type="PackedScene" uid="uid://bw2tt2h0046yk" path="res://scenes/car/car_node/T.tscn" id="2_qv8ml"]
 [ext_resource type="PackedScene" uid="uid://bl2eeoldwnydu" path="res://scenes/car/car_node/car.tscn" id="4_4lvlx"]
+[ext_resource type="Texture2D" uid="uid://cusdkqvtkp0ou" path="res://assets/PhysicsCarGameAssets/Images/Terrain/jungle tileset.png" id="6_1a2t4"]
 [ext_resource type="Script" path="res://scripts/car/camera.gd" id="6_pwpbi"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jypei"]
-load_path = "res://.godot/imported/grass (1).png-a40269199f52e59d686ff56d6f903c6d.ctex"
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exbef"]
+texture = ExtResource("6_1a2t4")
+19:1/0 = 0
+21:1/0 = 0
+25:1/0 = 0
+27:1/0 = 0
+36:1/0 = 0
+38:1/0 = 0
+41:1/0 = 0
+43:1/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+13:2/0 = 0
+15:2/0 = 0
+19:2/0 = 0
+21:2/0 = 0
+25:2/0 = 0
+27:2/0 = 0
+35:2/0 = 0
+36:2/0 = 0
+37:2/0 = 0
+38:2/0 = 0
+39:2/0 = 0
+41:2/0 = 0
+42:2/0 = 0
+43:2/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+15:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+24:3/0 = 0
+25:3/0 = 0
+26:3/0 = 0
+27:3/0 = 0
+28:3/0 = 0
+29:3/0 = 0
+36:3/0 = 0
+38:3/0 = 0
+41:3/0 = 0
+43:3/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+25:4/0 = 0
+26:4/0 = 0
+27:4/0 = 0
+35:4/0 = 0
+36:4/0 = 0
+37:4/0 = 0
+38:4/0 = 0
+39:4/0 = 0
+41:4/0 = 0
+42:4/0 = 0
+43:4/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+15:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+24:5/0 = 0
+25:5/0 = 0
+26:5/0 = 0
+27:5/0 = 0
+28:5/0 = 0
+29:5/0 = 0
+36:5/0 = 0
+38:5/0 = 0
+41:5/0 = 0
+43:5/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+15:6/0 = 0
+19:6/0 = 0
+21:6/0 = 0
+25:6/0 = 0
+27:6/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+19:7/0 = 0
+21:7/0 = 0
+27:7/0 = 0
+33:7/0 = 0
+34:7/0 = 0
+35:7/0 = 0
+36:7/0 = 0
+37:7/0 = 0
+41:7/0 = 0
+42:7/0 = 0
+43:7/0 = 0
+44:7/0 = 0
+45:7/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+34:8/0 = 0
+36:8/0 = 0
+41:8/0 = 0
+42:8/0 = 0
+43:8/0 = 0
+44:8/0 = 0
+45:8/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+29:9/0 = 0
+30:9/0 = 0
+31:9/0 = 0
+33:9/0 = 0
+34:9/0 = 0
+35:9/0 = 0
+36:9/0 = 0
+37:9/0 = 0
+41:9/0 = 0
+42:9/0 = 0
+44:9/0 = 0
+45:9/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+17:10/0 = 0
+18:10/0 = 0
+23:10/0 = 0
+23:10/0/z_index = 1
+24:10/0 = 0
+24:10/0/z_index = 1
+29:10/0 = 0
+31:10/0 = 0
+41:10/0 = 0
+42:10/0 = 0
+43:10/0 = 0
+44:10/0 = 0
+45:10/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+16:11/0 = 0
+17:11/0 = 0
+20:11/0 = 0
+20:11/0/z_index = 1
+21:11/0 = 0
+21:11/0/z_index = 1
+22:11/0 = 0
+22:11/0/z_index = 1
+23:11/0 = 0
+23:11/0/z_index = 1
+24:11/0 = 0
+24:11/0/z_index = 1
+25:11/0 = 0
+25:11/0/z_index = 1
+26:11/0 = 0
+26:11/0/z_index = 1
+29:11/0 = 0
+30:11/0 = 0
+31:11/0 = 0
+41:11/0 = 0
+42:11/0 = 0
+43:11/0 = 0
+44:11/0 = 0
+45:11/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+16:13/0 = 0
+17:13/0 = 0
+19:13/0 = 0
+20:13/0 = 0
+22:13/0 = 0
+23:13/0 = 0
+24:13/0 = 0
+27:13/0 = 0
+28:13/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+16:14/0 = 0
+17:14/0 = 0
+19:14/0 = 0
+20:14/0 = 0
+22:14/0 = 0
+23:14/0 = 0
+24:14/0 = 0
+26:14/0 = 0
+27:14/0 = 0
+28:14/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+16:15/0 = 0
+17:15/0 = 0
+22:15/0 = 0
+23:15/0 = 0
+24:15/0 = 0
+26:15/0 = 0
+27:15/0 = 0
+44:15/0 = 0
+12:16/0 = 0
+13:16/0 = 0
+16:16/0 = 0
+17:16/0 = 0
+31:16/0 = 0
+34:16/0 = 0
+35:16/0 = 0
+37:16/0 = 0
+38:16/0 = 0
+43:16/0 = 0
+44:16/0 = 0
+45:16/0 = 0
+12:17/0 = 0
+13:17/0 = 0
+14:17/0 = 0
+15:17/0 = 0
+16:17/0 = 0
+17:17/0 = 0
+19:17/0 = 0
+21:17/0 = 0
+22:17/0 = 0
+23:17/0 = 0
+25:17/0 = 0
+26:17/0 = 0
+27:17/0 = 0
+30:17/0 = 0
+31:17/0 = 0
+32:17/0 = 0
+34:17/0 = 0
+35:17/0 = 0
+36:17/0 = 0
+37:17/0 = 0
+38:17/0 = 0
+42:17/0 = 0
+43:17/0 = 0
+44:17/0 = 0
+45:17/0 = 0
+46:17/0 = 0
+12:18/0 = 0
+13:18/0 = 0
+14:18/0 = 0
+15:18/0 = 0
+16:18/0 = 0
+17:18/0 = 0
+25:18/0 = 0
+27:18/0 = 0
+31:18/0 = 0
+35:18/0 = 0
+36:18/0 = 0
+37:18/0 = 0
+43:18/0 = 0
+44:18/0 = 0
+45:18/0 = 0
+25:19/0 = 0
+26:19/0 = 0
+27:19/0 = 0
+34:19/0 = 0
+35:19/0 = 0
+36:19/0 = 0
+37:19/0 = 0
+38:19/0 = 0
+44:19/0 = 0
+34:20/0 = 0
+35:20/0 = 0
+37:20/0 = 0
+38:20/0 = 0
+26:2/0 = 0
+22:3/0 = 0
+20:9/0 = 0
+20:9/0/z_index = 1
+21:9/0 = 0
+21:9/0/z_index = 1
+22:9/0 = 0
+22:9/0/z_index = 1
+23:9/0 = 0
+23:9/0/z_index = 1
+24:9/0 = 0
+24:9/0/z_index = 1
+25:9/0 = 0
+25:9/0/z_index = 1
+26:9/0 = 0
+26:9/0/z_index = 1
+25:7/0 = 0
 
-[sub_resource type="Curve2D" id="Curve2D_r86vn"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1079.51, 316.611, -170.509, 98.5817, 170.509, -98.5817, -592.3, 295.403, -72.679, -14.9824, 72.679, 14.9824, -41.3973, 336.305, -159.894, 25.3549, 159.894, -25.3549, 391.682, 222.688, -241.052, 9.21996, 241.052, -9.21996, 719.676, 278.739, -176.852, -51.8623, 176.852, 51.8623, 1065.18, 371.147, -144.147, 9.21996, 144.147, -9.21996, 1405.92, 277.224, -259.222, 58.7772, 259.222, -58.7772, 2009.36, 375.692, -201.078, 19.5924, 201.078, -19.5924, 2362.83, 252.986, 0, 0, 0, 0, 2759.29, 346.909, 0, 0, 0, 0, 2754.51, 487.794, 0, 0, 0, 0, -1081.11, 490.823)
-}
-point_count = 12
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0tq8v"]
-load_path = "res://.godot/imported/terrain_image.jpg-c89c1b6aa5e7e94a7a2b867910ba54b6.ctex"
+[sub_resource type="TileSet" id="TileSet_upvmt"]
+sources/0 = SubResource("TileSetAtlasSource_exbef")
 
 [node name="CarLevel" type="Node2D"]
 
 [node name="Bg" parent="." instance=ExtResource("2_fhgbu")]
 
-[node name="Terrain" type="StaticBody2D" parent="."]
-position = Vector2(571, 397)
-scale = Vector2(0.62806, 0.660115)
-script = ExtResource("2_cwath")
-
-[node name="Line2D" type="Line2D" parent="Terrain"]
-texture_repeat = 2
-width = 65.0
-texture = SubResource("CompressedTexture2D_jypei")
-texture_mode = 1
-
-[node name="Path2D" type="Path2D" parent="Terrain"]
-position = Vector2(-14.3299, -118.161)
-curve = SubResource("Curve2D_r86vn")
-
-[node name="Polygon2D" type="Polygon2D" parent="Terrain"]
-texture_repeat = 2
-texture = ExtResource("3_7stbd")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain"]
-
-[node name="Terrain2" type="StaticBody2D" parent="."]
-position = Vector2(2949, 397)
-scale = Vector2(0.62806, 0.660115)
-script = ExtResource("2_cwath")
-
-[node name="Line2D" type="Line2D" parent="Terrain2"]
-texture_repeat = 2
-width = 65.0
-texture = SubResource("CompressedTexture2D_jypei")
-texture_mode = 1
-
-[node name="Path2D" type="Path2D" parent="Terrain2"]
-position = Vector2(-14.3299, -118.161)
-curve = SubResource("Curve2D_r86vn")
-
-[node name="Polygon2D" type="Polygon2D" parent="Terrain2"]
-texture_repeat = 2
-texture = SubResource("CompressedTexture2D_0tq8v")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain2"]
-
-[node name="Terrain3" type="StaticBody2D" parent="."]
-position = Vector2(5320, 395)
-scale = Vector2(0.62806, 0.660115)
-script = ExtResource("2_cwath")
-
-[node name="Line2D" type="Line2D" parent="Terrain3"]
-texture_repeat = 2
-width = 65.0
-texture = SubResource("CompressedTexture2D_jypei")
-texture_mode = 1
-
-[node name="Path2D" type="Path2D" parent="Terrain3"]
-position = Vector2(-14.3299, -118.161)
-curve = SubResource("Curve2D_r86vn")
-
-[node name="Polygon2D" type="Polygon2D" parent="Terrain3"]
-texture_repeat = 2
-texture = SubResource("CompressedTexture2D_0tq8v")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain3"]
-
-[node name="Terrain4" type="StaticBody2D" parent="."]
-position = Vector2(7695, 392)
-scale = Vector2(0.62806, 0.660115)
-script = ExtResource("2_cwath")
-
-[node name="Line2D" type="Line2D" parent="Terrain4"]
-texture_repeat = 2
-width = 65.0
-texture = SubResource("CompressedTexture2D_jypei")
-texture_mode = 1
-
-[node name="Path2D" type="Path2D" parent="Terrain4"]
-position = Vector2(-14.3299, -118.161)
-curve = SubResource("Curve2D_r86vn")
-
-[node name="Polygon2D" type="Polygon2D" parent="Terrain4"]
-texture_repeat = 2
-texture = SubResource("CompressedTexture2D_0tq8v")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain4"]
-
-[node name="Terrain5" type="StaticBody2D" parent="."]
-position = Vector2(10075, 393)
-scale = Vector2(0.62806, 0.660115)
-script = ExtResource("2_cwath")
-
-[node name="Line2D" type="Line2D" parent="Terrain5"]
-texture_repeat = 2
-width = 65.0
-texture = SubResource("CompressedTexture2D_jypei")
-texture_mode = 1
-
-[node name="Path2D" type="Path2D" parent="Terrain5"]
-position = Vector2(-14.3299, -118.161)
-curve = SubResource("Curve2D_r86vn")
-
-[node name="Polygon2D" type="Polygon2D" parent="Terrain5"]
-texture_repeat = 2
-texture = SubResource("CompressedTexture2D_0tq8v")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain5"]
+[node name="TerrainFinal" parent="." instance=ExtResource("2_qv8ml")]
+position = Vector2(-191, -240)
+scale = Vector2(1, 0.988)
 
 [node name="Car" parent="." instance=ExtResource("4_4lvlx")]
 unique_name_in_owner = true
@@ -134,3 +376,10 @@ position = Vector2(94, 528)
 [node name="CarCamera" type="Camera2D" parent="."]
 offset = Vector2(30, 0)
 script = ExtResource("6_pwpbi")
+
+[node name="EnemyPlatform" type="TileMapLayer" parent="."]
+z_index = 1
+position = Vector2(-654, 607)
+scale = Vector2(1.34003, 1.44637)
+tile_map_data = PackedByteArray("AAC8APP/AAAUAAkAAAC8APX/AAAUAAsAAAC9APP/AAAVAAkAAAC9APX/AAAVAAsAAAC+APP/AAAWAAkAAAC+APX/AAAWAAsAAAC/APP/AAAXAAkAAAC/APT/AAAXAAoAAAC/APX/AAAXAAsAAADAAPP/AAAYAAkAAADAAPT/AAAYAAoAAADAAPX/AAAYAAsAAADBAPP/AAAZAAkAAADBAPX/AAAZAAsAAADCAPP/AAAaAAkAAADCAPX/AAAaAAsAAABEAfX/AAAUAAkAAABEAff/AAAUAAsAAABFAfX/AAAVAAkAAABFAff/AAAVAAsAAABGAfX/AAAWAAkAAABGAff/AAAWAAsAAABHAfX/AAAXAAkAAABHAfb/AAAXAAoAAABHAff/AAAXAAsAAABIAfX/AAAYAAkAAABIAfb/AAAYAAoAAABIAff/AAAYAAsAAABJAfX/AAAZAAkAAABJAff/AAAZAAsAAABKAfX/AAAaAAkAAABKAff/AAAaAAsAAACwAfX/AAAUAAkAAACwAff/AAAUAAsAAACxAfX/AAAVAAkAAACxAff/AAAVAAsAAACyAfX/AAAWAAkAAACyAff/AAAWAAsAAACzAfX/AAAXAAkAAACzAfb/AAAXAAoAAACzAff/AAAXAAsAAAC0AfX/AAAYAAkAAAC0Afb/AAAYAAoAAAC0Aff/AAAYAAsAAAC1AfX/AAAZAAkAAAC1Aff/AAAZAAsAAAC2AfX/AAAaAAkAAAC2Aff/AAAaAAsAAAABAu3/AAAUAAkAAAABAu//AAAUAAsAAAACAu3/AAAVAAkAAAACAu//AAAVAAsAAAADAu3/AAAWAAkAAAADAu//AAAWAAsAAAAEAu3/AAAXAAkAAAAEAu7/AAAXAAoAAAAEAu//AAAXAAsAAAAFAu3/AAAYAAkAAAAFAu7/AAAYAAoAAAAFAu//AAAYAAsAAAAGAu3/AAAZAAkAAAAGAu//AAAZAAsAAAAHAu3/AAAaAAkAAAAHAu//AAAaAAsAAAAsAvL/AAAUAAkAAAAsAvT/AAAUAAsAAAAtAvL/AAAVAAkAAAAtAvT/AAAVAAsAAAAuAvL/AAAWAAkAAAAuAvT/AAAWAAsAAAAvAvL/AAAXAAkAAAAvAvP/AAAXAAoAAAAvAvT/AAAXAAsAAAAwAvL/AAAYAAkAAAAwAvP/AAAYAAoAAAAwAvT/AAAYAAsAAAAxAvL/AAAZAAkAAAAxAvT/AAAZAAsAAAAyAvL/AAAaAAkAAAAyAvT/AAAaAAsAAAB9Aez/AAAdAAkAAAB9Ae3/AAAdAAoAAAB9Ae7/AAAdAAsAAAB+Aez/AAAeAAkAAAB+Ae7/AAAeAAsAAAB/Aez/AAAfAAkAAAB/Ae3/AAAfAAoAAAB/Ae7/AAAfAAsAAABcAuv/AAAdAAkAAABcAuz/AAAdAAoAAABcAu3/AAAdAAsAAABdAuv/AAAeAAkAAABdAu3/AAAeAAsAAABeAuv/AAAfAAkAAABeAuz/AAAfAAoAAABeAu3/AAAfAAsAAACbAvD/AAAdAAkAAACbAvH/AAAdAAoAAACbAvL/AAAdAAsAAACcAvD/AAAeAAkAAACcAvL/AAAeAAsAAACdAvD/AAAfAAkAAACdAvH/AAAfAAoAAACdAvL/AAAfAAsAAADjAOv/AAAdAAkAAADkAOv/AAAeAAkAAADjAOz/AAAdAAoAAADjAO3/AAAdAAsAAADkAO3/AAAeAAsAAADlAOv/AAAfAAkAAADlAOz/AAAfAAoAAADlAO3/AAAfAAsAAAA=")
+tile_set = SubResource("TileSet_upvmt")
