@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://b4hrc5xbxausp"]
+[gd_scene load_steps=11 format=4 uid="uid://b4hrc5xbxausp"]
 
 [ext_resource type="PackedScene" uid="uid://b5yh853uf0prf" path="res://scenes/car/bg.tscn" id="2_fhgbu"]
 [ext_resource type="PackedScene" uid="uid://bw2tt2h0046yk" path="res://scenes/car/terrain.tscn" id="2_qv8ml"]
@@ -376,6 +376,8 @@ texture = ExtResource("6_1a2t4")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_exbef")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xkm6"]
+
 [node name="CarLevel" type="Node2D"]
 
 [node name="Bg" parent="." instance=ExtResource("2_fhgbu")]
@@ -403,3 +405,19 @@ position = Vector2(3395, 267)
 
 [node name="MushroomAnimals" parent="." instance=ExtResource("7_d71j8")]
 position = Vector2(4233, 66)
+
+[node name="RightBoundary" type="StaticBody2D" parent="."]
+position = Vector2(6444, 3112)
+scale = Vector2(30, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary"]
+position = Vector2(352.5, -91.9667)
+shape = SubResource("RectangleShape2D_4xkm6")
+
+[node name="LeftBoundary" type="StaticBody2D" parent="."]
+position = Vector2(6444, 3112)
+scale = Vector2(30, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary"]
+position = Vector2(-224.933, -92.2)
+shape = SubResource("RectangleShape2D_4xkm6")

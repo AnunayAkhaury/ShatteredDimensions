@@ -3,8 +3,6 @@ extends Node2D
 var bat_attack_sprite: Sprite2D
 var bat_attack : AnimationPlayer
 
-var bat
-
 func _ready() -> void:
 	bat_attack_sprite = $BatAttack
 	bat_attack = $BatAttack/AnimationPlayer
