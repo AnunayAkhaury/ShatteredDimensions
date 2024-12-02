@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://btsbd5mqjw3so"]
+
+[node name="DefeatedPolice" type="Label"]
+scale = Vector2(1.80127, 1.85474)
+text = "You escaped the S.W.A.T!"

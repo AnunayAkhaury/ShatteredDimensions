@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://xu6eycwicik0"]
+
+[node name="CaughtByPolice" type="Label"]
+offset_right = 320.0
+offset_bottom = 23.0
+scale = Vector2(1.82157, 1.77495)
+text = "You weren't fast enough, you got caught! "
