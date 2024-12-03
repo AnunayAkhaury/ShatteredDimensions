@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c2drdwp2dlcef"]
+[gd_scene load_steps=24 format=3 uid="uid://ckwlecwxityee"]
 
 [ext_resource type="Script" path="res://scripts/car/bullet.gd" id="1_e7qyh"]
 [ext_resource type="Texture2D" uid="uid://bkgt3lw1v0ppt" path="res://assets/All_Fire_Bullet_Pixel_16x16.png" id="2_nbwxv"]

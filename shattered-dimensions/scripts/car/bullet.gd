@@ -10,6 +10,7 @@ var _speed = 1000
 var _direction: Vector2
 var _timer: Timer
 
+@onready var bullet = preload("res://scenes/car/bullet.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
