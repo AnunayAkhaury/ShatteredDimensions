@@ -7,6 +7,7 @@ var _showed_defeated_label: bool
 @onready var _escaped_label = preload("res://scenes/car/labels/defeated_police.tscn")
 
 func _init() -> void:
+	character_type = Characters.Type.ENEMY
 	_defeated_by_player = false
 	_showed_defeated_label = false
 	_speed = 500

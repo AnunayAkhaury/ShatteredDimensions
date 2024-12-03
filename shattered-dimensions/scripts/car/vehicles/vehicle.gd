@@ -2,6 +2,7 @@ class_name Vehicle
 extends RigidBody2D
 
 var health: int
+var character_type: Characters.Type
 
 var _speed: float
 var _max_speed: float

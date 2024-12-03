@@ -6,6 +6,7 @@ var _lives: int
 @onready var bullet = preload("res://scenes/car/bullet.tscn")
 
 func _init() -> void:
+	character_type = Characters.Type.PLAYER_CAR
 	_lives = 5
 	_speed = 500
 	_max_speed = 40
@@ -42,6 +43,7 @@ func _physics_process(delta: float) -> void:
 func _shoot() -> void:
 	var cur_bullet = bullet.instantiate() as Bullet
 	cur_bullet.damage = 2
+	cur_bullet.bullet_origin = Characters.Type.PLAYER_CAR
 	cur_bullet.start_pos = position + Vector2(30, -90)
 	cur_bullet.target_pos = get_global_mouse_position()
 	add_sibling(cur_bullet)

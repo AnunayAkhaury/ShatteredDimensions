@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://cm8cgpnselc8i"]
 
-[ext_resource type="Script" path="res://scripts/car/enemy/mushroom_animations.gd" id="1_rxx4e"]
+[ext_resource type="Script" path="res://scripts/car/enemy/mushroom.gd" id="1_rxx4e"]
 [ext_resource type="Texture2D" uid="uid://7emx2gkhw2bq" path="res://assets/CarLevel/Enemy/mushroom/Attack.png" id="2_sbcsh"]
 [ext_resource type="Texture2D" uid="uid://btgn46gmsv4dx" path="res://assets/CarLevel/Enemy/mushroom/Death.png" id="3_awpwh"]
 [ext_resource type="Texture2D" uid="uid://biwfvpdottjw4" path="res://assets/CarLevel/Enemy/mushroom/Idle.png" id="4_x7l6w"]

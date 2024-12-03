@@ -4,10 +4,12 @@ extends Area2D
 var damage: int
 var start_pos: Vector2
 var target_pos: Vector2
+var bullet_origin: Characters.Type
 var _speed = 1000
 var _direction: Vector2
 var _timer: Timer
 
+@export var visibility_notifier: VisibleOnScreenNotifier2D
 @onready var bullet = preload("res://scenes/car/bullet.tscn")
 
 
@@ -15,6 +17,7 @@ var _timer: Timer
 func _ready() -> void:
 	position = start_pos
 	_direction = (target_pos - position).normalized()
+	visibility_notifier.screen_exited.connect(queue_free)
 	#_timer = Timer.new()
 	#_timer.start()x
 

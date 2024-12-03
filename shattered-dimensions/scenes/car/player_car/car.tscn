@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bl2eeoldwnydu"]
+[gd_scene load_steps=27 format=3 uid="uid://bl2eeoldwnydu"]
 
 [ext_resource type="Script" path="res://scripts/car/vehicles/player_car.gd" id="1_0wm3u"]
 [ext_resource type="Texture2D" uid="uid://civ3a8pns8i74" path="res://assets/humvee/humvee-no-tires.png" id="1_wc20t"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cart612wkg4y5" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-run.png" id="5_7pis0"]
 [ext_resource type="Script" path="res://scripts/player/animated_sprite_2d.gd" id="6_t0i4d"]
 [ext_resource type="Script" path="res://scripts/car/crash_box.gd" id="9_7t1ob"]
+[ext_resource type="Script" path="res://scripts/car/hurt_box.gd" id="9_khlvy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kw7ln"]
 atlas = ExtResource("2_w5tmd")
@@ -179,6 +180,13 @@ node_b = NodePath("../FrontWheel")
 position = Vector2(-55, -20.2429)
 node_a = NodePath("..")
 node_b = NodePath("../BackWheel")
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("9_khlvy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox"]
+position = Vector2(-6, -47.5709)
+polygon = PackedVector2Array(-64, 17, -69, 11, -68, -6, -37, -26, 30, -26, 75, 5, 76, 16, 72, 18, 30, 31, -25, 31)
 
 [node name="CrashBox" type="Area2D" parent="."]
 script = ExtResource("9_7t1ob")
