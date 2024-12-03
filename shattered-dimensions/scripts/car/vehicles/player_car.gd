@@ -1,14 +1,14 @@
 class_name PlayerCar
 extends Vehicle
 
-var _lives: int
+var lives: int
 
 @onready var bullet = preload("res://scenes/car/bullet.tscn")
 
 func _init() -> void:
 	character_type = Characters.Type.PLAYER_CAR
-	_lives = 5
-	_speed = 500
+	lives = 5
+	_speed = 600
 	_max_speed = 40
 	super()
 
@@ -34,9 +34,11 @@ func _physics_process(delta: float) -> void:
 		_shoot()
 		
 	%HealthBar.value = health
-	#if health <= 0:
-		#_lives -= 1
-		#health = 100
+	
+	if lives <= 0:
+		get_tree().change_scene_to_file("res://scenes/car/game_over.tscn")
+	#elif health <= 0:
+		#respawn()
 		
 	super(delta)
 		
@@ -47,5 +49,10 @@ func _shoot() -> void:
 	cur_bullet.start_pos = position + Vector2(30, -90)
 	cur_bullet.target_pos = get_global_mouse_position()
 	add_sibling(cur_bullet)
+	
+func respawn() -> void:
+	lives -= 1
+	health = 100
+	#get_tree().reload_current_scene()
 	
 	

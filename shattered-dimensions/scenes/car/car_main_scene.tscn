@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8qi10a8dtboc"]
+
+[ext_resource type="PackedScene" uid="uid://c37auavbmu8ye" path="res://scenes/car/labels/lives.tscn" id="1_w2sxp"]
+[ext_resource type="PackedScene" uid="uid://b4hrc5xbxausp" path="res://scenes/car/car_level.tscn" id="2_b5abn"]
+
+[node name="CarMainScene" type="Node2D"]
+
+[node name="Lives2" parent="." instance=ExtResource("1_w2sxp")]
+unique_name_in_owner = true
+
+[node name="CarLevel" parent="." instance=ExtResource("2_b5abn")]
+unique_name_in_owner = true

@@ -10,7 +10,7 @@ func _init() -> void:
 	character_type = Characters.Type.ENEMY
 	_defeated_by_player = false
 	_showed_defeated_label = false
-	_speed = 500
+	_speed = 600
 	_max_speed = 60
 	super()
 

@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=4 uid="uid://b4hrc5xbxausp"]
+[gd_scene load_steps=13 format=4 uid="uid://b4hrc5xbxausp"]
 
+[ext_resource type="PackedScene" uid="uid://c37auavbmu8ye" path="res://scenes/car/labels/lives.tscn" id="2_b3muw"]
 [ext_resource type="PackedScene" uid="uid://b5yh853uf0prf" path="res://scenes/car/bg.tscn" id="2_fhgbu"]
 [ext_resource type="PackedScene" path="res://scenes/car/terrain.tscn" id="2_qv8ml"]
 [ext_resource type="PackedScene" uid="uid://bl2eeoldwnydu" path="res://scenes/car/player_car/car.tscn" id="4_4lvlx"]
@@ -383,6 +384,8 @@ sources/0 = SubResource("TileSetAtlasSource_exbef")
 
 [node name="Bg" parent="." instance=ExtResource("2_fhgbu")]
 
+[node name="Lives" parent="." instance=ExtResource("2_b3muw")]
+
 [node name="TerrainFinal" parent="." instance=ExtResource("2_qv8ml")]
 position = Vector2(-191, -240)
 scale = Vector2(1, 0.988)
@@ -397,6 +400,7 @@ unique_name_in_owner = true
 position = Vector2(548, 464)
 
 [node name="CarCamera" type="Camera2D" parent="."]
+unique_name_in_owner = true
 offset = Vector2(30, 0)
 script = ExtResource("6_pwpbi")
 
