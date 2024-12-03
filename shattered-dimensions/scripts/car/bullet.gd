@@ -1,11 +1,9 @@
 class_name Bullet
 extends Area2D
 
-var _POS: Vector2 = Vector2(30, -90)
-
 var damage: int
-var car_pos: Vector2
-var target_loc: Vector2
+var start_pos: Vector2
+var target_pos: Vector2
 var _speed = 1000
 var _direction: Vector2
 var _timer: Timer
@@ -15,10 +13,10 @@ var _timer: Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	position = car_pos + _POS
-	_direction = (target_loc - position).normalized()
+	position = start_pos
+	_direction = (target_pos - position).normalized()
 	#_timer = Timer.new()
-	#_timer.start()
+	#_timer.start()x
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

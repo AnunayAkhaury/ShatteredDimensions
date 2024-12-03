@@ -41,10 +41,9 @@ func _physics_process(delta: float) -> void:
 	'''
 
 func _shoot() -> void:
-
-	var cur_bullet = bullet.instantiate() as Node2D
-	cur_bullet.car_pos = $AnimatedSprite2D.position  
-
-	cur_bullet.target_loc = %Car.position
+	var cur_bullet = bullet.instantiate() as Bullet
+	cur_bullet.damage = 1
+	cur_bullet.start_pos = position
+	cur_bullet.target_pos = %Car.position
 	add_sibling(cur_bullet)
 	

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://b4hrc5xbxausp"]
 
 [ext_resource type="PackedScene" uid="uid://b5yh853uf0prf" path="res://scenes/car/bg.tscn" id="2_fhgbu"]
-[ext_resource type="PackedScene" uid="uid://bw2tt2h0046yk" path="res://scenes/car/terrain.tscn" id="2_qv8ml"]
+[ext_resource type="PackedScene" path="res://scenes/car/terrain.tscn" id="2_qv8ml"]
 [ext_resource type="PackedScene" uid="uid://bl2eeoldwnydu" path="res://scenes/car/player_car/car.tscn" id="4_4lvlx"]
 [ext_resource type="PackedScene" uid="uid://i6arnh3jkabk" path="res://scenes/car/swat_van/swat_van.tscn" id="4_pn4bw"]
 [ext_resource type="Texture2D" uid="uid://cusdkqvtkp0ou" path="res://assets/PhysicsCarGameAssets/Images/Terrain/jungle tileset.png" id="6_1a2t4"]

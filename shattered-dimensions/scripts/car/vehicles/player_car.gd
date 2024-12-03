@@ -42,8 +42,8 @@ func _physics_process(delta: float) -> void:
 func _shoot() -> void:
 	var cur_bullet = bullet.instantiate() as Bullet
 	cur_bullet.damage = 2
-	cur_bullet.car_pos = position
-	cur_bullet.target_loc = get_global_mouse_position()
+	cur_bullet.start_pos = position + Vector2(30, -90)
+	cur_bullet.target_pos = get_global_mouse_position()
 	add_sibling(cur_bullet)
 	
 	
