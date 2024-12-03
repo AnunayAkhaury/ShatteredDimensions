@@ -52,12 +52,14 @@ func _physics_process(delta: float):
 	var move_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 
 	if is_on_floor() and Input.is_action_pressed("crouch"):
-		hitbox.shape.size.y = 22
-		hitbox.position.y = 8
+		var new_height = original_hit_box_shape * 0.8  
+		var height_difference = original_hit_box_shape - new_height
+		hitbox.shape.size.y = new_height
+		hitbox.position.y = original_hit_box_y + height_difference / 2  
 		if hurtbox != null and not crouching:
 			velocity.x = 0
 			crouching = true
-			hurtbox.scale = Vector2(0.8, 0.8)  
+			hurtbox.scale = Vector2(1.0, 0.8)  
 			hurtbox.position.y = hurtbox.position.y + 10  
 		sprite.play("crouch")
 		move_and_slide()
@@ -213,9 +215,10 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 func player_death() -> void:
 	var player_death_instance = player_death_effect.instantiate() as Node2D
 	player_death_instance.global_position = global_position
-	print(player_death_instance)
 	get_parent().add_child(player_death_instance)
 	queue_free()
+			
+	
 	
 func _on_knockback_timer_timeout() -> void:
 	knockback_active = false
@@ -232,3 +235,4 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		HealthManager.decrease_health(node.damage_amount)
 	if HealthManager.current_health <= 0:
 		player_death()
+		

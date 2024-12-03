@@ -9,7 +9,8 @@ extends Node2D
 
 func _ready() -> void:
 	HealthManager.on_health_changed.connect(on_player_health_changed)
-
+	on_player_health_changed(HealthManager.current_health)
+	
 func on_player_health_changed(current_health: int) -> void:
 	heart_1.texture = heart0
 	heart_2.texture = heart0
