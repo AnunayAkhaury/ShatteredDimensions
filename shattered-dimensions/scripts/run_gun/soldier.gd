@@ -8,6 +8,7 @@ var muzzle_position
 
 func _ready() -> void:
 	bind_player_input_commands()
+	$AnimatedSprite2D.material = $AnimatedSprite2D.material.duplicate()
 	if patrol_points != null:
 		print("Patrol points:", patrol_points.get_children())
 		number_of_points = patrol_points.get_children().size()

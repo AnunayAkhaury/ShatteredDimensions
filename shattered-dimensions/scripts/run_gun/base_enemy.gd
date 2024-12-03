@@ -25,7 +25,7 @@ var bullet = preload("res://scenes/run_gun/enemies/enemy_projectile/enemy_bullet
 
 func _ready() -> void:
 	bind_player_input_commands()
-	
+	$AnimatedSprite2D.material = $AnimatedSprite2D.material.duplicate()
 	if patrol_points != null:
 		print("Patrol points:", patrol_points.get_children())
 		number_of_points = patrol_points.get_children().size()
@@ -62,9 +62,13 @@ func bind_player_input_commands():
 	shoot = EnemyShootCommand.new()
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if damage_cooldown:
+	if damage_cooldown or area.is_in_group("enemy"):
+		return
+	if area == self.get_node("HitBox"):  
+		print("Ignored self-collision with:", area.name)
 		return
 	if area.get_parent().has_method("get_damage_amount"):
+		print("Hit flash triggered for:", self.name)
 		hitflashplayer.play("hit_flash")
 		var node = area.get_parent() as Node
 		health -= node.damage_amount
