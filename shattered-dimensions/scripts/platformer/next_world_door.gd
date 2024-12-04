@@ -9,3 +9,12 @@ func _on_body_entered(body: Node2D) -> void:
 		get_tree().change_scene_to_file("res://scenes/platformer/level3/platformer_level_3.tscn")
 	elif player.platformer_level == 3:
 		get_tree().change_scene_to_file("res://scenes/platformer/victory.tscn")
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("skip_level_platformer_cheat"):
+		if player.platformer_level == 1:
+			get_tree().change_scene_to_file("res://scenes/platformer/level2/platformer_level_2.tscn")
+		elif player.platformer_level == 2:
+			get_tree().change_scene_to_file("res://scenes/platformer/level3/platformer_level_3.tscn")
+		elif player.platformer_level == 3:
+			get_tree().change_scene_to_file("res://scenes/platformer/victory.tscn")
