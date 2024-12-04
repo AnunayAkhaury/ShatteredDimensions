@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cju4emdanf7s2"]
+
+[node name="Tutorial" type="Label"]
+offset_top = -1.0
+offset_right = 110.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0.835294, 0.372549, 0.196078, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = -2
+theme_override_font_sizes/font_size = 20
+text = "Use arrows to move the car
+
+Use click to aim and shoot"
+horizontal_alignment = 1

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds8eqdlxx7tj6"]
+
+[ext_resource type="Script" path="res://scripts/platformer/traps/raising_spike.gd" id="1_c03aj"]
+[ext_resource type="PackedScene" uid="uid://b1iv1met25ybc" path="res://scenes/platformer/traps/spike.tscn" id="1_k4mbu"]
+[ext_resource type="Texture2D" uid="uid://rryda4t0uuvf" path="res://assets/PixelAdventure/Items/Boxes/Box2/Idle.png" id="2_7temr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0a6a"]
+
+[node name="RaisingSpike" type="Node2D"]
+script = ExtResource("1_c03aj")
+
+[node name="Spike" parent="." instance=ExtResource("1_k4mbu")]
+position = Vector2(-4, -10)
+scale = Vector2(0.8, 0.8)
+
+[node name="Spike2" parent="." instance=ExtResource("1_k4mbu")]
+position = Vector2(4, 10)
+rotation = 3.14159
+scale = Vector2(0.8, 0.8)
+
+[node name="Block" type="Area2D" parent="."]
+scale = Vector2(0.9, 0.9)
+collision_mask = 2
+collision_priority = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Block"]
+texture = ExtResource("2_7temr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+shape = SubResource("RectangleShape2D_y0a6a")

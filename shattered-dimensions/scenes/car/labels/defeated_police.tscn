@@ -1,5 +1,17 @@
 [gd_scene format=3 uid="uid://btsbd5mqjw3so"]
 
 [node name="DefeatedPolice" type="Label"]
-scale = Vector2(1.80127, 1.85474)
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 195.0
+offset_bottom = 24.0
+scale = Vector2(1.29845, 1.32813)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = -2
+theme_override_font_sizes/font_size = 25
 text = "You escaped the S.W.A.T!"

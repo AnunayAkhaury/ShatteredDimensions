@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://r5rqj2lb8use"]
+[gd_scene load_steps=30 format=3 uid="uid://dh7lwrd6jqdep"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_1w0xd"]
 [ext_resource type="PackedScene" uid="uid://dvberjv2fsl3s" path="res://scenes/character.tscn" id="1_82jgl"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cydnsk6xymx31" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-duck.png" id="3_sm6sh"]
 [ext_resource type="Texture2D" uid="uid://dpwuih5udon20" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-jump.png" id="4_2w4yt"]
 [ext_resource type="Texture2D" uid="uid://cart612wkg4y5" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-run.png" id="5_osmii"]
+[ext_resource type="AudioStream" uid="uid://d36yw8naiuii2" path="res://assets/RPG_Essentials_Free/12_Player_Movement_SFX/30_Jump_03.wav" id="8_5p17m"]
+[ext_resource type="AudioStream" uid="uid://br8srrohqm74w" path="res://assets/boing sound effect 1 (mp3cut.net).mp3" id="9_mpq2w"]
+[ext_resource type="AudioStream" uid="uid://5vq18exo475h" path="res://assets/RPG_Essentials_Free/10_Battle_SFX/03_Claw_03.wav" id="10_ek2iw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kw7ln"]
 atlas = ExtResource("3_sm6sh")
@@ -133,7 +136,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cx102"]
@@ -149,12 +152,14 @@ _data = {
 
 [node name="Character" instance=ExtResource("1_82jgl")]
 script = ExtResource("1_1w0xd")
-health = 100
+health = null
+platformer_level = null
 
 [node name="Sprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_xoxd8")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
+frame_progress = 0.0262518
 script = ExtResource("3_h0a6v")
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -165,3 +170,12 @@ shape = SubResource("RectangleShape2D_cx102")
 libraries = {
 "": SubResource("AnimationLibrary_ee2sd")
 }
+
+[node name="JumpAudio" type="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource("8_5p17m")
+
+[node name="TrampolineAudio" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource("9_mpq2w")
+
+[node name="DeathAudio" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource("10_ek2iw")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdv23n56qd7re"]
+
+[ext_resource type="Texture2D" uid="uid://bndsu4r1xp7xq" path="res://assets/PixelAdventure/Traps/Rock Head/Idle.png" id="1_yxkcj"]
+[ext_resource type="PackedScene" uid="uid://bjb6qsjcxod2b" path="res://scenes/platformer/killzone.tscn" id="2_0oyfa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttfow"]
+size = Vector2(30, 30)
+
+[node name="SpikeHead" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yxkcj")
+
+[node name="Killzone" parent="." instance=ExtResource("2_0oyfa")]
+collision_mask = 2
+collision_priority = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("RectangleShape2D_ttfow")

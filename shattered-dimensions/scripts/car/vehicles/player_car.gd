@@ -1,15 +1,19 @@
 class_name PlayerCar
 extends Vehicle
 
-var lives: int
+var _RESPAWN_DELAY: float = 7
+var _respawn_timer: Timer
 
 @onready var bullet = preload("res://scenes/car/bullet.tscn")
 
 func _init() -> void:
 	character_type = Characters.Type.PLAYER_CAR
-	lives = 5
 	_speed = 600
 	_max_speed = 40
+	_respawn_timer = Timer.new()
+	_respawn_timer.autostart = true
+	_respawn_timer.wait_time = 2
+	_respawn_timer.timeout.connect(respawn)
 	super()
 
 # Called when the node enters the scene tree for the first time.
@@ -35,10 +39,10 @@ func _physics_process(delta: float) -> void:
 		
 	%HealthBar.value = health
 	
-	if lives <= 0:
+	if GlobalVars.car_lives <= 0:
 		get_tree().change_scene_to_file("res://scenes/car/game_over.tscn")
-	#elif health <= 0:
-		#respawn()
+	elif health <= 0:
+		add_child(_respawn_timer)
 		
 	super(delta)
 		
@@ -51,8 +55,12 @@ func _shoot() -> void:
 	add_sibling(cur_bullet)
 	
 func respawn() -> void:
-	lives -= 1
+	GlobalVars.car_lives -= 1
 	health = 100
-	#get_tree().reload_current_scene()
+	get_tree().reload_current_scene()
+	
+func _delayed_action() -> void:
+	_speed = 600
+	_max_speed = 40
 	
 	

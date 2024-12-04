@@ -10,8 +10,8 @@ func _init() -> void:
 	character_type = Characters.Type.ENEMY
 	_defeated_by_player = false
 	_showed_defeated_label = false
-	_speed = 600
-	_max_speed = 60
+	#_speed = 600
+	#_max_speed = 60
 	super()
 
 # Called when the node enters the scene tree for the first time.
@@ -20,7 +20,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:			
+func _physics_process(delta: float) -> void:
 	if health > 0:
 		for wheel in _wheels:
 			if wheel.angular_velocity < _max_speed:
@@ -36,3 +36,7 @@ func _physics_process(delta: float) -> void:
 	%HealthBar.value = health
 	
 	super(delta)
+	
+func _delayed_action() -> void:
+	_speed = 600
+	_max_speed = 40

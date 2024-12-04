@@ -1,7 +1,16 @@
 [gd_scene format=3 uid="uid://xu6eycwicik0"]
 
 [node name="CaughtByPolice" type="Label"]
+offset_left = -1.0
+offset_top = -1.0
 offset_right = 320.0
-offset_bottom = 23.0
-scale = Vector2(1.82157, 1.77495)
+offset_bottom = 26.0
+scale = Vector2(1.35634, 1.25751)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = -2
+theme_override_font_sizes/font_size = 25
 text = "You weren't fast enough, you got caught! "
