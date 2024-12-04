@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://cm8cgpnselc8i"]
+[gd_scene load_steps=32 format=3 uid="uid://cm8cgpnselc8i"]
 
 [ext_resource type="Script" path="res://scripts/car/enemy/mushroom.gd" id="1_rxx4e"]
 [ext_resource type="Texture2D" uid="uid://7emx2gkhw2bq" path="res://assets/CarLevel/Enemy/mushroom/Attack.png" id="2_sbcsh"]
 [ext_resource type="Texture2D" uid="uid://btgn46gmsv4dx" path="res://assets/CarLevel/Enemy/mushroom/Death.png" id="3_awpwh"]
 [ext_resource type="Texture2D" uid="uid://biwfvpdottjw4" path="res://assets/CarLevel/Enemy/mushroom/Idle.png" id="4_x7l6w"]
 [ext_resource type="Texture2D" uid="uid://dca2kigggt0xg" path="res://assets/CarLevel/Enemy/mushroom/Run.png" id="5_30uxq"]
+[ext_resource type="Script" path="res://scripts/car/hurt_box.gd" id="6_ftjov"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_udc1q"]
 atlas = ExtResource("2_sbcsh")
@@ -209,3 +210,18 @@ frame_progress = 0.597733
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-22, -27)
 polygon = PackedVector2Array(0, 2, 0, -1, 14, -10, 33, -10, 45, -2, 46, 6, 40, 10, 34, 10, 34, 17, 44, 36, 44, 42, 38, 45, 35, 49, 36, 64, 28, 64, 28, 59, 19, 59, 14, 64, 6, 64, 6, 60, 8, 46, 5, 45, 0, 40, 0, 37, 9, 18, 14, 18, 16, 10, 12, 10, 0, 4)
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("6_ftjov")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox"]
+position = Vector2(-31, -33)
+scale = Vector2(1.43291, 1.29155)
+polygon = PackedVector2Array(0, 2, 0, -1, 14, -10, 33, -10, 45, -2, 46, 6, 40, 10, 34, 10, 34, 17, 44, 36, 44, 42, 38, 45, 35, 49, 36, 64, 28, 64, 28, 59, 19, 59, 14, 64, 6, 64, 6, 60, 8, 46, 5, 45, 0, 40, 0, 37, 9, 18, 14, 18, 16, 10, 12, 10, 0, 4)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -59.0
+offset_top = -78.0
+offset_right = 66.0
+offset_bottom = -51.0

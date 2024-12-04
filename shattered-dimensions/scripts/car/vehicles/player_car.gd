@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	
 func _draw_aim() -> void:
 	# Circle properties
-	var center = get_viewport().get_mouse_position()
+	#var center = get_viewport().get_mouse_position()
 	var circle_radius = 50.0
 	var circle_color = Color(0.2, 0.6, 1.0)  # Blue color
 	var line_width = 3.0
@@ -87,6 +87,6 @@ func respawn() -> void:
 func _delayed_action() -> void:
 	_speed = 600
 	_max_speed = 40
-	_bullet_damage = 1
+	_bullet_damage = 5
 	
 	

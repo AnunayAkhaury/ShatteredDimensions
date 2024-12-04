@@ -7,10 +7,10 @@ func _init() -> void:
 	
 func _on_area_entered(bullet:Bullet) -> void:
 	if owner is Enemy:
-		bullet.damage = 30
+		bullet.damage = 25
 	
 	if owner is PlayerCar:
-		bullet.damage = 25
+		bullet.damage = 7
 	
 		
 	if owner.has_method("take_damage") and bullet.bullet_origin != owner.character_type:
