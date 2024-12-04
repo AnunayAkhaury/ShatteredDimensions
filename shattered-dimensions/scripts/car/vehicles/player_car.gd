@@ -36,16 +36,16 @@ func _physics_process(delta: float) -> void:
 	%HealthBar.value = health
 	#if health <= 0:
 		#_lives -= 1
-		#health = 100
-		
+		#health = 100	
 	super(delta)
 		
 func _shoot() -> void:
 	var cur_bullet = bullet.instantiate() as Bullet
-	cur_bullet.damage = 2
+	cur_bullet.damage = 20 #change
 	cur_bullet.bullet_origin = Characters.Type.PLAYER_CAR
 	cur_bullet.start_pos = position + Vector2(30, -90)
 	cur_bullet.target_pos = get_global_mouse_position()
 	add_sibling(cur_bullet)
+	
 	
 	
