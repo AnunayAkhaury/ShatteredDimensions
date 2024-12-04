@@ -1,0 +1,150 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbd07r886uail"]
+
+[ext_resource type="Script" path="res://scripts/platformer/difficulty_selector.gd" id="1_jdhw8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4a42"]
+bg_color = Color(0.205117, 0.205117, 0.205117, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 2
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e42w5"]
+bg_color = Color(0.631485, 0.877193, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.120418, 0.120418, 0.120418, 0.6)
+shadow_size = 5
+
+[node name="DifficultySelector" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jdhw8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.078815, 0.078815, 0.078815, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.0
+offset_top = 108.0
+offset_right = 148.0
+offset_bottom = 138.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Select a difficulty to begin..."
+
+[node name="Relaxed" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 222.0
+offset_right = 292.0
+offset_bottom = 411.0
+theme_override_colors/font_color = Color(0, 0.862745, 0.211765, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_w4a42")
+text = "Noob
+
+(50 lives)"
+
+[node name="Label" type="Label" parent="ColorRect/Relaxed"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 56.0
+offset_right = 88.0
+offset_bottom = 79.0
+
+[node name="Challenging" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 358.0
+offset_top = 222.0
+offset_right = 547.0
+offset_bottom = 411.0
+theme_override_colors/font_color = Color(1, 0.8, 0.027451, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_w4a42")
+text = "Average
+
+(35 lives)"
+
+[node name="Label" type="Label" parent="ColorRect/Challenging"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 56.0
+offset_right = 88.0
+offset_bottom = 79.0
+
+[node name="VeryHard" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 611.0
+offset_top = 222.0
+offset_right = 800.0
+offset_bottom = 411.0
+theme_override_colors/font_color = Color(0.941176, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_w4a42")
+text = "Challenger
+
+(20 lives)"
+
+[node name="Label" type="Label" parent="ColorRect/VeryHard"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 56.0
+offset_right = 88.0
+offset_bottom = 79.0
+
+[node name="Insane" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 864.0
+offset_top = 222.0
+offset_right = 1053.0
+offset_bottom = 411.0
+theme_override_colors/font_color = Color(0.478334, 0.0521025, 4.81308e-08, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_w4a42")
+text = "Fearless
+
+(10 lives)"
+
+[node name="Label" type="Label" parent="ColorRect/Insane"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 56.0
+offset_right = 88.0
+offset_bottom = 79.0
+
+[node name="Master" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 406.0
+offset_top = 464.0
+offset_right = 746.0
+offset_bottom = 594.0
+theme_override_colors/font_color = Color(1, 0.623529, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_e42w5")
+text = "------- MASTER -------
+(1 life)"
+
+[node name="Label" type="Label" parent="ColorRect/Master"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 56.0
+offset_right = 88.0
+offset_bottom = 79.0
+
+[connection signal="pressed" from="ColorRect/Relaxed" to="." method="_on_relaxed_pressed"]
+[connection signal="pressed" from="ColorRect/Challenging" to="." method="_on_challenging_pressed"]
+[connection signal="pressed" from="ColorRect/VeryHard" to="." method="_on_very_hard_pressed"]
+[connection signal="pressed" from="ColorRect/Insane" to="." method="_on_insane_pressed"]
+[connection signal="pressed" from="ColorRect/Master" to="." method="_on_master_pressed"]

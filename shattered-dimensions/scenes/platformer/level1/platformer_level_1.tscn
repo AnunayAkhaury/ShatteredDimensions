@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bawot1vqaiyd7"]
+[gd_scene load_steps=29 format=4 uid="uid://bawot1vqaiyd7"]
 
 [ext_resource type="Texture2D" uid="uid://cgblw2m1dirqo" path="res://assets/PixelFantasy_Caves_1.0/background4b.png" id="1_iq5cs"]
 [ext_resource type="Texture2D" uid="uid://l825pk3rvbeh" path="res://assets/PixelFantasy_Caves_1.0/mainlev_build.png" id="2_qyxit"]
@@ -12,8 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://pjrkl5sc0nvb" path="res://scenes/platformer/support/mover_platform.tscn" id="10_6vqf1"]
 [ext_resource type="Script" path="res://scripts/platformer/lives.gd" id="11_kuwey"]
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="12_nn4nu"]
+[ext_resource type="PackedScene" uid="uid://bmoaon1yut05y" path="res://scenes/pause_menu.tscn" id="12_wwneg"]
+[ext_resource type="AudioStream" uid="uid://g4k6q10dnedx" path="res://assets/8 Bit Dungeon.mp3" id="13_1e1d8"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pd8c1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_srkfe"]
 texture = ExtResource("2_qyxit")
 6:1/0 = 0
 20:1/0 = 0
@@ -898,9 +900,9 @@ texture = ExtResource("2_qyxit")
 57:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_xwqjn"]
-sources/0 = SubResource("TileSetAtlasSource_pd8c1")
+sources/0 = SubResource("TileSetAtlasSource_srkfe")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nxd5l"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lqmh"]
 texture = ExtResource("2_qyxit")
 6:1/0 = 0
 20:1/0 = 0
@@ -1919,7 +1921,7 @@ texture = ExtResource("2_qyxit")
 
 [sub_resource type="TileSet" id="TileSet_6sug4"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_nxd5l")
+sources/0 = SubResource("TileSetAtlasSource_2lqmh")
 
 [sub_resource type="Animation" id="Animation_g7dsq"]
 length = 0.001
@@ -1955,7 +1957,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ukk7l"]
 resource_name = "move_side"
-length = 2.5
+length = 2.7
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1964,10 +1966,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5),
+"times": PackedFloat32Array(0, 2.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(232, 483), Vector2(46, 483)]
+"values": [Vector2(232, 480), Vector2(50, 480)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_87tci"]
@@ -2057,7 +2059,7 @@ position = Vector2(354, 506)
 
 [node name="Spike3" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
 position = Vector2(-103, 90)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.6, 0.6)
 
 [node name="Spike24" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
 position = Vector2(-149, 89)
@@ -2091,7 +2093,8 @@ scale = Vector2(0.8, 0.8)
 position = Vector2(85, 89)
 
 [node name="Spike" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
-position = Vector2(67, 89)
+position = Vector2(72, 89)
+scale = Vector2(0.7, 0.7)
 
 [node name="Spike5" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
 position = Vector2(-151, -67)
@@ -2168,8 +2171,8 @@ position = Vector2(-273, -84)
 scale = Vector2(0.5, 0.5)
 
 [node name="Spike20" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
-position = Vector2(-159, -102)
-scale = Vector2(0.7, 0.7)
+position = Vector2(-155, -101)
+scale = Vector2(0.4, 0.4)
 
 [node name="Spike21" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
 position = Vector2(-77, -38)
@@ -2189,7 +2192,7 @@ scale = Vector2(0.8, 0.8)
 
 [node name="Spike31" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
 position = Vector2(31, -183)
-scale = Vector2(1.1, 1.1)
+scale = Vector2(0.9, 0.9)
 
 [node name="Saws" type="Node2D" parent="MapLayers/Traps"]
 
@@ -2208,7 +2211,7 @@ position = Vector2(108, -162)
 position = Vector2(64, -20)
 
 [node name="SpikeBall2" parent="MapLayers/Traps/SpikeBalls" instance=ExtResource("5_v3y0j")]
-position = Vector2(186, -255)
+position = Vector2(186, -258)
 
 [node name="Platforms" type="TileMapLayer" parent="MapLayers"]
 position = Vector2(-82, -10)
@@ -2218,7 +2221,6 @@ tile_set = SubResource("TileSet_6sug4")
 [node name="MovingPlatforms" type="Node2D" parent="MapLayers"]
 
 [node name="MovingPlatform" parent="MapLayers/MovingPlatforms" instance=ExtResource("6_kk4bj")]
-position = Vector2(632, 589)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MapLayers/MovingPlatforms/MovingPlatform"]
 libraries = {
@@ -2227,7 +2229,7 @@ libraries = {
 autoplay = "move"
 
 [node name="MovingPlatform2" parent="MapLayers/MovingPlatforms" instance=ExtResource("6_kk4bj")]
-position = Vector2(56, 483)
+position = Vector2(168.321, 480)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MapLayers/MovingPlatforms/MovingPlatform2"]
 libraries = {
@@ -2330,7 +2332,15 @@ text = "Lives: 20"
 horizontal_alignment = 1
 script = ExtResource("11_kuwey")
 
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("12_wwneg")]
+visible = false
+
 [node name="Player" parent="." instance=ExtResource("12_nn4nu")]
 unique_name_in_owner = true
 position = Vector2(65, 595)
 collision_layer = 2
+platformer_level = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_1e1d8")
+autoplay = true
