@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://bmemxcryvtusx"]
+[gd_scene load_steps=27 format=3 uid="uid://bmemxcryvtusx"]
 
 [ext_resource type="Script" path="res://scripts/car/enemy/bat.gd" id="1_1q3ou"]
 [ext_resource type="Texture2D" uid="uid://cdftd2u8tyhgg" path="res://assets/CarLevel/Enemy/bat/Attack2.png" id="2_ytvva"]
 [ext_resource type="Texture2D" uid="uid://t0m82qii1f0f" path="res://assets/CarLevel/Enemy/bat/Death.png" id="3_smrut"]
 [ext_resource type="Texture2D" uid="uid://bii0av1mhkvm1" path="res://assets/CarLevel/Enemy/bat/Flight.png" id="4_tk7ot"]
+[ext_resource type="Script" path="res://scripts/car/hurt_box.gd" id="5_777l7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svqnx"]
 atlas = ExtResource("2_ytvva")
@@ -175,3 +176,17 @@ animation = &"flight"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(15, 15, 20, 11, 11, -1, 13, -13, 33, -19, 37, -28, 34, -35, 9, -23, -7, -20, -18, -32, -42, -31, -43, -11, -37, -2, -14, -10, -15, 12, -3, 23)
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("5_777l7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox"]
+position = Vector2(-5, -2)
+polygon = PackedVector2Array(40, 29, 53, 12, 63, -10, 61, -29, 45, -44, 19, -39, -3, -37, -28, -46, -56, -32, -56, -12, -56, 8, -31, 32, 12, 41)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -69.0
+offset_top = -82.0
+offset_right = 67.0
+offset_bottom = -55.0

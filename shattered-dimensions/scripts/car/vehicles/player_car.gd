@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		
 func _shoot() -> void:
 	var cur_bullet = bullet.instantiate() as Bullet
-	cur_bullet.damage = 2
+	cur_bullet.damage = 20 #change
 	cur_bullet.bullet_origin = Characters.Type.PLAYER_CAR
 	cur_bullet.start_pos = position + Vector2(30, -90)
 	cur_bullet.target_pos = get_global_mouse_position()
@@ -62,5 +62,6 @@ func respawn() -> void:
 func _delayed_action() -> void:
 	_speed = 600
 	_max_speed = 40
+	
 	
 	
