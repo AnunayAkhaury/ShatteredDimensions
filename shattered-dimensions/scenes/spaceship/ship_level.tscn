@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://c5cxli8knclox"]
+[gd_scene load_steps=79 format=3 uid="uid://c5cxli8knclox"]
 
 [ext_resource type="Script" path="res://scenes/spaceship/background.gd" id="1_komkh"]
 [ext_resource type="Texture2D" uid="uid://budnm0xkdtrqi" path="res://scenes/spaceship/Dynamic Space Background FREE/Nebula Blue.png" id="1_kq3ca"]
@@ -17,6 +17,15 @@
 [ext_resource type="Script" path="res://scenes/spaceship/asteroids.gd" id="14_g56xu"]
 [ext_resource type="PackedScene" uid="uid://rsdk8mltfkpq" path="res://scenes/spaceship/asteroid_1.tscn" id="15_1p6lo"]
 [ext_resource type="PackedScene" uid="uid://c6dxcam5a1ip3" path="res://scenes/spaceship/asteroid_2.tscn" id="16_yoa8q"]
+[ext_resource type="AudioStream" uid="uid://c78rmejm01xgu" path="res://scenes/spaceship/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3" id="18_qm8of"]
+
+[sub_resource type="Gradient" id="Gradient_h3qwe"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pcj0l"]
+gradient = SubResource("Gradient_h3qwe")
+width = 160
+height = 40
+fill_to = Vector2(0.00485437, 0)
 
 [sub_resource type="GDScript" id="GDScript_d7sab"]
 script/source = "class_name WeaponsFire
@@ -832,38 +841,18 @@ _data = {
 
 [node name="ShipLevel" type="Node2D"]
 
+[node name="Health" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = 396.0
+offset_top = -309.0
+offset_right = 557.0
+offset_bottom = -245.0
+value = 100.0
+texture_progress = SubResource("GradientTexture2D_pcj0l")
+tint_progress = Color(0.337415, 0.809632, 0.426775, 1)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-script = ExtResource("1_komkh")
-
-[node name="SpaceBackground" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-728, -414)
-motion_scale = Vector2(0.3, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SpaceBackground"]
-position = Vector2(2077, 392)
-scale = Vector2(1, 0.536133)
-texture = ExtResource("1_kq3ca")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/SpaceBackground"]
-position = Vector2(6150, 388)
-scale = Vector2(1, 0.533691)
-texture = ExtResource("1_kq3ca")
-
-[node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.4, 0.4)
-
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/Stars"]
-position = Vector2(1349, -12.5001)
-scale = Vector2(0.990723, 0.531006)
-texture = ExtResource("3_qs3bp")
-
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/Stars"]
-position = Vector2(5433, -25.9999)
-scale = Vector2(0.995606, 0.533691)
-texture = ExtResource("3_qs3bp")
 
 [node name="Spaceship" type="CharacterBody2D" parent="."]
 disable_mode = 2
@@ -905,6 +894,36 @@ position = Vector2(-389, -3)
 rotation = -1.5708
 scale = Vector2(2.68589, 2.84561)
 sprite_frames = SubResource("SpriteFrames_82m7y")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("1_komkh")
+
+[node name="SpaceBackground" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-728, -414)
+motion_scale = Vector2(0.3, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SpaceBackground"]
+position = Vector2(2077, 392)
+scale = Vector2(1, 0.536133)
+texture = ExtResource("1_kq3ca")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/SpaceBackground"]
+position = Vector2(6150, 388)
+scale = Vector2(1, 0.533691)
+texture = ExtResource("1_kq3ca")
+
+[node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/Stars"]
+position = Vector2(1349, -12.5001)
+scale = Vector2(0.990723, 0.531006)
+texture = ExtResource("3_qs3bp")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/Stars"]
+position = Vector2(5433, -25.9999)
+scale = Vector2(0.995606, 0.533691)
+texture = ExtResource("3_qs3bp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1003,5 +1022,12 @@ position = Vector2(205, -913)
 
 [node name="Asteroid30" parent="Asteroids" instance=ExtResource("16_yoa8q")]
 position = Vector2(3387, -739)
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("18_qm8of")
+volume_db = 1.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="Spaceship" method="_on_animation_player_animation_finished"]

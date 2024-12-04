@@ -15,6 +15,7 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 @onready var boost: AnimatedSprite2D = $Boost
 #@onready var fire: WeaponsFire = $Fire
+@onready var health2: TextureProgressBar = %Health
 
 
 @onready var firing: Node2D = $Firing
@@ -60,6 +61,8 @@ func _process(delta: float) -> void:
 		appearance.texture = damage2
 	else:
 		appearance.texture = damage3
+		
+	health2.value = health
 	
 	var horizontal_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	if binded and horizontal_input > 0.1:
@@ -75,6 +78,7 @@ func _process(delta: float) -> void:
 		else:
 			position.y = clampf(position.y+(vertical_input * speed * delta), -1000, 1000)
 		camera.position.y = clampf(camera.position.y + (0.9 * vertical_input * speed * delta), -750, 750)
+		health2.position.y = clampf(health2.position.y + (0.9 * vertical_input * speed * delta), -750, 750)
 		rotation = vertical_input*5*delta
 	else:
 		rotation = 0
