@@ -330,6 +330,8 @@ texture = ExtResource("4_p55cg")
 [node name="Character" parent="." instance=ExtResource("7_vustl")]
 position = Vector2(478, 586)
 scale = Vector2(2, 2)
+health = 100
+platformer_level = 0
 
 [node name="Platformer" type="Area2D" parent="."]
 
