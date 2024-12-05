@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c37auavbmu8ye"]
 
-[ext_resource type="Script" path="res://scripts/car/lives.gd" id="1_2d2rn"]
+[ext_resource type="Script" path="res://scripts/car/labels/lives.gd" id="1_2d2rn"]
 
 [node name="Lives" type="Label"]
 offset_top = -1.0

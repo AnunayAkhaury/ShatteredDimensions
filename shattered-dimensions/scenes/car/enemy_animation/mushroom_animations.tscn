@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://btgn46gmsv4dx" path="res://assets/CarLevel/Enemy/mushroom/Death.png" id="3_awpwh"]
 [ext_resource type="Texture2D" uid="uid://biwfvpdottjw4" path="res://assets/CarLevel/Enemy/mushroom/Idle.png" id="4_x7l6w"]
 [ext_resource type="Texture2D" uid="uid://dca2kigggt0xg" path="res://assets/CarLevel/Enemy/mushroom/Run.png" id="5_30uxq"]
-[ext_resource type="Script" path="res://scripts/car/hurt_box.gd" id="6_ftjov"]
+[ext_resource type="Script" path="res://scripts/car/detection_boxes/enemy_hurt_box.gd" id="6_ftjov"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_udc1q"]
 atlas = ExtResource("2_sbcsh")

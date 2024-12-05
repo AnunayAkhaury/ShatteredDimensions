@@ -2,13 +2,20 @@ class_name PlayerCar
 extends Vehicle
 
 var _RESPAWN_DELAY: float = 3
+var _BOOST_SPEED_TIME: float = 2
 var _respawn_timer: Timer
 var _bullet_damage: float
+
+var boost_speed: bool
+var boost_speed_time: float
 
 @onready var bullet = preload("res://scenes/car/bullet.tscn")
 
 func _init() -> void:
 	character_type = Characters.Type.PLAYER_CAR
+	boost_speed = false
+	boost_speed_time = _BOOST_SPEED_TIME
+
 	_speed = 600
 	_max_speed = 40
 	_bullet_damage = 0
@@ -41,6 +48,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		_shoot()
 		
+	if boost_speed:
+		for wheel in _wheels:
+			wheel.apply_torque_impulse((_speed) * delta * 60)
+		boost_speed_time -= delta
+		if boost_speed_time <= 0:
+			boost_speed = false
+			boost_speed_time = _BOOST_SPEED_TIME 
+			
 	%HealthBar.value = health
 	
 	if GlobalVars.car_lives <= 0:
@@ -70,7 +85,7 @@ func _draw_aim() -> void:
 	draw_line(Vector2(0, -plus_length / 2), Vector2(0, plus_length / 2), plus_color, line_width)
 	# Horizontal line
 	draw_line(Vector2(-plus_length / 2, 0), Vector2(plus_length / 2, 0), plus_color, line_width)
-		
+	
 func _shoot() -> void:
 	var cur_bullet = bullet.instantiate() as Bullet
 	cur_bullet.damage = _bullet_damage

@@ -26,7 +26,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if health > 0:
 		for wheel in _wheels:
-			if wheel.angular_velocity < _max_speed or position.x < camera.position.x + width:
+			if wheel.angular_velocity < _max_speed:
 				wheel.apply_torque_impulse(_speed * delta * 60)
 			
 	
@@ -42,5 +42,5 @@ func _physics_process(delta: float) -> void:
 	super(delta)
 	
 func _delayed_action() -> void:
-	_speed = 400
-	_max_speed = 60
+	_speed = 600
+	_max_speed = 50
