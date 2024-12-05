@@ -4,6 +4,7 @@ extends Command
 @export var shoot_delay: float = 0.2
 
 func execute(character: Character) -> Status:
+	character.velocity.x = 0
 	character.sprite.play("shoot")
 	character.update_muzzle_position()
 	var bullet_instance = character.bullet.instantiate() as Node2D

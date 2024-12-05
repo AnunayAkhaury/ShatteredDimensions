@@ -18,22 +18,35 @@ var run_gun_idle_animation: String
 #@onready var animation_tree:AnimationTree = $AnimationTree
 
 # VARIABLE FOR RUNGUN
-var bullet = preload("res://scenes/run_gun/bullet.tscn")
 @onready var muzzle : Marker2D = $Muzzle
-var muzzle_position
 @onready var HitAnimationPlayer = $AnimationPlayer
-var player_death_effect = preload("res://scenes/run_gun/player/player_death_effect.tscn")
 @onready var hitbox: CollisionShape2D = $CollisionShape2D
-@export var knockback_force: float = 300 
-var knockback_active: bool = false  
 @onready var knockback_timer: Timer = $KnockbackTimer
-var is_damagable: bool = true 
 @onready var hurtbox : Area2D = $Hurtbox
+@onready var shoot_cooldown_timer : Timer = $ShootCoolDownTimer
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+
+@export var knockback_force: float = 300 
+
+var bullet = preload("res://scenes/run_gun/bullet.tscn")
+var player_death_effect = preload("res://scenes/run_gun/player/player_death_effect.tscn")
+
+var muzzle_position
+var knockback_active: bool = false  
+var is_damagable: bool = true 
 var crouching: bool = false
 var original_hit_box_shape : int
 var original_hit_box_y : int
-
-
+var can_shoot: bool = true
+var current_state = STATE.IDLE
+enum STATE {
+	IDLE,
+	RUN,
+	CROUCH,
+	SHOOT,
+	RUN_SHOOT,
+	JUMP
+}
 func _ready():
 	#animation_tree.active = true
 	bind_player_input_commands()
@@ -50,55 +63,56 @@ func _physics_process(delta: float):
 		get_tree().change_scene_to_file("res://scenes/platformer/game_over.tscn")
 		
 	var move_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-
+	var is_shooting = Input.is_action_just_pressed("shoot")
+	
 	if is_on_floor() and Input.is_action_pressed("crouch"):
-		var new_height = original_hit_box_shape * 0.8  
-		var height_difference = original_hit_box_shape - new_height
-		hitbox.shape.size.y = new_height
-		hitbox.position.y = original_hit_box_y + height_difference / 2  
-		if hurtbox != null and not crouching:
-			velocity.x = 0
-			crouching = true
-			hurtbox.scale = Vector2(1.0, 0.8)  
-			hurtbox.position.y = hurtbox.position.y + 10  
-		sprite.play("crouch")
-		move_and_slide()
+		start_crouch()
 		return
 		
 	if crouching and (!Input.is_action_pressed("crouch") or not is_on_floor()):
-		crouching = false
-		hitbox.position.y = original_hit_box_y
-		hitbox.shape.size.y = original_hit_box_shape
-		if hurtbox != null:
-			hurtbox.scale = Vector2(1, 1) 
-			hurtbox.position.y -= 10   
-			
-	if Input.is_action_just_pressed("shoot"):
-		if move_input == 0.0:
-			shoot.execute(self)
-		if move_input > 0.1:
-			run_shoot_right.execute(self)
-		elif move_input < -0.1:
-			run_shoot_left.execute(self)
-	
+		end_crouch()
+
+		
 	if move_input > 0.1:
+		current_state = STATE.RUN
 		right_cmd.execute(self)
 	elif move_input < -0.1:
+		current_state = STATE.RUN
 		left_cmd.execute(self)
 	else:
-			#if is_on_floor():
-		idle.execute(self)
+		if is_on_floor():
+			current_state = STATE.IDLE
+			idle.execute(self)
+			
+	if Input.is_action_just_pressed("shoot") and can_shoot:
+		if move_input != 0.0:
+			current_state = STATE.RUN_SHOOT
+			run_shoot.execute(self)
+		else:
+			current_state = STATE.SHOOT
+			shoot.execute(self)
+		
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or double_jump):
+		current_state = STATE.JUMP
+		up_cmd.execute(self)
+		
 			#else:
 				#sprite.play("jump")
-	
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or double_jump):
-		up_cmd.execute(self)
-	
-		
+	update_amination()
 	super(delta)
 	#_manage_animation_tree_state()
 
-
+func update_amination():
+	if current_state == STATE.IDLE and sprite_2d.animation != 'shoot':
+		sprite_2d.play('idle')
+	elif current_state == STATE.RUN and sprite_2d.animation != 'run_gun':
+		sprite_2d.play('run')
+	elif current_state == STATE.JUMP:
+		sprite_2d.play('jump')
+	elif current_state == STATE.RUN_SHOOT:
+		sprite_2d.play('run_gun')
+	elif current_state ==  STATE.SHOOT:
+		sprite_2d.play('shoot')
 # FUNCTIONS FOR PLATFORMER
 
 func platformer_respawn():
@@ -162,7 +176,7 @@ func bind_player_input_commands():
 	#fire1 = AttackCommand.new()
 	idle = IdleCommand.new()
 	run_shoot_left = RunShootLeftCommand.new()
-	run_shoot_right = RunShootRightCommand.new()
+	run_shoot = RunShootCommand.new()
 	shoot = ShootCommand.new()
 	await get_tree().create_timer(1.0).timeout
 	right_cmd.set_animation(run_gun_run_animation if run_gun_run_animation else default_run_animation)
@@ -175,7 +189,7 @@ func unbind_player_input_commands():
 	fire1 = Command.new()
 	idle = Command.new()
 	run_shoot_left = Command.new()
-	run_shoot_right = Command.new()
+	run_shoot = Command.new()
 	shoot = Command.new()
 #func command_callback(cmd_name:String) -> void:
 	#if "attack" == cmd_name:
@@ -222,6 +236,7 @@ func player_death() -> void:
 	
 func _on_knockback_timer_timeout() -> void:
 	knockback_active = false
+	velocity = Vector2.ZERO 
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
@@ -236,3 +251,27 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if HealthManager.current_health <= 0:
 		player_death()
 		
+
+
+func _on_shoot_cool_down_timer_timeout() -> void:
+	can_shoot = true  
+
+func start_crouch():
+	var new_height = original_hit_box_shape * 0.8  
+	var height_difference = original_hit_box_shape - new_height
+	hitbox.shape.size.y = new_height
+	hitbox.position.y = original_hit_box_y + height_difference / 2  
+	if hurtbox != null and not crouching:
+		velocity.x = 0
+		crouching = true
+		hurtbox.scale = Vector2(1.0, 0.8)  
+		hurtbox.position.y = hurtbox.position.y + 10  
+		sprite.play("crouch")
+	move_and_slide()
+func end_crouch():
+	crouching = false
+	hitbox.position.y = original_hit_box_y
+	hitbox.shape.size.y = original_hit_box_shape
+	if hurtbox != null:
+		hurtbox.scale = Vector2(1, 1) 
+		hurtbox.position.y -= 10   
