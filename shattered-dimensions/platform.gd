@@ -16,4 +16,3 @@ func _process(delta: float) -> void:
 		position.y += delta*speed
 	else:
 		position.y -= delta*speed
-	print(position.y)

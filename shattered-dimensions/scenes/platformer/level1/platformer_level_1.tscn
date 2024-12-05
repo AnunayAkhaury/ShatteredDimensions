@@ -2171,8 +2171,8 @@ position = Vector2(-273, -84)
 scale = Vector2(0.5, 0.5)
 
 [node name="Spike20" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
-position = Vector2(-155, -101)
-scale = Vector2(0.4, 0.4)
+position = Vector2(-158, -101)
+scale = Vector2(0.6, 0.6)
 
 [node name="Spike21" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
 position = Vector2(-77, -38)
@@ -2192,7 +2192,6 @@ scale = Vector2(0.8, 0.8)
 
 [node name="Spike31" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
 position = Vector2(31, -183)
-scale = Vector2(0.9, 0.9)
 
 [node name="Saws" type="Node2D" parent="MapLayers/Traps"]
 
@@ -2339,7 +2338,7 @@ visible = false
 unique_name_in_owner = true
 position = Vector2(65, 595)
 collision_layer = 2
-health = 100
+jump_velocity_input = -300
 platformer_level = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
