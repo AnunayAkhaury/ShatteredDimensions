@@ -20,6 +20,11 @@ var checkpoints: Array = [
 	[3329, 524]
 ]
 
+var platformerCompleted = false
+var carCompleted = false
+var shooterCompleted = false
+var spaceshipCompleted = false
+
 #@onready var animation_tree:AnimationTree = $AnimationTree
 @onready var hitbox: CollisionShape2D = $CollisionShape2D
 @onready var jump_audio: AudioStreamPlayer = $JumpAudio
@@ -148,6 +153,7 @@ func bind_player_input_commands():
 	up_cmd = JumpCommand.new()
 	#fire1 = AttackCommand.new()
 	idle = IdleCommand.new()
+		
 
 
 func unbind_player_input_commands():
@@ -173,3 +179,28 @@ func unbind_player_input_commands():
 func _play(player:AudioStreamPlayer2D) -> void:
 	if !player.playing:
 		player.play()
+
+
+func _on_platformer_body_entered(body: Node2D) -> void:
+	if not platformerCompleted:
+		#get_tree().change_scene_to_file("res://scenes/platformer/level1/platformer_level_1.tscn")
+		get_tree().change_scene_to_file("res://scenes/spaceship/ship_level.tscn")
+		platformerCompleted = true
+
+
+func _on_shooter_body_entered(body: Node2D) -> void:
+	if not shooterCompleted:
+		get_tree().change_scene_to_file("res://scenes/shooter_level.tscn")
+		shooterCompleted = true
+
+
+func _on_car_body_entered(body: Node2D) -> void:
+	if not carCompleted:
+		get_tree().change_scene_to_file("res://scenes/car_level.tscn")
+		carCompleted = true
+
+
+func _on_spaceship_body_entered(body: Node2D) -> void:
+	if not spaceshipCompleted:
+		get_tree().change_scene_to_file("res://scenes/platformer/level1/platformer_level_1.tscn")
+		spaceshipCompleted = true
