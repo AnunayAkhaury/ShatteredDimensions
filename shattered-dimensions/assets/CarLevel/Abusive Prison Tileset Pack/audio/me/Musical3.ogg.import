@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://718n011gfdyj"
+path="res://.godot/imported/Musical3.ogg-eb14bd38b7c8df3152c43f7c49ed2c51.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/CarLevel/Abusive Prison Tileset Pack/audio/me/Musical3.ogg"
+dest_files=["res://.godot/imported/Musical3.ogg-eb14bd38b7c8df3152c43f7c49ed2c51.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

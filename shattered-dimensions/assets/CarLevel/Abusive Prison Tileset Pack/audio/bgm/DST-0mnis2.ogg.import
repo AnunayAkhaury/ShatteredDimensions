@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bmc5re15ggi0f"
+path="res://.godot/imported/DST-0mnis2.ogg-b6295d2dc2270ed8a402eace003076b6.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/CarLevel/Abusive Prison Tileset Pack/audio/bgm/DST-0mnis2.ogg"
+dest_files=["res://.godot/imported/DST-0mnis2.ogg-b6295d2dc2270ed8a402eace003076b6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

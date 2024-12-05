@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b6x6lmjjivdb1"
+path="res://.godot/imported/Scream-01.ogg-99704de3aadbe032852396442ac348fe.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/CarLevel/Abusive Prison Tileset Pack/audio/se/Scream-01.ogg"
+dest_files=["res://.godot/imported/Scream-01.ogg-99704de3aadbe032852396442ac348fe.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c1o28qr6op6v"
+path="res://.godot/imported/Storm1.ogg-3347c8fc948431a2987336cea35621bc.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/CarLevel/Abusive Prison Tileset Pack/audio/bgs/Storm1.ogg"
+dest_files=["res://.godot/imported/Storm1.ogg-3347c8fc948431a2987336cea35621bc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

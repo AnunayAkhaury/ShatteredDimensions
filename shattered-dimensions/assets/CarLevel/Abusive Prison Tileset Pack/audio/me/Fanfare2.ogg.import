@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://co4krbsvmyr4d"
+path="res://.godot/imported/Fanfare2.ogg-07a4c15a65f7856d91100366d6e3dc0c.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/CarLevel/Abusive Prison Tileset Pack/audio/me/Fanfare2.ogg"
+dest_files=["res://.godot/imported/Fanfare2.ogg-07a4c15a65f7856d91100366d6e3dc0c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
