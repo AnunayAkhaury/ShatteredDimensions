@@ -27,6 +27,7 @@ var run_gun_idle_animation: String
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
 @export var knockback_force: float = 300 
+@export var shoot_cooldown : float = 0.33
 
 var bullet = preload("res://scenes/run_gun/bullet.tscn")
 var player_death_effect = preload("res://scenes/run_gun/player/player_death_effect.tscn")
@@ -53,6 +54,8 @@ func _ready():
 	muzzle_position = muzzle.position
 	original_hit_box_shape = hitbox.shape.size.y
 	original_hit_box_y = hitbox.position.y
+	shoot_cooldown_timer.wait_time = shoot_cooldown
+	
 func _physics_process(delta: float):
 	if knockback_active:
 		move_and_slide()
@@ -85,13 +88,14 @@ func _physics_process(delta: float):
 			idle.execute(self)
 			
 	if Input.is_action_just_pressed("shoot") and can_shoot:
+		can_shoot = false
 		if move_input != 0.0:
 			current_state = STATE.RUN_SHOOT
 			run_shoot.execute(self)
 		else:
 			current_state = STATE.SHOOT
 			shoot.execute(self)
-		
+		shoot_cooldown_timer.start()
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or double_jump):
 		current_state = STATE.JUMP
 		up_cmd.execute(self)

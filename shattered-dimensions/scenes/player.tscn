@@ -298,6 +298,7 @@ health = 100
 default_run_animation = "run"
 default_idle_animation = "idle"
 knockback_force = 300.0
+shoot_cooldown = 0.33
 
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_5ka8f")
