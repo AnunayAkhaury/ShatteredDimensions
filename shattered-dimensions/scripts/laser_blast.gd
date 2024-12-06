@@ -5,12 +5,18 @@ extends Area2D
 
 var speed = 300
 
-func _ready() -> void:
-	#animation_player.play("shooting")
-	pass
 
+# constantly play blast animation
+func _ready() -> void:
+	animation_player.play("shooting")
+
+
+# move the blast across the screen
 func _process(delta: float) -> void:
 	position.x -= speed * delta
 
+
+# on collision of blast with spaceship, decrease spaceship health and remove blast from tree
 func _on_body_entered(body: Spaceship) -> void:
-	body.health -= 10
+	body.healthLevel -= 10
+	queue_free()
