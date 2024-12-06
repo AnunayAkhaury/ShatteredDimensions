@@ -18,3 +18,10 @@ func _on_area_entered(object: Area2D) -> void:
 	if object is Fuel:
 		owner.boost_speed = true
 		object.queue_free()
+		
+	if object is Health:
+		if owner.health > 80:
+			owner.health = 100
+		else:
+			owner.health += 20
+		object.queue_free()
