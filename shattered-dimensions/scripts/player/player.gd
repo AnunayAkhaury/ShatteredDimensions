@@ -39,6 +39,7 @@ var crouching: bool = false
 var original_hit_box_shape : int
 var original_hit_box_y : int
 var can_shoot: bool = true
+
 var current_state = STATE.IDLE
 enum STATE {
 	IDLE,
@@ -88,7 +89,8 @@ func _physics_process(delta: float):
 			idle.execute(self)
 			
 	if Input.is_action_just_pressed("shoot") and can_shoot:
-		can_shoot = false
+		if shoot_cooldown != 0:
+			can_shoot = false
 		if move_input != 0.0:
 			current_state = STATE.RUN_SHOOT
 			run_shoot.execute(self)
@@ -106,17 +108,7 @@ func _physics_process(delta: float):
 	super(delta)
 	#_manage_animation_tree_state()
 
-func update_amination():
-	if current_state == STATE.IDLE and sprite_2d.animation != 'shoot':
-		sprite_2d.play('idle')
-	elif current_state == STATE.RUN and sprite_2d.animation != 'run_gun':
-		sprite_2d.play('run')
-	elif current_state == STATE.JUMP:
-		sprite_2d.play('jump')
-	elif current_state == STATE.RUN_SHOOT:
-		sprite_2d.play('run_gun')
-	elif current_state ==  STATE.SHOOT:
-		sprite_2d.play('shoot')
+
 # FUNCTIONS FOR PLATFORMER
 
 func platformer_respawn():
@@ -173,6 +165,7 @@ func platformer_respawn():
 		#animation_tree["parameters/conditions/damaged"] = false
 
 
+
 func bind_player_input_commands():
 	right_cmd = MoveRightCommand.new()
 	left_cmd = MoveLeftCommand.new()
@@ -212,6 +205,21 @@ func _play(player:AudioStreamPlayer2D) -> void:
 	if !player.playing:
 		player.play()
 
+# FUNCTIONS FOR RUN_N_GUN
+
+func update_amination():
+	if current_state == STATE.IDLE and sprite_2d.animation != 'shoot':
+		sprite_2d.play('idle')
+	elif current_state == STATE.RUN and sprite_2d.animation != 'run_gun':
+		sprite_2d.play('run')
+	elif current_state == STATE.JUMP:
+		sprite_2d.play('jump')
+	elif current_state == STATE.RUN_SHOOT:
+		sprite_2d.play('run_gun')
+	elif current_state ==  STATE.SHOOT:
+		sprite_2d.play('shoot')
+		if !sprite_2d.is_playing():  sprite_2d.play('shoot')
+		
 func update_muzzle_position():
 	if facing == Character.Facing.RIGHT:
 		muzzle.position.x = abs(muzzle_position.x) 
@@ -272,6 +280,8 @@ func start_crouch():
 		hurtbox.position.y = hurtbox.position.y + 10  
 		sprite.play("crouch")
 	move_and_slide()
+	
+	
 func end_crouch():
 	crouching = false
 	hitbox.position.y = original_hit_box_y

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dh7lwrd6jqdep"]
+[gd_scene load_steps=49 format=3 uid="uid://dh7lwrd6jqdep"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_1w0xd"]
 [ext_resource type="PackedScene" uid="uid://fiianho52s3p" path="res://scenes/character.tscn" id="1_82jgl"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/player/animated_sprite_2d.gd" id="3_h0a6v"]
 [ext_resource type="Texture2D" uid="uid://cydnsk6xymx31" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-duck.png" id="3_sm6sh"]
 [ext_resource type="Texture2D" uid="uid://dpwuih5udon20" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-jump.png" id="4_2w4yt"]
+[ext_resource type="Texture2D" uid="uid://blb0ge6irjc6x" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-hurt.png" id="5_48p7x"]
 [ext_resource type="Texture2D" uid="uid://csjqa06rb4jxf" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-shoot.png" id="5_k5gr3"]
 [ext_resource type="Texture2D" uid="uid://cart612wkg4y5" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-run.png" id="5_osmii"]
 [ext_resource type="Texture2D" uid="uid://d1wcg6atnncvl" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-run-shoot.png" id="8_r7p2h"]
@@ -18,6 +19,14 @@ shader_parameter/ColorParameter = Color(0.897126, 0, 0.154434, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kw7ln"]
 atlas = ExtResource("3_sm6sh")
+region = Rect2(32, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66r1a"]
+atlas = ExtResource("5_48p7x")
+region = Rect2(0, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq3d1"]
+atlas = ExtResource("5_48p7x")
 region = Rect2(32, 0, 32, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ax27"]
@@ -132,6 +141,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66r1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gq3d1")
+}],
+"loop": true,
+"name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -298,13 +318,14 @@ health = 100
 default_run_animation = "run"
 default_idle_animation = "idle"
 knockback_force = 300.0
-shoot_cooldown = 0.33
+shoot_cooldown = 0.0
 
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_5ka8f")
 sprite_frames = SubResource("SpriteFrames_xoxd8")
-animation = &"jump"
+animation = &"hurt"
 autoplay = "idle"
+frame_progress = 0.836877
 script = ExtResource("3_h0a6v")
 
 [node name="CollisionShape2D" parent="." index="1"]

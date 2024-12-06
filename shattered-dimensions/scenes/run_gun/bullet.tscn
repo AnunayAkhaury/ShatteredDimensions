@@ -54,7 +54,6 @@ frame_progress = 0.0250814
 script = ExtResource("2_kwdt8")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
 one_shot = true
 autostart = true
 
