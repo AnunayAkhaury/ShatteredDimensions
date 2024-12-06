@@ -1,13 +1,13 @@
 [gd_scene load_steps=27 format=3 uid="uid://bl2eeoldwnydu"]
 
 [ext_resource type="Script" path="res://scripts/car/vehicles/player_car.gd" id="1_0wm3u"]
-[ext_resource type="Texture2D" uid="uid://civ3a8pns8i74" path="res://assets/humvee/humvee-no-tires.png" id="1_wc20t"]
 [ext_resource type="Texture2D" uid="uid://cydnsk6xymx31" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-duck.png" id="2_w5tmd"]
 [ext_resource type="PackedScene" uid="uid://c043eos3amkax" path="res://scenes/car/player_car/wheels.tscn" id="2_wt0ah"]
 [ext_resource type="Texture2D" uid="uid://yieoc0r6y1m4" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-idle.png" id="3_lsoc6"]
 [ext_resource type="Texture2D" uid="uid://dpwuih5udon20" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-jump.png" id="4_k58lr"]
 [ext_resource type="Texture2D" uid="uid://cart612wkg4y5" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-run.png" id="5_7pis0"]
 [ext_resource type="Script" path="res://scripts/player/animated_sprite_2d.gd" id="6_t0i4d"]
+[ext_resource type="Texture2D" uid="uid://bmwt5pcdht5h8" path="res://assets/humvee/humvee-no-tires_trimmed.png" id="7_nmrlq"]
 [ext_resource type="Script" path="res://scripts/car/detection_boxes/crash_box.gd" id="9_7t1ob"]
 [ext_resource type="Script" path="res://scripts/car/detection_boxes/player_detection_box.gd" id="9_lo5t1"]
 
@@ -156,7 +156,7 @@ script = ExtResource("6_t0i4d")
 [node name="Humvee" type="Sprite2D" parent="."]
 position = Vector2(-2, -52.6316)
 scale = Vector2(0.19702, 0.201961)
-texture = ExtResource("1_wc20t")
+texture = ExtResource("7_nmrlq")
 flip_h = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

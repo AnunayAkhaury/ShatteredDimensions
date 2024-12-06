@@ -20,8 +20,5 @@ func _on_area_entered(object: Area2D) -> void:
 		object.queue_free()
 		
 	if object is Health:
-		if owner.health > 80:
-			owner.health = 100
-		else:
-			owner.health += 20
+		owner.health = clampi(owner.health + 20, 0, 100)
 		object.queue_free()
