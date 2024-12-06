@@ -175,9 +175,6 @@ func bind_player_input_commands():
 	run_shoot_left = RunShootLeftCommand.new()
 	run_shoot = RunShootCommand.new()
 	shoot = ShootCommand.new()
-	await get_tree().create_timer(1.0).timeout
-	right_cmd.set_animation(run_gun_run_animation if run_gun_run_animation else default_run_animation)
-	left_cmd.set_animation(run_gun_run_animation if run_gun_run_animation else default_run_animation)
 
 func unbind_player_input_commands():
 	right_cmd = Command.new()
@@ -228,7 +225,6 @@ func update_muzzle_position():
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy") and not knockback_active:
-		print("ENEMY ENTERD", body.damage_amount)
 		var knockback_direction: Vector2 = (position - body.position).normalized()
 		velocity = knockback_direction * knockback_force
 		knockback_active = true
