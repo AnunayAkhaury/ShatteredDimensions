@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://b4hrc5xbxausp"]
+[gd_scene load_steps=28 format=4 uid="uid://b4hrc5xbxausp"]
 
 [ext_resource type="PackedScene" uid="uid://c37auavbmu8ye" path="res://scenes/car/labels/lives.tscn" id="2_b3muw"]
 [ext_resource type="PackedScene" uid="uid://b5yh853uf0prf" path="res://scenes/car/bg.tscn" id="2_fhgbu"]
@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://bmemxcryvtusx" path="res://scenes/car/enemy_animation/bat_animations.tscn" id="6_p3wkt"]
 [ext_resource type="Script" path="res://scripts/car/camera.gd" id="6_pwpbi"]
 [ext_resource type="PackedScene" uid="uid://cm8cgpnselc8i" path="res://scenes/car/enemy_animation/mushroom_animations.tscn" id="8_mh5jj"]
+[ext_resource type="PackedScene" uid="uid://cekfcjskjtw8c" path="res://scenes/car/key.tscn" id="9_bygmi"]
 [ext_resource type="PackedScene" uid="uid://brndnt11i221r" path="res://scenes/car/boost_ups/fuel.tscn" id="13_0qi2e"]
-[ext_resource type="PackedScene" uid="uid://cekfcjskjtw8c" path="res://scenes/car/Key.tscn" id="16_2kc3y"]
 [ext_resource type="PackedScene" uid="uid://b7dpnm15y4glj" path="res://scenes/car/boost_ups/health.tscn" id="14_ey41v"]
 [ext_resource type="Texture2D" uid="uid://dwty1wvfryik8" path="res://assets/Dungeon_brick_wall_grey.png.png" id="17_y7ueu"]
 
@@ -13603,13 +13603,13 @@ scale = Vector2(1, 0.988)
 
 [node name="SwatVan" parent="." instance=ExtResource("4_pn4bw")]
 unique_name_in_owner = true
-position = Vector2(115, 459)
+position = Vector2(66, 464)
 collision_layer = 3
 collision_mask = 3
 
 [node name="Car" parent="." instance=ExtResource("4_4lvlx")]
 unique_name_in_owner = true
-position = Vector2(15885, 412)
+position = Vector2(12414, 368)
 
 [node name="CarCamera" type="Camera2D" parent="."]
 unique_name_in_owner = true
@@ -13657,6 +13657,9 @@ position = Vector2(5209, 378)
 [node name="M5" parent="Enemies" instance=ExtResource("8_mh5jj")]
 position = Vector2(16265, 299)
 
+[node name="Key" parent="." instance=ExtResource("9_bygmi")]
+position = Vector2(17036, 526)
+
 [node name="RightBoundary" type="StaticBody2D" parent="."]
 position = Vector2(6444, 3112)
 scale = Vector2(30, 30)
@@ -13696,6 +13699,7 @@ tile_map_data = PackedByteArray("AAD//xsAAAAIAA4AAAD//xwAAAAIAA8AAAD//x0AAAAIABA
 tile_set = SubResource("TileSet_jjwe4")
 
 [node name="Labels" type="Node2D" parent="."]
+position = Vector2(668, -45)
 
 [node name="Lives" parent="Labels" instance=ExtResource("2_b3muw")]
 
