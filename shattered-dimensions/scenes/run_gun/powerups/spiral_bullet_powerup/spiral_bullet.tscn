@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://cwovp8u5ydgvh"]
+
+[ext_resource type="Texture2D" uid="uid://dyr5yy6okwl7n" path="res://assets/Legacy Collection/Legacy Collection/Assets/Misc/Warped shooting fx/crossed/spritesheet.png" id="1_648l1"]
+[ext_resource type="Script" path="res://scripts/run_gun/powerups/spiral_bullet.gd" id="2_h4q44"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt851"]
+atlas = ExtResource("1_648l1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78bmn"]
+atlas = ExtResource("1_648l1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd1ya"]
+atlas = ExtResource("1_648l1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c7wq"]
+atlas = ExtResource("1_648l1")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aubfk"]
+atlas = ExtResource("1_648l1")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne3s8"]
+atlas = ExtResource("1_648l1")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_46unh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt851")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78bmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd1ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c7wq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aubfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne3s8")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bbiw1"]
+radius = 12.3693
+
+[node name="SpiralBullet" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_46unh")
+animation = &"shot"
+autoplay = "shot"
+frame_progress = 0.790594
+script = ExtResource("2_h4q44")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_bbiw1")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

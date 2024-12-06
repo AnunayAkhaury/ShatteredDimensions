@@ -28,8 +28,8 @@ var run_gun_idle_animation: String
 
 @export var knockback_force: float = 300 
 @export var shoot_cooldown : float = 0.33
-
 var bullet = preload("res://scenes/run_gun/bullet.tscn")
+
 var player_death_effect = preload("res://scenes/run_gun/player/player_death_effect.tscn")
 
 var muzzle_position
@@ -56,7 +56,7 @@ func _ready():
 	original_hit_box_shape = hitbox.shape.size.y
 	original_hit_box_y = hitbox.position.y
 	shoot_cooldown_timer.wait_time = shoot_cooldown
-	
+
 func _physics_process(delta: float):
 	if knockback_active:
 		move_and_slide()
@@ -285,3 +285,7 @@ func end_crouch():
 	if hurtbox != null:
 		hurtbox.scale = Vector2(1, 1) 
 		hurtbox.position.y -= 10   
+
+func set_bullet_type(new_bullet: PackedScene) -> void:
+	bullet = new_bullet
+	print("Bullet type changed!")

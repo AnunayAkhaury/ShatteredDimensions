@@ -311,7 +311,7 @@ _data = {
 radius = 14.0
 height = 32.0
 
-[node name="Character" instance=ExtResource("1_82jgl")]
+[node name="Character" groups=["player"] instance=ExtResource("1_82jgl")]
 collision_layer = 2
 script = ExtResource("1_1w0xd")
 health = 100
@@ -328,7 +328,7 @@ autoplay = "idle"
 frame_progress = 0.836877
 script = ExtResource("3_h0a6v")
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1" groups=["player"]]
 position = Vector2(1.5, 4)
 shape = SubResource("RectangleShape2D_otmst")
 
@@ -340,11 +340,11 @@ libraries = {
 [node name="Muzzle" type="Marker2D" parent="." index="3"]
 position = Vector2(16, 3)
 
-[node name="Hurtbox" type="Area2D" parent="." index="4"]
+[node name="Hurtbox" type="Area2D" parent="." index="4" groups=["player"]]
 collision_layer = 2
 collision_mask = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0" groups=["player"]]
 position = Vector2(1, 2)
 shape = SubResource("CapsuleShape2D_yrv35")
 debug_color = Color(0.991864, 0, 0.259891, 0.42)
