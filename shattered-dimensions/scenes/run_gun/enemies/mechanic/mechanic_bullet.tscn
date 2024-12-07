@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://w234s1uge6e0"]
+
+[node name="MechanicBullet" type="AnimatedSprite2D"]

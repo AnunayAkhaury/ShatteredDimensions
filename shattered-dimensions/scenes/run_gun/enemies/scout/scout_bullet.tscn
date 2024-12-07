@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqwx3ahxk36ls"]
+
+[ext_resource type="Texture2D" uid="uid://b43beg170ifcw" path="res://assets/Anunay's Boss/Scout/Scout/Bullet Loop.png" id="1_qvqhl"]
+[ext_resource type="Script" path="res://scripts/run_gun/enemy/scout/scout_bullet.gd" id="2_wth7j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f07v6"]
+atlas = ExtResource("1_qvqhl")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wem56"]
+atlas = ExtResource("1_qvqhl")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1yfq"]
+atlas = ExtResource("1_qvqhl")
+region = Rect2(192, 0, 96, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kcdd5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f07v6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wem56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1yfq")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ur6od"]
+radius = 8.06226
+
+[node name="ScoutBullet" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_kcdd5")
+animation = &"shot"
+script = ExtResource("2_wth7j")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_ur6od")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

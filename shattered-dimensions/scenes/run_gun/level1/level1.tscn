@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dcucy61y0vdtp"]
+[gd_scene load_steps=34 format=4 uid="uid://dcucy61y0vdtp"]
 
 [ext_resource type="Script" path="res://scripts/run_gun/run_gun_scene.gd" id="1_hjbtq"]
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="2_7s41g"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://tyap2cf7pl1d" path="res://scenes/run_gun/powerups/health_pickup.tscn" id="15_u1go3"]
 [ext_resource type="PackedScene" uid="uid://ceq4aimroumar" path="res://scenes/run_gun/powerups/rapid_fire.tscn" id="16_n1ghw"]
 [ext_resource type="PackedScene" uid="uid://i63jkyqe4nn" path="res://scenes/run_gun/powerups/spiral_bullet_powerup/spiral_bullet_pickup.tscn" id="17_3ebtf"]
+[ext_resource type="PackedScene" uid="uid://ch02w3gc3ex53" path="res://scenes/run_gun/enemies/scout/scout.tscn" id="18_0vlpf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5olc5"]
 texture = ExtResource("3_hax1a")
@@ -732,7 +733,7 @@ _data = {
 script = ExtResource("1_hjbtq")
 
 [node name="Character" parent="." instance=ExtResource("2_7s41g")]
-position = Vector2(3800, 61)
+position = Vector2(35, 286)
 
 [node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(22, 301)
@@ -992,4 +993,9 @@ position = Vector2(3348, -45)
 
 [node name="SpiralBulletPickup" parent="." instance=ExtResource("17_3ebtf")]
 position = Vector2(3847, 79)
+player_node_path = NodePath("../Character")
+
+[node name="scout" parent="." instance=ExtResource("18_0vlpf")]
+position = Vector2(209, 286)
+damage_amount = 0
 player_node_path = NodePath("../Character")

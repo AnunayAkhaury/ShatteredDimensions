@@ -13,18 +13,12 @@ func _on_timer_timeout():
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	print("Hit area: ", area.name)
-	print("Groups for area: ", area.get_groups())
 	if not area.is_in_group("player"):
-		print('impact')
 		bullet_impact()
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
-	print("Groups for body: ", body.get_groups())
-	print("Hit body: ", body.name)
 	if not body.is_in_group("player"):
-		print('impact')
 		bullet_impact()
 
 func bullet_impact(): 
