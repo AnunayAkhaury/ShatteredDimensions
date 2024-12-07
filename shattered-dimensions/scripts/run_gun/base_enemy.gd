@@ -27,7 +27,7 @@ var damage_cooldown : bool =false
 var player : Node2D
 var bullet = preload("res://scenes/run_gun/enemies/enemy_projectile/enemy_bullet.tscn")
 
-enum STATE { IDLE, FOLLOW, SHOOT }
+enum STATE { IDLE, FOLLOW, SHOOT, JUMP, COMBO }
 var current_state: STATE = STATE.IDLE
 var status : Command.Status 
 
@@ -70,8 +70,7 @@ func bind_player_input_commands():
 	
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	print('entered')
-	if damage_cooldown or area.is_in_group("enemy"):
+	if area.is_in_group("enemy"):
 		return
 	if area == self.get_node("HitBox"):  
 		return
@@ -84,9 +83,6 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			enemy_death_effect_instance.global_position = global_position
 			get_parent().add_child(enemy_death_effect_instance)
 			queue_free()
-		else:
-			$AttackTimer.start()
-			damage_cooldown = true
 
 func _on_attack_timer_timeout() -> void:
 	damage_cooldown = false

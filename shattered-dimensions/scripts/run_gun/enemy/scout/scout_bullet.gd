@@ -2,9 +2,10 @@ extends AnimatedSprite2D
 
 var bullet_impact_effect = preload("res://scenes/run_gun/enemies/scout/scout_bullet_impact.tscn")
 
-var speed : int = 600
+var speed : int = 400
 var direction : int
 var damage_amount : int = 1
+
 func _physics_process(delta: float) -> void:
 	move_local_x(direction * speed * delta)
 

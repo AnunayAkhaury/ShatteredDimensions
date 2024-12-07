@@ -2,7 +2,7 @@ class_name EnemyFollowCommand
 extends Command
 
 var player: Player  
-var leash: float = 600
+var leash: float = 300
 
 func _init(player: Player):
 	self.player = player
@@ -22,7 +22,7 @@ func execute(character: Character) -> Status:
 		character.velocity = Vector2.ZERO
 		return Status.DONE
 	var direction_to_player = (player.global_position - character.global_position).normalized()
-	character.velocity = direction_to_player * 10
+	character.velocity = direction_to_player * 50
 	
 	if direction_to_player.x < 0:
 		character.animatedsprite.flip_h = false

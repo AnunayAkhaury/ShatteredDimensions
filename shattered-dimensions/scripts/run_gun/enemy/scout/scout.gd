@@ -1,8 +1,8 @@
 extends BaseEnemy
 class_name Scout
 
-@export var leash_distance: float = 800  # Distance to start following
-@export var follow_distance: float = 800 # Distance to start following
+@export var leash_distance: float = 400  # Distance to start following
+@export var follow_distance: float = 400 # Distance to start following
 @export var shoot_interval: float = 2.0  # Shooting interval in seconds
 @onready var attack_timer: Timer = $AttackTimer
 @onready var muzzle : Marker2D = $Muzzle
@@ -50,14 +50,14 @@ func update_animation() -> void:
 		animatedsprite.play('walk')
 	elif current_state == STATE.SHOOT:
 		animatedsprite.play('shoot')
-	
+
 func _on_attack_timer_timeout() -> void:
 	current_state = STATE.SHOOT
 	shoot.execute(self)
 	await get_tree().create_timer(0.5).timeout
 	current_state = STATE.FOLLOW
 	
-func update_muzzle_position():
+func update_muzzle_position() -> void:
 	if facing == Character.Facing.RIGHT:
 		muzzle.position.x = abs(muzzle_position.x) 
 	else:
