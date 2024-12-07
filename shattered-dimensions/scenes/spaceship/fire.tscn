@@ -340,7 +340,7 @@ tracks/12/keys = {
 
 [sub_resource type="Animation" id="Animation_0su03"]
 resource_name = "release"
-length = 5.0
+length = 3.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

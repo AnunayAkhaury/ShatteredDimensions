@@ -24,6 +24,8 @@ var curr_boost: bool = false
 var currweapon = null
 var keepstill = false
 var keycreated = false
+var allowFire = true
+var lost = false
 
 
 # start with full health for spaceship
@@ -36,9 +38,11 @@ func _process(delta: float) -> void:
 	# stop autoscroll if reached end of game
 	if camera.position.x >= 8000:
 		keepstill = true
+		if len(get_parent().get_node("Camera2D/KillCount").get_children()) > 0:
+			lost = true
 		
 		# create the golden key for pickup
-		if not keycreated:
+		if not keycreated and not lost:
 			var key = key_scene.instantiate() as SpaceshipKey
 			get_parent().add_child(key)
 			key.position = camera.position
@@ -46,11 +50,12 @@ func _process(delta: float) -> void:
 			animation_player.play("key")
 	
 	# shoot missles from spaceship
-	if binded and Input.is_action_just_pressed("fire"):
+	if binded and allowFire and Input.is_action_just_pressed("fire"):
 		currweapon = weapons_scene.instantiate() as Arrows
 		get_parent().add_child(currweapon)
 		currweapon.position = position
 		currweapon.startFire = true
+		allowFire = false
 		
 	# apply boost to spaceship movement
 	if binded and Input.is_action_just_pressed("boost"):
@@ -62,18 +67,8 @@ func _process(delta: float) -> void:
 		binded = false
 		position.x -= 0.3 * speed * delta
 		
-	# manage spaceship appearance based on healthLevel
-	if healthLevel>=90:
-		appearance.texture = fullhealth
-	elif healthLevel>=60:
-		appearance.texture = damage1
-	elif healthLevel>=30:
-		appearance.texture = damage2
-	elif healthLevel>0:
-		appearance.texture = damage3
-	
 	# explode spaceship if health reaches 0
-	else:
+	if healthLevel<=0 or lost:
 		animation_player.play("explosion")
 		visible = false
 		
@@ -82,14 +77,24 @@ func _process(delta: float) -> void:
 			if i is Button:
 				i.disabled = false
 			i.visible = true
-		binded = false
+		binded = false	
+	
+	# manage spaceship appearance based on healthLevel
+	elif healthLevel>=90:
+		appearance.texture = fullhealth
+	elif healthLevel>=60:
+		appearance.texture = damage1
+	elif healthLevel>=30:
+		appearance.texture = damage2
+	elif healthLevel>0:
+		appearance.texture = damage3
 	
 	# update health bar level
 	healthBar.value = healthLevel
 	
 	# horizontal movement of spaceship
 	var horizontal_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	if binded and not keepstill and horizontal_input > 0.1:
+	if binded and horizontal_input > 0.1:
 		if curr_boost:
 			position.x += horizontal_input * speed * delta * 2.5
 		else:
@@ -97,12 +102,13 @@ func _process(delta: float) -> void:
 	
 	# vertical movement of spaceship and camera + rotation
 	var vertical_input = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	if binded and not keepstill and abs(vertical_input)>0.1:
+	if binded and abs(vertical_input)>0.1:
 		if curr_boost:
 			position.y = clampf(position.y+(vertical_input * speed * delta * 2), -1000, 1000)
 		else:
 			position.y = clampf(position.y+(vertical_input * speed * delta), -1000, 1000)
-		camera.position.y = clampf(camera.position.y + (0.9 * vertical_input * speed * delta), -750, 750)
+		if not keepstill:
+			camera.position.y = clampf(camera.position.y + (0.97 * vertical_input * speed * delta), -750, 750)
 		rotation = vertical_input*5*delta
 	else:
 		rotation = 0

@@ -31,34 +31,41 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		for arrow in firing.get_children():
 			arrow.queue_free()
 			arrow = null
+		get_parent().get_node("Spaceship").allowFire = true
 
 
 # handle each collision of an arrow with a UFO
 func _on_arrow_1_body_entered(body: Enemy) -> void:
 	body.healthLevel -= 15
-	queue_free()
+	var node = get_node("Firing/Arrow1")
+	node.queue_free()
 
 
 func _on_arrow_2_body_entered(body: Enemy) -> void:
 	body.healthLevel -= 15
-	queue_free()
+	var node = get_node("Firing/Arrow2")
+	node.queue_free()
 
 
 func _on_arrow_3_body_entered(body: Enemy) -> void:
 	body.healthLevel -= 15
-	queue_free()
+	var node = get_node("Firing/Arrow3")
+	node.queue_free()
 
 
 func _on_arrow_4_body_entered(body: Enemy) -> void:
 	body.healthLevel -= 15
-	queue_free()
+	var node = get_node("Firing/Arrow4")
+	node.queue_free()
 
 
 func _on_arrow_5_body_entered(body: Enemy) -> void:
 	body.healthLevel -= 15
-	queue_free()
+	var node = get_node("Firing/Arrow5")
+	node.queue_free()
 
 
 func _on_arrow_6_body_entered(body: Enemy) -> void:
 	body.healthLevel -= 15
-	queue_free()
+	var node = get_node("Firing/Arrow6")
+	node.queue_free()
