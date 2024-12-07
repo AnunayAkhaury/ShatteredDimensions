@@ -22,3 +22,8 @@ func _on_area_entered(object: Area2D) -> void:
 	if object is Health:
 		owner.health = clampi(owner.health + 20, 0, 100)
 		object.queue_free()
+		
+	if object is Key:
+		await get_tree().create_timer(.25).timeout
+		get_tree().change_scene_to_file("res://scenes/platformer/victory.tscn")
+		

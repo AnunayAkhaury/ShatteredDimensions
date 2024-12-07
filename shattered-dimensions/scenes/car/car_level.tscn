@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://b4hrc5xbxausp"]
+[gd_scene load_steps=31 format=4 uid="uid://b4hrc5xbxausp"]
 
 [ext_resource type="PackedScene" uid="uid://c37auavbmu8ye" path="res://scenes/car/labels/lives.tscn" id="2_b3muw"]
 [ext_resource type="PackedScene" uid="uid://b5yh853uf0prf" path="res://scenes/car/bg.tscn" id="2_fhgbu"]
@@ -10,12 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://c4pgpxsbm8qs6" path="res://assets/CarLevel/Abusive Prison Tileset Pack/img/tilesets/Prison_A5.png" id="4_58skg"]
 [ext_resource type="PackedScene" uid="uid://i6arnh3jkabk" path="res://scenes/car/swat_van/swat_van.tscn" id="4_pn4bw"]
 [ext_resource type="PackedScene" uid="uid://ufiexds0mv81" path="res://scenes/car/labels/start_countdown.tscn" id="4_toqhx"]
+[ext_resource type="PackedScene" uid="uid://cw3djta8tgr1a" path="res://scenes/car/enemy_animation/Traps.tscn" id="5_0vm44"]
 [ext_resource type="Script" path="res://scripts/car/labels/start_countdown.gd" id="5_x0elv"]
 [ext_resource type="Texture2D" uid="uid://cusdkqvtkp0ou" path="res://assets/PhysicsCarGameAssets/Images/Terrain/jungle tileset.png" id="6_1a2t4"]
+[ext_resource type="PackedScene" uid="uid://0n8jr3oavnss" path="res://scenes/car/enemy_animation/police.tscn" id="6_l3s77"]
 [ext_resource type="PackedScene" uid="uid://bmemxcryvtusx" path="res://scenes/car/enemy_animation/bat_animations.tscn" id="6_p3wkt"]
 [ext_resource type="Script" path="res://scripts/car/camera.gd" id="6_pwpbi"]
+[ext_resource type="PackedScene" uid="uid://cvxn17he7m1ev" path="res://scenes/car/tire_pile.tscn" id="7_navjn"]
 [ext_resource type="PackedScene" uid="uid://cm8cgpnselc8i" path="res://scenes/car/enemy_animation/mushroom_animations.tscn" id="8_mh5jj"]
-[ext_resource type="PackedScene" uid="uid://cekfcjskjtw8c" path="res://scenes/car/key.tscn" id="9_bygmi"]
+[ext_resource type="PackedScene" uid="uid://cekfcjskjtw8c" path="res://scenes/car/Key.tscn" id="9_bygmi"]
 [ext_resource type="PackedScene" uid="uid://brndnt11i221r" path="res://scenes/car/boost_ups/fuel.tscn" id="13_0qi2e"]
 [ext_resource type="PackedScene" uid="uid://b7dpnm15y4glj" path="res://scenes/car/boost_ups/health.tscn" id="14_ey41v"]
 [ext_resource type="Texture2D" uid="uid://dwty1wvfryik8" path="res://assets/Dungeon_brick_wall_grey.png.png" id="17_y7ueu"]
@@ -13609,7 +13612,20 @@ collision_mask = 3
 
 [node name="Car" parent="." instance=ExtResource("4_4lvlx")]
 unique_name_in_owner = true
-position = Vector2(12414, 368)
+position = Vector2(2225, 489)
+
+[node name="Traps" parent="." instance=ExtResource("5_0vm44")]
+position = Vector2(2482, 606)
+scale = Vector2(0.35, 0.346)
+
+[node name="PoliceOfficer" parent="." instance=ExtResource("6_l3s77")]
+position = Vector2(3035, 556)
+scale = Vector2(0.08, 0.08)
+
+[node name="TirePile" parent="." instance=ExtResource("7_navjn")]
+z_index = 1
+position = Vector2(3312, 524)
+scale = Vector2(0.5, 0.5)
 
 [node name="CarCamera" type="Camera2D" parent="."]
 unique_name_in_owner = true
@@ -13628,6 +13644,7 @@ tile_set = SubResource("TileSet_upvmt")
 position = Vector2(4242, 134)
 
 [node name="B" parent="Enemies" instance=ExtResource("6_p3wkt")]
+visible = false
 position = Vector2(3439, 282)
 
 [node name="M2" parent="Enemies" instance=ExtResource("8_mh5jj")]
@@ -13719,3 +13736,15 @@ offset_right = 446.0
 offset_bottom = 331.0
 text = "Start in : "
 script = ExtResource("5_x0elv")
+
+[node name="BattleInstruction" parent="Labels" instance=ExtResource("3_euuak")]
+modulate = Color(1, 0.0901961, 0.0823529, 1)
+offset_left = 1784.0
+offset_top = 176.0
+offset_right = 2117.0
+offset_bottom = 247.0
+scale = Vector2(1.2, 1.2)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "You must fight the officer 
+to get spare tires for the car!
+"
