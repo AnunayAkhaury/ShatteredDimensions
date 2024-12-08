@@ -1135,6 +1135,5 @@ one_way_collision = true
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(2120, 371)
 rotation = 1.58483
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6jsfm")
 one_way_collision = true
