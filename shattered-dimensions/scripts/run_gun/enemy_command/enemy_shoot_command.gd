@@ -13,7 +13,6 @@ func execute(character: Character) -> Status:
 	return Status.DONE
 
 func _on_shoot_animation_finished(character: Character) -> void:
-	print('Shoot animation finished, firing bullet')
 	var bullet_instance = character.bullet.instantiate() as Node2D
 	bullet_instance.global_position = character.muzzle.global_position
 	if character.facing == Character.Facing.RIGHT:
@@ -24,4 +23,3 @@ func _on_shoot_animation_finished(character: Character) -> void:
 	character.get_parent().add_child(bullet_instance)
 
 	is_executing = false
-	print("Bullet fired after shoot animation!")

@@ -128,16 +128,3 @@ func prevent_landing_on_player() -> void:
 				global_position.x -= 30  
 			else:
 				global_position.x += 30  
-
-
-#func _on_animated_sprite_2d_animation_finished() -> void:
-	#if current_state == STATE.COMBO:
-		#print('Ending combo')
-		#is_attacking = false
-		#combo_hit_box.monitorable = false
-		#combo_hit_box.monitoring = false
-		#current_state = STATE.FOLLOW  
-
-
-func _on_animated_sprite_2d_animation_finished() -> void:
-	pass # Replace with function body.

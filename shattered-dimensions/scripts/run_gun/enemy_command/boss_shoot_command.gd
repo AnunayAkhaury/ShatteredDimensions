@@ -24,4 +24,3 @@ func _on_shoot_animation_finished(character: Character) -> void:
 
 	is_executing = false
 	character.animatedsprite.play('walk')
-	print("Bullet fired after shoot animation!")

@@ -267,8 +267,6 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if HealthManager.current_health <= 0:
 		player_death()
 		
-
-
 func _on_shoot_cool_down_timer_timeout() -> void:
 	can_shoot = true  
 

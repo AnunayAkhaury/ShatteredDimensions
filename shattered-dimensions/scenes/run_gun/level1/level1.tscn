@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://dcucy61y0vdtp"]
+[gd_scene load_steps=35 format=4 uid="uid://dcucy61y0vdtp"]
 
 [ext_resource type="Script" path="res://scripts/run_gun/run_gun_scene.gd" id="1_hjbtq"]
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="2_7s41g"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ceq4aimroumar" path="res://scenes/run_gun/powerups/rapid_fire.tscn" id="16_n1ghw"]
 [ext_resource type="PackedScene" uid="uid://i63jkyqe4nn" path="res://scenes/run_gun/powerups/spiral_bullet_powerup/spiral_bullet_pickup.tscn" id="17_3ebtf"]
 [ext_resource type="PackedScene" uid="uid://ch02w3gc3ex53" path="res://scenes/run_gun/enemies/scout/scout.tscn" id="18_0vlpf"]
+[ext_resource type="PackedScene" uid="uid://di5itfhkhx0q3" path="res://scenes/run_gun/enemies/sentinal.tscn" id="19_sdx6w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5olc5"]
 texture = ExtResource("3_hax1a")
@@ -996,6 +997,20 @@ position = Vector2(3847, 79)
 player_node_path = NodePath("../Character")
 
 [node name="scout" parent="." instance=ExtResource("18_0vlpf")]
-position = Vector2(209, 286)
+position = Vector2(757, 167)
 damage_amount = 0
 player_node_path = NodePath("../Character")
+
+[node name="Sentinal" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("19_sdx6w")]
+position = Vector2(211, 299)
+speed = 25.0
+patrol_points = NodePath("PatrolPoints")
+player_node_path = NodePath("../Character")
+
+[node name="PatrolPoints" type="Node2D" parent="Sentinal"]
+
+[node name="1" type="Marker2D" parent="Sentinal/PatrolPoints"]
+position = Vector2(54, 18)
+
+[node name="2" type="Marker2D" parent="Sentinal/PatrolPoints"]
+position = Vector2(-197, 18)

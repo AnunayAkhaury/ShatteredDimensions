@@ -15,6 +15,7 @@ var shoot_command: Command
 var jump : Command
 var follow : Command
 var damage_cooldown : bool =false
+var attack_command: Command
 
 @export var speed: float = 100
 @export var health: int = 3
@@ -28,7 +29,7 @@ var damage_cooldown : bool =false
 var player : Node2D
 var bullet = preload("res://scenes/run_gun/enemies/enemy_projectile/enemy_bullet.tscn")
 
-enum STATE { IDLE, FOLLOW, SHOOT, JUMP, COMBO }
+enum STATE { IDLE, FOLLOW, SHOOT, JUMP, COMBO, ATTACK }
 var current_state: STATE = STATE.IDLE
 var status : Command.Status 
 
@@ -69,7 +70,8 @@ func bind_player_input_commands():
 	patrol = PatrolCommand.new()
 	shoot = EnemyShootCommand.new()
 	jump = EnemyJumpCommand.new()
-
+	attack_command = EnemyAttackCommand.new()
+	
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
 		return
@@ -90,7 +92,6 @@ func _on_attack_timer_timeout() -> void:
 
 func set_bullet_type(new_bullet: PackedScene) -> void:
 	bullet = new_bullet
-	print("Bullet type changed!")
 	
 func update_material():
 	$AnimatedSprite2D.material = $AnimatedSprite2D.material.duplicate()
