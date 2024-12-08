@@ -13,7 +13,7 @@ const TERMINAL_VELOCITY = 700
 const DEFAULT_JUMP_VELOCITY = -445
 const DEFAULT_MOVE_VELOCITY = 180
 
-var movement_speed = DEFAULT_MOVE_VELOCITY
+@export var movement_speed = DEFAULT_MOVE_VELOCITY
 var jump_velocity = DEFAULT_JUMP_VELOCITY
 
 var right_cmd : Command

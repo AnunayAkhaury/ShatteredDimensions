@@ -2,7 +2,6 @@ class_name BossFollowCommand
 extends Command
 
 var player: Player  
-var leash: float = 300
 
 func _init(player: Player):
 	self.player = player
@@ -18,7 +17,7 @@ func get_horizontal_distance_to_player(character: Character, player: Player) -> 
 func execute(character: Character) -> Status:
 	#var distance_to_player = get_horizontal_distance_to_player(character, player)
 	var distance_to_player = character.global_position.distance_to(player.global_position)
-	if distance_to_player > leash:
+	if distance_to_player > character.leash_distance:
 		character.velocity = Vector2.ZERO
 		return Status.DONE
 	var direction_to_player = (player.global_position - character.global_position).normalized()

@@ -795,7 +795,6 @@ position = Vector2(5905, 527)
 
 [node name="MechUnit5" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_4ghep")]
 position = Vector2(4298, 59)
-speed = 10.0
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node2D" parent="Enemies/MechUnit5"]
@@ -808,7 +807,6 @@ position = Vector2(-129, 43)
 
 [node name="MechUnit6" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_4ghep")]
 position = Vector2(4599, 61)
-speed = 10.0
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node2D" parent="Enemies/MechUnit6"]
@@ -821,7 +819,6 @@ position = Vector2(-106, 39)
 
 [node name="MechUnit7" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_4ghep")]
 position = Vector2(3992, 56)
-speed = 10.0
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node2D" parent="Enemies/MechUnit7"]
@@ -834,7 +831,6 @@ position = Vector2(-100, 43)
 
 [node name="MechUnit8" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_4ghep")]
 position = Vector2(4997, -538)
-speed = 35.0
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node2D" parent="Enemies/MechUnit8"]
@@ -856,7 +852,6 @@ is_shooter = true
 
 [node name="MechUnit" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_4ghep")]
 position = Vector2(450, 258)
-speed = 33.0
 health = 5
 patrol_points = NodePath("PatrolPoints")
 
@@ -888,7 +883,6 @@ position = Vector2(15, 34)
 
 [node name="MechUnit3" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_4ghep")]
 position = Vector2(3177, 282)
-speed = 15.0
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node2D" parent="Enemies/MechUnit3"]
@@ -901,7 +895,6 @@ position = Vector2(-131, 30)
 
 [node name="MechUnit4" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_4ghep")]
 position = Vector2(3532, 285)
-speed = 15.0
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node2D" parent="Enemies/MechUnit4"]
@@ -1003,7 +996,6 @@ player_node_path = NodePath("../Character")
 
 [node name="Sentinal" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("19_sdx6w")]
 position = Vector2(211, 299)
-speed = 25.0
 patrol_points = NodePath("PatrolPoints")
 player_node_path = NodePath("../Character")
 

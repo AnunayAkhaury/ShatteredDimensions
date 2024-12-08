@@ -62,6 +62,7 @@ func _physics_process(delta: float):
 		move_and_slide()
 		_apply_gravity(delta)
 		return 
+		
 	if lives == 0:
 		unbind_player_input_commands()
 		get_tree().change_scene_to_file("res://scenes/platformer/game_over.tscn")
@@ -252,7 +253,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		var knockback_direction: Vector2 = (position - area.global_position).normalized()
 		velocity = knockback_direction * knockback_force
 		knockback_active = true
-		knockback_timer.start(0.33)
+		knockback_timer.start(0.15)
 		HitAnimationPlayer.play("hit_flash")
 		HealthManager.decrease_health(area.damage_amount)
 			
@@ -261,7 +262,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		var knockback_direction: Vector2 = (global_position - area.global_position).normalized()
 		velocity = knockback_direction * knockback_force
 		knockback_active = true
-		knockback_timer.start(0.33)
+		knockback_timer.start(0.15)
 		HitAnimationPlayer.play("hit_flash")
 		HealthManager.decrease_health(node.damage_amount)
 	if HealthManager.current_health <= 0:

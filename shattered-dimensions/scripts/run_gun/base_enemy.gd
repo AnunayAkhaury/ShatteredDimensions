@@ -16,8 +16,11 @@ var jump : Command
 var follow : Command
 var damage_cooldown : bool =false
 var attack_command: Command
+var boss_follow_command: Command
+var combo_attack_command : Command
+var boss_shoot_command : Command
+var boss_summon_command : Command
 
-@export var speed: float = 100
 @export var health: int = 3
 @export var patrol_points : Node
 @export var damage_amount : int = 1
@@ -36,6 +39,7 @@ var status : Command.Status
 func _ready() -> void:
 	player = get_node_or_null(player_node_path)
 	bind_player_input_commands()
+	update_material()
 	if patrol_points != null:
 		number_of_points = patrol_points.get_children().size()
 		for point in patrol_points.get_children():
@@ -71,6 +75,25 @@ func bind_player_input_commands():
 	shoot = EnemyShootCommand.new()
 	jump = EnemyJumpCommand.new()
 	attack_command = EnemyAttackCommand.new()
+	combo_attack_command = ComboAttackCommand.new()
+	boss_follow_command = BossFollowCommand.new(player)
+	boss_shoot_command = BossShootCommand.new()
+	boss_summon_command = BossSummonCommand.new()
+	
+func unbind_player_input_commands():
+	right_cmd = Command.new()
+	left_cmd = Command.new()
+	up_cmd = Command.new()
+	fire1 = Command.new()
+	idle = Command.new()
+	run_shoot_left = Command.new()
+	run_shoot = Command.new()
+	shoot = Command.new()
+	attack_command = Command.new()
+	combo_attack_command = Command.new()
+	boss_follow_command = Command.new()
+	boss_shoot_command = Command.new()
+	boss_summon_command = Command.new()
 	
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):

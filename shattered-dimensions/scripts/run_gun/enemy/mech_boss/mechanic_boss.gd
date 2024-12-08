@@ -6,26 +6,30 @@ class_name MechanicBoss
 @export var shoot_interval: float = 2.0  # Shooting interval in seconds
 @export var attack_distance: float = 50  # Distance to trigger physical attack combo
 @export var jump_threshold: float = 50   # Height difference to trigger a jump
-
+@export var ScoutSummonPoints: Node
+@export var SentinalSummonPoints: Node
 @onready var attack_timer: Timer = $AttackTimer
 @onready var muzzle: Marker2D = $Muzzle
 @onready var combo_hit_box: Area2D = $ComboHitBox
+@onready var summon_timer: Timer = $SummonTimer
 
+var summoned_enemies: Array = []  
 var muzzle_position: Vector2
 var combo_hitbox_pos : Vector2
-var boss_follow_command: BossFollowCommand
-var combo_attack_command : ComboAttackCommand
-var boss_shoot_command : BossShootCommand
 var is_following: bool = false
 var is_attacking: bool = false
 var is_shooting: bool = false
 var is_jumping: bool = false
+var boss_move : bool = false
+var death : bool = false
 
 func _ready() -> void:
-	super._ready()
+	player = get_node_or_null(player_node_path)
+	bind_player_input_commands()
 	combo_attack_command = ComboAttackCommand.new()
 	boss_follow_command = BossFollowCommand.new(player)
 	boss_shoot_command = BossShootCommand.new()
+	boss_summon_command = BossSummonCommand.new()
 	bullet = preload('res://scenes/run_gun/enemies/mechanic/mechanic_bullet.tscn')
 	set_bullet_type(bullet)
 	muzzle_position = muzzle.position
@@ -35,10 +39,12 @@ func _ready() -> void:
 	combo_hit_box.monitorable = false
 	combo_hit_box.monitoring = false
 
-func _physics_process(delta: float) -> void:                                 
+func _physics_process(delta: float) -> void:
+	if death:
+		return                                 
+	prevent_landing_on_player()
 	move_and_slide()
 	apply_gravity(delta)
-	prevent_landing_on_player()
 	if player != null:
 		var distance_to_player = (player.global_position - global_position).length()
 		var player_above = player.global_position.y < global_position.y - jump_threshold
@@ -120,11 +126,39 @@ func update_combo_hitbox() -> void:
 		
 func prevent_landing_on_player() -> void:
 	if is_on_floor() and player != null:
-		var player_rect = player.global_position
-		var boss_rect = global_position
-
-		if abs(player_rect.x - boss_rect.x) < 1: 
-			if player_rect.x > boss_rect.x:
-				global_position.x -= 30  
+		var player_x = player.global_position.x
+		var boss_x = global_position.x
+		var boss_y = global_position.y
+		var player_y = player.global_position.y
+		if abs(player_x - boss_x) < 10 and boss_y < player_y:
+			if randi() % 2 == 0:
+				_horizontal_input = -1
 			else:
-				global_position.x += 30  
+				_horizontal_input = 1 
+			is_jumping = true 
+			boss_move = true 
+			jump.execute(self)
+
+
+func _on_summon_timer_timeout() -> void:
+	boss_summon_command.execute(self)
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy"):
+		return
+	if area == self.get_node("HitBox"):  
+		return
+	if area.get_parent().has_method("get_damage_amount"):
+		hitflashplayer.play("hit_flash")
+		var node = area.get_parent() as Node
+		health -= node.damage_amount
+		if health <= 0:
+			animatedsprite.stop()
+			death = true
+			unbind_player_input_commands()
+			animatedsprite.play("death")
+			for enemy in summoned_enemies:
+				if enemy != null and is_instance_valid(enemy):
+					enemy.queue_free()
+			summoned_enemies.clear()
+			

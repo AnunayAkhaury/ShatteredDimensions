@@ -4,7 +4,6 @@ extends BaseEnemy
 
 func _ready() -> void:
 	super._ready()
-	update_material()
 
 	
 func _physics_process(delta: float) -> void:
