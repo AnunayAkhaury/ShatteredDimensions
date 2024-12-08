@@ -22,14 +22,16 @@ func execute(character: Character) -> Status:
 		character.velocity = Vector2.ZERO
 		return Status.DONE
 	var direction_to_player = (player.global_position - character.global_position).normalized()
-	character.velocity.x = direction_to_player.x * character.movement_speed
+	character.velocity.x = direction_to_player.x * 50
 	
 	if direction_to_player.x < 0:
-		character.animatedsprite.flip_h = false
-		character.change_facing(Character.Facing.LEFT)
-	else:
 		character.animatedsprite.flip_h = true
 		character.change_facing(Character.Facing.RIGHT)
-
+	else:
+		character.animatedsprite.flip_h = false
+		character.change_facing(Character.Facing.LEFT)
+	
+	
+	character.update_combo_hitbox()
 	return Status.ACTIVE
 		

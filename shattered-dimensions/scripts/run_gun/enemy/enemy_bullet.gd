@@ -1,6 +1,7 @@
 extends AnimatedSprite2D
+class_name EnemyBullet
 
-var bullet_impact_effect = preload("res://scenes/run_gun/enemies/enemy_projectile/enemy_bullet_impact.tscn")
+@export var bullet_impact_effect = preload("res://scenes/run_gun/enemies/enemy_projectile/enemy_bullet_impact.tscn")
 
 var speed : int = 600
 var direction : int

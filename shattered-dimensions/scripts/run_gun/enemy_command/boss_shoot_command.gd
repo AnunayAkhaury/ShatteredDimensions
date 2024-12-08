@@ -1,4 +1,4 @@
-class_name EnemyShootCommand
+class_name BossShootCommand
 extends Command
 
 var is_executing: bool = false
@@ -13,15 +13,15 @@ func execute(character: Character) -> Status:
 	return Status.DONE
 
 func _on_shoot_animation_finished(character: Character) -> void:
-	print('Shoot animation finished, firing bullet')
 	var bullet_instance = character.bullet.instantiate() as Node2D
 	bullet_instance.global_position = character.muzzle.global_position
 	if character.facing == Character.Facing.RIGHT:
-		bullet_instance.direction = 1
-	else:
 		bullet_instance.direction = -1
+	else:
+		bullet_instance.direction = 1
 
 	character.get_parent().add_child(bullet_instance)
 
 	is_executing = false
+	character.animatedsprite.play('walk')
 	print("Bullet fired after shoot animation!")

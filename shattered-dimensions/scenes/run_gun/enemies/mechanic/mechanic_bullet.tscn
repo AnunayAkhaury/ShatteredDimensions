@@ -1,3 +1,45 @@
-[gd_scene format=3 uid="uid://w234s1uge6e0"]
+[gd_scene load_steps=6 format=3 uid="uid://w234s1uge6e0"]
+
+[ext_resource type="Texture2D" uid="uid://drhp74phxsb53" path="res://assets/Anunay's Boss/Mechanic Mike/Mechanic Mike/bullet.png" id="1_lj1dh"]
+[ext_resource type="Script" path="res://scripts/run_gun/enemy/mech_boss/mechanic_bullet.gd" id="2_fp6fv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ll1ep"]
+atlas = ExtResource("1_lj1dh")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jyruo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ll1ep")
+}],
+"loop": true,
+"name": &"bullet",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ogkmt"]
+radius = 3.99919
+height = 23.9949
 
 [node name="MechanicBullet" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_jyruo")
+animation = &"bullet"
+script = ExtResource("2_fp6fv")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(1, 0)
+rotation = 1.59095
+shape = SubResource("CapsuleShape2D_ogkmt")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

@@ -20,6 +20,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
+	prevent_landing_on_player()
 	if player != null:
 		var distance_to_player = (player.global_position - global_position).length()
 		if distance_to_player <= follow_distance and !is_following:
@@ -62,3 +63,14 @@ func update_muzzle_position() -> void:
 		muzzle.position.x = abs(muzzle_position.x) 
 	else:
 		muzzle.position.x = -abs(muzzle_position.x) 
+		
+func prevent_landing_on_player() -> void:
+	if is_on_floor() and player != null:
+		var player_rect = player.global_position
+		var boss_rect = global_position
+
+		if abs(player_rect.x - boss_rect.x) < 1: 
+			if player_rect.x > boss_rect.x:
+				global_position.x -= 30  
+			else:
+				global_position.x += 30  

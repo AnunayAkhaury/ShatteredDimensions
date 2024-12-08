@@ -357,7 +357,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hfeoe")
 }],
-"loop": true,
+"loop": false,
 "name": &"shoot",
 "speed": 15.0
 }, {
@@ -388,7 +388,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 3.0
+"speed": 7.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lpkc3"]
@@ -467,7 +467,7 @@ script = ExtResource("1_vtyq8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_dxxkn")
 sprite_frames = SubResource("SpriteFrames_jcqlg")
-animation = &"walk"
+animation = &"shoot"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemy"]]

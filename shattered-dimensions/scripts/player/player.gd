@@ -248,6 +248,14 @@ func _on_knockback_timer_timeout() -> void:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("ComboHitBox"):
+		var knockback_direction: Vector2 = (position - area.global_position).normalized()
+		velocity = knockback_direction * knockback_force
+		knockback_active = true
+		knockback_timer.start(0.33)
+		HitAnimationPlayer.play("hit_flash")
+		HealthManager.decrease_health(area.damage_amount)
+			
 	if area.get_parent().has_method("get_enemyproj_amount") and not knockback_active:
 		var node = area.get_parent() as Node
 		var knockback_direction: Vector2 = (global_position - area.global_position).normalized()

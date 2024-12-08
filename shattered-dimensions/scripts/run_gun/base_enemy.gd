@@ -12,6 +12,7 @@ var current_point : Vector2
 var current_point_position: int
 var patrol : Command
 var shoot_command: Command
+var jump : Command
 var follow : Command
 var damage_cooldown : bool =false
 
@@ -67,7 +68,7 @@ func bind_player_input_commands():
 	idle = IdleCommand.new()
 	patrol = PatrolCommand.new()
 	shoot = EnemyShootCommand.new()
-	
+	jump = EnemyJumpCommand.new()
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
