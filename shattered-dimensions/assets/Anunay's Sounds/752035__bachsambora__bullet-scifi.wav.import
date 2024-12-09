@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dutw7vikuxw25"
+path="res://.godot/imported/752035__bachsambora__bullet-scifi.wav-0f35d113bcfd4ea9ba19e940c9cf9166.sample"
+
+[deps]
+
+source_file="res://assets/Anunay's Sounds/752035__bachsambora__bullet-scifi.wav"
+dest_files=["res://.godot/imported/752035__bachsambora__bullet-scifi.wav-0f35d113bcfd4ea9ba19e940c9cf9166.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

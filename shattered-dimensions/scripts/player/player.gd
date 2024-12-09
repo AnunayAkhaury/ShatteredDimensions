@@ -61,9 +61,15 @@ enum STATE {
 	RUN_SHOOT,
 	JUMP
 }
+# Sound Effects
+
+@onready var item_pick_up_audio: AudioStreamPlayer2D = $ItemPickUpAudio
+@onready var shooting_audio: AudioStreamPlayer2D = $ShootingAudio
 @onready var jump_audio: AudioStreamPlayer = $JumpAudio
 @onready var trampoline_audio: AudioStreamPlayer = $TrampolineAudio
 @onready var death_audio: AudioStreamPlayer = $DeathAudio
+@onready var damge_audio: AudioStreamPlayer2D = $DamgeAudio
+@onready var run_gun_death_audio: AudioStreamPlayer2D = $RunGunDeathAudio
 
 func _ready():
 	#animation_tree.active = true
@@ -119,6 +125,7 @@ func _physics_process(delta: float):
 		else:
 			current_state = STATE.SHOOT
 			shoot.execute(self)
+		shooting_audio.play()
 		shoot_cooldown_timer.start()
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or double_jump):
 		if on_trampoline:
@@ -213,6 +220,7 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 		knockback_active = true
 		knockback_timer.start(0.33)
 		HitAnimationPlayer.play("hit_flash")
+		damge_audio.play()
 		HealthManager.decrease_health(body.damage_amount)
 	if HealthManager.current_health <= 0:
 		player_death()
@@ -237,6 +245,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		knockback_active = true
 		knockback_timer.start(0.15)
 		HitAnimationPlayer.play("hit_flash")
+		damge_audio.play()
 		HealthManager.decrease_health(area.damage_amount)
 			
 	if area.get_parent().has_method("get_enemyproj_amount") and not knockback_active:
@@ -246,6 +255,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		knockback_active = true
 		knockback_timer.start(0.15)
 		HitAnimationPlayer.play("hit_flash")
+		damge_audio.play()
 		HealthManager.decrease_health(node.damage_amount)
 	if HealthManager.current_health <= 0:
 		player_death()

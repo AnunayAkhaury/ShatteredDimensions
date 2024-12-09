@@ -352,7 +352,7 @@ shape = SubResource("RectangleShape2D_iubs7")
 [node name="Shooter" type="Area2D" parent="Levels"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Levels/Shooter"]
-position = Vector2(480, 145)
+position = Vector2(324, 557)
 shape = SubResource("RectangleShape2D_iubs7")
 
 [node name="Car" type="Area2D" parent="Levels"]

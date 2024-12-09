@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dh7lwrd6jqdep"]
+[gd_scene load_steps=48 format=3 uid="uid://dh7lwrd6jqdep"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_1w0xd"]
 [ext_resource type="PackedScene" uid="uid://fiianho52s3p" path="res://scenes/character.tscn" id="1_82jgl"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://csjqa06rb4jxf" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-shoot.png" id="8_m4pkq"]
 [ext_resource type="AudioStream" uid="uid://br8srrohqm74w" path="res://assets/boing sound effect 1 (mp3cut.net).mp3" id="9_mpq2w"]
 [ext_resource type="AudioStream" uid="uid://5vq18exo475h" path="res://assets/RPG_Essentials_Free/10_Battle_SFX/03_Claw_03.wav" id="10_ek2iw"]
+[ext_resource type="AudioStream" uid="uid://bavv1bi18qmpl" path="res://assets/Anunay's Sounds/bulletshort.wav" id="14_3mblx"]
+[ext_resource type="AudioStream" uid="uid://bcnqrjt04ke0q" path="res://assets/Anunay's Sounds/damage.wav" id="15_64g5x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7j168"]
 shader = ExtResource("3_4t12l")
@@ -326,6 +328,16 @@ one_shot = true
 [node name="ShootCoolDownTimer" type="Timer" parent="." index="9"]
 wait_time = 0.5
 one_shot = true
+
+[node name="ShootingAudio" type="AudioStreamPlayer2D" parent="." index="10"]
+stream = ExtResource("14_3mblx")
+volume_db = -10.0
+
+[node name="ItemPickUpAudio" type="AudioStreamPlayer2D" parent="." index="11"]
+
+[node name="DamgeAudio" type="AudioStreamPlayer2D" parent="." index="12"]
+stream = ExtResource("15_64g5x")
+volume_db = -10.0
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

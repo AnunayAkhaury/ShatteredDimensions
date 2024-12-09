@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://dcucy61y0vdtp"]
+[gd_scene load_steps=40 format=4 uid="uid://dcucy61y0vdtp"]
 
 [ext_resource type="Script" path="res://scripts/run_gun/run_gun_scene.gd" id="1_hjbtq"]
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="2_7s41g"]
@@ -19,6 +19,9 @@
 [ext_resource type="Script" path="res://scripts/run_gun/next_level.gd" id="15_w55yl"]
 [ext_resource type="PackedScene" uid="uid://ceq4aimroumar" path="res://scenes/run_gun/powerups/rapid_fire.tscn" id="16_n1ghw"]
 [ext_resource type="PackedScene" uid="uid://i63jkyqe4nn" path="res://scenes/run_gun/powerups/spiral_bullet_powerup/spiral_bullet_pickup.tscn" id="17_3ebtf"]
+[ext_resource type="PackedScene" uid="uid://bmoaon1yut05y" path="res://scenes/pause_menu.tscn" id="20_bah8t"]
+[ext_resource type="AudioStream" uid="uid://bkku2xi3gki3s" path="res://assets/Anunay's Sounds/512918__lindseysewell__cyberpunk-atmosphere.wav" id="21_6yft4"]
+[ext_resource type="AudioStream" uid="uid://bg427qs4oip4d" path="res://assets/Anunay's Sounds/death.wav" id="21_vhuwh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5olc5"]
 texture = ExtResource("3_hax1a")
@@ -1016,12 +1019,27 @@ position = Vector2(-329, 34)
 [node name="2" type="Marker2D" parent="MechUnit/PatrolPoints"]
 position = Vector2(396, 38)
 
-[node name="Label" type="Label" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
 offset_left = 6351.0
 offset_top = 351.0
 offset_right = 6493.0
 offset_bottom = 374.0
 text = "Jump Into The City"
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("20_bah8t")]
+visible = false
+
+[node name="RunGunDeathAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_vhuwh")
+max_distance = 9.22337e+18
+
+[node name="Level1Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_6yft4")
+autoplay = true
+max_distance = 9.22337e+18
+max_polyphony = 2
 
 [connection signal="area_entered" from="Platforms/Area2D" to="Platforms/MovingDownPlatform" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Platforms/Area2D" to="Platforms/MovingDownPlatform" method="_on_area_2d_body_entered"]
