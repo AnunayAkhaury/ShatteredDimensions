@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dvpctlg3vbdpb"
+path="res://.godot/imported/Buzzer2.ogg-e15ade691f08b5ddfeb227ff115b794d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/CarLevel/Abusive Prison Tileset Pack/audio/se/Buzzer2.ogg"
+dest_files=["res://.godot/imported/Buzzer2.ogg-e15ade691f08b5ddfeb227ff115b794d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

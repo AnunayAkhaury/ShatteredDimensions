@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c043eos3amkax"]
+
+[ext_resource type="Texture2D" uid="uid://o3o0xqkyafg8" path="res://assets/humvee/tires_trimmed.png" id="1_g4m3r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2b6tg"]
+radius = 18.0
+
+[node name="Wheels" type="RigidBody2D"]
+
+[node name="WheelsSprite" type="Sprite2D" parent="."]
+position = Vector2(0.186301, -0.0774696)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_g4m3r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2b6tg")

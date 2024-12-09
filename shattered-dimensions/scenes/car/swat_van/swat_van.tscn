@@ -1,0 +1,199 @@
+[gd_scene load_steps=26 format=3 uid="uid://i6arnh3jkabk"]
+
+[ext_resource type="Script" path="res://scripts/car/vehicles/swat_van.gd" id="1_cich8"]
+[ext_resource type="Texture2D" uid="uid://cydnsk6xymx31" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-duck.png" id="2_m3s2m"]
+[ext_resource type="Texture2D" uid="uid://yieoc0r6y1m4" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-idle.png" id="3_10pcs"]
+[ext_resource type="Texture2D" uid="uid://dpwuih5udon20" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-jump.png" id="4_d28jj"]
+[ext_resource type="Texture2D" uid="uid://cart612wkg4y5" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-run.png" id="5_xil03"]
+[ext_resource type="Script" path="res://scripts/player/animated_sprite_2d.gd" id="6_id1kn"]
+[ext_resource type="Texture2D" uid="uid://cv8j8qelp16dg" path="res://assets/swat van/body.png" id="7_2tp71"]
+[ext_resource type="PackedScene" uid="uid://pvqbnbhqvl3x" path="res://scenes/car/swat_van/wheels.tscn" id="8_eop34"]
+[ext_resource type="Script" path="res://scripts/car/detection_boxes/enemy_hurt_box.gd" id="8_hhotd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kw7ln"]
+atlas = ExtResource("2_m3s2m")
+region = Rect2(32, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ax27"]
+atlas = ExtResource("3_10pcs")
+region = Rect2(0, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wteeq"]
+atlas = ExtResource("3_10pcs")
+region = Rect2(32, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf0ku"]
+atlas = ExtResource("3_10pcs")
+region = Rect2(64, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yn7l"]
+atlas = ExtResource("3_10pcs")
+region = Rect2(96, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke2as"]
+atlas = ExtResource("3_10pcs")
+region = Rect2(128, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q8sf"]
+atlas = ExtResource("3_10pcs")
+region = Rect2(160, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mjdf"]
+atlas = ExtResource("4_d28jj")
+region = Rect2(0, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_losom"]
+atlas = ExtResource("4_d28jj")
+region = Rect2(32, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl0gt"]
+atlas = ExtResource("5_xil03")
+region = Rect2(0, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsdap"]
+atlas = ExtResource("5_xil03")
+region = Rect2(32, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg2xp"]
+atlas = ExtResource("5_xil03")
+region = Rect2(64, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrr0u"]
+atlas = ExtResource("5_xil03")
+region = Rect2(96, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxrf6"]
+atlas = ExtResource("5_xil03")
+region = Rect2(128, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_776vw"]
+atlas = ExtResource("5_xil03")
+region = Rect2(160, 0, 32, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_whpnn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kw7ln")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ax27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wteeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf0ku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yn7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke2as")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q8sf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mjdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_losom")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl0gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsdap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg2xp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrr0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxrf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_776vw")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="SwatVan" type="RigidBody2D"]
+position = Vector2(-10, 2)
+scale = Vector2(1, 0.988)
+mass = 10.0
+script = ExtResource("1_cich8")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -56.6802)
+scale = Vector2(0.95625, 0.979708)
+sprite_frames = SubResource("SpriteFrames_whpnn")
+animation = &"idle"
+autoplay = "idle"
+script = ExtResource("6_id1kn")
+
+[node name="Swat" type="Sprite2D" parent="."]
+position = Vector2(1, -51.6194)
+scale = Vector2(0.09, 0.092)
+texture = ExtResource("7_2tp71")
+flip_h = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-6, -52.6316)
+scale = Vector2(1.3, 1.3)
+polygon = PackedVector2Array(-55, 29.3523, -55, 13.1579, -55, -8.09712, -55, -26.3157, 35, -26.3157, 62.3077, 7.00718, 63.0769, 14.0143, 56.9231, 28.0287, 32, 29.3523, -25, 29.3523)
+
+[node name="HurtBox" type="Area2D" parent="."]
+position = Vector2(0, -3.8147e-06)
+script = ExtResource("8_hhotd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox"]
+position = Vector2(-13, -52.6316)
+scale = Vector2(1.3, 1.3)
+polygon = PackedVector2Array(-46.087, 29.0442, -46.087, 12.3218, -46.087, -7.92114, -46.087, -25.5237, 35, -26.3157, 66.087, 9.6814, 66.087, 19.3628, 66.087, 29.0442, 32, 29.3523, -25, 29.3523)
+
+[node name="FrontWheel" parent="." instance=ExtResource("8_eop34")]
+unique_name_in_owner = true
+position = Vector2(52, -16.1943)
+
+[node name="BackWheel" parent="." instance=ExtResource("8_eop34")]
+unique_name_in_owner = true
+position = Vector2(-49, -16.1943)
+
+[node name="FrontWheelHolder" type="PinJoint2D" parent="."]
+position = Vector2(52, -16.1943)
+node_a = NodePath("..")
+node_b = NodePath("../FrontWheel")
+
+[node name="BackWheelHolder" type="PinJoint2D" parent="."]
+position = Vector2(-49, -16.1943)
+node_a = NodePath("..")
+node_b = NodePath("../BackWheel")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -53.0
+offset_top = -102.227
+offset_right = 97.0
+offset_bottom = -75.2267
+scale = Vector2(0.434742, 0.384409)
