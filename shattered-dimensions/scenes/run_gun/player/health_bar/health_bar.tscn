@@ -21,4 +21,14 @@ position = Vector2(78, 12)
 scale = Vector2(2, 2)
 texture = ExtResource("2_dd6i8")
 
+[node name="Heart4" type="Sprite2D" parent="."]
+position = Vector2(110, 12)
+scale = Vector2(2, 2)
+texture = ExtResource("2_dd6i8")
+
+[node name="Heart5" type="Sprite2D" parent="."]
+position = Vector2(142, 12)
+scale = Vector2(2, 2)
+texture = ExtResource("2_dd6i8")
+
 [node name="HeartEmpty" type="Sprite2D" parent="."]

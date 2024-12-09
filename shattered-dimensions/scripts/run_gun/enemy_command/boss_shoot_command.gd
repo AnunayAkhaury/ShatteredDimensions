@@ -13,6 +13,8 @@ func execute(character: Character) -> Status:
 	return Status.DONE
 
 func _on_shoot_animation_finished(character: Character) -> void:
+	character.combo_hit_box.monitorable = false
+	character.combo_hit_box.monitoring = false
 	var bullet_instance = character.bullet.instantiate() as Node2D
 	bullet_instance.global_position = character.muzzle.global_position
 	if character.facing == Character.Facing.RIGHT:

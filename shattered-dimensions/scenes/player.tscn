@@ -314,7 +314,7 @@ height = 32.0
 [node name="Character" groups=["player"] instance=ExtResource("1_82jgl")]
 collision_layer = 2
 script = ExtResource("1_1w0xd")
-health = 100
+health = 3
 default_run_animation = "run"
 default_idle_animation = "idle"
 knockback_force = 300.0

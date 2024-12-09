@@ -76,7 +76,7 @@ func bind_player_input_commands():
 	jump = EnemyJumpCommand.new()
 	attack_command = EnemyAttackCommand.new()
 	combo_attack_command = ComboAttackCommand.new()
-	boss_follow_command = BossFollowCommand.new(player)
+	boss_follow_command = BossFollowCommand.new(player as Character)
 	boss_shoot_command = BossShootCommand.new()
 	boss_summon_command = BossSummonCommand.new()
 	

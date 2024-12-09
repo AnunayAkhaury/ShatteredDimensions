@@ -1,7 +1,7 @@
 class_name Player
 extends Character 
 
-@export var health:int = 100
+@export var health:int = 3
 @export var default_run_animation: String = "run"  
 @export var default_idle_animation: String = "idle"
 
@@ -58,7 +58,7 @@ func _ready():
 	shoot_cooldown_timer.wait_time = shoot_cooldown
 
 func _physics_process(delta: float):
-	if knockback_active:
+	if knockback_active and Global.run_gun:
 		move_and_slide()
 		_apply_gravity(delta)
 		return 
@@ -89,7 +89,7 @@ func _physics_process(delta: float):
 			current_state = STATE.IDLE
 			idle.execute(self)
 			
-	if Input.is_action_just_pressed("shoot") and can_shoot:
+	if Input.is_action_just_pressed("shoot") and can_shoot and Global.run_gun:
 		if shoot_cooldown != 0:
 			can_shoot = false
 		if move_input != 0.0:

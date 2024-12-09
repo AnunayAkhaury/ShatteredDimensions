@@ -1,18 +1,21 @@
 extends BaseEnemy
 class_name MechanicBoss
-
-@export var leash_distance: float = 800  # Distance to start following
-@export var shoot_distance: float = 500  # Distance to stop and shoot
-@export var shoot_interval: float = 2.0  # Shooting interval in seconds
-@export var attack_distance: float = 50  # Distance to trigger physical attack combo
-@export var jump_threshold: float = 50   # Height difference to trigger a jump
+@export var follow_distance: float = 400
+@export var leash_distance: float = 800  
+@export var shoot_distance: float = 500  
+@export var shoot_interval: float = 2.0  
+@export var attack_distance: float = 50  
+@export var jump_threshold: float = 50   
 @export var ScoutSummonPoints: Node
 @export var SentinalSummonPoints: Node
 @onready var attack_timer: Timer = $AttackTimer
 @onready var muzzle: Marker2D = $Muzzle
 @onready var combo_hit_box: Area2D = $ComboHitBox
 @onready var summon_timer: Timer = $SummonTimer
+@onready var heath_marker: Marker2D = $"../HeathMarker"
 
+var health_powerup_scene = preload('res://scenes/run_gun/powerups/health_pickup.tscn')
+var spiral_bullet_powerup = preload('res://scenes/run_gun/powerups/spiral_bullet_powerup/spiral_bullet_pickup.tscn')
 var summoned_enemies: Array = []  
 var muzzle_position: Vector2
 var combo_hitbox_pos : Vector2
@@ -22,6 +25,11 @@ var is_shooting: bool = false
 var is_jumping: bool = false
 var boss_move : bool = false
 var death : bool = false
+var health_thresholds = [100, 75, 50, 25]  
+var triggered_thresholds = []       
+var health_max : int
+@export var shoot_cooldown: float = 3
+var rage_mode_triggered: bool = false 
 
 func _ready() -> void:
 	player = get_node_or_null(player_node_path)
@@ -33,11 +41,13 @@ func _ready() -> void:
 	bullet = preload('res://scenes/run_gun/enemies/mechanic/mechanic_bullet.tscn')
 	set_bullet_type(bullet)
 	muzzle_position = muzzle.position
-	
+	health_max = health
+	movement_speed = 75
 	await get_tree().process_frame
 	combo_hitbox_pos = combo_hit_box.position                     
 	combo_hit_box.monitorable = false
 	combo_hit_box.monitoring = false
+	attack_timer.wait_time = shoot_cooldown
 
 func _physics_process(delta: float) -> void:
 	if death:
@@ -45,6 +55,7 @@ func _physics_process(delta: float) -> void:
 	prevent_landing_on_player()
 	move_and_slide()
 	apply_gravity(delta)
+	check_health_thresholds() 
 	if player != null:
 		var distance_to_player = (player.global_position - global_position).length()
 		var player_above = player.global_position.y < global_position.y - jump_threshold
@@ -53,11 +64,11 @@ func _physics_process(delta: float) -> void:
 			perform_jump()
 			is_jumping = false
 			
-		if distance_to_player <= leash_distance and !is_following:
+		if distance_to_player <= follow_distance and !is_following:
 			is_following = true
 			current_state = STATE.FOLLOW
 			
-		elif distance_to_player > leash_distance and is_following:
+		elif distance_to_player > follow_distance and is_following:
 			is_following = false
 			velocity.x = 0  
 			current_state = STATE.IDLE
@@ -103,10 +114,14 @@ func update_animation() -> void:
 		animatedsprite.play('combo')
 
 func _on_attack_timer_timeout() -> void:
+	if not is_instance_valid(player) or not is_instance_valid(self):
+		return 
 	var distance_to_player = (player.global_position - global_position).length()
 	if distance_to_player <= shoot_distance and distance_to_player > attack_distance and not is_attacking:
 		is_shooting = true
 		update_muzzle_position()
+		combo_hit_box.monitorable = true
+		combo_hit_box.monitoring = true
 		boss_shoot_command.execute(self)
 		current_state = STATE.FOLLOW
 		
@@ -141,7 +156,9 @@ func prevent_landing_on_player() -> void:
 
 
 func _on_summon_timer_timeout() -> void:
-	boss_summon_command.execute(self)
+	if is_following:
+		print("summoning")
+		boss_summon_command.execute(self)
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
@@ -161,4 +178,36 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 				if enemy != null and is_instance_valid(enemy):
 					enemy.queue_free()
 			summoned_enemies.clear()
-			
+			Global.run_gun = false
+
+
+func spawn_health_powerup() -> void:
+	if health_powerup_scene and heath_marker:
+		var powerup = health_powerup_scene.instantiate()
+		powerup.global_position = heath_marker.global_position  #
+		get_parent().add_child(powerup)
+		
+					
+func check_health_thresholds() -> void:
+	var health_percentage = (float(health) / float(health_max)) * 100
+	for threshold in health_thresholds:
+		if health_percentage <= threshold and not triggered_thresholds.has(threshold):
+			triggered_thresholds.append(threshold)  
+			spawn_health_powerup()  
+	if health_percentage <= 33 and not rage_mode_triggered:
+		activate_rage_mode()
+
+func activate_rage_mode() -> void:
+	if spiral_bullet_powerup and heath_marker:
+		var spiral_powerup = spiral_bullet_powerup.instantiate()
+		var spiral_marker = heath_marker.duplicate()
+		spiral_marker.global_position.y = spiral_marker.global_position.y - 30
+		spiral_powerup.global_position = spiral_marker.global_position
+		spiral_powerup.player_node_path = player_node_path
+		get_parent().add_child(spiral_powerup)
+		
+	rage_mode_triggered = true
+	movement_speed = movement_speed * 2  
+	shoot_cooldown = shoot_cooldown / 1.25 
+	attack_timer.wait_time = shoot_cooldown  
+	print("Rage Mode Activated: Speed doubled, shooting faster!")

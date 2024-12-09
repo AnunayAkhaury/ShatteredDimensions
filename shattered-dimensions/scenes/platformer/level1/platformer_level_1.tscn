@@ -2332,3 +2332,4 @@ script = ExtResource("11_kuwey")
 [node name="Player" parent="." instance=ExtResource("12_nn4nu")]
 unique_name_in_owner = true
 position = Vector2(65, 595)
+health = 3
