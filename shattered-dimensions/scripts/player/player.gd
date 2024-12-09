@@ -6,6 +6,7 @@ extends Character
 
 var _damaged:bool = false
 var _dead:bool = false
+
 # VARIABLES FOR PLATFORMER
 var double_jump: bool = false
 @export var platformer_level: int
@@ -107,9 +108,8 @@ func _physics_process(delta: float):
 		current_state = STATE.RUN
 		left_cmd.execute(self)
 	else:
-		if is_on_floor():
-			current_state = STATE.IDLE
-			idle.execute(self)
+		current_state = STATE.IDLE
+		idle.execute(self)
 			
 	if Input.is_action_just_pressed("shoot") and can_shoot and Global.run_gun:
 		if shoot_cooldown != 0:
@@ -131,7 +131,7 @@ func _physics_process(delta: float):
 			jump_audio.play()
 	
 		current_state = STATE.JUMP
-		up_cmd.execute(self)
+		#up_cmd.execute(self)
 		
 			#else:
 				#sprite.play("jump")
@@ -157,54 +157,6 @@ func platformer_respawn():
 		position.y = 590
 
 
-#func take_damage(damage:int) -> void:
-	#health -= damage
-	#_damaged = true
-	#if 0 >= health:
-		#_play($Audio/defeat)
-		#_dead = true
-		#animation_tree.active = false
-		#animation_player.play("death")
-	#else:
-		#_play($Audio/hurt)
-
-
-#Logic to support the state machine in the AnimationTree
-#func _manage_animation_tree_state() -> void:
-	#if !is_zero_approx(velocity.x):
-		#animation_tree["parameters/conditions/idle"] = false
-		#animation_tree["parameters/conditions/moving"] = true
-	#else:
-		#animation_tree["parameters/conditions/idle"] = true
-		#animation_tree["parameters/conditions/moving"] = false
-	#
-	#if is_on_floor():
-		#animation_tree["parameters/conditions/jumping"] = false
-		#animation_tree["parameters/conditions/on_floor"] = true
-	#else:
-		#animation_tree["parameters/conditions/jumping"] = true
-		#animation_tree["parameters/conditions/on_floor"] = false
-	#
-	##toggles
-	#if attacking:
-		#animation_tree["parameters/conditions/attacking"] = true
-		#attacking = false
-	#else:
-		#animation_tree["parameters/conditions/attacking"] = false
-	#
-	#if sword_up:
-		#animation_tree["parameters/conditions/sword_up"] = true
-		#sword_up = false
-	#else:
-		#animation_tree["parameters/conditions/sword_up"] = false
-		#
-	#if _damaged:
-		#animation_tree["parameters/conditions/damaged"] = true
-		#_damaged = false
-	#else:
-		#animation_tree["parameters/conditions/damaged"] = false
-
-
 
 func bind_player_input_commands():
 	right_cmd = MoveRightCommand.new()
@@ -226,18 +178,6 @@ func unbind_player_input_commands():
 	run_shoot_left = Command.new()
 	run_shoot = Command.new()
 	shoot = Command.new()
-#func command_callback(cmd_name:String) -> void:
-	#if "attack" == cmd_name:
-		#_play($Audio/attack)
-		#
-	#if "jump" == cmd_name:
-		#_play($Audio/jump)
-		#
-	#if "engage" == cmd_name:
-		#_play($Audio/engage)
-		#
-	#if "undeath" == cmd_name:
-		#_play($Audio/undeath)
 
 func _play(player:AudioStreamPlayer2D) -> void:
 	if !player.playing:
