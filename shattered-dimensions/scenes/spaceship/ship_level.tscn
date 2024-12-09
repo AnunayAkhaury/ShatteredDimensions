@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c6dxcam5a1ip3" path="res://scenes/spaceship/asteroid_2.tscn" id="16_yoa8q"]
 [ext_resource type="PackedScene" uid="uid://dbcgmomj13fhn" path="res://scenes/spaceship/enemy.tscn" id="19_1l8wj"]
 [ext_resource type="AudioStream" uid="uid://bjtnqry7xddl7" path="res://assets/space-rumble-29970.mp3" id="21_c5ned"]
-[ext_resource type="PackedScene" uid="uid://dmxua8roddue8" path="res://powerup.tscn" id="21_u67m8"]
+[ext_resource type="PackedScene" uid="uid://dmxua8roddue8" path="res://scenes/spaceship/powerup.tscn" id="21_u67m8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_20ihf"]
 atlas = ExtResource("12_bnk6q")
