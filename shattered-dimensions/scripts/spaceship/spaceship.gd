@@ -35,8 +35,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	
-	GlobalVars.spaceshipCompleted = true
-	get_tree().change_scene_to_file("res://scenes/prison.tscn")
+	#GlobalVars.spaceshipCompleted = true
+	#get_tree().change_scene_to_file("res://scenes/prison.tscn")
 	
 	# stop autoscroll if reached end of game
 	if camera.position.x >= 8000:
