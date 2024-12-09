@@ -1,4 +1,4 @@
-class_name Enemy
+class_name CarEnemy
 extends CharacterBody2D
 
 @onready var bullet = preload("res://scenes/car/bullet.tscn")

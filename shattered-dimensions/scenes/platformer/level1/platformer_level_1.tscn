@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" path="res://scenes/platformer/support/mover_platform.tscn" id="10_6vqf1"]
 [ext_resource type="Script" path="res://scripts/platformer/lives.gd" id="11_kuwey"]
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="12_nn4nu"]
-[ext_resource type="PackedScene" uid="uid://bmoaon1yut05y" path="res://scenes/pause_menu.tscn" id="12_wwneg"]
+[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="12_wwneg"]
 [ext_resource type="AudioStream" uid="uid://g4k6q10dnedx" path="res://assets/8 Bit Dungeon.mp3" id="13_1e1d8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_srkfe"]
@@ -2171,8 +2171,8 @@ position = Vector2(-273, -84)
 scale = Vector2(0.5, 0.5)
 
 [node name="Spike20" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
-position = Vector2(-155, -101)
-scale = Vector2(0.4, 0.4)
+position = Vector2(-158, -101)
+scale = Vector2(0.6, 0.6)
 
 [node name="Spike21" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
 position = Vector2(-77, -38)
@@ -2192,7 +2192,6 @@ scale = Vector2(0.8, 0.8)
 
 [node name="Spike31" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
 position = Vector2(31, -183)
-scale = Vector2(0.9, 0.9)
 
 [node name="Saws" type="Node2D" parent="MapLayers/Traps"]
 

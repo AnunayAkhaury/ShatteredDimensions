@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://djx566cus67lk"]
+
+[node name="EnemyBulletEffect" type="AnimatedSprite2D"]

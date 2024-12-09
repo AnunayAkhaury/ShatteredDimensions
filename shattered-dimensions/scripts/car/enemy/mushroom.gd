@@ -1,5 +1,5 @@
 class_name Mushroom
-extends Enemy
+extends CarEnemy
 
 
 const SPEED = 300.0

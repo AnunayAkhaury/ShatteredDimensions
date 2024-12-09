@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://dstc1ue5wbdgo" path="res://scenes/platformer/level2/crusher.tscn" id="24_1hvt2"]
 [ext_resource type="PackedScene" uid="uid://b00thoqwoqjnq" path="res://scenes/platformer/next_world_door.tscn" id="25_l62ee"]
 [ext_resource type="Texture2D" uid="uid://l825pk3rvbeh" path="res://assets/PixelFantasy_Caves_1.0/mainlev_build.png" id="25_uvrl4"]
-[ext_resource type="PackedScene" uid="uid://bmoaon1yut05y" path="res://scenes/pause_menu.tscn" id="30_x2rw1"]
+[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="30_x2rw1"]
 [ext_resource type="AudioStream" uid="uid://dv31y7q52wnny" path="res://assets/Breezy's Mega Quest - 5 Stage 4.wav" id="30_xcob4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7avqj"]
@@ -503,7 +503,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_1rfdv"]
 resource_name = "up_down"
-length = 2.5
+length = 2.7
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -512,7 +512,7 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5),
+"times": PackedFloat32Array(0, 2.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(798, -60), Vector2(798, -150)]
@@ -2726,7 +2726,7 @@ scale = Vector2(0.8, 0.8)
 
 [node name="Spike8" parent="MapLayers/Traps/Spikes" instance=ExtResource("2_hlvjk")]
 position = Vector2(638, -94)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.7, 0.7)
 
 [node name="Spike10" parent="MapLayers/Traps/Spikes" instance=ExtResource("2_hlvjk")]
 position = Vector2(690, -75)
@@ -3011,18 +3011,18 @@ autoplay = "crash"
 [node name="RaisingSpikeFactory" type="Node2D" parent="MapLayers/Traps"]
 position = Vector2(883, 301)
 script = ExtResource("9_xj0mt")
-speed = 1.3
+speed = 1.26
 
 [node name="RaisingSpikeFactory2" type="Node2D" parent="MapLayers/Traps"]
 position = Vector2(982, -321)
 script = ExtResource("9_xj0mt")
-speed = 1.25
+speed = 1.22
 forwards = false
 
 [node name="RaisingSpikeFactory3" type="Node2D" parent="MapLayers/Traps"]
 position = Vector2(1103, 291)
 script = ExtResource("9_xj0mt")
-speed = 1.27
+speed = 1.17
 
 [node name="DropTrap" parent="MapLayers/Traps" instance=ExtResource("16_om71b")]
 position = Vector2(2348, -26)
@@ -3047,11 +3047,11 @@ position = Vector2(1728, 569)
 
 [node name="Block" parent="MapLayers/Blocks" instance=ExtResource("15_eovk6")]
 position = Vector2(1291, 606)
-scale = Vector2(1.2, 1.2)
+scale = Vector2(1.1, 1.1)
 
 [node name="Block2" parent="MapLayers/Blocks" instance=ExtResource("15_eovk6")]
 position = Vector2(1398, 586)
-scale = Vector2(1.2, 1.2)
+scale = Vector2(1.1, 1.1)
 
 [node name="Block4" parent="MapLayers/Blocks" instance=ExtResource("15_eovk6")]
 position = Vector2(3067, 536)
