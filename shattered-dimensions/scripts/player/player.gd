@@ -145,6 +145,9 @@ func platformer_respawn():
 	if lives <= 0:
 		return
 	death_audio.play()
+	Engine.time_scale = 0.3
+	await get_tree().create_timer(0.2).timeout
+	Engine.time_scale = 1
 	if platformer_level == 1:
 		position.x = 65
 		position.y = 595
