@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cq3ywl47smd31"]
+[gd_scene load_steps=11 format=4 uid="uid://bfwegyy5adn7a"]
 
 [ext_resource type="Texture2D" uid="uid://e8jtvtphnjkl" path="res://assets/tileset_prison.png" id="2_57gt2"]
 [ext_resource type="Texture2D" uid="uid://t3q7106n0po5" path="res://assets/Key Items 16x16/03.png" id="4_p55cg"]
@@ -330,6 +330,7 @@ texture = ExtResource("4_p55cg")
 [node name="Character" parent="." instance=ExtResource("7_vustl")]
 position = Vector2(478, 586)
 scale = Vector2(2, 2)
+jump_velocity_input = -400
 
 [node name="Platformer" type="Area2D" parent="."]
 

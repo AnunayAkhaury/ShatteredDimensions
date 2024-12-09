@@ -2,6 +2,7 @@ class_name Player
 extends Character 
 
 @export var health: int = 100
+@export var jump_velocity_input: int = -300
 
 var _damaged: bool = false
 var _dead: bool = false
@@ -20,10 +21,10 @@ var checkpoints: Array = [
 	[3329, 524]
 ]
 
-var platformerCompleted = false
-var carCompleted = false
-var shooterCompleted = false
-var spaceshipCompleted = false
+var platformerCompleted = GlobalVars.platformerCompleted
+var carCompleted = GlobalVars.carCompleted
+var shooterCompleted = GlobalVars.shooterCompleted
+var spaceshipCompleted = GlobalVars.spaceshipCompleted
 
 #@onready var animation_tree:AnimationTree = $AnimationTree
 @onready var hitbox: CollisionShape2D = $CollisionShape2D
@@ -34,6 +35,7 @@ var spaceshipCompleted = false
 func _ready():
 	#animation_tree.active = true
 	bind_player_input_commands()
+	jump_velocity = jump_velocity_input
 
 
 func _physics_process(delta: float):
@@ -183,24 +185,19 @@ func _play(player:AudioStreamPlayer2D) -> void:
 
 func _on_platformer_body_entered(body: Node2D) -> void:
 	if not platformerCompleted:
-		#get_tree().change_scene_to_file("res://scenes/platformer/level1/platformer_level_1.tscn")
-		get_tree().change_scene_to_file("res://scenes/spaceship/ship_level.tscn")
-		platformerCompleted = true
+		get_tree().change_scene_to_file("res://scenes/platformer/difficulty_selector.tscn")
 
 
 func _on_shooter_body_entered(body: Node2D) -> void:
 	if not shooterCompleted:
 		get_tree().change_scene_to_file("res://scenes/shooter_level.tscn")
-		shooterCompleted = true
 
 
 func _on_car_body_entered(body: Node2D) -> void:
 	if not carCompleted:
 		get_tree().change_scene_to_file("res://scenes/car_level.tscn")
-		carCompleted = true
 
 
 func _on_spaceship_body_entered(body: Node2D) -> void:
 	if not spaceshipCompleted:
-		get_tree().change_scene_to_file("res://scenes/platformer/level1/platformer_level_1.tscn")
-		spaceshipCompleted = true
+		get_tree().change_scene_to_file("res://scenes/spaceship/ship_level.tscn")
