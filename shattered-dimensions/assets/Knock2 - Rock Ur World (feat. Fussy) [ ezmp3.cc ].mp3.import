@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4owma2qec1sc"
+path="res://.godot/imported/Knock2 - Rock Ur World (feat. Fussy) [ ezmp3.cc ].mp3-f249c5d458ed35cd463e0a90cea41299.mp3str"
+
+[deps]
+
+source_file="res://assets/Knock2 - Rock Ur World (feat. Fussy) [ ezmp3.cc ].mp3"
+dest_files=["res://.godot/imported/Knock2 - Rock Ur World (feat. Fussy) [ ezmp3.cc ].mp3-f249c5d458ed35cd463e0a90cea41299.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=74.0
+bpm=0.0
+beat_count=0
+bar_beats=4
