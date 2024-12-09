@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://b4hrc5xbxausp"]
+[gd_scene load_steps=34 format=4 uid="uid://b4hrc5xbxausp"]
 
 [ext_resource type="PackedScene" uid="uid://c37auavbmu8ye" path="res://scenes/car/labels/lives.tscn" id="2_b3muw"]
 [ext_resource type="PackedScene" uid="uid://b5yh853uf0prf" path="res://scenes/car/bg.tscn" id="2_fhgbu"]

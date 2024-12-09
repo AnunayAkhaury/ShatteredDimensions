@@ -340,7 +340,7 @@ func set_bullet_type(new_bullet: PackedScene) -> void:
 
 func _on_platformer_body_entered(body: Node2D) -> void:
 	if not platformerCompleted:
-		get_tree().change_scene_to_file("res://scenes/platformer/difficulty_selector.tscn")
+		get_tree().change_scene_to_file("res://scenes/platformer/platformer_controls.tscn")
 
 
 func _on_shooter_body_entered(body: Node2D) -> void:
