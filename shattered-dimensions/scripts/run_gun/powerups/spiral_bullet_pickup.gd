@@ -19,7 +19,6 @@ func _on_item_pick_up_body_entered(body: Node2D) -> void:
 		set_process(false)  
 
 func _on_timer_timeout() -> void:
-	print("Timer finished!")
 	if player:
 		player.set_bullet_type(prev_bullet) 
 	queue_free()

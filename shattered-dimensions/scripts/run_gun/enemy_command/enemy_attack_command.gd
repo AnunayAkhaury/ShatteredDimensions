@@ -26,12 +26,10 @@ func execute(character: Character) -> Command.Status:
 	return Command.Status.ACTIVE
 
 func _on_attack_timer_timeout(character: Character) -> void:
-	print("Enabling hitbox after delay")
 	character.combo_hit_box.monitorable = true
 	character.combo_hit_box.monitoring = true
 	
 func _on_combo_finished(character: Character):
-	print("finished attacking")
 	character.combo_hit_box.monitorable = false
 	character.combo_hit_box.monitoring = false
 	character.is_attacking = false  
