@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4rcfqmgucw0j"]
+
+[ext_resource type="Script" path="res://scripts/menu_screens/game_menu.gd" id="1_pauwj"]
+[ext_resource type="Shader" path="res://scenes/menu_screens/scroll.gdshader" id="2_r0dl4"]
+[ext_resource type="Texture2D" uid="uid://d24spmjx46mna" path="res://assets/space_bg.png" id="3_hm45y"]
+[ext_resource type="AudioStream" uid="uid://blfdc803kgedd" path="res://assets/Pixel By Pixel - Space Shark Swim! [ ezmp3.cc ].mp3" id="4_ii6go"]
+[ext_resource type="PackedScene" uid="uid://jn7o3wifpp8t" path="res://scenes/menu_screens/instructions.tscn" id="5_u2low"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_43ee1"]
+shader = ExtResource("2_r0dl4")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eptry"]
+bg_color = Color(0, 0.627451, 0.984314, 0.917647)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkwhb"]
+bg_color = Color(0.916125, 0.489962, 0.298766, 0.827451)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="GameMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pauwj")
+
+[node name="Bg" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_43ee1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_hm45y")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -214.0
+offset_top = 93.0
+offset_right = 214.0
+offset_bottom = 148.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Shattered Dimensions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -68.0
+offset_right = 142.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_eptry")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tkwhb")
+text = "Start"
+
+[node name="Instructions" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = 37.0
+offset_right = 142.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_eptry")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tkwhb")
+text = "Instructions"
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = 146.0
+offset_right = 142.0
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_eptry")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tkwhb")
+text = "Credits"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ii6go")
+autoplay = true
+
+[node name="Instructions2" parent="." instance=ExtResource("5_u2low")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
