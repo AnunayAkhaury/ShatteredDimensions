@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dopugl4dx3ag"
+path="res://.godot/imported/Sheep.ogg-d3059ea20a29c239ade1775633458f5b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/CarLevel/Abusive Prison Tileset Pack/audio/se/Sheep.ogg"
+dest_files=["res://.godot/imported/Sheep.ogg-d3059ea20a29c239ade1775633458f5b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

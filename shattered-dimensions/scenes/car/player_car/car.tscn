@@ -1,0 +1,205 @@
+[gd_scene load_steps=27 format=3 uid="uid://bl2eeoldwnydu"]
+
+[ext_resource type="Script" path="res://scripts/car/vehicles/player_car.gd" id="1_0wm3u"]
+[ext_resource type="Texture2D" uid="uid://cydnsk6xymx31" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-duck.png" id="2_w5tmd"]
+[ext_resource type="PackedScene" uid="uid://c043eos3amkax" path="res://scenes/car/player_car/wheels.tscn" id="2_wt0ah"]
+[ext_resource type="Texture2D" uid="uid://yieoc0r6y1m4" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-idle.png" id="3_lsoc6"]
+[ext_resource type="Texture2D" uid="uid://dpwuih5udon20" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-jump.png" id="4_k58lr"]
+[ext_resource type="Texture2D" uid="uid://cart612wkg4y5" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-run.png" id="5_7pis0"]
+[ext_resource type="Script" path="res://scripts/player/animated_sprite_2d.gd" id="6_t0i4d"]
+[ext_resource type="Texture2D" uid="uid://bmwt5pcdht5h8" path="res://assets/humvee/humvee-no-tires_trimmed.png" id="7_nmrlq"]
+[ext_resource type="Script" path="res://scripts/car/detection_boxes/crash_box.gd" id="9_7t1ob"]
+[ext_resource type="Script" path="res://scripts/car/detection_boxes/player_detection_box.gd" id="9_lo5t1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kw7ln"]
+atlas = ExtResource("2_w5tmd")
+region = Rect2(32, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ax27"]
+atlas = ExtResource("3_lsoc6")
+region = Rect2(0, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wteeq"]
+atlas = ExtResource("3_lsoc6")
+region = Rect2(32, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf0ku"]
+atlas = ExtResource("3_lsoc6")
+region = Rect2(64, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yn7l"]
+atlas = ExtResource("3_lsoc6")
+region = Rect2(96, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke2as"]
+atlas = ExtResource("3_lsoc6")
+region = Rect2(128, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q8sf"]
+atlas = ExtResource("3_lsoc6")
+region = Rect2(160, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mjdf"]
+atlas = ExtResource("4_k58lr")
+region = Rect2(0, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_losom"]
+atlas = ExtResource("4_k58lr")
+region = Rect2(32, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl0gt"]
+atlas = ExtResource("5_7pis0")
+region = Rect2(0, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsdap"]
+atlas = ExtResource("5_7pis0")
+region = Rect2(32, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg2xp"]
+atlas = ExtResource("5_7pis0")
+region = Rect2(64, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrr0u"]
+atlas = ExtResource("5_7pis0")
+region = Rect2(96, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxrf6"]
+atlas = ExtResource("5_7pis0")
+region = Rect2(128, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_776vw"]
+atlas = ExtResource("5_7pis0")
+region = Rect2(160, 0, 32, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_whpnn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kw7ln")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ax27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wteeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf0ku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yn7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke2as")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q8sf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mjdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_losom")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl0gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsdap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg2xp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrr0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxrf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_776vw")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="PlayerCar" type="RigidBody2D"]
+position = Vector2(-10, 2)
+scale = Vector2(1, 0.988)
+mass = 10.0
+script = ExtResource("1_0wm3u")
+
+[node name="Player" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(8, -56.6802)
+scale = Vector2(0.956, 0.98)
+sprite_frames = SubResource("SpriteFrames_whpnn")
+animation = &"run"
+autoplay = "idle"
+script = ExtResource("6_t0i4d")
+
+[node name="Humvee" type="Sprite2D" parent="."]
+position = Vector2(-2, -52.6316)
+scale = Vector2(0.19702, 0.201961)
+texture = ExtResource("7_nmrlq")
+flip_h = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-6, -47.5709)
+polygon = PackedVector2Array(-64, 17, -69, 11, -68, -6, -37, -26, 30, -26, 75, 5, 76, 16, 72, 18, 30, 31, -25, 31)
+
+[node name="FrontWheel" parent="." instance=ExtResource("2_wt0ah")]
+unique_name_in_owner = true
+position = Vector2(48, -20.2429)
+
+[node name="BackWheel" parent="." instance=ExtResource("2_wt0ah")]
+unique_name_in_owner = true
+position = Vector2(-55, -20.2429)
+
+[node name="FrontWheelHolder" type="PinJoint2D" parent="."]
+position = Vector2(48, -20.2429)
+node_a = NodePath("..")
+node_b = NodePath("../FrontWheel")
+
+[node name="BackWheelHolder" type="PinJoint2D" parent="."]
+position = Vector2(-55, -20.2429)
+node_a = NodePath("..")
+node_b = NodePath("../BackWheel")
+
+[node name="DetectionBox" type="Area2D" parent="."]
+script = ExtResource("9_lo5t1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionBox"]
+position = Vector2(-6, -47.5709)
+polygon = PackedVector2Array(-64, 17, -69, 11, -68, -6, -37, -26, 30, -26, 75, 5, 76, 16, 72, 18, 30, 31, -25, 31)
+
+[node name="CrashBox" type="Area2D" parent="."]
+script = ExtResource("9_7t1ob")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CrashBox"]
+position = Vector2(-12, -47.5709)
+polygon = PackedVector2Array(-67, 20.2429, -69, 11, -68, -6, -58, -25.3036, 30, -26, 75, 5, 76, 16, 72, 18, 30, 31, -62, 27.3279)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -36.0
+offset_top = -106.275
+offset_right = 114.0
+offset_bottom = -79.2753
+scale = Vector2(0.434742, 0.384409)
