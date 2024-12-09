@@ -11,6 +11,7 @@ var boost_speed: bool
 var boost_speed_time: float
 
 @onready var bullet = preload("res://scenes/car/bullet.tscn")
+var input_enabled: bool = true
 
 func _init() -> void:
 	character_type = Characters.Type.PLAYER_CAR
@@ -28,12 +29,20 @@ func _init() -> void:
 	
 	super()
 
+func stop_car():
+	for wheel in _wheels:
+		wheel.linear_velocity = Vector2.ZERO
+		wheel.angular_velocity = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_wheels = [%FrontWheel, %BackWheel]
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	
+	if not input_enabled:
+		stop_car()
+		return
 	if Input.is_action_pressed("move_right"):
 		#start_tires()
 		for wheel in _wheels:

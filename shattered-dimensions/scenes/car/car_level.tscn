@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://b4hrc5xbxausp"]
+[gd_scene load_steps=32 format=4 uid="uid://b4hrc5xbxausp"]
 
 [ext_resource type="PackedScene" uid="uid://c37auavbmu8ye" path="res://scenes/car/labels/lives.tscn" id="2_b3muw"]
 [ext_resource type="PackedScene" uid="uid://b5yh853uf0prf" path="res://scenes/car/bg.tscn" id="2_fhgbu"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://0n8jr3oavnss" path="res://scenes/car/enemy_animation/police.tscn" id="6_l3s77"]
 [ext_resource type="PackedScene" uid="uid://bmemxcryvtusx" path="res://scenes/car/enemy_animation/bat_animations.tscn" id="6_p3wkt"]
 [ext_resource type="Script" path="res://scripts/car/camera.gd" id="6_pwpbi"]
+[ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="7_mx8p4"]
 [ext_resource type="PackedScene" uid="uid://cvxn17he7m1ev" path="res://scenes/car/tire_pile.tscn" id="7_navjn"]
 [ext_resource type="PackedScene" uid="uid://cm8cgpnselc8i" path="res://scenes/car/enemy_animation/mushroom_animations.tscn" id="8_mh5jj"]
 [ext_resource type="PackedScene" uid="uid://cekfcjskjtw8c" path="res://scenes/car/Key.tscn" id="9_bygmi"]
@@ -13612,9 +13613,14 @@ position = Vector2(66, 464)
 collision_layer = 3
 collision_mask = 3
 
+[node name="PlayerBattleLocation" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(2597, 559)
+scale = Vector2(0.95625, 0.979708)
+
 [node name="Car" parent="." instance=ExtResource("4_4lvlx")]
 unique_name_in_owner = true
-position = Vector2(477, 455)
+position = Vector2(476, 454)
 
 [node name="Traps" parent="." instance=ExtResource("5_0vm44")]
 position = Vector2(2482, 606)
@@ -13624,9 +13630,15 @@ scale = Vector2(0.35, 0.346)
 position = Vector2(3035, 556)
 scale = Vector2(0.08, 0.08)
 
+[node name="CarPlayer" parent="." instance=ExtResource("7_mx8p4")]
+visible = false
+position = Vector2(2608, 554)
+scale = Vector2(2.5, 2.5)
+
 [node name="TirePile" parent="." instance=ExtResource("7_navjn")]
 z_index = 1
-position = Vector2(3312, 524)
+position = Vector2(3157, 553)
+rotation = -0.202704
 scale = Vector2(0.5, 0.5)
 
 [node name="CarCamera" type="Camera2D" parent="."]
@@ -13723,26 +13735,26 @@ position = Vector2(668, -45)
 [node name="Lives" parent="Labels" instance=ExtResource("2_b3muw")]
 
 [node name="Tutorial" parent="Labels" instance=ExtResource("3_euuak")]
-offset_left = -532.0
-offset_top = 392.0
-offset_right = -164.0
-offset_bottom = 465.0
+offset_left = -528.0
+offset_top = 272.0
+offset_right = -160.0
+offset_bottom = 345.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 
 [node name="StartCountdown" parent="Labels" instance=ExtResource("4_toqhx")]
-offset_left = -441.0
-offset_top = 335.0
-offset_right = -268.0
-offset_bottom = 377.0
+offset_left = -413.0
+offset_top = 207.0
+offset_right = -240.0
+offset_bottom = 249.0
 text = "Start in : "
 script = ExtResource("5_x0elv")
 
 [node name="BattleInstruction" parent="Labels" instance=ExtResource("3_euuak")]
 modulate = Color(1, 0.0901961, 0.0823529, 1)
-offset_left = 1784.0
-offset_top = 176.0
-offset_right = 2117.0
-offset_bottom = 247.0
+offset_left = 1852.0
+offset_top = 212.0
+offset_right = 2185.0
+offset_bottom = 283.0
 scale = Vector2(1.2, 1.2)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "You must fight the officer 

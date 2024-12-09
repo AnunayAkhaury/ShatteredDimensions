@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://blc5owkcgehvh"
-path="res://.godot/imported/Grass.png-5231cc44ad0f4f632d6759f25ed2899a.ctex"
+path="res://.godot/imported/grass.png-11e6e1c71b8a3ad2633e01c95d98e7fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/PhysicsCarGameAssets/Images/Terrain/Grass.png"
-dest_files=["res://.godot/imported/Grass.png-5231cc44ad0f4f632d6759f25ed2899a.ctex"]
+source_file="res://assets/PhysicsCarGameAssets/Images/Terrain/grass.png"
+dest_files=["res://.godot/imported/grass.png-11e6e1c71b8a3ad2633e01c95d98e7fe.ctex"]
 
 [params]
 

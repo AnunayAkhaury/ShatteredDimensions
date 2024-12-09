@@ -153,7 +153,7 @@ sprite_frames = SubResource("SpriteFrames_bq618")
 frame_progress = 0.418749
 
 [node name="ShortSpike2" type="AnimatedSprite2D" parent="."]
-position = Vector2(121, -60.75)
+position = Vector2(121, -59)
 scale = Vector2(1, 1.00382)
 sprite_frames = SubResource("SpriteFrames_t4i4k")
 frame_progress = 0.803801

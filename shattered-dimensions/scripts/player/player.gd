@@ -94,6 +94,25 @@ func platformer_respawn():
 		position.x = 67
 		position.y = 590
 
+func bind_player_input_commands():
+	right_cmd = MoveRightCommand.new()
+	left_cmd = MoveLeftCommand.new()
+	up_cmd = JumpCommand.new()
+	#fire1 = AttackCommand.new()
+	idle = IdleCommand.new()
+
+
+func unbind_player_input_commands():
+	right_cmd = Command.new()
+	left_cmd = Command.new()
+	up_cmd = Command.new()
+	fire1 = Command.new()
+	idle = Command.new()
+
+func _play(player:AudioStreamPlayer2D) -> void:
+	if !player.playing:
+		player.play()
+
 #func take_damage(damage:int) -> void:
 	#health -= damage
 	#_damaged = true
@@ -142,20 +161,7 @@ func platformer_respawn():
 		#animation_tree["parameters/conditions/damaged"] = false
 
 
-func bind_player_input_commands():
-	right_cmd = MoveRightCommand.new()
-	left_cmd = MoveLeftCommand.new()
-	up_cmd = JumpCommand.new()
-	#fire1 = AttackCommand.new()
-	idle = IdleCommand.new()
 
-
-func unbind_player_input_commands():
-	right_cmd = Command.new()
-	left_cmd = Command.new()
-	up_cmd = Command.new()
-	fire1 = Command.new()
-	idle = Command.new()
 
 #func command_callback(cmd_name:String) -> void:
 	#if "attack" == cmd_name:
@@ -169,7 +175,3 @@ func unbind_player_input_commands():
 		#
 	#if "undeath" == cmd_name:
 		#_play($Audio/undeath)
-
-func _play(player:AudioStreamPlayer2D) -> void:
-	if !player.playing:
-		player.play()

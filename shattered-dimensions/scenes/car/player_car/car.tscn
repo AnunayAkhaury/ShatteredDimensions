@@ -145,11 +145,12 @@ scale = Vector2(1, 0.988)
 mass = 10.0
 script = ExtResource("1_0wm3u")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Player" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(8, -56.6802)
-scale = Vector2(0.95625, 0.979708)
+scale = Vector2(0.956, 0.98)
 sprite_frames = SubResource("SpriteFrames_whpnn")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
 script = ExtResource("6_t0i4d")
 

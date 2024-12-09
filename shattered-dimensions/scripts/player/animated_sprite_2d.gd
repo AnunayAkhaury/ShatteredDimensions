@@ -1,4 +1,4 @@
-extends Node2D
+extends AnimatedSprite2D
 
 @export var unflipped_position:Vector2
 @export var flipped_position:Vector2
