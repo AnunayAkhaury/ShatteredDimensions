@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://bfwegyy5adn7a"]
+[gd_scene load_steps=12 format=4 uid="uid://sbfvqih5564p"]
 
+[ext_resource type="Script" path="res://scripts/platform.gd" id="1_7lhvu"]
 [ext_resource type="Texture2D" uid="uid://e8jtvtphnjkl" path="res://assets/tileset_prison.png" id="2_57gt2"]
 [ext_resource type="Texture2D" uid="uid://t3q7106n0po5" path="res://assets/Key Items 16x16/03.png" id="4_p55cg"]
 [ext_resource type="Texture2D" uid="uid://1ggiwo82hsm5" path="res://assets/Key Items 16x16/05.png" id="5_etuah"]
@@ -298,6 +299,7 @@ anchor_bottom = 1.0
 offset_right = -576.0
 offset_bottom = -648.0
 grow_horizontal = 2
+script = ExtResource("1_7lhvu")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(3, 3)
@@ -339,6 +341,7 @@ position = Vector2(49, 481)
 shape = SubResource("RectangleShape2D_iubs7")
 
 [node name="Shooter" type="Area2D" parent="."]
+position = Vector2(1, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shooter"]
 position = Vector2(480, 145)

@@ -4,7 +4,7 @@ extends Command
 
 func execute(character: Character) -> Status:
 	var input = character.movement_speed
-	character.sprite.play("run")
+		#character.sprite.play("run")
 	character.velocity.x = input
 	character.sprite.flip_h = false
 	character.change_facing(Character.Facing.RIGHT)

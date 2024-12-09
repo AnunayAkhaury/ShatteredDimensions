@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+extends Control
+
+@onready var character_body = $Character
+
+func _ready() -> void:
+	character_body.collision_layer &= ~2
+	character_body.collision_layer |= 1
+	 
+=======
 class_name Platform
 extends StaticBody2D
 
@@ -18,3 +28,4 @@ func _process(delta: float) -> void:
 		position.y += delta*speed
 	else:
 		position.y -= delta*speed
+>>>>>>> origin/main

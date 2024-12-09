@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dex1vxydun8oy"
+path="res://.godot/imported/select.wav-c29bd1a5ff609985b980c978b20cd2f4.sample"
+
+[deps]
+
+source_file="res://assets/Legacy Collection/Legacy Collection/Assets/Packs/Meta data assets files/sounds/fx/select.wav"
+dest_files=["res://.godot/imported/select.wav-c29bd1a5ff609985b980c978b20cd2f4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

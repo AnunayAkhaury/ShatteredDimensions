@@ -13,7 +13,7 @@ const TERMINAL_VELOCITY = 700
 const DEFAULT_JUMP_VELOCITY = -300
 const DEFAULT_MOVE_VELOCITY = 180
 
-var movement_speed = DEFAULT_MOVE_VELOCITY
+@export var movement_speed = DEFAULT_MOVE_VELOCITY
 var jump_velocity = DEFAULT_JUMP_VELOCITY
 
 var right_cmd : Command
@@ -22,6 +22,9 @@ var up_cmd : Command
 var fire1 : Command
 var fire2 : Command
 var idle : Command
+var run_shoot_left : Command
+var run_shoot : Command
+var shoot : Command
 
 var facing:Facing = Facing.RIGHT
 var attacking : bool: 
@@ -50,7 +53,6 @@ func _ready() -> void:
 	#summoning = false
 	jumping = false
 	change_facing(facing)
-	print(sprite)
 
 
 func _physics_process(delta: float) -> void: 
