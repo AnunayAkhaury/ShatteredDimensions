@@ -1,10 +1,5 @@
 extends Control
-@onready var character_body = $Character
 
-func _ready() -> void:
-	character_body.collision_layer &= ~2
-	character_body.collision_layer |= 1
-	 
 func on_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/platformer/level1/platformer_level_1.tscn")
 
