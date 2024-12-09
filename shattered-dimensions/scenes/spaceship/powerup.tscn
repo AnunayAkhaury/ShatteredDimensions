@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://dmxua8roddue8"]
+[gd_scene load_steps=30 format=3 uid="uid://dmxua8roddue8"]
 
-[ext_resource type="Script" path="res://scripts/powerup.gd" id="1_5xb2f"]
+[ext_resource type="Script" path="res://scripts/spaceship/powerup.gd" id="1_5xb2f"]
 [ext_resource type="Texture2D" uid="uid://dnq6p8nayxw07" path="res://assets/GlowingBall Blue 22frames RPG.png" id="1_eftr0"]
+[ext_resource type="AudioStream" uid="uid://bej3v611k8ej3" path="res://assets/power-up-type-1-230548.mp3" id="3_c56uj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5vig5"]
 atlas = ExtResource("1_eftr0")
@@ -222,4 +223,8 @@ position = Vector2(-0.209999, 0.251984)
 scale = Vector2(0.14, 0.124008)
 polygon = PackedVector2Array(-48, -43, -27, -57, -19, -60, 14, -61, 37, -51, 53, -36, 60, -19, 63, -12, 64, 4, 64, 13, 59, 25, 47, 45, 32, 57, 13, 64, -8, 65, -32, 57, -45, 45, -56, 30, -61, 16, -61, -11, -56, -23)
 
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_c56uj")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="Sound" to="." method="_on_sound_finished"]

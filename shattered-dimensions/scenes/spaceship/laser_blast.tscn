@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://cg231mye41ds5"]
 
-[ext_resource type="Script" path="res://scripts/laser_blast.gd" id="1_p4yg7"]
+[ext_resource type="Script" path="res://scripts/spaceship/laser_blast.gd" id="1_p4yg7"]
 [ext_resource type="Texture2D" uid="uid://ccqiq2x6gjcxg" path="res://assets/Foozle_2DS0011_Void_MainShip/Main ship weapons/PNGs/Main ship weapon - Projectile - Zapper.png" id="1_ufxbc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tstlw"]

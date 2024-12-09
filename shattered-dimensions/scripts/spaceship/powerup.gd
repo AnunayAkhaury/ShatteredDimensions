@@ -10,5 +10,9 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Spaceship:
+		get_node("Sound").play()
 		body.healthLevel += 15
-		queue_free()
+
+
+func _on_sound_finished() -> void:
+	queue_free()

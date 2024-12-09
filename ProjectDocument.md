@@ -35,6 +35,7 @@ Move to the top right and collect the key. You deserve it!
 
 ### Spaceship Level ###
 
+The objective of this level is for the player's spaceship to reach the end of the space domain without fatal damage and kill a minimum of 5 UFOs in its path. The player can use the up, down, and right keys for movement and press D for a quick boost. The player takes damage upon collision with an asteroid or from being hit by a blast from the UFO. The player statistics in the top right corner displays a health bar and a count for the number of UFOs the player still has to defeat. When the player successfully reaches the end of the level, they can pick up their golden key!
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
@@ -56,6 +57,23 @@ Here is an example:
 *Procedural Terrain* - The game's background consists of procedurally generated terrain produced with Perlin noise. The game can modify this terrain at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based on the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://github.com/dr-jam/CameraControlExercise/blob/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
 
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
+
+## Spaceship Level
+
+*Autoscroll Camera Movement with Partital PushBox* - The camera movement of the game is a combination of different features of 
+the pushbox and controllers in Exercise 2. The camera is set to perform a constant horizontal autoscroll and the player 
+(spaceship) is pushed by the left edge of the pushbox. The player is restricted from moving to the right past the dimensions of 
+the screen to allow a view of the spaceship at all times. The player is free to move vertically until they reach the bounds of 
+the background. 
+
+*Arrow & Blast Instantiation Systems* - Upon the press of the space bar, the spaceship instantiates a new set of arrows that 
+are loaded onto the spaceship and fired at the incoming UFOs. Each arrow is released at a different time in line with the 
+animation of the fire and operates independently of the rest once all the arrows are released. The enemy UFOs have a similar 
+system with blasts, where they automatically instantiate blasts with a constant delay once the UFO is within the camera 
+viewport. These blasts are also equipped with animation and cause damage to the spaceship upon collision. These systems are 
+based upon the projectile instantiation demonstrated in Exercise 3. 
+
+*Spaceship Movement and Statistics* - The movement of the spaceship is directly dependent upon the pressing of the up, down, and right keys. Damage of the spaceship is handled by the healthLevel variable that is updated based on different collisions and the health is constantly displayed in the top right corner by the use of a health bar. The UFOs have their own health which is depleted by the arrows fired by the spaceship. The spaceship.gd script also keeps track of the number of UFOs defeated. My implementation of the spaceship demonstrates my learning from Exercise 1 with the character and boss.
 
 ## Producer
 

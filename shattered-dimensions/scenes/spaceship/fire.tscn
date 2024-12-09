@@ -1,7 +1,7 @@
 [gd_scene load_steps=36 format=3 uid="uid://cctswrfy5me8y"]
 
 [ext_resource type="Texture2D" uid="uid://cadrxrgnbaehb" path="res://assets/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Weapons/PNGs/Main Ship - Weapons - Rockets.png" id="1_4vuhp"]
-[ext_resource type="Script" path="res://scripts/fire.gd" id="1_b5lca"]
+[ext_resource type="Script" path="res://scripts/spaceship/fire.gd" id="1_b5lca"]
 [ext_resource type="Texture2D" uid="uid://o4kjlgikisng" path="res://assets/Foozle_2DS0011_Void_MainShip/Main ship weapons/PNGs/Main ship weapon - Projectile - Rocket.png" id="2_mikua"]
 [ext_resource type="AudioStream" uid="uid://b13qcpj2mh8mo" path="res://assets/shoot-1-81135.mp3" id="4_llnqa"]
 

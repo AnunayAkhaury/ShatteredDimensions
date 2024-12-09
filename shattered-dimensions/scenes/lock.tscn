@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd3xqdkulnu2v"]
+
+[ext_resource type="Script" path="res://scripts/lock.gd" id="1_mbhba"]
+[ext_resource type="Texture2D" uid="uid://1ggiwo82hsm5" path="res://assets/Key Items 16x16/05.png" id="2_42k4r"]
+
+[node name="Lock" type="Node2D"]
+script = ExtResource("1_mbhba")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 2.493)
+texture = ExtResource("2_42k4r")
