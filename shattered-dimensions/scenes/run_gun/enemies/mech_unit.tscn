@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://dcx778gjmh3ll"]
 
 [ext_resource type="Script" path="res://scripts/run_gun/enemy/mech_unit.gd" id="1_uoml5"]
-[ext_resource type="Texture2D" uid="uid://6bc8tsqtryid" path="res://assets/Legacy Collection/Legacy Collection/Assets/Characters/mech-unit/spritesheet/mech-unit.png" id="1_yycra"]
+[ext_resource type="Texture2D" uid="uid://diqhlxudla0wj" path="res://assets/Legacy Collection/Legacy Collection/Assets/Characters/mech-unit/spritesheet/mech-unit.png" id="1_yycra"]
 [ext_resource type="Shader" uid="uid://cjlwlvtndb20s" path="res://scenes/run_gun/player/hit_flash.tres" id="2_edtmr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_et8ie"]

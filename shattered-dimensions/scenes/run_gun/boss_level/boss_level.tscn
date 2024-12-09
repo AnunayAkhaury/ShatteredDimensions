@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://s4yfv62j4v3p" path="res://assets/Legacy Collection/Legacy Collection/Assets/Environments/Synth City/Version 2/Layers/back.png" id="1_uhlij"]
 [ext_resource type="Texture2D" uid="uid://b1thabw46053t" path="res://assets/Legacy Collection/Legacy Collection/Assets/Environments/Synth City/Version 2/Layers/middle.png" id="2_rpbi1"]
 [ext_resource type="Texture2D" uid="uid://bh1nggmcts834" path="res://assets/Legacy Collection/Legacy Collection/Assets/Environments/Synth City/Version 2/Layers/foreground.png" id="3_ny3m3"]
-[ext_resource type="Texture2D" uid="uid://egep1cmwo72j" path="res://assets/Legacy Collection/Legacy Collection/Assets/Environments/grunge-tileset-files-web/grunge-tileset.png" id="6_ky3t6"]
+[ext_resource type="Texture2D" path="res://assets/Legacy Collection/Legacy Collection/Assets/Environments/grunge-tileset-files-web/grunge-tileset.png" id="6_ky3t6"]
 [ext_resource type="Texture2D" uid="uid://bmiuqcsf1lhm" path="res://assets/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="7_u8d23"]
 [ext_resource type="Texture2D" uid="uid://d168qiwc8d7hy" path="res://assets/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1B.png" id="8_o54wn"]
 [ext_resource type="PackedScene" uid="uid://bkniqhquw3wwh" path="res://scenes/run_gun/enemies/mechanic/mechanic_boss.tscn" id="9_34bb2"]

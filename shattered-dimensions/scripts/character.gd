@@ -10,7 +10,7 @@ enum Facing {
 }
 
 const TERMINAL_VELOCITY = 700
-const DEFAULT_JUMP_VELOCITY = -445
+const DEFAULT_JUMP_VELOCITY = -300
 const DEFAULT_MOVE_VELOCITY = 180
 
 @export var movement_speed = DEFAULT_MOVE_VELOCITY
@@ -53,7 +53,6 @@ func _ready() -> void:
 	#summoning = false
 	jumping = false
 	change_facing(facing)
-	print(sprite)
 
 
 func _physics_process(delta: float) -> void: 
