@@ -15,3 +15,4 @@ func _physics_process(delta: float) -> void:
 	
 	if %SwatVan._defeated_by_player and _OFFSET < 200:
 		_OFFSET += 1
+		

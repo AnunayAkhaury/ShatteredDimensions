@@ -12,6 +12,7 @@ var boost_speed_time: float
 
 @onready var bullet = preload("res://scenes/car/bullet.tscn")
 var input_enabled: bool = true
+@onready var health_bar: ProgressBar = %CarCamera.get_child(0)
 
 func _init() -> void:
 	character_type = Characters.Type.PLAYER_CAR
@@ -66,7 +67,7 @@ func _physics_process(delta: float) -> void:
 			boost_speed = false
 			boost_speed_time = _BOOST_SPEED_TIME 
 			
-	%HealthBar.value = health
+	health_bar.value = health
 	
 	if GlobalVars.car_lives <= 0:
 		get_tree().change_scene_to_file("res://scenes/car/game_over.tscn")

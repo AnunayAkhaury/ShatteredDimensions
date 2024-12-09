@@ -195,11 +195,3 @@ script = ExtResource("9_7t1ob")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CrashBox"]
 position = Vector2(-12, -47.5709)
 polygon = PackedVector2Array(-67, 20.2429, -69, 11, -68, -6, -58, -25.3036, 30, -26, 75, 5, 76, 16, 72, 18, 30, 31, -62, 27.3279)
-
-[node name="HealthBar" type="ProgressBar" parent="."]
-unique_name_in_owner = true
-offset_left = -36.0
-offset_top = -106.275
-offset_right = 114.0
-offset_bottom = -79.2753
-scale = Vector2(0.434742, 0.384409)
