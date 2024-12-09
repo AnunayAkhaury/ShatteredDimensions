@@ -2683,7 +2683,6 @@ libraries = {
 unique_name_in_owner = true
 position = Vector2(65, 595)
 collision_layer = 2
-jump_velocity_input = -300
 platformer_level = 2
 
 [node name="MapLayers" type="Node2D" parent="."]
