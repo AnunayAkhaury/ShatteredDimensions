@@ -20,10 +20,10 @@ func _process(delta: float) -> void:
 		get_parent().get_parent().get_node("Camera2D").get_node("KillCount").get_children()[-1].queue_free()
 		
 	# UFO constant movement functionality
-	if position.y<=originalPosition.y - 125:
+	if position.y<=originalPosition.y - 750:
 		lower = true
 	
-	if position.y>=originalPosition.y + 125:
+	if position.y>=originalPosition.y + 750:
 		lower = false
 	
 	if lower:

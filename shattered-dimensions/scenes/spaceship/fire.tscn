@@ -196,7 +196,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Firing/Arrow3/Fire3:frame")
+tracks/1/path = NodePath("Firing/Arrow3/Fire:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -208,7 +208,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Firing/Arrow3/Fire3:visible")
+tracks/2/path = NodePath("Firing/Arrow3/Fire:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -220,7 +220,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Firing/Arrow4/Fire4:visible")
+tracks/3/path = NodePath("Firing/Arrow4/Fire:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -232,7 +232,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Firing/Arrow4/Fire4:frame")
+tracks/4/path = NodePath("Firing/Arrow4/Fire:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -244,7 +244,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Firing/Arrow2/Fire2:visible")
+tracks/5/path = NodePath("Firing/Arrow2/Fire:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -256,7 +256,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Firing/Arrow2/Fire2:frame")
+tracks/6/path = NodePath("Firing/Arrow2/Fire:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -268,7 +268,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Firing/Arrow5/Fire5:visible")
+tracks/7/path = NodePath("Firing/Arrow5/Fire:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -280,7 +280,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Firing/Arrow5/Fire5:frame")
+tracks/8/path = NodePath("Firing/Arrow5/Fire:frame")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -292,7 +292,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Firing/Arrow1/Fire1:visible")
+tracks/9/path = NodePath("Firing/Arrow1/Fire:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -304,7 +304,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Firing/Arrow1/Fire1:frame")
+tracks/10/path = NodePath("Firing/Arrow1/Fire:frame")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -316,7 +316,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Firing/Arrow6/Fire6:visible")
+tracks/11/path = NodePath("Firing/Arrow6/Fire:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -328,7 +328,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Firing/Arrow6/Fire6:frame")
+tracks/12/path = NodePath("Firing/Arrow6/Fire:frame")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -337,10 +337,22 @@ tracks/12/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Weapons:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_0su03"]
 resource_name = "release"
-length = 3.5
+length = 5.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -356,7 +368,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Firing/Arrow3/Fire3:frame")
+tracks/1/path = NodePath("Firing/Arrow3/Fire:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -368,31 +380,31 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Firing/Arrow3/Fire3:visible")
+tracks/2/path = NodePath("Firing/Arrow3/Fire:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Firing/Arrow4/Fire4:visible")
+tracks/3/path = NodePath("Firing/Arrow4/Fire:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Firing/Arrow4/Fire4:frame")
+tracks/4/path = NodePath("Firing/Arrow4/Fire:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -404,19 +416,19 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Firing/Arrow2/Fire2:visible")
+tracks/5/path = NodePath("Firing/Arrow2/Fire:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.8),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Firing/Arrow2/Fire2:frame")
+tracks/6/path = NodePath("Firing/Arrow2/Fire:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -428,19 +440,19 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Firing/Arrow5/Fire5:visible")
+tracks/7/path = NodePath("Firing/Arrow5/Fire:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Firing/Arrow5/Fire5:frame")
+tracks/8/path = NodePath("Firing/Arrow5/Fire:frame")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -452,19 +464,19 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Firing/Arrow1/Fire1:visible")
+tracks/9/path = NodePath("Firing/Arrow1/Fire:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(1.3),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Firing/Arrow1/Fire1:frame")
+tracks/10/path = NodePath("Firing/Arrow1/Fire:frame")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -476,19 +488,19 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Firing/Arrow6/Fire6:visible")
+tracks/11/path = NodePath("Firing/Arrow6/Fire:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(1.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Firing/Arrow6/Fire6:frame")
+tracks/12/path = NodePath("Firing/Arrow6/Fire:frame")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -496,6 +508,18 @@ tracks/12/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Weapons:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 1.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kmewm"]
@@ -508,6 +532,7 @@ _data = {
 script = ExtResource("1_b5lca")
 
 [node name="Weapons" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(-378, 1)
 rotation = 1.5708
 scale = Vector2(2.84238, 3.26168)
@@ -521,7 +546,7 @@ disable_mode = 1
 collision_layer = 2
 collision_mask = 2
 
-[node name="Fire1" type="AnimatedSprite2D" parent="Firing/Arrow1"]
+[node name="Fire" type="AnimatedSprite2D" parent="Firing/Arrow1"]
 visible = false
 position = Vector2(-355, -41)
 rotation = 1.5708
@@ -540,7 +565,7 @@ disable_mode = 1
 collision_layer = 2
 collision_mask = 2
 
-[node name="Fire2" type="AnimatedSprite2D" parent="Firing/Arrow2"]
+[node name="Fire" type="AnimatedSprite2D" parent="Firing/Arrow2"]
 visible = false
 position = Vector2(-342, -28)
 rotation = 1.5708
@@ -557,7 +582,7 @@ disable_mode = 1
 collision_layer = 2
 collision_mask = 2
 
-[node name="Fire3" type="AnimatedSprite2D" parent="Firing/Arrow3"]
+[node name="Fire" type="AnimatedSprite2D" parent="Firing/Arrow3"]
 visible = false
 position = Vector2(-326.324, -18)
 rotation = 1.5708
@@ -574,7 +599,7 @@ disable_mode = 1
 collision_layer = 2
 collision_mask = 2
 
-[node name="Fire4" type="AnimatedSprite2D" parent="Firing/Arrow4"]
+[node name="Fire" type="AnimatedSprite2D" parent="Firing/Arrow4"]
 visible = false
 position = Vector2(-325, 20)
 rotation = 1.5708
@@ -591,7 +616,7 @@ disable_mode = 1
 collision_layer = 2
 collision_mask = 2
 
-[node name="Fire5" type="AnimatedSprite2D" parent="Firing/Arrow5"]
+[node name="Fire" type="AnimatedSprite2D" parent="Firing/Arrow5"]
 visible = false
 position = Vector2(-340, 32)
 rotation = 1.5708
@@ -608,7 +633,7 @@ disable_mode = 1
 collision_layer = 2
 collision_mask = 2
 
-[node name="Fire6" type="AnimatedSprite2D" parent="Firing/Arrow6"]
+[node name="Fire" type="AnimatedSprite2D" parent="Firing/Arrow6"]
 visible = false
 position = Vector2(-356, 44)
 rotation = 1.5708
@@ -627,6 +652,7 @@ libraries = {
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_llnqa")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Firing/Arrow1" to="." method="_on_arrow_1_body_entered"]
 [connection signal="body_entered" from="Firing/Arrow2" to="." method="_on_arrow_2_body_entered"]

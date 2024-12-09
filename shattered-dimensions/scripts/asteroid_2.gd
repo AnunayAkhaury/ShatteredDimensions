@@ -10,7 +10,7 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 	# asteroid bounces off and explodes
 	# spaceship health decreases
 	if body == spaceship:
-		spaceship.healthLevel -= 10
+		spaceship.healthLevel -= 15
 		spaceship.bounce = true
 	
 	animation_player.play("explode")

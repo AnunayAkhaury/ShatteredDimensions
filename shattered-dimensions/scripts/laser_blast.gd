@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 
 
 # on collision of blast with spaceship, decrease spaceship health and remove blast from tree
-func _on_body_entered(body: Spaceship) -> void:
-	body.healthLevel -= 10
-	queue_free()
+func _on_body_entered(body: Node2D) -> void:
+	if body is Spaceship:
+		body.healthLevel -= 10
+		queue_free()

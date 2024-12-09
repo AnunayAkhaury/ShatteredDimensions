@@ -14,12 +14,13 @@ max_contacts_reported = 1
 script = ExtResource("1_05jxq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(9039, 67.5)
+position = Vector2(259, 3)
 rotation = 0.0121042
 scale = Vector2(5.875, 5.0625)
 texture = ExtResource("2_pelvb")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-8780, -64)
 polygon = PackedVector2Array(9042, 38, 9034, 43, 9034, 58, 9006, 83, 9005, 93, 9022, 100, 9031, 101, 9044, 91, 9043, 87, 9035, 81, 9049, 68, 9062, 68, 9074, 59, 9074, 44, 9063, 34, 9046, 33)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

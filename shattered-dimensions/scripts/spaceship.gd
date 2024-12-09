@@ -14,6 +14,7 @@ extends CharacterBody2D
 @onready var boost: AnimatedSprite2D = $Boost
 @onready var healthBar: TextureProgressBar = %Health
 @onready var pause_menu: Node2D = %PauseMenu
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $"../AudioStreamPlayer2D"
 
 var WIDTH: int = 5
 var healthLevel: int = 100
@@ -34,6 +35,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	print(audio_stream_player_2d.is_playing(),audio_stream_player_2d.playing)
+	#if not get_parent().get_node("Sound").is_playing():
+	#	get_parent().get_node("Sound").play()
 	
 	# stop autoscroll if reached end of game
 	if camera.position.x >= 8000:
@@ -109,12 +113,9 @@ func _process(delta: float) -> void:
 			position.y = clampf(position.y+(vertical_input * speed * delta), -1000, 1000)
 		if not keepstill:
 			camera.position.y = clampf(camera.position.y + (0.97 * vertical_input * speed * delta), -750, 750)
-		rotation = vertical_input*5*delta
-	else:
-		rotation = 0
 	
 	# keep arrows on spaceship until released
-	if currweapon and is_instance_valid(currweapon) and currweapon.visible:
+	if currweapon and is_instance_valid(currweapon) and currweapon.get_node("Weapons").visible:
 		currweapon.position = position
 
 
@@ -126,3 +127,8 @@ func _on_restart_pressed() -> void:
 # return to lobby
 func _on_return_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/prison.tscn")
+
+
+func _on_audio_stream_player_2d_finished() -> void:
+	print("finished")
+	pass # Replace with function body.
