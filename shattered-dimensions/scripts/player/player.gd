@@ -1,19 +1,29 @@
 class_name Player
 extends Character 
 
-@export var health:int = 3
-@export var default_run_animation: String = "run"  
-@export var default_idle_animation: String = "idle"
+@export var health: int = 100
+@export var jump_velocity_input: int = -300
 
 var _damaged:bool = false
 var _dead:bool = false
-var lives = 10
 # VARIABLES FOR PLATFORMER
-var double_jump:bool = false
-var platformer_level:int = 1
+var double_jump: bool = false
+@export var platformer_level: int
+var lives: int = GlobalVars.lives
+var on_trampoline: bool = false
+var checkpoint_num: int = 0
+var checkpoints: Array = [
+	[65, 589],
+	[967, 395],
+	[1152, 587],
+	[2209, 477],
+	[3329, 524]
+]
 
-var run_gun_run_animation: String
-var run_gun_idle_animation: String 
+var platformerCompleted = GlobalVars.platformerCompleted
+var carCompleted = GlobalVars.carCompleted
+var shooterCompleted = GlobalVars.shooterCompleted
+var spaceshipCompleted = GlobalVars.spaceshipCompleted
 
 #@onready var animation_tree:AnimationTree = $AnimationTree
 
@@ -25,6 +35,7 @@ var run_gun_idle_animation: String
 @onready var hurtbox : Area2D = $Hurtbox
 @onready var shoot_cooldown_timer : Timer = $ShootCoolDownTimer
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+
 
 @export var knockback_force: float = 300 
 @export var shoot_cooldown : float = 0.33
@@ -49,15 +60,26 @@ enum STATE {
 	RUN_SHOOT,
 	JUMP
 }
+@onready var jump_audio: AudioStreamPlayer = $JumpAudio
+@onready var trampoline_audio: AudioStreamPlayer = $TrampolineAudio
+@onready var death_audio: AudioStreamPlayer = $DeathAudio
+
 func _ready():
 	#animation_tree.active = true
+	get_tree().get_root().print_tree_pretty() 
 	bind_player_input_commands()
 	muzzle_position = muzzle.position
 	original_hit_box_shape = hitbox.shape.size.y
 	original_hit_box_y = hitbox.position.y
-	shoot_cooldown_timer.wait_time = shoot_cooldown
+	shoot_cooldown_timer.wait_time = shoot_cooldown	
+	jump_velocity = jump_velocity_input
 
 func _physics_process(delta: float):
+	if Global.run_gun:
+		jump_velocity_input = -445
+	else:
+		jump_velocity_input = -300
+		
 	if knockback_active and Global.run_gun:
 		move_and_slide()
 		_apply_gravity(delta)
@@ -100,6 +122,14 @@ func _physics_process(delta: float):
 			shoot.execute(self)
 		shoot_cooldown_timer.start()
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or double_jump):
+		if on_trampoline:
+			self.velocity.y = -650
+			on_trampoline = false
+			trampoline_audio.play()
+		else:
+			up_cmd.execute(self)
+			jump_audio.play()
+	
 		current_state = STATE.JUMP
 		up_cmd.execute(self)
 		
@@ -113,9 +143,18 @@ func _physics_process(delta: float):
 # FUNCTIONS FOR PLATFORMER
 
 func platformer_respawn():
+	if lives <= 0:
+		return
+	death_audio.play()
 	if platformer_level == 1:
 		position.x = 65
 		position.y = 595
+	elif platformer_level == 2:
+		position.x = checkpoints[checkpoint_num][0]
+		position.y = checkpoints[checkpoint_num][1]
+	else:
+		position.x = 67
+		position.y = 590
 
 
 #func take_damage(damage:int) -> void:
@@ -175,7 +214,8 @@ func bind_player_input_commands():
 	idle = IdleCommand.new()
 	run_shoot_left = RunShootLeftCommand.new()
 	run_shoot = RunShootCommand.new()
-	shoot = ShootCommand.new()
+	shoot = ShootCommand.new()		
+
 
 func unbind_player_input_commands():
 	right_cmd = Command.new()
@@ -225,6 +265,7 @@ func update_muzzle_position():
 		muzzle.position.x = -abs(muzzle_position.x)  
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
+	print("BODY ENTER")
 	if body.is_in_group("enemy") and not knockback_active:
 		var knockback_direction: Vector2 = (position - body.position).normalized()
 		velocity = knockback_direction * knockback_force
@@ -249,6 +290,7 @@ func _on_knockback_timer_timeout() -> void:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
+	print("PROJ ENTER")
 	if area.is_in_group("ComboHitBox"):
 		var knockback_direction: Vector2 = (position - area.global_position).normalized()
 		velocity = knockback_direction * knockback_force
@@ -296,3 +338,23 @@ func end_crouch():
 func set_bullet_type(new_bullet: PackedScene) -> void:
 	bullet = new_bullet
 	print("Bullet type changed!")
+
+
+func _on_platformer_body_entered(body: Node2D) -> void:
+	if not platformerCompleted:
+		get_tree().change_scene_to_file("res://scenes/platformer/difficulty_selector.tscn")
+
+
+func _on_shooter_body_entered(body: Node2D) -> void:
+	if not shooterCompleted:
+		get_tree().change_scene_to_file("res://scenes/run_gun/level1/level1.tscn")
+
+
+func _on_car_body_entered(body: Node2D) -> void:
+	if not carCompleted:
+		get_tree().change_scene_to_file("res://scenes/car_level.tscn")
+
+
+func _on_spaceship_body_entered(body: Node2D) -> void:
+	if not spaceshipCompleted:
+		get_tree().change_scene_to_file("res://scenes/spaceship/ship_level.tscn")

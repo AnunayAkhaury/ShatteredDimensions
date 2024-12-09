@@ -1,9 +1,10 @@
-[gd_scene load_steps=44 format=3 uid="uid://d6cfjv8fghub"]
+[gd_scene load_steps=45 format=3 uid="uid://d6cfjv8fghub"]
 
 [ext_resource type="Texture2D" uid="uid://bxymmmcw8wldh" path="res://assets/PixelAdventure/Items/Checkpoints/Checkpoint/Checkpoint (Flag Out) (64x64).png" id="1_0peg6"]
 [ext_resource type="Script" path="res://scripts/platformer/level2/checkpoint.gd" id="1_s4qdc"]
 [ext_resource type="Texture2D" uid="uid://b6abn8rrw5k08" path="res://assets/PixelAdventure/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="2_2isqh"]
 [ext_resource type="Texture2D" uid="uid://cs14xm2tw4hh8" path="res://assets/PixelAdventure/Items/Checkpoints/Checkpoint/Checkpoint (No Flag).png" id="3_dxugf"]
+[ext_resource type="AudioStream" uid="uid://bo7spgrca1681" path="res://assets/Checkpoint Sound Effect.mp3" id="5_c5ox2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6s56j"]
 atlas = ExtResource("1_0peg6")
@@ -299,6 +300,9 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-8.5, 9)
 shape = SubResource("RectangleShape2D_3t8hv")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_c5ox2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
