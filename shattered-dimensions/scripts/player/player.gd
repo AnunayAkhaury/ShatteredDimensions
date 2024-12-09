@@ -66,7 +66,6 @@ enum STATE {
 
 func _ready():
 	#animation_tree.active = true
-	get_tree().get_root().print_tree_pretty() 
 	bind_player_input_commands()
 	muzzle_position = muzzle.position
 	original_hit_box_shape = hitbox.shape.size.y
@@ -337,7 +336,6 @@ func end_crouch():
 
 func set_bullet_type(new_bullet: PackedScene) -> void:
 	bullet = new_bullet
-	print("Bullet type changed!")
 
 
 func _on_platformer_body_entered(body: Node2D) -> void:

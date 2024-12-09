@@ -7,5 +7,4 @@ func execute(character: Character) -> Status:
 	
 	if character._horizontal_input != 0:
 		character.velocity.x = character._horizontal_input * character.movement_speed
-		print(character.velocity.x)
 	return Status.DONE

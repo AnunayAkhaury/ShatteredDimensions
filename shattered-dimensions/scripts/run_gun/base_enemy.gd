@@ -67,7 +67,6 @@ func walk_state(delta:float):
 func bind_player_input_commands():
 	right_cmd = EnemyMoveRightCommand.new()
 	left_cmd = EnemyMoveLeftCommand.new()
-	print(left_cmd)
 	up_cmd = JumpCommand.new()
 	#fire1 = AttackCommand.new()
 	idle = IdleCommand.new()
