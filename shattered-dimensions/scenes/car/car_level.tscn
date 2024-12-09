@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://b4hrc5xbxausp"]
+[gd_scene load_steps=33 format=4 uid="uid://b4hrc5xbxausp"]
 
 [ext_resource type="PackedScene" uid="uid://c37auavbmu8ye" path="res://scenes/car/labels/lives.tscn" id="2_b3muw"]
 [ext_resource type="PackedScene" uid="uid://b5yh853uf0prf" path="res://scenes/car/bg.tscn" id="2_fhgbu"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://brndnt11i221r" path="res://scenes/car/boost_ups/fuel.tscn" id="13_0qi2e"]
 [ext_resource type="PackedScene" uid="uid://b7dpnm15y4glj" path="res://scenes/car/boost_ups/health.tscn" id="14_ey41v"]
 [ext_resource type="Texture2D" uid="uid://dwty1wvfryik8" path="res://assets/Dungeon_brick_wall_grey.png.png" id="17_y7ueu"]
+[ext_resource type="Texture2D" uid="uid://d0dgge3gw0fo7" path="res://assets/Crosshair Pack/White/512/2.png" id="23_8ecqp"]
+[ext_resource type="Script" path="res://scenes/car/aim.gd" id="24_1dmba"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exbef"]
 texture = ExtResource("6_1a2t4")
@@ -13612,7 +13614,7 @@ collision_mask = 3
 
 [node name="Car" parent="." instance=ExtResource("4_4lvlx")]
 unique_name_in_owner = true
-position = Vector2(2225, 489)
+position = Vector2(477, 455)
 
 [node name="Traps" parent="." instance=ExtResource("5_0vm44")]
 position = Vector2(2482, 606)
@@ -13721,19 +13723,17 @@ position = Vector2(668, -45)
 [node name="Lives" parent="Labels" instance=ExtResource("2_b3muw")]
 
 [node name="Tutorial" parent="Labels" instance=ExtResource("3_euuak")]
-offset_left = 182.0
-offset_top = 346.0
-offset_right = 550.0
-offset_bottom = 419.0
+offset_left = -532.0
+offset_top = 392.0
+offset_right = -164.0
+offset_bottom = 465.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Use arrows to move the car
-Use click to aim and shoot"
 
 [node name="StartCountdown" parent="Labels" instance=ExtResource("4_toqhx")]
-offset_left = 273.0
-offset_top = 289.0
-offset_right = 446.0
-offset_bottom = 331.0
+offset_left = -441.0
+offset_top = 335.0
+offset_right = -268.0
+offset_bottom = 377.0
 text = "Start in : "
 script = ExtResource("5_x0elv")
 
@@ -13748,3 +13748,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "You must fight the officer 
 to get spare tires for the car!
 "
+
+[node name="GunAimer" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("23_8ecqp")
+script = ExtResource("24_1dmba")

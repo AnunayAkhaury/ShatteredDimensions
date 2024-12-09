@@ -1,3 +1,4 @@
+
 class_name PlayerCar
 extends Vehicle
 
@@ -63,28 +64,7 @@ func _physics_process(delta: float) -> void:
 	elif health <= 0:
 		add_child(_respawn_timer)
 		
-	_draw_aim()
 	super(delta)
-	
-func _draw_aim() -> void:
-	# Circle properties
-	#var center = get_viewport().get_mouse_position()
-	var circle_radius = 50.0
-	var circle_color = Color(0.2, 0.6, 1.0)  # Blue color
-	var line_width = 3.0
-
-	# Plus sign properties
-	var plus_color = Color(1.0, 0.0, 0.0)  # Red color
-	var plus_length = 30.0
-	
-	# Draw the circle
-	draw_circle(Vector2.ZERO, circle_radius, circle_color)
-
-	# Draw the plus sign
-	# Vertical line
-	draw_line(Vector2(0, -plus_length / 2), Vector2(0, plus_length / 2), plus_color, line_width)
-	# Horizontal line
-	draw_line(Vector2(-plus_length / 2, 0), Vector2(plus_length / 2, 0), plus_color, line_width)
 	
 func _shoot() -> void:
 	var cur_bullet = bullet.instantiate() as Bullet
