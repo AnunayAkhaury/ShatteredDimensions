@@ -1,7 +1,7 @@
 [gd_scene load_steps=38 format=3 uid="uid://dbcgmomj13fhn"]
 
 [ext_resource type="Texture2D" uid="uid://bdjjb4ju66nnf" path="res://assets/ufo2.png" id="1_cxjn3"]
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_v3wn7"]
+[ext_resource type="Script" path="res://scripts/spaceship/enemy.gd" id="1_v3wn7"]
 [ext_resource type="PackedScene" uid="uid://cg231mye41ds5" path="res://scenes/spaceship/laser_blast.tscn" id="2_jveac"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0wdb"]
