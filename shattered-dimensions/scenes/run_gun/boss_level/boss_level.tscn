@@ -1,8 +1,10 @@
-[gd_scene load_steps=24 format=4 uid="uid://bbsr08b86mxl8"]
+[gd_scene load_steps=26 format=4 uid="uid://bbsr08b86mxl8"]
 
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="1_1qifa"]
+[ext_resource type="Script" path="res://scripts/run_gun/boss_level.gd" id="1_q0pc7"]
 [ext_resource type="Texture2D" uid="uid://s4yfv62j4v3p" path="res://assets/Legacy Collection/Legacy Collection/Assets/Environments/Synth City/Version 2/Layers/back.png" id="1_uhlij"]
 [ext_resource type="Texture2D" uid="uid://b1thabw46053t" path="res://assets/Legacy Collection/Legacy Collection/Assets/Environments/Synth City/Version 2/Layers/middle.png" id="2_rpbi1"]
+[ext_resource type="Script" path="res://scripts/player/player_camera.gd" id="3_idg4d"]
 [ext_resource type="Texture2D" uid="uid://bh1nggmcts834" path="res://assets/Legacy Collection/Legacy Collection/Assets/Environments/Synth City/Version 2/Layers/foreground.png" id="3_ny3m3"]
 [ext_resource type="Texture2D" uid="uid://bhf4xjggjoyl8" path="res://assets/Legacy Collection/Legacy Collection/Assets/Environments/grunge-tileset-files-web/grunge-tileset.png" id="6_ky3t6"]
 [ext_resource type="Texture2D" uid="uid://bmiuqcsf1lhm" path="res://assets/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="7_u8d23"]
@@ -978,16 +980,19 @@ size = Vector2(158, 28)
 size = Vector2(64.0218, 20)
 
 [node name="BossLevel" type="Node2D"]
+script = ExtResource("1_q0pc7")
 
 [node name="Character" parent="." instance=ExtResource("1_1qifa")]
 position = Vector2(26, 360)
 
-[node name="Camera2D" type="Camera2D" parent="Character"]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 zoom = Vector2(1.485, 1.485)
 limit_left = 0
 limit_top = 0
 limit_bottom = 50
 position_smoothing_enabled = true
+script = ExtResource("3_idg4d")
+player = NodePath("../Character")
 
 [node name="MechanicBoss" parent="." node_paths=PackedStringArray("ScoutSummonPoints", "SentinalSummonPoints", "patrol_points") instance=ExtResource("9_34bb2")]
 position = Vector2(5041, 366)
@@ -1214,5 +1219,5 @@ position = Vector2(85, 366)
 position = Vector2(4161, 353)
 
 [node name="RapidFire" parent="Pickups" instance=ExtResource("14_r4vs6")]
-position = Vector2(2950, 348)
+position = Vector2(2949, 358)
 player_node_path = NodePath("../../Character")

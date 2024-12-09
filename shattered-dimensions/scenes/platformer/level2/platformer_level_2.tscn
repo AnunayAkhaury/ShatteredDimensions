@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://dstc1ue5wbdgo" path="res://scenes/platformer/level2/crusher.tscn" id="24_1hvt2"]
 [ext_resource type="PackedScene" uid="uid://b00thoqwoqjnq" path="res://scenes/platformer/next_world_door.tscn" id="25_l62ee"]
 [ext_resource type="Texture2D" uid="uid://l825pk3rvbeh" path="res://assets/PixelFantasy_Caves_1.0/mainlev_build.png" id="25_uvrl4"]
-[ext_resource type="PackedScene" uid="uid://bmoaon1yut05y" path="res://scenes/pause_menu.tscn" id="30_x2rw1"]
+[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="30_x2rw1"]
 [ext_resource type="AudioStream" uid="uid://dv31y7q52wnny" path="res://assets/Breezy's Mega Quest - 5 Stage 4.wav" id="30_xcob4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7avqj"]

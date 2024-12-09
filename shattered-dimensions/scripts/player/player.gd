@@ -207,7 +207,6 @@ func update_muzzle_position():
 		muzzle.position.x = -abs(muzzle_position.x)  
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-	print("BODY ENTER")
 	if body.is_in_group("enemy") and not knockback_active:
 		var knockback_direction: Vector2 = (position - body.position).normalized()
 		velocity = knockback_direction * knockback_force
@@ -232,7 +231,6 @@ func _on_knockback_timer_timeout() -> void:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	print("PROJ ENTER")
 	if area.is_in_group("ComboHitBox"):
 		var knockback_direction: Vector2 = (position - area.global_position).normalized()
 		velocity = knockback_direction * knockback_force
@@ -289,8 +287,7 @@ func _on_platformer_body_entered(body: Node2D) -> void:
 func _on_shooter_body_entered(body: Node2D) -> void:
 	if not shooterCompleted:
 		get_tree().change_scene_to_file("res://scenes/run_gun/level1/level1.tscn")
-
-
+		
 func _on_car_body_entered(body: Node2D) -> void:
 	if not carCompleted:
 		get_tree().change_scene_to_file("res://scenes/car_level.tscn")
