@@ -76,9 +76,24 @@ the background.
 
 ## Platformer Level
 
+My main role was the platformer level, a level based on games like _I wanna be the guy_ and _Super Meatboy_. Because we split our roles into levels rather than overarching systems, we all got to do a little bit of everything, which is what I will go into detail about below. Overall, the game consists of 2 main levels with the second more difficult than the first. Below I will explain all the systems necessary to making the game.
+
+**Player Movement/Physics**
+Player movement was pretty simple and required only 4 main controls which were move_left, move_right, crouch, and jump. The main goal of the game is based on accurately timed jumps to get over/under obstacles and reach difficult, moving platforms. There are level boundaries set up along the edges of each level to ensure that if a player hits those, they lose a a life and respawn at the level default. <insert level 1 gif>
+
+In terms of the player camera, level 1 has a static camera that displays the entire level because of the fact that it is built in a zig-zag motion and players would want to reach from the bottom left to the top right. Level 2 has a slightly more complex camera where there is a push-box implementation similar to exercise 2. The player can push on the right-side around halfway into the screen but on the left, there is some space before the camera moves back left. This is to ensure certain areas like the downward descent in Level 2 are fully visible on the screen without any camera movement necessary as many of the obstacles are not easily seen without this system.
+<insert level 2 camera gif>
+
+**Enemies/Obstacles**
 
 
-**Class Content**
+**Special Items/Platforms**
+
+**Audio**
+
+**Assets**
+
+**Related Class Content**
 
 *Command Pattern* - The platformer relies on the player node which is completely built around the idea of the command pattern that we learned in class and got to implement in exercise 1. The player uses move, jump, crouch, idle, shoot, and more commands that are called in the _process logic and are essential for completing the level.
 
