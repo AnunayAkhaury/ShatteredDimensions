@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://bkniqhquw3wwh"]
+[gd_scene load_steps=88 format=3 uid="uid://bkniqhquw3wwh"]
 
 [ext_resource type="Script" path="res://scripts/run_gun/enemy/mech_boss/mechanic_boss.gd" id="1_7iabt"]
 [ext_resource type="Texture2D" uid="uid://bfeg4ltxn03sa" path="res://assets/Anunay's Boss/Mechanic Mike/Mechanic Mike/attack1.png" id="1_s6o0j"]
@@ -12,6 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://r1in13blj6p8" path="res://assets/Anunay's Boss/Mechanic Mike/Mechanic Mike/hand_cannon.png" id="8_6u235"]
 [ext_resource type="Texture2D" uid="uid://coqb3qruh5spi" path="res://assets/Anunay's Boss/Mechanic Mike/Mechanic Mike/run.png" id="9_5ftc7"]
 [ext_resource type="Script" path="res://scripts/run_gun/enemy/mech_boss/combo_hit_box.gd" id="12_au4ba"]
+[ext_resource type="AudioStream" uid="uid://cgx2mvgqe54kb" path="res://assets/Anunay's Sounds/summon.ogg" id="13_jh7nj"]
+[ext_resource type="AudioStream" uid="uid://cbe4giput3tbo" path="res://assets/Anunay's Sounds/enemy_bullet.wav" id="14_tagnn"]
+[ext_resource type="AudioStream" uid="uid://bs7t1nweypi4y" path="res://assets/Anunay's Sounds/boss_damage.wav" id="15_wl7gs"]
+[ext_resource type="AudioStream" uid="uid://cf7t31egjggf3" path="res://assets/Anunay's Sounds/boss_newattack.mp3" id="16_0o2ea"]
+[ext_resource type="AudioStream" uid="uid://cul5s4h6tevl6" path="res://assets/Anunay's Sounds/boss_dead.wav" id="17_tb3kc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2ayng"]
 shader = ExtResource("2_w42pd")
@@ -596,6 +601,22 @@ debug_color = Color(0.565895, 0.557714, 0, 0.42)
 [node name="SummonTimer" type="Timer" parent="."]
 wait_time = 15.0
 autostart = true
+
+[node name="SummonAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_jh7nj")
+
+[node name="ShootAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_tagnn")
+
+[node name="BossDamageAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_wl7gs")
+
+[node name="BossComboAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_0o2ea")
+volume_db = -3.0
+
+[node name="BossDead" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_tb3kc")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

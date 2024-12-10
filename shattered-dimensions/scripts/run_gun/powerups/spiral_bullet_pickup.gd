@@ -22,5 +22,5 @@ func _on_item_pick_up_body_entered(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	if player:
-		player.set_bullet_type(prev_bullet) 
+		player.set_bullet_type(prev_bullet)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 	queue_free()
