@@ -94,22 +94,21 @@ Player movement was pretty simple and required only 4 main controls which were m
 
 There are many obstacles with various use-cases all around the levels. I made a universal KillZone class that already implemented the death response when a player enters the obstacle and so I was able to use that for every enemy. This ensured that there was no need for an additional script on each obstacle, rather they all called KillZone.
 
-_Basic Spike_
+_Basic Spike, Saw Blade, Spike Ball_
 
 - The basic spike is a core obstacle that is scattered throughout the floor pieces of both levels. I used the spikes in many sizes using the scale attribute and used a collision polygon to get the hitbox exactly in a triangular shape.
-
-_Saw Blade/Spike Ball_
-
-- The saw blade and spike ball are similarly present in both levels. I added a script that would constantly rotate the saw blade at a certain pace so that it would replicate a real saw blade motion. Here I only needed to use a collision shape, namely a circle since the rotation would anyway prevent there ever from being a slip through a small point in the blade. For the spike ball, I had a similar script but with a much slower rotation, necessating a very accurate collision polygon.
+- The saw blade and spike ball are similarly present in both levels. I added a script that would constantly rotate the saw blade at a certain pace so that it would replicate a real saw blade motion. Here I only needed to use a collision shape, namely a circle since the rotation would anyway prevent there ever from being a slip through a small point in the blade.
+- For the spike ball, I had a similar script but with a much slower rotation, necessating a very accurate collision polygon.
 
 ![ScreenRecording2024-12-10at11 42 19AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/b2680a81-9f5b-4f09-b555-dc6c3d01b9cb)
 
 
-_SpikeBlock_
+_SpikeBlock/Factory_
 
-- I made this obstacle specifically for level 2 as a moving block with 2 spikes attached on the left and right. It was animated to move left and right on a given surface. It was also used in another obstacle which would generate the blocks up or down.
+- I made this obstacle specifically for level 2 as a moving block with 2 spikes attached on the left and right. It was animated to move left and right on a given surface.
+- The raising spike factory used the Factory Pattern concept to create a class that constantly spawns spike blocks in an upward or downward direction. I also added an export variable to determine speed so I could create different spike blocks at different speeds.
 
-![ScreenRecording2024-12-10at11 26 23AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/dfb4948e-6f4f-4bdf-94bb-e50fafd2373c)
+![ScreenRecording2024-12-10at11 27 54AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/c695c2cf-a256-4f17-a53b-a1d0dd48d1b3)
 
 
 _Descent Zone (2 new enemies)_
@@ -118,13 +117,6 @@ _Descent Zone (2 new enemies)_
 - The pea shooter was located in a space in the wall and made to shoot a green ball at a regular interval. I used an animation to achieve this where the ball would shoot to the other side, wait, and then repeat the animation. This made it so that players would need to crouch to avoid the pea.
 
 ![ScreenRecording2024-12-10at11 27 07AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/a0227051-e4c5-4b9f-bdd6-b97d0b45a133)
-
-
-_Raising Spike Factory_
-
-- The raising spike factory used the Factory Pattern concept to create a class that constantly spawns spike blocks in an upward or downward direction. I also added an export variable to determine speed so I could create different spike blocks at different speeds.
-
-![ScreenRecording2024-12-10at11 27 54AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/c695c2cf-a256-4f17-a53b-a1d0dd48d1b3)
 
 
 _Arrow Trap/Crusher_
@@ -138,6 +130,32 @@ _Arrow Trap/Crusher_
 ![ScreenRecording2024-12-10at11 31 42AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/79199255-4467-4a82-91ea-f0dc3ce80cb3)
 
 **Special Items/Platforms**
+
+I also added special mechanics and platforms to make the game more challenging/interesting.
+
+_Moving Platform_
+- The moving platform is simple and just moves up and down based on a preset animation.
+- I made a couple different varieties of the platform with different looks based on level.
+
+
+
+_Blue orb (Double Jump)_
+- The blue orb allows players to press the jump input again for a double jump.
+- I used a sprite with an area_body_2d and collision shape to achieve this
+
+
+
+_Orange/Green orb (ascend/descend)_
+- The orange orb allows the player's current platform to start ascending until a given point. This was achieved through an animation.
+- The green orb allows players to have their platform descend, so very similar to ascend.
+
+
+
+_Trampoline_
+- The trampoline is an animated sprite that allows players to have a much higher jump when springing off this component.
+- I added a conditional in the player script to check whether or not the player was on the trampoline and if so, change the jump velocity to be much more negative to achieve a much higher jump.
+
+
 
 **Animations**
 
