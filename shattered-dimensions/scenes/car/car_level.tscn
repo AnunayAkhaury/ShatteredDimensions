@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://b4hrc5xbxausp"]
+[gd_scene load_steps=51 format=4 uid="uid://b4hrc5xbxausp"]
 
 [ext_resource type="PackedScene" uid="uid://c37auavbmu8ye" path="res://scenes/car/labels/lives.tscn" id="2_b3muw"]
 [ext_resource type="PackedScene" uid="uid://b5yh853uf0prf" path="res://scenes/car/bg.tscn" id="2_fhgbu"]
@@ -10,21 +10,25 @@
 [ext_resource type="Texture2D" uid="uid://c4pgpxsbm8qs6" path="res://assets/CarLevel/Abusive Prison Tileset Pack/img/tilesets/Prison_A5.png" id="4_58skg"]
 [ext_resource type="PackedScene" uid="uid://i6arnh3jkabk" path="res://scenes/car/swat_van/swat_van.tscn" id="4_pn4bw"]
 [ext_resource type="PackedScene" uid="uid://ufiexds0mv81" path="res://scenes/car/labels/start_countdown.tscn" id="4_toqhx"]
-[ext_resource type="PackedScene" uid="uid://cw3djta8tgr1a" path="res://scenes/car/enemy_animation/Traps.tscn" id="5_0vm44"]
+[ext_resource type="PackedScene" uid="uid://cw3djta8tgr1a" path="res://scenes/car/enemy_animation/traps.tscn" id="5_0vm44"]
 [ext_resource type="Script" path="res://scripts/car/labels/start_countdown.gd" id="5_x0elv"]
 [ext_resource type="Texture2D" uid="uid://cusdkqvtkp0ou" path="res://assets/CarLevel/PhysicsCarGameAssets/Images/Terrain/jungle tileset.png" id="6_1a2t4"]
+[ext_resource type="PackedScene" uid="uid://blrxo1wo5vrdr" path="res://scenes/car/enemy_animation/timed_trap.tscn" id="6_bs7vm"]
 [ext_resource type="PackedScene" uid="uid://0n8jr3oavnss" path="res://scenes/car/enemy_animation/police.tscn" id="6_l3s77"]
 [ext_resource type="PackedScene" uid="uid://bmemxcryvtusx" path="res://scenes/car/enemy_animation/bat_animations.tscn" id="6_p3wkt"]
+[ext_resource type="Script" path="res://scripts/car/cage.gd" id="7_i5php"]
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="7_mx8p4"]
 [ext_resource type="PackedScene" uid="uid://cvxn17he7m1ev" path="res://scenes/car/tire_pile.tscn" id="7_navjn"]
 [ext_resource type="PackedScene" uid="uid://cm8cgpnselc8i" path="res://scenes/car/enemy_animation/mushroom_animations.tscn" id="8_mh5jj"]
 [ext_resource type="PackedScene" uid="uid://cekfcjskjtw8c" path="res://scenes/car/key.tscn" id="9_bygmi"]
 [ext_resource type="PackedScene" uid="uid://cy8py1778oupt" path="res://scenes/car/car_camera.tscn" id="10_7ovoo"]
+[ext_resource type="Texture2D" uid="uid://d4gmfwc2dx6hb" path="res://assets/CarLevel/explosion pack 1/Bonus/From explosions pack 2/explosion-b/explosion-b.png" id="12_v5ewq"]
 [ext_resource type="PackedScene" uid="uid://brndnt11i221r" path="res://scenes/car/boost_ups/fuel.tscn" id="13_0qi2e"]
 [ext_resource type="PackedScene" uid="uid://b7dpnm15y4glj" path="res://scenes/car/boost_ups/health.tscn" id="14_ey41v"]
 [ext_resource type="Texture2D" uid="uid://dwty1wvfryik8" path="res://assets/Dungeon_brick_wall_grey.png.png" id="17_y7ueu"]
 [ext_resource type="Texture2D" uid="uid://d0dgge3gw0fo7" path="res://assets/Crosshair Pack/White/512/2.png" id="23_8ecqp"]
 [ext_resource type="Script" path="res://scripts/car/aim.gd" id="24_1dmba"]
+[ext_resource type="Script" path="res://scripts/car/key_checkpoint.gd" id="26_mlarx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb6qs"]
 texture = ExtResource("2_hd0bc")
@@ -13240,6 +13244,87 @@ sources/1 = SubResource("TileSetAtlasSource_75mq4")
 sources/2 = SubResource("TileSetAtlasSource_bcl1y")
 sources/3 = SubResource("TileSetAtlasSource_1mqxd")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mflw"]
+size = Vector2(130.25, 138.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nmgn"]
+atlas = ExtResource("12_v5ewq")
+region = Rect2(240, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds13b"]
+atlas = ExtResource("12_v5ewq")
+region = Rect2(320, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oggln"]
+atlas = ExtResource("12_v5ewq")
+region = Rect2(400, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhrfx"]
+atlas = ExtResource("12_v5ewq")
+region = Rect2(480, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xkqy"]
+atlas = ExtResource("12_v5ewq")
+region = Rect2(560, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mse8d"]
+atlas = ExtResource("12_v5ewq")
+region = Rect2(640, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omncl"]
+atlas = ExtResource("12_v5ewq")
+region = Rect2(720, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htfvi"]
+atlas = ExtResource("12_v5ewq")
+region = Rect2(800, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bt6d"]
+atlas = ExtResource("12_v5ewq")
+region = Rect2(880, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xy41"]
+atlas = ExtResource("12_v5ewq")
+region = Rect2(960, 0, 80, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ll25o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nmgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds13b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oggln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhrfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xkqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mse8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omncl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htfvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bt6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xy41")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exbef"]
 texture = ExtResource("6_1a2t4")
 19:1/0 = 0
@@ -13610,6 +13695,9 @@ sources/0 = SubResource("TileSetAtlasSource_exbef")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xkm6"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wekmw"]
+size = Vector2(20, 226)
+
 [node name="CarLevel" type="Node2D"]
 
 [node name="Bg" parent="." instance=ExtResource("2_fhgbu")]
@@ -13641,17 +13729,38 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(2482, 606)
 scale = Vector2(0.35, 0.346)
 
-[node name="Key" parent="ExtraElements" instance=ExtResource("9_bygmi")]
+[node name="TimedTrap" parent="ExtraElements" instance=ExtResource("6_bs7vm")]
+position = Vector2(14728, 610)
+
+[node name="TimedTrap2" parent="ExtraElements" instance=ExtResource("6_bs7vm")]
+position = Vector2(6993, 563)
+
+[node name="KeyCage" type="Node2D" parent="ExtraElements"]
+
+[node name="Key" parent="ExtraElements/KeyCage" instance=ExtResource("9_bygmi")]
 position = Vector2(17322, 543)
 
-[node name="PrisonFront" type="TileMapLayer" parent="ExtraElements"]
+[node name="Cage" type="Area2D" parent="ExtraElements/KeyCage"]
+script = ExtResource("7_i5php")
+
+[node name="CageTile" type="TileMapLayer" parent="ExtraElements/KeyCage/Cage"]
 position = Vector2(17249, 83)
 tile_map_data = PackedByteArray("AAAAABgAAAAYAAAAAAAAABkAAAAYAAEAAAAAABoAAAAYAAIAAAAAABsAAAAYAAMAAAAAABwAAAAYAAQAAAAAAB0AAAAYAAUAAAAAAB4AAAAYAAYAAAAAAB8AAAAYAAcAAAACABgAAAAaAAAAAAACABkAAAAaAAEAAAACABoAAAAaAAIAAAACABsAAAAaAAMAAAACABwAAAAaAAQAAAACAB0AAAAaAAUAAAACAB4AAAAaAAYAAAACAB8AAAAaAAcAAAADABgAAAAbAAAAAAADABkAAAAbAAEAAAADABoAAAAbAAIAAAADABsAAAAbAAMAAAADABwAAAAbAAQAAAADAB0AAAAbAAUAAAADAB4AAAAbAAYAAAADAB8AAAAbAAcAAAAFABgAAAAdAAAAAAAFABkAAAAdAAEAAAAFABoAAAAdAAIAAAAFABsAAAAdAAMAAAAFABwAAAAdAAQAAAAFAB0AAAAdAAUAAAAFAB4AAAAdAAYAAAAFAB8AAAAdAAcAAAAGABgAAAAeAAAAAAAGABkAAAAeAAEAAAAGABoAAAAeAAIAAAAGABsAAAAeAAMAAAAGABwAAAAeAAQAAAAGAB0AAAAeAAUAAAAGAB4AAAAeAAYAAAAGAB8AAAAeAAcAAAAIABgAAAAgAAAAAAAIABkAAAAgAAEAAAAIABoAAAAgAAIAAAAIABsAAAAgAAMAAAAIABwAAAAgAAQAAAAIAB0AAAAgAAUAAAAIAB4AAAAgAAYAAAAIAB8AAAAgAAcAAAAAACAAAAAYAAgAAAABABgAAAAZAAAAAAABACAAAAAZAAgAAAACACAAAAAaAAgAAAADACAAAAAbAAgAAAAEABgAAAAcAAAAAAAEACAAAAAcAAgAAAAFACAAAAAdAAgAAAAGACAAAAAeAAgAAAAHABgAAAAfAAAAAAAHACAAAAAfAAgAAAAIACAAAAAgAAgAAAA=")
 tile_set = SubResource("TileSet_jjwe4")
 
-[node name="Car" parent="." instance=ExtResource("4_4lvlx")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExtraElements/KeyCage/Cage"]
+position = Vector2(17321, 538)
+shape = SubResource("RectangleShape2D_2mflw")
+
+[node name="Explosion" type="AnimatedSprite2D" parent="ExtraElements/KeyCage/Cage"]
+visible = false
+position = Vector2(17321, 503)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_ll25o")
+
+[node name="Car" parent="." groups=["car"] instance=ExtResource("4_4lvlx")]
 unique_name_in_owner = true
-position = Vector2(375, 420)
+position = Vector2(5510, 441)
 
 [node name="PoliceOfficer" parent="." instance=ExtResource("6_l3s77")]
 position = Vector2(3035, 556)
@@ -13712,7 +13821,7 @@ position = Vector2(6444, 3112)
 scale = Vector2(30, 30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary"]
-position = Vector2(352.833, -66.1)
+position = Vector2(352.567, -66)
 shape = SubResource("RectangleShape2D_4xkm6")
 
 [node name="LeftBoundary" type="StaticBody2D" parent="."]
@@ -13781,3 +13890,13 @@ to get spare tires for the car!
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("23_8ecqp")
 script = ExtResource("24_1dmba")
+
+[node name="KeyCheckpoint" type="Area2D" parent="."]
+position = Vector2(16654, -718)
+script = ExtResource("26_mlarx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KeyCheckpoint"]
+position = Vector2(163, 1151)
+shape = SubResource("RectangleShape2D_wekmw")
+
+[connection signal="animation_finished" from="ExtraElements/KeyCage/Cage/Explosion" to="ExtraElements/KeyCage/Cage" method="_on_explosion_animation_finished"]

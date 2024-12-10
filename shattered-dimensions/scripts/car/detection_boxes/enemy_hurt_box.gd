@@ -1,7 +1,6 @@
 class_name EnemyHurtBox
 extends Area2D
 
-
 func _init() -> void:
 	area_entered.connect(_on_area_entered)
 	

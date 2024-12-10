@@ -1,4 +1,3 @@
-
 class_name PlayerCar
 extends Vehicle
 
@@ -8,14 +7,18 @@ var _respawn_timer: Timer
 var _bullet_damage: float
 var _caught_by_police: bool
 
+var kill_count: int
 var boost_speed: bool
 var boost_speed_time: float
+var input_enabled: bool = true
+var is_missile_enabled: bool = false
 
 @onready var bullet = preload("res://scenes/car/bullet.tscn")
-var input_enabled: bool = true
+@onready var missile = preload("res://scenes/car/missile.tscn")
 @onready var health_bar: ProgressBar = %CarCamera.get_child(0)
 
 func _init() -> void:
+	kill_count = 0
 	character_type = Characters.Type.PLAYER_CAR
 	boost_speed = false
 	boost_speed_time = _BOOST_SPEED_TIME
@@ -31,20 +34,18 @@ func _init() -> void:
 	
 	super()
 
-func stop_car():
-	for wheel in _wheels:
-		wheel.linear_velocity = Vector2.ZERO
-		wheel.angular_velocity = 0
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_wheels = [%FrontWheel, %BackWheel]
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	print(kill_count)
 	
 	if not input_enabled:
 		stop_car()
-		return
+	else:
+		freeze = false
+	
 	if Input.is_action_pressed("move_right"):
 		#start_tires()
 		for wheel in _wheels:
@@ -78,12 +79,18 @@ func _physics_process(delta: float) -> void:
 	super(delta)
 	
 func _shoot() -> void:
-	var cur_bullet = bullet.instantiate() as Bullet
-	cur_bullet.damage = _bullet_damage
-	cur_bullet.bullet_origin = Characters.Type.PLAYER_CAR
-	cur_bullet.start_pos = position + Vector2(30, -90)
-	cur_bullet.target_pos = get_global_mouse_position()
-	add_sibling(cur_bullet)
+	if is_missile_enabled:
+		var cur_bullet = missile.instantiate() as Missile
+		cur_bullet.start_pos = position + Vector2(30, -90)
+		cur_bullet.target_pos = get_global_mouse_position()
+		add_sibling(cur_bullet)
+	else:
+		var cur_bullet = bullet.instantiate() as Bullet
+		cur_bullet.damage = _bullet_damage
+		cur_bullet.bullet_origin = Characters.Type.PLAYER_CAR
+		cur_bullet.start_pos = position + Vector2(30, -90)
+		cur_bullet.target_pos = get_global_mouse_position()
+		add_sibling(cur_bullet)
 	
 func respawn() -> void:
 	GlobalVars.car_lives -= 1
@@ -99,4 +106,8 @@ func _delayed_action() -> void:
 	_max_speed = 40
 	_bullet_damage = 5
 	
-	
+func stop_car():
+	freeze = true
+	for wheel in _wheels:
+		wheel.linear_velocity = Vector2.ZERO
+		wheel.angular_velocity = 0	

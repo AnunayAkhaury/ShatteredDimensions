@@ -1,6 +1,6 @@
 extends Camera2D
 
-var _OFFSET: float = -200
+var OFFSET: float = -200
 
 @onready var car: RigidBody2D = %Car
 
@@ -11,8 +11,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	position.x = car.position.x + _OFFSET
+	position.x = car.position.x + OFFSET
 	
-	if %SwatVan._defeated_by_player and _OFFSET < 200:
-		_OFFSET += 1
+	if %SwatVan._defeated_by_player and OFFSET < 200:
+		OFFSET += 1
 		

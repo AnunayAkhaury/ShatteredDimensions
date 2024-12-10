@@ -23,6 +23,16 @@ func _on_area_entered(object: Area2D) -> void:
 		owner.health = clampi(owner.health + 20, 0, 100)
 		object.queue_free()
 		
+	if object is KeyCheckpoint:
+		owner.input_enabled = false
+		owner.is_missile_enabled = true
+				
+		# REMOVE AFTER MERGED WITH JANANI'S CODE
+		var swat = get_parent().get_parent().get_node("SwatVan")
+		swat._defeated_by_player = true
+		
+		
+		
 	if object is Key:
 		await get_tree().create_timer(.25).timeout
 		get_tree().change_scene_to_file("res://scenes/platformer/victory.tscn")
@@ -36,6 +46,10 @@ func _on_area_entered(object: Area2D) -> void:
 		%Player.visible = false
 		GlobalVars.car_level_stat = "battle"
 		player.visible = true
+		
+	if object is Traps_Two:
+		owner.input_enabled = false
+		owner.health = 0
 		
 	
 	

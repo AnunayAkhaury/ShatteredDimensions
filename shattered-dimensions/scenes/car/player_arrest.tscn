@@ -1,6 +1,6 @@
 [gd_scene load_steps=41 format=3 uid="uid://c3jhvcacvhvdf"]
 
-[ext_resource type="Script" path="res://scenes/car/player_arrest.gd" id="1_2nd2v"]
+[ext_resource type="Script" path="res://scripts/car/player_arrest.gd" id="1_2nd2v"]
 [ext_resource type="PackedScene" uid="uid://xu6eycwicik0" path="res://scenes/car/labels/caught_by_police.tscn" id="1_h8mcy"]
 [ext_resource type="Texture2D" uid="uid://dkl1lsuf2gjoe" path="res://assets/CarLevel/Abusive Prison Tileset Pack/img/tilesets/Prison_B.png" id="1_ujiqr"]
 [ext_resource type="Shader" uid="uid://cjlwlvtndb20s" path="res://scenes/run_gun/player/hit_flash.tres" id="3_60l51"]
@@ -223,6 +223,21 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="Animation" id="Animation_t3jbm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.38419e-07, -175)]
+}
+
 [sub_resource type="Animation" id="Animation_si36l"]
 resource_name = "cage_fall"
 length = 0.5
@@ -237,21 +252,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(378, -200), Vector2(378, 190)]
-}
-
-[sub_resource type="Animation" id="Animation_t3jbm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player/Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2.38419e-07, -175)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4x4s7"]
