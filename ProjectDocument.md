@@ -70,12 +70,7 @@ the pushbox and controllers in Exercise 2. The camera is set to perform a consta
 the screen to allow a view of the spaceship at all times. The player is free to move vertically until they reach the bounds of 
 the background. 
 
-*Arrow & Blast Instantiation Systems* - Upon the press of the space bar, the spaceship instantiates a new set of arrows that 
-are loaded onto the spaceship and fired at the incoming UFOs. Each arrow is released at a different time in line with the 
-animation of the fire and operates independently of the rest once all the arrows are released. The enemy UFOs have a similar 
-system with blasts, where they automatically instantiate blasts with a constant delay once the UFO is within the camera 
-viewport. These blasts are also equipped with animation and cause damage to the spaceship upon collision. These systems are 
-based upon the projectile instantiation demonstrated in Exercise 3. 
+*Arrow & Blast Instantiation Systems* - Upon the press of the space bar, the spaceship instantiates a new set of arrows that are loaded onto the spaceship and fired at the incoming UFOs. Each arrow is released at a different time in line with the animation of the fire and operates independently of the rest once all the arrows are released. The enemy UFOs have a similar system with blasts, where they automatically instantiate blasts with a constant delay once the UFO is within the camera viewport. These blasts are also equipped with animation and cause damage to the spaceship upon collision. These systems are based upon the projectile instantiation demonstrated in Exercise 3. 
 
 *Spaceship Movement and Statistics* - The movement of the spaceship is directly dependent upon the pressing of the up, down, and right keys. Damage of the spaceship is handled by the healthLevel variable that is updated based on different collisions and the health is constantly displayed in the top right corner by the use of a health bar. The UFOs have their own health which is depleted by the arrows fired by the spaceship. The spaceship.gd script also keeps track of the number of UFOs defeated. My implementation of the spaceship demonstrates my learning from Exercise 1 with the character and boss.
 
@@ -103,6 +98,11 @@ based upon the projectile instantiation demonstrated in Exercise 3.
 ## Animation and Visuals
 
 **List your assets, including their sources and licenses.**
+
+### Prison
+
+### Spaceship Level
+
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 

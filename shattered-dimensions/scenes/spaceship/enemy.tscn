@@ -1,8 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://dbcgmomj13fhn"]
+[gd_scene load_steps=39 format=3 uid="uid://dbcgmomj13fhn"]
 
 [ext_resource type="Texture2D" uid="uid://bdjjb4ju66nnf" path="res://assets/ufo2.png" id="1_cxjn3"]
 [ext_resource type="Script" path="res://scripts/spaceship/enemy.gd" id="1_v3wn7"]
 [ext_resource type="PackedScene" uid="uid://cg231mye41ds5" path="res://scenes/spaceship/laser_blast.tscn" id="2_jveac"]
+[ext_resource type="AudioStream" uid="uid://gh81nm48qvs1" path="res://assets/laser-gun-81720.mp3" id="4_ehylr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0wdb"]
 atlas = ExtResource("1_cxjn3")
@@ -280,3 +281,7 @@ libraries = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-111, -5, -93, -5, -90, -8, -85, -9, -76, -11, -57, -11, -52, -14, -38, -25, -23, -29, -12, -31, 14, -31, 25, -29, 36, -25, 45, -21, 51, -15, 58, -13, 60, -12, 77, -11, 88, -10, 92, -8, 94, -6, 111, -6, 117, -4, 123, -2, 126, -1, 126, 4, 122, 6, 117, 7, 109, 9, 102, 10, 95, 10, 90, 15, 85, 17, 80, 19, 73, 20, 62, 21, -18, 23, -22, 22, -59, 22, -73, 20, -82, 18, -90, 15, -95, 10, -106, 9, -114, 8, -119, 6, -125, 4, -125, -1, -122, -3, -118, -4)
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_ehylr")

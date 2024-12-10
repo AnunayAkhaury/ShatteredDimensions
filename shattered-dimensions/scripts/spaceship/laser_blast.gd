@@ -3,7 +3,7 @@ extends Area2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-var speed = 300
+const speed = 300
 
 
 # constantly play blast animation

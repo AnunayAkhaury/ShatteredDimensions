@@ -1,11 +1,15 @@
+class_name Asteroid
 extends RigidBody2D
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var spaceship: Spaceship = $"../../Spaceship"
+
+# play animation upon scene startup
+func _ready() -> void:
+	get_node("AnimationPlayer").play("rotate")
 
 
 # spaceship collides with asteroid
-func _on_body_entered(body: CharacterBody2D) -> void:
+func _on_body_entered(body) -> void:
 	
 	# asteroid bounces off and explodes
 	# spaceship health decreases
@@ -13,9 +17,9 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 		spaceship.healthLevel -= 15
 		spaceship.bounce = true
 	
-	animation_player.play("explode")
-	$Sound.play()
-
+	$AnimationPlayer.play("explode")
+	get_node("Sound").play()
+	
 
 # after asteroid explosion
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
