@@ -10,6 +10,7 @@ var _caught_by_police: bool
 
 var boost_speed: bool
 var boost_speed_time: float
+var input_enabled: bool = true
 
 @onready var bullet = preload("res://scenes/car/bullet.tscn")
 var input_enabled: bool = true
@@ -38,41 +39,43 @@ func stop_car():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GlobalVars.car_level_stat = "Car Level Entered"
 	_wheels = [%FrontWheel, %BackWheel]
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	
 	if not input_enabled:
 		stop_car()
-		return
-	if Input.is_action_pressed("move_right"):
-		#start_tires()
-		for wheel in _wheels:
-			if wheel.angular_velocity < _max_speed:
-				wheel.apply_torque_impulse(_speed * delta * 60)
-	
-	if Input.is_action_pressed("move_left"):
-		#start_tires()
-		for wheel in _wheels:
-			if wheel.angular_velocity >  -_max_speed:
-				wheel.apply_torque_impulse(-_speed * delta * 60)
-				
-	if Input.is_action_just_pressed("shoot"):
-		_shoot()
+	else:
+		if Input.is_action_pressed("move_right"):
+			#start_tires()
+			for wheel in _wheels:
+				if wheel.angular_velocity < _max_speed:
+					wheel.apply_torque_impulse(_speed * delta * 60)
 		
-	if boost_speed:
-		for wheel in _wheels:
-			wheel.apply_torque_impulse((_speed) * delta * 60)
-		boost_speed_time -= delta
-		if boost_speed_time <= 0:
-			boost_speed = false
-			boost_speed_time = _BOOST_SPEED_TIME 
+		if Input.is_action_pressed("move_left"):
+			#start_tires()
+			for wheel in _wheels:
+				if wheel.angular_velocity >  -_max_speed:
+					wheel.apply_torque_impulse(-_speed * delta * 60)
+					
+		if Input.is_action_just_pressed("shoot"):
+			_shoot()
+			
+		if boost_speed:
+			for wheel in _wheels:
+				wheel.apply_torque_impulse((_speed) * delta * 60)
+			boost_speed_time -= delta
+			if boost_speed_time <= 0:
+				boost_speed = false
+				boost_speed_time = _BOOST_SPEED_TIME 
 			
 	health_bar.value = health
 	
 	if GlobalVars.car_lives <= 0:
 		get_tree().change_scene_to_file("res://scenes/car/game_over.tscn")
 	elif health <= 0:
+		GlobalVars.car_level_stat = 'Game Over'
 		add_child(_respawn_timer)
 		
 	super(delta)
@@ -87,6 +90,9 @@ func _shoot() -> void:
 	
 func respawn() -> void:
 	GlobalVars.car_lives -= 1
+	#print(input_enabled)
+	#print("RESPAWN: ", GlobalVars.car_lives)
+	#print(GlobalVars.car_level_stat)
 	health = 100
 	if _caught_by_police:
 		get_tree().change_scene_to_file("res://scenes/car/player_arrest.tscn")
