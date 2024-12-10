@@ -102,20 +102,30 @@ _Saw Blade/Spike Ball_
 
 - The saw blade and spike ball are similarly present in both levels. I added a script that would constantly rotate the saw blade at a certain pace so that it would replicate a real saw blade motion. Here I only needed to use a collision shape, namely a circle since the rotation would anyway prevent there ever from being a slip through a small point in the blade. For the spike ball, I had a similar script but with a much slower rotation, necessating a very accurate collision polygon.
 
+![ScreenRecording2024-12-10at11 42 19AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/b2680a81-9f5b-4f09-b555-dc6c3d01b9cb)
 
 
 _SpikeBlock_
 
 - I made this obstacle specifically for level 2 as a moving block with 2 spikes attached on the left and right. It was animated to move left and right on a given surface. It was also used in another obstacle which would generate the blocks up or down.
 
+![ScreenRecording2024-12-10at11 26 23AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/dfb4948e-6f4f-4bdf-94bb-e50fafd2373c)
+
+
 _Descent Zone (2 new enemies)_
 
 - For the descent zone in level 2, I added 2 special enemies, specifically a Thwomp and a pea shooter. The Thwomp was inspired by the Mario world and worked in a similar fashion where it was animated to come down, wait a little bit, and slownly come up, before waiting and repeating.
 - The pea shooter was located in a space in the wall and made to shoot a green ball at a regular interval. I used an animation to achieve this where the ball would shoot to the other side, wait, and then repeat the animation. This made it so that players would need to crouch to avoid the pea.
 
+![ScreenRecording2024-12-10at11 27 07AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/a0227051-e4c5-4b9f-bdd6-b97d0b45a133)
+
+
 _Raising Spike Factory_
 
 - The raising spike factory used the Factory Pattern concept to create a class that constantly spawns spike blocks in an upward or downward direction. I also added an export variable to determine speed so I could create different spike blocks at different speeds.
+
+
+
 
 _Arrow Trap/Crusher_
 
