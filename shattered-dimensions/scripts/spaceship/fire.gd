@@ -1,7 +1,6 @@
 class_name Arrows
 extends Node2D
 
-@onready var firing: Node2D = $Firing
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var weaponsBase = get_node("Weapons").position
 @onready var arrowBases = [Vector2(23,-41),Vector2(36,-28),Vector2(51.5,-18),Vector2(53,20),Vector2(38,32),Vector2(22,44)]

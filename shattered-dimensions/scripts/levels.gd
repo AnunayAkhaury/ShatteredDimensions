@@ -26,4 +26,4 @@ func _process(delta: float) -> void:
 func completeLevel(lock, level):
 	unlock.play()
 	get_node(level).monitoring = false
-	lock.locked = true
+	lock.locked = false

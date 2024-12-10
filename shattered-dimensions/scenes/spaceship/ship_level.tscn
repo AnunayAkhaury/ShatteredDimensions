@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://c5cxli8knclox"]
+[gd_scene load_steps=117 format=3 uid="uid://c5cxli8knclox"]
 
 [ext_resource type="Texture2D" uid="uid://budnm0xkdtrqi" path="res://assets/Dynamic Space Background FREE/Nebula Blue.png" id="1_kq3ca"]
 [ext_resource type="Texture2D" uid="uid://cwmawlsmtjfrj" path="res://assets/Dynamic Space Background FREE/Stars-Big_1_1_PC.png" id="3_qs3bp"]
@@ -13,9 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://dja6736y6ouxo" path="res://assets/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engine Effects/PNGs/Main Ship - Engines - Supercharged Engine - Spritesheet.png" id="12_bnk6q"]
 [ext_resource type="PackedScene" uid="uid://bu5w5v80o8a17" path="res://scenes/spaceship/key.tscn" id="12_m1ym0"]
 [ext_resource type="Texture2D" uid="uid://vgt7alglvxgx" path="res://assets/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Shields/PNGs/Main Ship - Shields - Round Shield.png" id="13_08rg7"]
-[ext_resource type="Script" path="res://scripts/spaceship/asteroids_group.gd" id="14_g56xu"]
 [ext_resource type="Script" path="res://scripts/spaceship/camera.gd" id="14_ptu70"]
 [ext_resource type="PackedScene" uid="uid://rsdk8mltfkpq" path="res://scenes/spaceship/asteroid_1.tscn" id="15_1p6lo"]
+[ext_resource type="Texture2D" uid="uid://cv6m44l5ewpdn" path="res://assets/3DS - Regular Show Mordecai and Rigby in 8-Bit Land - UFO.png" id="15_qh4k3"]
 [ext_resource type="PackedScene" uid="uid://c6dxcam5a1ip3" path="res://scenes/spaceship/asteroid_2.tscn" id="16_yoa8q"]
 [ext_resource type="PackedScene" uid="uid://dbcgmomj13fhn" path="res://scenes/spaceship/enemy.tscn" id="19_1l8wj"]
 [ext_resource type="AudioStream" uid="uid://db2qwt340yvcs" path="res://assets/space-72679.mp3" id="20_3ep5y"]
@@ -626,9 +626,6 @@ bg_color = Color(0.526764, 0.748604, 0.855828, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w75od"]
 bg_color = Color(0.443966, 0.0349809, 0.144598, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vnide"]
-load_path = "res://.godot/imported/3DS - Regular Show Mordecai and Rigby in 8-Bit Land - UFO.png-7372a160366df2c03442f0c2e9123a14.ctex"
-
 [sub_resource type="Animation" id="Animation_sgxnp"]
 length = 0.001
 tracks/0/type = "value"
@@ -935,21 +932,21 @@ text = "YOU LOST!"
 [node name="UFO1" type="Sprite2D" parent="Camera2D/KillCount"]
 position = Vector2(431, -254)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("CompressedTexture2D_vnide")
+texture = ExtResource("15_qh4k3")
 region_enabled = true
 region_rect = Rect2(6.5, 41.75, 43.5, 32)
 
 [node name="UFO2" type="Sprite2D" parent="Camera2D/KillCount"]
 position = Vector2(480, -254)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("CompressedTexture2D_vnide")
+texture = ExtResource("15_qh4k3")
 region_enabled = true
 region_rect = Rect2(6.5, 41.75, 43.5, 32)
 
 [node name="UFO3" type="Sprite2D" parent="Camera2D/KillCount"]
 position = Vector2(526, -254)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("CompressedTexture2D_vnide")
+texture = ExtResource("15_qh4k3")
 region_enabled = true
 region_rect = Rect2(6.5, 41.75, 43.5, 32)
 
@@ -959,7 +956,6 @@ libraries = {
 }
 
 [node name="Asteroids" type="Node2D" parent="."]
-script = ExtResource("14_g56xu")
 
 [node name="Asteroid1" parent="Asteroids" instance=ExtResource("15_1p6lo")]
 position = Vector2(1226, 585)

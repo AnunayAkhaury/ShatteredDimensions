@@ -16,8 +16,8 @@ func _process(delta: float) -> void:
 	
 	# remove enemy from tree if dead
 	if healthLevel <= 0:
-		queue_free()
 		get_parent().get_parent().get_node("Camera2D").get_node("KillCount").get_children()[-1].queue_free()
+		queue_free()
 		
 	# UFO constant movement functionality
 	if position.y<=originalPosition.y - 750:
