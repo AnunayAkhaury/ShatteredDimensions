@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=4 uid="uid://sbfvqih5564p"]
+[gd_scene load_steps=13 format=4 uid="uid://sbfvqih5564p"]
 
 [ext_resource type="Script" path="res://scripts/prison.gd" id="1_bku46"]
 [ext_resource type="Texture2D" uid="uid://e8jtvtphnjkl" path="res://assets/tileset_prison.png" id="2_57gt2"]
-[ext_resource type="PackedScene" path="res://scenes/lock.tscn" id="2_mrxtd"]
+[ext_resource type="PackedScene" uid="uid://bd3xqdkulnu2v" path="res://scenes/lock.tscn" id="2_mrxtd"]
 [ext_resource type="AudioStream" uid="uid://bmhqhk3hw1woo" path="res://assets/item-pick-up-38258.mp3" id="3_kpdr1"]
 [ext_resource type="Script" path="res://scripts/platform.gd" id="6_x4h4h"]
 [ext_resource type="Script" path="res://scripts/levels.gd" id="7_is0dy"]
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="7_vustl"]
+[ext_resource type="AudioStream" uid="uid://5gfg4wjbulel" path="res://assets/Anunay's Sounds/prison.wav" id="8_fl7qy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lihpo"]
 texture = ExtResource("2_57gt2")
@@ -352,7 +353,7 @@ shape = SubResource("RectangleShape2D_iubs7")
 [node name="Shooter" type="Area2D" parent="Levels"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Levels/Shooter"]
-position = Vector2(324, 557)
+position = Vector2(480, 145)
 shape = SubResource("RectangleShape2D_iubs7")
 
 [node name="Car" type="Area2D" parent="Levels"]
@@ -370,6 +371,10 @@ shape = SubResource("RectangleShape2D_iubs7")
 [node name="Unlock" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_kpdr1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_fl7qy")
+max_distance = 1e+12
 
 [connection signal="body_entered" from="Levels/Platformer" to="Character" method="_on_platformer_body_entered"]
 [connection signal="body_entered" from="Levels/Shooter" to="Character" method="_on_shooter_body_entered"]
