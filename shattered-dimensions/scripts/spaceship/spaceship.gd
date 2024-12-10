@@ -20,7 +20,6 @@ var healthLevel: int = 100
 var speed: int = 175
 var binded: bool = true
 var bounce: bool = false
-var curr_boost: bool = false
 var currweapon = null
 var keepstill = false
 var keycreated = false
@@ -51,7 +50,6 @@ func _process(delta: float) -> void:
 		
 	# apply boost to spaceship movement
 	if binded and Input.is_action_just_pressed("boost"):
-		curr_boost = true
 		animation_player.play("boost")
 	
 	# bounce spaceship back upon collision
@@ -67,18 +65,17 @@ func _process(delta: float) -> void:
 	# horizontal movement of spaceship
 	var horizontal_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	if binded and horizontal_input > 0.1:
-		if curr_boost:
-			position.x += horizontal_input * speed * delta * 2.5
-		else:
-			position.x += horizontal_input * speed * delta * 1.5
+		position.x += horizontal_input * speed * delta * 1.5
+	
+	# handle boost
+	var boost = Input.get_action_strength("boost")
+	if binded and boost > 0.1:
+		position.x += boost * speed * delta * 2.5
 	
 	# vertical movement of spaceship and camera + rotation
 	var vertical_input = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	if binded and abs(vertical_input)>0.1:
-		if curr_boost:
-			position.y = clampf(position.y+(vertical_input * speed * delta * 2), -1000, 1000)
-		else:
-			position.y = clampf(position.y+(vertical_input * speed * delta), -1000, 1000)
+		position.y = clampf(position.y+(vertical_input * speed * delta), -1000, 1000)
 		if not keepstill:
 			camera.position.y = clampf(camera.position.y + (0.97 * vertical_input * speed * delta), -750, 750)
 	
