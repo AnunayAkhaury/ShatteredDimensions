@@ -78,7 +78,7 @@ the background.
 
 My main role was the platformer level, a level based on games like _I wanna be the guy_ and _Super Meatboy_. Because we split our roles into levels rather than overarching systems, we all got to do a little bit of everything, which is what I will go into detail about below. Overall, the game consists of 2 main levels with the second more difficult than the first. Below I will explain all the systems necessary to making the game.
 
-**Player Movement/Physics**
+### Player Movement/Physics
 
 Player movement was pretty simple and required only 4 main controls which were move_left, move_right, crouch, and jump. The main goal of the game is based on accurately timed jumps to get over/under obstacles and reach difficult, moving platforms. There are level boundaries set up along the edges of each level to ensure that if a player hits those, they lose a a life and respawn at the level default.
 
@@ -90,7 +90,7 @@ Player movement was pretty simple and required only 4 main controls which were m
 
 ![ScreenRecording2024-12-10at11 21 45AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/362881a2-710a-482a-beaf-637d20dcba1e)
 
-**Enemies/Obstacles**
+### Enemies/Obstacles
 
 There are many obstacles with various use-cases all around the levels. I made a universal KillZone class that already implemented the death response when a player enters the obstacle and so I was able to use that for every enemy. This ensured that there was no need for an additional script on each obstacle, rather they all called KillZone.
 
@@ -129,41 +129,45 @@ _Arrow Trap/Crusher_
 
 ![ScreenRecording2024-12-10at11 31 42AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/79199255-4467-4a82-91ea-f0dc3ce80cb3)
 
-**Special Items/Platforms**
+### Special Items/Platforms
 
 I also added special mechanics and platforms to make the game more challenging/interesting.
 
 _Moving Platform_
-- The moving platform is simple and just moves up and down based on a preset animation.
+- The moving platform is simple and just moves up and down or side to side based on a preset animation.
 - I made a couple different varieties of the platform with different looks based on level.
 
+![ScreenRecording2024-12-10at12 05 32PM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/f70ca0a9-938e-4d2d-bd27-ab2fc9db823e)
 
 
 _Blue orb (Double Jump)_
 - The blue orb allows players to press the jump input again for a double jump.
 - I used a sprite with an area_body_2d and collision shape to achieve this
 
+![ScreenRecording2024-12-10at12 06 32PM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/bf84e1d5-e80c-498f-ba61-d5328c46cc99)
 
 
 _Orange/Green orb (ascend/descend)_
 - The orange orb allows the player's current platform to start ascending until a given point. This was achieved through an animation.
 - The green orb allows players to have their platform descend, so very similar to ascend.
 
+![ScreenRecording2024-12-10at12 07 27PM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/e123d699-0dd6-4376-a0b1-e1e70efc0a23)
 
 
 _Trampoline_
 - The trampoline is an animated sprite that allows players to have a much higher jump when springing off this component.
 - I added a conditional in the player script to check whether or not the player was on the trampoline and if so, change the jump velocity to be much more negative to achieve a much higher jump.
 
+![ScreenRecording2024-12-10at11 29 22AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/92477476-e419-4c35-813f-dc5649fe7cda)
 
 
-**Animations**
+### Animations
 
-**Audio**
+### Audio
 
-**Assets**
+### Assets
 
-**Related Class Content**
+### Related Class Content
 
 *Command Pattern* - The platformer relies on the player node which is completely built around the idea of the command pattern that we learned in class and got to implement in exercise 1. The player uses move, jump, crouch, idle, shoot, and more commands that are called in the _process logic and are essential for completing the level.
 
