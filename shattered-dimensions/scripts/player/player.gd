@@ -36,6 +36,7 @@ var spaceshipCompleted = GlobalVars.spaceshipCompleted
 @onready var hurtbox : Area2D = $Hurtbox
 @onready var shoot_cooldown_timer : Timer = $ShootCoolDownTimer
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var invunerable_timer: Timer = $InvunerableTimer
 
 
 @export var knockback_force: float = 300 
@@ -51,6 +52,7 @@ var crouching: bool = false
 var original_hit_box_shape : int
 var original_hit_box_y : int
 var can_shoot: bool = true
+var is_invulnerable: bool = false 
 
 var current_state = STATE.IDLE
 enum STATE {
@@ -79,7 +81,8 @@ func _ready():
 	original_hit_box_y = hitbox.position.y
 	shoot_cooldown_timer.wait_time = shoot_cooldown	
 	jump_velocity = jump_velocity_input
-
+	HealthManager.on_health_increased.connect(_on_health_increased)
+	
 func _physics_process(delta: float):
 	if Global.run_gun:
 		jump_velocity_input = -445
@@ -166,6 +169,8 @@ func platformer_respawn():
 		position.y = 590
 
 func bind_player_input_commands():
+	velocity.x = 0
+	velocity.y = 0
 	right_cmd = MoveRightCommand.new()
 	left_cmd = MoveLeftCommand.new()
 	up_cmd = JumpCommand.new()
@@ -210,12 +215,13 @@ func update_muzzle_position():
 		muzzle.position.x = -abs(muzzle_position.x)  
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemy") and not knockback_active:
+	if body.is_in_group("enemy") and not knockback_active and not is_invulnerable:
+		start_invulnerability()
 		var knockback_direction: Vector2 = (position - body.position).normalized()
 		velocity = knockback_direction * knockback_force
 		knockback_active = true
 		knockback_timer.start(0.33)
-		HitAnimationPlayer.play("hit_flash")
+		#HitAnimationPlayer.play("hit_flash")
 		damge_audio.play()
 		HealthManager.decrease_health(body.damage_amount)
 	if HealthManager.current_health <= 0:
@@ -226,8 +232,10 @@ func player_death() -> void:
 	player_death_instance.global_position = global_position
 	get_parent().add_child(player_death_instance)
 	queue_free()
-			
-	
+
+func _on_health_increased():
+	item_pick_up_audio.play()
+
 	
 func _on_knockback_timer_timeout() -> void:
 	knockback_active = false
@@ -235,22 +243,24 @@ func _on_knockback_timer_timeout() -> void:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group("ComboHitBox"):
+	if area.is_in_group("ComboHitBox") and not is_invulnerable:
+		start_invulnerability()
 		var knockback_direction: Vector2 = (position - area.global_position).normalized()
 		velocity = knockback_direction * knockback_force
 		knockback_active = true
 		knockback_timer.start(0.15)
-		HitAnimationPlayer.play("hit_flash")
+		#HitAnimationPlayer.play("hit_flash")
 		damge_audio.play()
 		HealthManager.decrease_health(area.damage_amount)
 			
-	if area.get_parent().has_method("get_enemyproj_amount") and not knockback_active:
+	if area.get_parent().has_method("get_enemyproj_amount") and not knockback_active and not is_invulnerable:
+		start_invulnerability()
 		var node = area.get_parent() as Node
 		var knockback_direction: Vector2 = (global_position - area.global_position).normalized()
 		velocity = knockback_direction * knockback_force
 		knockback_active = true
 		knockback_timer.start(0.15)
-		HitAnimationPlayer.play("hit_flash")
+		#HitAnimationPlayer.play("hit_flash")
 		damge_audio.play()
 		HealthManager.decrease_health(node.damage_amount)
 	if HealthManager.current_health <= 0:
@@ -302,3 +312,11 @@ func _on_car_body_entered(body: Node2D) -> void:
 func _on_spaceship_body_entered(body: Node2D) -> void:
 	if not spaceshipCompleted:
 		get_tree().change_scene_to_file("res://scenes/spaceship/ship_level.tscn")
+
+func start_invulnerability() -> void:
+	is_invulnerable = true
+	HitAnimationPlayer.play("hit_flashing")
+	invunerable_timer.start()
+	
+func _on_invunerable_timer_timeout() -> void:
+	is_invulnerable = false

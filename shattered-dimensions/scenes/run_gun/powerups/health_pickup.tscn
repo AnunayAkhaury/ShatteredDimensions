@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://tyap2cf7pl1d"]
+[gd_scene load_steps=6 format=3 uid="uid://tyap2cf7pl1d"]
 
 [ext_resource type="Script" path="res://scripts/run_gun/powerups/health_pickup.gd" id="1_rg0t8"]
 [ext_resource type="Texture2D" uid="uid://csccedf0evor1" path="res://assets/Legacy Collection/Legacy Collection/Assets/Packs/grotto_escape_pack/Base pack/Spritesheets/items.png" id="2_hfm8j"]
-[ext_resource type="AudioStream" uid="uid://drkwnnmgomhcf" path="res://assets/Anunay's Sounds/itempickup.wav" id="3_yiujt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j830h"]
 atlas = ExtResource("2_hfm8j")
@@ -22,7 +21,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3f6k"]
 radius = 5.5
 
-[node name="HealthPickup" type="Node2D"]
+[node name="HealthPickup" type="Node2D" groups=["pickup"]]
 script = ExtResource("1_rg0t8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -37,9 +36,5 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HealthPickupArea"]
 position = Vector2(0.5, 1)
 shape = SubResource("CircleShape2D_s3f6k")
-
-[node name="ItemPickUpAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_yiujt")
-volume_db = -10.0
 
 [connection signal="body_entered" from="HealthPickupArea" to="." method="_on_health_pickup_area_body_entered"]

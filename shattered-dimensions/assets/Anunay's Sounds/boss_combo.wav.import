@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bk3twnd6b4mbu"
+path="res://.godot/imported/boss_combo.wav-bc1b9dbb6a76e8f4caa40caf886e14c3.sample"
+
+[deps]
+
+source_file="res://assets/Anunay's Sounds/boss_combo.wav"
+dest_files=["res://.godot/imported/boss_combo.wav-bc1b9dbb6a76e8f4caa40caf886e14c3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
