@@ -14,7 +14,9 @@ Shattered Dimensions is a prison escape game focused on a space explorer who has
 
 **In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
 
-Shattered Dimensions is a 4 level game, and requires players to be skilled in various types of gaming styles. Once players begin the game, they will enter the Prison/Lobby where there are 4 entrances to each of the different levels. The controls and play style of each level is explained below:
+Shattered Dimensions is a 4 level game, and requires players to be skilled in various types of gaming styles. Once players begin the game, they will enter the Prison where there are 4 entrances to each of the different levels. The controls and play style of each level is explained below:
+
+<img src="https://github.com/user-attachments/assets/ecdf6eb4-ff5b-4a77-ba4a-7002e15b0a0a" width="700">
 
 ### Platformer ###
 
@@ -60,6 +62,8 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Spaceship Level
 
+**Class Content**
+
 *Autoscroll Camera Movement with Partital PushBox* - The camera movement of the game is a combination of different features of 
 the pushbox and controllers in Exercise 2. The camera is set to perform a constant horizontal autoscroll and the player 
 (spaceship) is pushed by the left edge of the pushbox. The player is restricted from moving to the right past the dimensions of 
@@ -75,9 +79,15 @@ based upon the projectile instantiation demonstrated in Exercise 3.
 
 *Spaceship Movement and Statistics* - The movement of the spaceship is directly dependent upon the pressing of the up, down, and right keys. Damage of the spaceship is handled by the healthLevel variable that is updated based on different collisions and the health is constantly displayed in the top right corner by the use of a health bar. The UFOs have their own health which is depleted by the arrows fired by the spaceship. The spaceship.gd script also keeps track of the number of UFOs defeated. My implementation of the spaceship demonstrates my learning from Exercise 1 with the character and boss.
 
-## Producer
+## Platformer Level
 
-**Describe the steps you took in your role as producer. Typical items include group scheduling mechanisms, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, dependency/task tracking, Gantt charts, etc.), and repository management methodology.**
+**Class Content**
+
+*Command Pattern* - The platformer relies on the player node which is completely built around the idea of the command pattern that we learned in class and got to implement in exercise 1. The player uses move, jump, crouch, idle, shoot, and more commands that are called in the _process logic and are essential for completing the level.
+
+*Pushbox Camera in Lvl 2* - The camera in level 2 implements the idea of the push box that we learned about and used in some parts of exercise 2. When the player moves right, the camera moves along with him, but when moving left it does not move until a certain boundary has been touched at which point it moves at the same speed as the player. This is built upon the ideas learned in class as well when going over the many camera processes and variations.
+
+*Path Planning* - The movement and planning process for the enemies in the platformer were based on what we learned in class about Game AI and understanding how, when, and where the enemy would go and what actions it would take. Though the platformer only had very simple enemies, it was still necessary for some of the special enemy types such as the pea shooter, thwomp, and circling rocks to have a planned path and correct execution. Using the class concepts was necessary to achieve that.
 
 ## User Interface and Input
 
@@ -102,7 +112,7 @@ based upon the projectile instantiation demonstrated in Exercise 3.
 
 # Sub-Roles
 
-## Audio
+## Player Mechanics/UI - ABHI
 
 **List your assets, including their sources and licenses.**
 
