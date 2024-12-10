@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://di5itfhkhx0q3"]
+[gd_scene load_steps=78 format=3 uid="uid://di5itfhkhx0q3"]
 
 [ext_resource type="Texture2D" uid="uid://na23whsrfia6" path="res://assets/Anunay's Boss/Sentinel/Sentinel/Alarm.png" id="1_3830h"]
 [ext_resource type="Script" path="res://scripts/run_gun/enemy/sentinal.gd" id="1_wuf6u"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c4k1yh08tpeio" path="res://assets/Anunay's Boss/Sentinel/Sentinel/Idle.png" id="5_d6hks"]
 [ext_resource type="Texture2D" uid="uid://chdjgrkions5y" path="res://assets/Anunay's Boss/Sentinel/Sentinel/Walk.png" id="6_2kdvs"]
 [ext_resource type="Script" path="res://scripts/run_gun/enemy/mech_boss/combo_hit_box.gd" id="9_cdwb5"]
+[ext_resource type="AudioStream" uid="uid://df0dup0gfnd1v" path="res://assets/Anunay's Sounds/enemy_damage.wav" id="10_ic24m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j1iue"]
 shader = ExtResource("2_l61c8")
@@ -554,5 +555,9 @@ debug_color = Color(0.652605, 0.518523, 5.77569e-07, 0.42)
 libraries = {
 "": SubResource("AnimationLibrary_dg5hc")
 }
+
+[node name="EnemyDamageAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_ic24m")
+volume_db = -10.0
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

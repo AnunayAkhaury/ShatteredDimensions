@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqhvcljon0mrt"]
+[gd_scene load_steps=13 format=3 uid="uid://bqhvcljon0mrt"]
 
 [ext_resource type="Texture2D" uid="uid://dyxqws0ganu2x" path="res://assets/Legacy Collection/Legacy Collection/Assets/Misc/EnemyDeath/spritesheet.png" id="1_uunsd"]
 [ext_resource type="Script" path="res://scripts/run_gun/enemy/enemy_death_effect.gd" id="2_nn8ph"]
+[ext_resource type="AudioStream" uid="uid://dg3q7rl4bktky" path="res://assets/Anunay's Sounds/enemy_death.wav" id="3_rev7e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3575u"]
 atlas = ExtResource("1_uunsd")
@@ -83,5 +84,8 @@ script = ExtResource("2_nn8ph")
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="EnemyDeathEffectAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rev7e")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
