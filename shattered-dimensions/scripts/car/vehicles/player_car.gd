@@ -2,10 +2,11 @@
 class_name PlayerCar
 extends Vehicle
 
-var _RESPAWN_DELAY: float = 3
+var _RESPAWN_DELAY: float = 2
 var _BOOST_SPEED_TIME: float = 2
 var _respawn_timer: Timer
 var _bullet_damage: float
+var _caught_by_police: bool
 
 var boost_speed: bool
 var boost_speed_time: float
@@ -87,7 +88,11 @@ func _shoot() -> void:
 func respawn() -> void:
 	GlobalVars.car_lives -= 1
 	health = 100
-	get_tree().reload_current_scene()
+	if _caught_by_police:
+		get_tree().change_scene_to_file("res://scenes/car/player_arrest.tscn")
+		_caught_by_police = false
+	else:
+		get_tree().reload_current_scene()
 	
 func _delayed_action() -> void:
 	_speed = 600

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dpwuih5udon20" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-jump.png" id="4_k58lr"]
 [ext_resource type="Texture2D" uid="uid://cart612wkg4y5" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-run.png" id="5_7pis0"]
 [ext_resource type="Script" path="res://scripts/player/animated_sprite_2d.gd" id="6_t0i4d"]
-[ext_resource type="Texture2D" uid="uid://bmwt5pcdht5h8" path="res://assets/humvee/humvee-no-tires_trimmed.png" id="7_nmrlq"]
+[ext_resource type="Texture2D" uid="uid://bmwt5pcdht5h8" path="res://assets/CarLevel/humvee/humvee-no-tires_trimmed.png" id="7_nmrlq"]
 [ext_resource type="Script" path="res://scripts/car/detection_boxes/crash_box.gd" id="9_7t1ob"]
 [ext_resource type="Script" path="res://scripts/car/detection_boxes/player_detection_box.gd" id="9_lo5t1"]
 

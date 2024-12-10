@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://bw2tt2h0046yk"]
 
 [ext_resource type="Script" path="res://scripts/car/terrains/terrain.gd" id="1_4sw2d"]
-[ext_resource type="Texture2D" uid="uid://blc5owkcgehvh" path="res://assets/PhysicsCarGameAssets/Images/Terrain/grass.png" id="3_c6qde"]
-[ext_resource type="Texture2D" uid="uid://b0cdi7my1xt5f" path="res://assets/PhysicsCarGameAssets/Images/Terrain/terrain.jpg" id="3_tr0kw"]
+[ext_resource type="Texture2D" uid="uid://blc5owkcgehvh" path="res://assets/CarLevel/PhysicsCarGameAssets/Images/Terrain/Grass.png" id="3_c6qde"]
+[ext_resource type="Texture2D" uid="uid://b0cdi7my1xt5f" path="res://assets/CarLevel/PhysicsCarGameAssets/Images/Terrain/terrain.jpg" id="3_tr0kw"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jxbd4"]
 load_path = "res://.godot/imported/grass (1).png-a40269199f52e59d686ff56d6f903c6d.ctex"

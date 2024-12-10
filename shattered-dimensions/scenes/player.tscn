@@ -284,10 +284,8 @@ shoot_cooldown = 0.33
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_7j168")
 sprite_frames = SubResource("SpriteFrames_xoxd8")
-animation = &"shoot"
+animation = &"run_gun"
 autoplay = "idle"
-frame = 2
-frame_progress = 0.498263
 script = ExtResource("3_h0a6v")
 
 [node name="CollisionShape2D" parent="." index="1" groups=["player"]]

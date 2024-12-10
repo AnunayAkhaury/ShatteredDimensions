@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://brndnt11i221r"]
 
 [ext_resource type="Script" path="res://scripts/car/boost_ups/fuel.gd" id="1_nunsg"]
-[ext_resource type="Texture2D" uid="uid://dapuxd1ux6fah" path="res://assets/PhysicsCarGameAssets/Images/Pickups/Fuel.png" id="1_xsvkk"]
+[ext_resource type="Texture2D" uid="uid://dapuxd1ux6fah" path="res://assets/CarLevel/PhysicsCarGameAssets/Images/Pickups/Fuel.png" id="1_xsvkk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4h6u2"]
 size = Vector2(24, 28)

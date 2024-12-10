@@ -50,26 +50,31 @@ scale = Vector2(1.1, 1.1)
 script = ExtResource("2_qtqfv")
 
 [node name="LifeOne" type="Sprite2D" parent="Lives"]
+visible = false
 position = Vector2(359.955, -293.682)
 scale = Vector2(2, 2)
 texture = ExtResource("3_u27w2")
 
 [node name="LifeTwo" type="Sprite2D" parent="Lives"]
+visible = false
 position = Vector2(385, -293.636)
 scale = Vector2(2, 2)
 texture = ExtResource("3_u27w2")
 
 [node name="LifeThree" type="Sprite2D" parent="Lives"]
+visible = false
 position = Vector2(411, -293.636)
 scale = Vector2(2, 2)
 texture = ExtResource("3_u27w2")
 
 [node name="LifeFour" type="Sprite2D" parent="Lives"]
+visible = false
 position = Vector2(437, -293.636)
 scale = Vector2(2, 2)
 texture = ExtResource("3_u27w2")
 
 [node name="LifeFive" type="Sprite2D" parent="Lives"]
+visible = false
 position = Vector2(463, -293.636)
 scale = Vector2(2, 2)
 texture = ExtResource("3_u27w2")
