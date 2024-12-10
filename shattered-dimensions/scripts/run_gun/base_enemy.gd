@@ -94,6 +94,7 @@ func unbind_player_input_commands():
 	boss_follow_command = Command.new()
 	boss_shoot_command = Command.new()
 	boss_summon_command = Command.new()
+	jump = Command.new()
 	
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cgx2mvgqe54kb"
+path="res://.godot/imported/summon.ogg-44f1d84f500f2f16b840060106bf7433.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/Anunay's Sounds/summon.ogg"
+dest_files=["res://.godot/imported/summon.ogg-44f1d84f500f2f16b840060106bf7433.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

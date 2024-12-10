@@ -57,7 +57,6 @@ wait_time = 10.0
 
 [node name="ItemPickUpAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_wt1id")
-volume_db = -10.0
 
 [connection signal="body_entered" from="Item{PickUp" to="." method="_on_item_pick_up_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
