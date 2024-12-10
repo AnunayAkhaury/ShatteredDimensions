@@ -163,7 +163,14 @@ _Trampoline_
 
 ### Animations
 
+- Animations were used very commonly throughout the level. I used animations for a majority of the enemies in terms of their path and how they would either bounce or reset.
+- Used a fade to black animation whenever moving through levels as well as for the victory and game over screens.
+- Player was developed using an animated sprite.
+
+
 ### Audio
+
+
 
 ### Assets
 
