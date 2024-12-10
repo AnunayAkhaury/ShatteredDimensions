@@ -16,6 +16,12 @@ Shattered Dimensions is a prison escape game focused on a space explorer who has
 
 Shattered Dimensions is a 4 level game, and requires players to be skilled in various types of gaming styles. Once players begin the game, they will enter the Prison/Lobby where there are 4 entrances to each of the different levels. The controls and play style of each level is explained below:
 
+### Prison ###
+
+The main functionality of this lobby is to allow the player to access all 4 levels through the windows of the prison. 
+After passing each level, they are granted a key with which they can open the 4 locks. After opening all of the locks, 
+the player can then escape the prison.
+
 ### Platformer ###
 
 The objective of the platformer is to move through the level and reach the end without hitting any of the obstacles and within the given life count per level within the platformer. The player will initially be taken to a difficulty selector screen where they can choose how many lives they want per level. To move the player, use the default WASD and ARROW KEYS with an additional input on the space key that executes jump as well. The keys will perform, move_left, move_right, jump, and crouch. Level specific controls/strategies are explained below.
@@ -60,18 +66,9 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Spaceship Level
 
-*Autoscroll Camera Movement with Partital PushBox* - The camera movement of the game is a combination of different features of 
-the pushbox and controllers in Exercise 2. The camera is set to perform a constant horizontal autoscroll and the player 
-(spaceship) is pushed by the left edge of the pushbox. The player is restricted from moving to the right past the dimensions of 
-the screen to allow a view of the spaceship at all times. The player is free to move vertically until they reach the bounds of 
-the background. 
+*Autoscroll Camera Movement with Partital PushBox* - The camera movement of the game is a combination of different features of the pushbox and controllers in Exercise 2. The camera is set to perform a constant horizontal autoscroll and the player (spaceship) is pushed by the left edge of the pushbox. The player is restricted from moving to the right past the dimensions of the screen to allow a view of the spaceship at all times. The player is free to move vertically until they reach the bounds of the background. 
 
-*Arrow & Blast Instantiation Systems* - Upon the press of the space bar, the spaceship instantiates a new set of arrows that 
-are loaded onto the spaceship and fired at the incoming UFOs. Each arrow is released at a different time in line with the 
-animation of the fire and operates independently of the rest once all the arrows are released. The enemy UFOs have a similar 
-system with blasts, where they automatically instantiate blasts with a constant delay once the UFO is within the camera 
-viewport. These blasts are also equipped with animation and cause damage to the spaceship upon collision. These systems are 
-based upon the projectile instantiation demonstrated in Exercise 3. 
+*Arrow & Blast Instantiation Systems* - Upon the press of the space bar, the spaceship instantiates a new set of arrows that are loaded onto the spaceship and fired at the incoming UFOs. Each arrow is released at a different time in line with the animation of the fire and operates independently of the rest once all the arrows are released. The enemy UFOs have a similar system with blasts, where they automatically instantiate blasts with a constant delay once the UFO is within the camera viewport. These blasts are also equipped with animation and cause damage to the spaceship upon collision. These systems are based upon the projectile instantiation demonstrated in Exercise 3. 
 
 *Spaceship Movement and Statistics* - The movement of the spaceship is directly dependent upon the pressing of the up, down, and right keys. Damage of the spaceship is handled by the healthLevel variable that is updated based on different collisions and the health is constantly displayed in the top right corner by the use of a health bar. The UFOs have their own health which is depleted by the arrows fired by the spaceship. The spaceship.gd script also keeps track of the number of UFOs defeated. My implementation of the spaceship demonstrates my learning from Exercise 1 with the character and boss.
 
@@ -94,6 +91,11 @@ based upon the projectile instantiation demonstrated in Exercise 3.
 
 **List your assets, including their sources and licenses.**
 
+### Prison
+
+### Spaceship Level
+
+
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
 ## Game Logic
@@ -101,6 +103,9 @@ based upon the projectile instantiation demonstrated in Exercise 3.
 **Document the game states and game data you managed and the design patterns you used to complete your task.**
 
 # Sub-Roles
+
+## Prison Lobby
+
 
 ## Audio
 

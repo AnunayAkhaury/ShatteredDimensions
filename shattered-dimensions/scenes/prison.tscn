@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://sbfvqih5564p"]
+[gd_scene load_steps=13 format=4 uid="uid://sbfvqih5564p"]
 
 [ext_resource type="Script" path="res://scripts/prison.gd" id="1_bku46"]
 [ext_resource type="Texture2D" uid="uid://e8jtvtphnjkl" path="res://assets/tileset_prison.png" id="2_57gt2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/platform.gd" id="6_x4h4h"]
 [ext_resource type="Script" path="res://scripts/levels.gd" id="7_is0dy"]
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="7_vustl"]
+[ext_resource type="AudioStream" uid="uid://c06fiww6iu75g" path="res://assets/a_dungeon_ambience_loop-79423.mp3" id="8_76xlw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lihpo"]
 texture = ExtResource("2_57gt2")
@@ -370,6 +371,11 @@ shape = SubResource("RectangleShape2D_iubs7")
 [node name="Unlock" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_kpdr1")
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_76xlw")
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="Levels/Platformer" to="Character" method="_on_platformer_body_entered"]
 [connection signal="body_entered" from="Levels/Shooter" to="Character" method="_on_shooter_body_entered"]

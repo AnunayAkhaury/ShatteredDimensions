@@ -1,6 +1,6 @@
 [gd_scene load_steps=108 format=3 uid="uid://rsdk8mltfkpq"]
 
-[ext_resource type="Script" path="res://scripts/spaceship/asteroid_1.gd" id="1_ntjs4"]
+[ext_resource type="Script" path="res://scripts/spaceship/asteroid.gd" id="1_ibq2x"]
 [ext_resource type="Texture2D" uid="uid://re60q3llelr8" path="res://assets/asteroid.png" id="1_tpgmh"]
 [ext_resource type="Texture2D" uid="uid://pra6jkw2kmbf" path="res://assets/Explosion_002_Tile_8x8_256x256.png" id="2_evkkk"]
 [ext_resource type="AudioStream" uid="uid://c78rmejm01xgu" path="res://assets/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3" id="4_mqeci"]
@@ -816,7 +816,7 @@ physics_material_override = SubResource("PhysicsMaterial_oi32p")
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1
-script = ExtResource("1_ntjs4")
+script = ExtResource("1_ibq2x")
 
 [node name="Asteroid" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ntici")

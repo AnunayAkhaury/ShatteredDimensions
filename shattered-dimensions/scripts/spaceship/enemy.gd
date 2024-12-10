@@ -35,8 +35,13 @@ func _process(delta: float) -> void:
 	if camera.position.x + 500 >= position.x and abs(camera.position.y-position.y)<=250 and delay==75:
 		var blast = blastScene.instantiate() as LaserBlast
 		get_parent().add_child(blast)
+		$Sound.play()
 		blast.position = position
 		startDelay = true
+		
+	# remove UFO if spaceship has already passed it
+	if camera.position.x - 650 >= position.x:
+		queue_free()
 		
 	# handle delay between each blast
 	if startDelay:
