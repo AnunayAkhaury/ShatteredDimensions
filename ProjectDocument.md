@@ -124,13 +124,18 @@ _Raising Spike Factory_
 
 - The raising spike factory used the Factory Pattern concept to create a class that constantly spawns spike blocks in an upward or downward direction. I also added an export variable to determine speed so I could create different spike blocks at different speeds.
 
-
+![ScreenRecording2024-12-10at11 27 54AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/c695c2cf-a256-4f17-a53b-a1d0dd48d1b3)
 
 
 _Arrow Trap/Crusher_
 
-- The arrow trap is a hanging trap that shoots a group of "arrows" down to the ground at a set interval. This works similar to many of the other animated enemies as it shoots down, waits, and repeats the process. All arrows are equipped with spikes on the end to make it easier to develop. 
+- The arrow trap is a hanging trap that shoots a group of "arrows" down to the ground at a set interval. This works similar to many of the other animated enemies as it shoots down, waits, and repeats the process. All arrows are equipped with spikes on the end to make it easier to develop.
+
+![ScreenRecording2024-12-10at11 31 10AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/a79d6b80-aba9-4e4f-a931-e9513ee7b164)
+
 - The crusher is similar to the arrow trap except it slowly comes down and goes back up. I created it after being inspired again by many platforming games where the player would need to find a divot in the ground to not get crushed. I added blue jump orbs in each divot so the player could get up and reach the next one in time without being crushed.
+
+![ScreenRecording2024-12-10at11 31 42AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/79199255-4467-4a82-91ea-f0dc3ce80cb3)
 
 **Special Items/Platforms**
 
