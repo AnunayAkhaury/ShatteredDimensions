@@ -63,6 +63,22 @@ Here is an example:
 *Procedural Terrain* - The game's background consists of procedurally generated terrain produced with Perlin noise. The game can modify this terrain at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based on the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://github.com/dr-jam/CameraControlExercise/blob/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
 
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
+## Team Assets
+
+All assets were procured from itch.io's asset store/collection and will be linked below:
+
+[Pixel Adventure](https://pixelfrog-assets.itch.io/pixel-adventure-1) by Pixel Frog licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+
+[Pixel Fantasy "Caves"](https://szadiart.itch.io/pixel-fantasy-caves) by Szadi art. licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+
+[Fantasy Swamp Forest Tileset](https://theflavare.itch.io/forest-nature-fantasy-tileset) by The Flavare licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+
+[Super Grotto Escape](https://ansimuz.itch.io/super-grotto-escape-pack) by ansimuz licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+
+[Castle Platformer Tileset](https://rottingpixels.itch.io/castle-platformer-tileset-16x16free) by Rotting Pixels licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+
+[RPG Essentials SFX Pack](https://leohpaz.itch.io/rpg-essentials-sfx-free) by Leohpaz licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+
 
 ## Platformer Level
 
@@ -160,9 +176,12 @@ _Trampoline_
 
 ### Audio
 
+I used AudioStreamPlayers in all the relevant levels for playing audio
 
+- Overall, I used an  8-bit theme with different songs for each level and screen.
+- For the victory screen I used a very upbeat song to have a victorious effect.
+- Importing the audios with looping enabled was necessary to get the audio to loop properly.
 
-### Assets
 
 ### Related Class Content
 
@@ -271,6 +290,8 @@ The [credits scene uses a script](https://github.com/AnunayAkhaury/ShatteredDime
 ![ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/ea7a6699-322f-4e91-9eaa-4423940ab023)
 
 The player development was based on the needs for 2 out of the 4 mini-games, namely the platformer and run n gun games. The platformer mechanics were pretty simple as they only required operations like moving, jumping, and crouching. The run n gun mechanics were more complex as it involved shooting as well. The player uses an animated sprite and has all the animations for the different actions. In terms of the actual logic and scripts there were a couple different parts that needed to be created. The main logic focuses on using a process very similar to the player in exercise 1 so basically using a character node and having the player stem off of that. I also implemented the [command pattern](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/cfaf076168504e1c8e5793a9c240a6b728543a44/shattered-dimensions/scripts/commands/command.gd#L1) and implemented the commands such as moving, jumping, crouching, etc. For crouching I needed to [change the hitbox of the player](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/cfaf076168504e1c8e5793a9c240a6b728543a44/shattered-dimensions/scripts/player/player.gd#L272) to be lower, and that was implemented in the script.
+
+- I also found audios for each of the player actions like movement, jumping, crouching, and dying. This was using an audio asset pack.
 
 ![ScreenRecording2024-12-09at6 16 49PM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/f4c745c4-17ff-476d-b423-a42ad58daf3b)
 
