@@ -190,8 +190,6 @@ func update_amination():
 		sprite_2d.play('idle')
 	elif current_state == STATE.RUN and sprite_2d.animation != 'run_gun':
 		sprite_2d.play('run')
-	elif current_state == STATE.JUMP:
-		sprite_2d.play('jump')
 	elif current_state == STATE.RUN_SHOOT:
 		sprite_2d.play('run_gun')
 	elif current_state ==  STATE.SHOOT:
