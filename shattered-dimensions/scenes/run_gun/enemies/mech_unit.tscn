@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://dcx778gjmh3ll"]
+[gd_scene load_steps=23 format=3 uid="uid://dcx778gjmh3ll"]
 
 [ext_resource type="Script" path="res://scripts/run_gun/enemy/mech_unit.gd" id="1_uoml5"]
 [ext_resource type="Texture2D" uid="uid://diqhlxudla0wj" path="res://assets/Legacy Collection/Legacy Collection/Assets/Characters/mech-unit/spritesheet/mech-unit.png" id="1_yycra"]
 [ext_resource type="Shader" uid="uid://cjlwlvtndb20s" path="res://scenes/run_gun/player/hit_flash.tres" id="2_edtmr"]
+[ext_resource type="AudioStream" uid="uid://df0dup0gfnd1v" path="res://assets/Anunay's Sounds/enemy_damage.wav" id="4_6ente"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_et8ie"]
 
@@ -166,6 +167,10 @@ libraries = {
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.267
 one_shot = true
+
+[node name="EnemyDamageAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6ente")
+volume_db = -10.0
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

@@ -1,0 +1,446 @@
+[gd_scene load_steps=102 format=3 uid="uid://0n8jr3oavnss"]
+
+[ext_resource type="Texture2D" uid="uid://blhgghbmad2fq" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/hurt/1_police_Hurt_000.png" id="1_0jk5b"]
+[ext_resource type="Texture2D" uid="uid://stcuds2t4d55" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_000.png" id="1_830tg"]
+[ext_resource type="Script" path="res://scripts/car/enemy/police.gd" id="1_tuh3i"]
+[ext_resource type="Texture2D" uid="uid://uhp5aaarewp" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_001.png" id="2_d21gm"]
+[ext_resource type="Texture2D" uid="uid://xkvtb1xhrfdv" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/hurt/1_police_Hurt_001.png" id="2_na4g6"]
+[ext_resource type="Texture2D" uid="uid://dv8q637pu4pyf" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_002.png" id="3_e4a5w"]
+[ext_resource type="Texture2D" uid="uid://c87ixp4b6qfxh" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/hurt/1_police_Hurt_002.png" id="3_vp0qw"]
+[ext_resource type="Texture2D" uid="uid://cs5rrtvjftwp6" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/hurt/1_police_Hurt_003.png" id="4_lmi2p"]
+[ext_resource type="Texture2D" uid="uid://bvneuf33ej264" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_003.png" id="4_u32pw"]
+[ext_resource type="Texture2D" uid="uid://cd0u0rnas5wbw" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/hurt/1_police_Hurt_004.png" id="5_a70ug"]
+[ext_resource type="Texture2D" uid="uid://b55wv0mtthqt4" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_004.png" id="5_vw3sb"]
+[ext_resource type="Texture2D" uid="uid://c80rlepdk3w0x" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/hurt/1_police_Hurt_005.png" id="6_du5n5"]
+[ext_resource type="Texture2D" uid="uid://bxcfia8mjp62h" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_005.png" id="6_fhw0p"]
+[ext_resource type="Texture2D" uid="uid://dlgqvacpxomvu" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_006.png" id="7_4rp4w"]
+[ext_resource type="Texture2D" uid="uid://dfnlu322f12pu" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/hurt/1_police_Hurt_006.png" id="7_abj04"]
+[ext_resource type="Texture2D" uid="uid://bpcer7w155dvr" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/hurt/1_police_Hurt_007.png" id="8_14ihe"]
+[ext_resource type="Texture2D" uid="uid://43pm70e3m551" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_007.png" id="8_bpxbd"]
+[ext_resource type="Texture2D" uid="uid://7obtxc3oskbh" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/hurt/1_police_Hurt_008.png" id="9_2ovhx"]
+[ext_resource type="Texture2D" uid="uid://bjbvsjmvtpaue" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_008.png" id="9_yy7qt"]
+[ext_resource type="Texture2D" uid="uid://3upg3hluudop" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_009.png" id="10_k7ntu"]
+[ext_resource type="Texture2D" uid="uid://c3qaaun4e30qn" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/idle/1_police_Idle_000.png" id="10_l725t"]
+[ext_resource type="Texture2D" uid="uid://bbswo80d0laeg" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/idle/1_police_Idle_001.png" id="11_7c2e3"]
+[ext_resource type="Texture2D" uid="uid://doarj3sroxory" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/idle/1_police_Idle_002.png" id="12_2ieas"]
+[ext_resource type="Texture2D" uid="uid://bb12muuxsuoqg" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/idle/1_police_Idle_003.png" id="13_s43pr"]
+[ext_resource type="Texture2D" uid="uid://dm13m74ljhln3" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/idle/1_police_Idle_004.png" id="14_c7bdy"]
+[ext_resource type="Texture2D" uid="uid://d3vu87tma7cci" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/idle/1_police_Idle_005.png" id="15_bhtqm"]
+[ext_resource type="Texture2D" uid="uid://broefskq0ax6j" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/idle/1_police_Idle_006.png" id="16_u65eq"]
+[ext_resource type="Texture2D" uid="uid://cl2q36syg5xsd" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/idle/1_police_Idle_007.png" id="17_oivdu"]
+[ext_resource type="Texture2D" uid="uid://bvkvlaawkbrhs" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/jump/1_police_Jump_000.png" id="18_qlnc0"]
+[ext_resource type="Texture2D" uid="uid://cqih6hgqc1f13" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/jump/1_police_Jump_001.png" id="19_2a6q1"]
+[ext_resource type="Texture2D" uid="uid://dicftt5r0jf8f" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/jump/1_police_Jump_002.png" id="20_j6tdm"]
+[ext_resource type="Texture2D" uid="uid://covk24q8nbco4" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/jump/1_police_Jump_003.png" id="21_hn57w"]
+[ext_resource type="Texture2D" uid="uid://ds54t8qvakfsp" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/jump/1_police_Jump_004.png" id="22_bimky"]
+[ext_resource type="Texture2D" uid="uid://cdryqdfjdstsk" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/jump/1_police_Jump_005.png" id="23_fxhjq"]
+[ext_resource type="Texture2D" uid="uid://bcjf22kxcp48c" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/jump/1_police_Jump_006.png" id="24_sxj5g"]
+[ext_resource type="Texture2D" uid="uid://b01u8hn4ix20r" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/jump/1_police_Jump_007.png" id="25_yjnr3"]
+[ext_resource type="Texture2D" uid="uid://r1b58kp0c8dy" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/run/1_police_Run_000.png" id="26_5nvmq"]
+[ext_resource type="Texture2D" uid="uid://cyaldi47qcbq2" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/run/1_police_Run_001.png" id="27_a8aow"]
+[ext_resource type="Texture2D" uid="uid://bs5qecicce5yw" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/run/1_police_Run_002.png" id="28_f62rs"]
+[ext_resource type="Texture2D" uid="uid://cp2bd7daqfne3" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/run/1_police_Run_003.png" id="29_y8lho"]
+[ext_resource type="Texture2D" uid="uid://dycgdcl0ew0xr" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/run/1_police_Run_004.png" id="30_pguvp"]
+[ext_resource type="Texture2D" uid="uid://5sltwv017pa7" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/run/1_police_Run_005.png" id="31_710s6"]
+[ext_resource type="Texture2D" uid="uid://dxa6rotnws73" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/walk/1_police_Walk_000.png" id="32_6p1ag"]
+[ext_resource type="Texture2D" uid="uid://bbthxgk1eyfvq" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/walk/1_police_Walk_001.png" id="33_j2wpw"]
+[ext_resource type="Texture2D" uid="uid://dglwo5fa38gvx" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/walk/1_police_Walk_002.png" id="34_p3gs1"]
+[ext_resource type="Texture2D" uid="uid://yk8npl860nkx" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/walk/1_police_Walk_003.png" id="35_18kvw"]
+[ext_resource type="Texture2D" uid="uid://drgxide145sta" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/walk/1_police_Walk_004.png" id="36_bj2r8"]
+[ext_resource type="Texture2D" uid="uid://d32cecd0wxteg" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/walk/1_police_Walk_005.png" id="37_7dar5"]
+[ext_resource type="Texture2D" uid="uid://6cx23ns7xmfe" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/walk/1_police_Walk_006.png" id="38_c1f5c"]
+[ext_resource type="Texture2D" uid="uid://ky4d8enovcll" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/walk/1_police_Walk_007.png" id="39_lo8vb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyjob"]
+atlas = ExtResource("1_830tg")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohhyx"]
+atlas = ExtResource("2_d21gm")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7ihe"]
+atlas = ExtResource("3_e4a5w")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce5ce"]
+atlas = ExtResource("4_u32pw")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15cp5"]
+atlas = ExtResource("5_vw3sb")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6m8f2"]
+atlas = ExtResource("6_fhw0p")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e46rd"]
+atlas = ExtResource("7_4rp4w")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho2wu"]
+atlas = ExtResource("8_bpxbd")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28fkh"]
+atlas = ExtResource("9_yy7qt")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_act47"]
+atlas = ExtResource("10_k7ntu")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni37h"]
+atlas = ExtResource("1_0jk5b")
+region = Rect2(0, 0, 1193, 1335)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vus3p"]
+atlas = ExtResource("2_na4g6")
+region = Rect2(0, 0, 1193, 1335)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tssca"]
+atlas = ExtResource("3_vp0qw")
+region = Rect2(0, 0, 1193, 1335)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu3lm"]
+atlas = ExtResource("4_lmi2p")
+region = Rect2(0, 0, 1193, 1335)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lr31"]
+atlas = ExtResource("5_a70ug")
+region = Rect2(0, 0, 1193, 1335)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogvpn"]
+atlas = ExtResource("6_du5n5")
+region = Rect2(0, 0, 1193, 1335)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g2n5"]
+atlas = ExtResource("7_abj04")
+region = Rect2(0, 0, 1193, 1335)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0c75"]
+atlas = ExtResource("8_14ihe")
+region = Rect2(0, 0, 1193, 1335)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfhr3"]
+atlas = ExtResource("9_2ovhx")
+region = Rect2(0, 0, 1193, 1335)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0y01j"]
+atlas = ExtResource("10_l725t")
+region = Rect2(0, 0, 528, 1229)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfouy"]
+atlas = ExtResource("11_7c2e3")
+region = Rect2(0, 0, 528, 1229)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx3pw"]
+atlas = ExtResource("12_2ieas")
+region = Rect2(0, 0, 528, 1229)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umjie"]
+atlas = ExtResource("13_s43pr")
+region = Rect2(0, 0, 528, 1229)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_paet5"]
+atlas = ExtResource("14_c7bdy")
+region = Rect2(0, 0, 528, 1229)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcdg6"]
+atlas = ExtResource("15_bhtqm")
+region = Rect2(0, 0, 528, 1229)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r53pi"]
+atlas = ExtResource("16_u65eq")
+region = Rect2(0, 0, 528, 1229)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mu6m"]
+atlas = ExtResource("17_oivdu")
+region = Rect2(0, 0, 528, 1229)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbhjf"]
+atlas = ExtResource("18_qlnc0")
+region = Rect2(0, 0, 735, 1847)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7sa8"]
+atlas = ExtResource("19_2a6q1")
+region = Rect2(0, 0, 735, 1847)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51qpe"]
+atlas = ExtResource("20_j6tdm")
+region = Rect2(0, 0, 735, 1847)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt5mi"]
+atlas = ExtResource("21_hn57w")
+region = Rect2(0, 0, 735, 1847)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xwld"]
+atlas = ExtResource("22_bimky")
+region = Rect2(0, 0, 735, 1847)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spjwi"]
+atlas = ExtResource("23_fxhjq")
+region = Rect2(0, 0, 735, 1847)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2bhm"]
+atlas = ExtResource("24_sxj5g")
+region = Rect2(0, 0, 735, 1847)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el43l"]
+atlas = ExtResource("25_yjnr3")
+region = Rect2(0, 0, 735, 1847)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mct05"]
+atlas = ExtResource("26_5nvmq")
+region = Rect2(0, 0, 669, 1230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp6gw"]
+atlas = ExtResource("27_a8aow")
+region = Rect2(0, 0, 669, 1230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvq5a"]
+atlas = ExtResource("28_f62rs")
+region = Rect2(0, 0, 669, 1230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx8so"]
+atlas = ExtResource("29_y8lho")
+region = Rect2(0, 0, 669, 1230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7hfp"]
+atlas = ExtResource("30_pguvp")
+region = Rect2(0, 0, 669, 1230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1ane"]
+atlas = ExtResource("31_710s6")
+region = Rect2(0, 0, 669, 1230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx5ru"]
+atlas = ExtResource("32_6p1ag")
+region = Rect2(0, 0, 723, 1244)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2rgq"]
+atlas = ExtResource("33_j2wpw")
+region = Rect2(0, 0, 723, 1244)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1xmj"]
+atlas = ExtResource("34_p3gs1")
+region = Rect2(0, 0, 723, 1244)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amxf1"]
+atlas = ExtResource("35_18kvw")
+region = Rect2(0, 0, 723, 1244)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwefm"]
+atlas = ExtResource("36_bj2r8")
+region = Rect2(0, 0, 723, 1244)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf371"]
+atlas = ExtResource("37_7dar5")
+region = Rect2(0, 0, 723, 1244)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo70k"]
+atlas = ExtResource("38_c1f5c")
+region = Rect2(0, 0, 723, 1244)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xspwj"]
+atlas = ExtResource("39_lo8vb")
+region = Rect2(0, 0, 723, 1244)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aqsto"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyjob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohhyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ihe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ce5ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15cp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6m8f2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e46rd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho2wu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28fkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_act47")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni37h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vus3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tssca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu3lm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lr31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogvpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g2n5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0c75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfhr3")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0y01j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfouy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx3pw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umjie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_paet5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcdg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r53pi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mu6m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbhjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7sa8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51qpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt5mi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xwld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spjwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2bhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el43l")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mct05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp6gw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvq5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx8so")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7hfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1ane")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx5ru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2rgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1xmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amxf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwefm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xf371")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo70k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xspwj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuru7"]
+size = Vector2(4.79167, 19.0833)
+
+[node name="Police" type="CharacterBody2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_tuh3i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_aqsto")
+animation = &"walk"
+frame_progress = 0.566605
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15, 15)
+scale = Vector2(60, 60)
+shape = SubResource("RectangleShape2D_yuru7")

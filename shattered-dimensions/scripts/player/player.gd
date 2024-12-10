@@ -61,9 +61,15 @@ enum STATE {
 	RUN_SHOOT,
 	JUMP
 }
+# Sound Effects
+
+@onready var item_pick_up_audio: AudioStreamPlayer2D = $ItemPickUpAudio
+@onready var shooting_audio: AudioStreamPlayer2D = $ShootingAudio
 @onready var jump_audio: AudioStreamPlayer = $JumpAudio
 @onready var trampoline_audio: AudioStreamPlayer = $TrampolineAudio
 @onready var death_audio: AudioStreamPlayer = $DeathAudio
+@onready var damge_audio: AudioStreamPlayer2D = $DamgeAudio
+@onready var run_gun_death_audio: AudioStreamPlayer2D = $RunGunDeathAudio
 
 func _ready():
 	#animation_tree.active = true
@@ -119,6 +125,7 @@ func _physics_process(delta: float):
 		else:
 			current_state = STATE.SHOOT
 			shoot.execute(self)
+		shooting_audio.play()
 		shoot_cooldown_timer.start()
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or double_jump):
 		if on_trampoline:
@@ -158,8 +165,6 @@ func platformer_respawn():
 		position.x = 67
 		position.y = 590
 
-
-
 func bind_player_input_commands():
 	right_cmd = MoveRightCommand.new()
 	left_cmd = MoveLeftCommand.new()
@@ -192,8 +197,6 @@ func update_amination():
 		sprite_2d.play('idle')
 	elif current_state == STATE.RUN and sprite_2d.animation != 'run_gun':
 		sprite_2d.play('run')
-	elif current_state == STATE.JUMP:
-		sprite_2d.play('jump')
 	elif current_state == STATE.RUN_SHOOT:
 		sprite_2d.play('run_gun')
 	elif current_state ==  STATE.SHOOT:
@@ -213,6 +216,7 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 		knockback_active = true
 		knockback_timer.start(0.33)
 		HitAnimationPlayer.play("hit_flash")
+		damge_audio.play()
 		HealthManager.decrease_health(body.damage_amount)
 	if HealthManager.current_health <= 0:
 		player_death()
@@ -237,6 +241,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		knockback_active = true
 		knockback_timer.start(0.15)
 		HitAnimationPlayer.play("hit_flash")
+		damge_audio.play()
 		HealthManager.decrease_health(area.damage_amount)
 			
 	if area.get_parent().has_method("get_enemyproj_amount") and not knockback_active:
@@ -246,6 +251,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		knockback_active = true
 		knockback_timer.start(0.15)
 		HitAnimationPlayer.play("hit_flash")
+		damge_audio.play()
 		HealthManager.decrease_health(node.damage_amount)
 	if HealthManager.current_health <= 0:
 		player_death()
@@ -281,7 +287,7 @@ func set_bullet_type(new_bullet: PackedScene) -> void:
 
 func _on_platformer_body_entered(body: Node2D) -> void:
 	if not platformerCompleted:
-		get_tree().change_scene_to_file("res://scenes/platformer/difficulty_selector.tscn")
+		get_tree().change_scene_to_file("res://scenes/platformer/platformer_controls.tscn")
 
 
 func _on_shooter_body_entered(body: Node2D) -> void:
@@ -290,7 +296,7 @@ func _on_shooter_body_entered(body: Node2D) -> void:
 		
 func _on_car_body_entered(body: Node2D) -> void:
 	if not carCompleted:
-		get_tree().change_scene_to_file("res://scenes/car_level.tscn")
+		get_tree().change_scene_to_file("res://scenes/car/car_level.tscn")
 
 
 func _on_spaceship_body_entered(body: Node2D) -> void:

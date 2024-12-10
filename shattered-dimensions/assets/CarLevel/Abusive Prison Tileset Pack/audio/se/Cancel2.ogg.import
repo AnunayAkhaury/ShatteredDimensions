@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dgcjwuitl8ipp"
+path="res://.godot/imported/Cancel2.ogg-4a4db7f8ed22c09a9ba027ccdfb05e0a.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/CarLevel/Abusive Prison Tileset Pack/audio/se/Cancel2.ogg"
+dest_files=["res://.godot/imported/Cancel2.ogg-4a4db7f8ed22c09a9ba027ccdfb05e0a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

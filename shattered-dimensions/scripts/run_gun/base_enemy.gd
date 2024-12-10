@@ -28,6 +28,7 @@ var boss_summon_command : Command
 @export var player_node_path: NodePath
 @onready var animatedsprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitflashplayer : AnimationPlayer = $HitFlashPlayer
+@onready var enemy_damage_audio: AudioStreamPlayer2D = $EnemyDamageAudio
 
 var player : Node2D
 var bullet = preload("res://scenes/run_gun/enemies/enemy_projectile/enemy_bullet.tscn")
@@ -100,6 +101,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area == self.get_node("HitBox"):  
 		return
 	if area.get_parent().has_method("get_damage_amount"):
+		enemy_damage_audio.play()
 		hitflashplayer.play("hit_flash")
 		var node = area.get_parent() as Node
 		health -= node.damage_amount

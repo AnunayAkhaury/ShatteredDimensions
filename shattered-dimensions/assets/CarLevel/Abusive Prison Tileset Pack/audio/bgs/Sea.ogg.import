@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cqxa0fceqhu80"
+path="res://.godot/imported/Sea.ogg-5d3374cd272b7a49192ae8df8f2d0a7d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/CarLevel/Abusive Prison Tileset Pack/audio/bgs/Sea.ogg"
+dest_files=["res://.godot/imported/Sea.ogg-5d3374cd272b7a49192ae8df8f2d0a7d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

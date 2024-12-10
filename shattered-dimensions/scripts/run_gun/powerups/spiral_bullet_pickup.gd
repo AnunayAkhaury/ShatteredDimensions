@@ -2,6 +2,7 @@ extends Node2D
 
 @export var player_node_path: NodePath
 @onready var timer: Timer = $Timer
+@onready var item_pick_up_audio: AudioStreamPlayer2D = $ItemPickUpAudio
 
 var player: Node
 var prev_bullet: PackedScene  
@@ -13,6 +14,7 @@ func _ready() -> void:
 
 func _on_item_pick_up_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and player and is_visible():
+		item_pick_up_audio.play()
 		player.set_bullet_type(sprial_bullet) 
 		timer.start()
 		hide()  

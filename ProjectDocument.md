@@ -14,13 +14,9 @@ Shattered Dimensions is a prison escape game focused on a space explorer who has
 
 **In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
 
-Shattered Dimensions is a 4 level game, and requires players to be skilled in various types of gaming styles. Once players begin the game, they will enter the Prison/Lobby where there are 4 entrances to each of the different levels. The controls and play style of each level is explained below:
+Shattered Dimensions is a 4 level game, and requires players to be skilled in various types of gaming styles. Once players begin the game, they will enter the Prison where there are 4 entrances to each of the different levels. The controls and play style of each level is explained below:
 
-### Prison ###
-
-The main functionality of this lobby is to allow the player to access all 4 levels through the windows of the prison. 
-After passing each level, they are granted a key with which they can open the 4 locks. After opening all of the locks, 
-the player can then escape the prison.
+<img src="https://github.com/user-attachments/assets/ecdf6eb4-ff5b-4a77-ba4a-7002e15b0a0a" width="700">
 
 ### Platformer ###
 
@@ -66,15 +62,27 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Spaceship Level
 
-*Autoscroll Camera Movement with Partital PushBox* - The camera movement of the game is a combination of different features of the pushbox and controllers in Exercise 2. The camera is set to perform a constant horizontal autoscroll and the player (spaceship) is pushed by the left edge of the pushbox. The player is restricted from moving to the right past the dimensions of the screen to allow a view of the spaceship at all times. The player is free to move vertically until they reach the bounds of the background. 
+**Class Content**
+
+*Autoscroll Camera Movement with Partital PushBox* - The camera movement of the game is a combination of different features of 
+the pushbox and controllers in Exercise 2. The camera is set to perform a constant horizontal autoscroll and the player 
+(spaceship) is pushed by the left edge of the pushbox. The player is restricted from moving to the right past the dimensions of 
+the screen to allow a view of the spaceship at all times. The player is free to move vertically until they reach the bounds of 
+the background. 
 
 *Arrow & Blast Instantiation Systems* - Upon the press of the space bar, the spaceship instantiates a new set of arrows that are loaded onto the spaceship and fired at the incoming UFOs. Each arrow is released at a different time in line with the animation of the fire and operates independently of the rest once all the arrows are released. The enemy UFOs have a similar system with blasts, where they automatically instantiate blasts with a constant delay once the UFO is within the camera viewport. These blasts are also equipped with animation and cause damage to the spaceship upon collision. These systems are based upon the projectile instantiation demonstrated in Exercise 3. 
 
 *Spaceship Movement and Statistics* - The movement of the spaceship is directly dependent upon the pressing of the up, down, and right keys. Damage of the spaceship is handled by the healthLevel variable that is updated based on different collisions and the health is constantly displayed in the top right corner by the use of a health bar. The UFOs have their own health which is depleted by the arrows fired by the spaceship. The spaceship.gd script also keeps track of the number of UFOs defeated. My implementation of the spaceship demonstrates my learning from Exercise 1 with the character and boss.
 
-## Producer
+## Platformer Level
 
-**Describe the steps you took in your role as producer. Typical items include group scheduling mechanisms, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, dependency/task tracking, Gantt charts, etc.), and repository management methodology.**
+**Class Content**
+
+*Command Pattern* - The platformer relies on the player node which is completely built around the idea of the command pattern that we learned in class and got to implement in exercise 1. The player uses move, jump, crouch, idle, shoot, and more commands that are called in the _process logic and are essential for completing the level.
+
+*Pushbox Camera in Lvl 2* - The camera in level 2 implements the idea of the push box that we learned about and used in some parts of exercise 2. When the player moves right, the camera moves along with him, but when moving left it does not move until a certain boundary has been touched at which point it moves at the same speed as the player. This is built upon the ideas learned in class as well when going over the many camera processes and variations.
+
+*Path Planning* - The movement and planning process for the enemies in the platformer were based on what we learned in class about Game AI and understanding how, when, and where the enemy would go and what actions it would take. Though the platformer only had very simple enemies, it was still necessary for some of the special enemy types such as the pea shooter, thwomp, and circling rocks to have a planned path and correct execution. Using the class concepts was necessary to achieve that.
 
 ## User Interface and Input
 
@@ -104,16 +112,32 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 # Sub-Roles
 
-## Prison Lobby
+## Player Mechanics/UI - ABHI
+**UI**
+The main menu of the game is a simple menu with a moving, space-themed background. Because the theme of the game is focused on escaping a space prison, this background worked well. The options given were:
+- Start - begin the game (get transported to the Prison scene where the cutscene begins)
+- Instructions - get an idea of what the game is about and how to go about playing it
+- Credits - a rolling credits scene showing creator info and special thanks as well
+
+![ScreenRecording2024-12-09at5 53 55PM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/83e65f5e-dee3-41df-ba64-43fe8372bb50)
+
+The credits scene uses a script that continually shifts the y position of all the text up until the return button is reached.
+
+![ScreenRecording2024-12-09at5 54 17PMonline-video-cutter com-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/4f2c0008-77e9-4cd8-96dd-8b241a5b3618)
+
+**Player Mechanics**
+
+![ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/ea7a6699-322f-4e91-9eaa-4423940ab023)
+
+The player development was based on the needs for 2 out of the 4 mini-games, namely the platformer and run n gun games. The platformer mechanics were pretty simple as they only required operations like moving, jumping, and crouching. The run n gun mechanics were more complex as it involved shooting as well. The player uses an animated sprite and has all the animations for the different actions. In terms of the actual logic and scripts there were a couple different parts that needed to be created. The main logic focuses on using a process very similar to the player in exercise 1 so basically using a character node and having the player stem off of that. I also implemented the command pattern and implemented the commands such as moving, jumping, crouching, etc. For crouching I needed to change the hitbox of the player to be lower, and that was implemented in the script.
+
+![ScreenRecording2024-12-09at6 16 49PM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/f4c745c4-17ff-476d-b423-a42ad58daf3b)
+
+Because the player node was being used in both the Platformer level and also the Run n Gun level, I created divided sections to place variables and functions for both level types so that it would be well organized. For the platformer level, I created a respawn function that relocates the player position rather than reloading the entire script. For the Run n Gun the death process involved creating a death animation that would be instantiated on losing all lives.
+
+Additional work was also done by other team members who needed very specific functionality with the player node so there are additional functions and variables as well.
 
 
-## Audio
-
-**List your assets, including their sources and licenses.**
-
-**Describe the implementation of your audio system.**
-
-**Document the sound style.** 
 
 ## Gameplay Testing
 

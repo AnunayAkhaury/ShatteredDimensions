@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://pjrkl5sc0nvb" path="res://scenes/platformer/support/mover_platform.tscn" id="10_6vqf1"]
 [ext_resource type="Script" path="res://scripts/platformer/lives.gd" id="11_kuwey"]
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="12_nn4nu"]
-[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="12_wwneg"]
+[ext_resource type="PackedScene" uid="uid://bmoaon1yut05y" path="res://scenes/pause_menu.tscn" id="12_wwneg"]
 [ext_resource type="AudioStream" uid="uid://g4k6q10dnedx" path="res://assets/8 Bit Dungeon.mp3" id="13_1e1d8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_srkfe"]

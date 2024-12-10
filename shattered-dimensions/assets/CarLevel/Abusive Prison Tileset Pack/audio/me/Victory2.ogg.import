@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://qxkaj8lpt6kp"
+path="res://.godot/imported/Victory2.ogg-81a60c0459dd12056ed66394df4f2c5b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/CarLevel/Abusive Prison Tileset Pack/audio/me/Victory2.ogg"
+dest_files=["res://.godot/imported/Victory2.ogg-81a60c0459dd12056ed66394df4f2c5b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

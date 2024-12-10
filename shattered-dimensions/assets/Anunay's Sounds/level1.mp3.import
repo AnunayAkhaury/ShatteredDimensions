@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://srcv711sx6s7"
+path="res://.godot/imported/level1.mp3-e9f53d295d68de89abdb9d2b815cbb83.mp3str"
+
+[deps]
+
+source_file="res://assets/Anunay's Sounds/level1.mp3"
+dest_files=["res://.godot/imported/level1.mp3-e9f53d295d68de89abdb9d2b815cbb83.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
