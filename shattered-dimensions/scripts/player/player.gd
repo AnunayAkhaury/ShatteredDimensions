@@ -44,6 +44,7 @@ var bullet = preload("res://scenes/run_gun/bullet.tscn")
 
 var player_death_effect = preload("res://scenes/run_gun/player/player_death_effect.tscn")
 
+
 var muzzle_position
 var knockback_active: bool = false  
 var is_damagable: bool = true 
@@ -51,6 +52,12 @@ var crouching: bool = false
 var original_hit_box_shape : int
 var original_hit_box_y : int
 var can_shoot: bool = true
+
+#VARIABLE FOR CAR-LEVEL
+var character_type : Characters.Type
+var carlevel_health = 100
+@onready var carlevel_bullet = preload("res://scenes/car/bullet.tscn")
+var player_killed = false
 
 var current_state = STATE.IDLE
 enum STATE {
@@ -61,11 +68,16 @@ enum STATE {
 	RUN_SHOOT,
 	JUMP
 }
+
+
+
 @onready var jump_audio: AudioStreamPlayer = $JumpAudio
 @onready var trampoline_audio: AudioStreamPlayer = $TrampolineAudio
 @onready var death_audio: AudioStreamPlayer = $DeathAudio
 
 func _ready():
+	if GlobalVars.car_level_stat == "Car Level Entered":
+		unbind_player_input_commands()
 	#animation_tree.active = true
 	bind_player_input_commands()
 	muzzle_position = muzzle.position
@@ -75,6 +87,16 @@ func _ready():
 	jump_velocity = jump_velocity_input
 
 func _physics_process(delta: float):
+	if GlobalVars.car_level_stat == 'Car Level Entered':
+		return
+		
+	if GlobalVars.car_level_stat == 'battle':
+		bind_player_input_commands()
+		if player_killed:
+			%Car.respawn()
+			%CarPlayer.visible = false
+			GlobalVars.car_level_stat = "Battle Over"
+			return
 	if Global.run_gun:
 		jump_velocity_input = -445
 	else:
@@ -110,6 +132,22 @@ func _physics_process(delta: float):
 		current_state = STATE.IDLE
 		idle.execute(self)
 			
+	# FUNCTION CAR-LEVEL
+	if (Input.is_action_just_pressed("shoot") and GlobalVars.car_level_stat == "battle"):
+		if move_input != 0.0:
+			current_state = STATE.RUN_SHOOT
+			update_muzzle_position()
+		else:
+			current_state = STATE.SHOOT
+			shoot.execute(self)
+		var cur_bullet = carlevel_bullet.instantiate() as Bullet
+		cur_bullet.damage = 10
+		cur_bullet.bullet_origin = Characters.Type.PLAYER
+		cur_bullet.start_pos = global_position
+		cur_bullet.target_pos = get_global_mouse_position()
+		add_sibling(cur_bullet)
+	
+	
 	if Input.is_action_just_pressed("shoot") and can_shoot and Global.run_gun:
 		if shoot_cooldown != 0:
 			can_shoot = false
@@ -244,7 +282,7 @@ func _play(player:AudioStreamPlayer2D) -> void:
 	if !player.playing:
 		player.play()
 
-# FUNCTIONS FOR RUN_N_GUN
+# FUNCTIONS FOR RUN_N_GUN 
 
 func update_amination():
 	if current_state == STATE.IDLE and sprite_2d.animation != 'shoot':
@@ -290,6 +328,15 @@ func _on_knockback_timer_timeout() -> void:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
+	
+	if GlobalVars.car_level_stat == "battle":
+		var damage = 0
+		if area is Bullet and carlevel_health - damage >= 0:
+			carlevel_health -= damage
+		else:
+			carlevel_health = 0
+			player_killed = true
+			return
 	if area.is_in_group("ComboHitBox"):
 		var knockback_direction: Vector2 = (position - area.global_position).normalized()
 		velocity = knockback_direction * knockback_force

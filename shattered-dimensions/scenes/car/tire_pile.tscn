@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvxn17he7m1ev"]
+[gd_scene load_steps=6 format=3 uid="uid://cvxn17he7m1ev"]
 
+[ext_resource type="Script" path="res://scripts/car/tire_pile.gd" id="1_byiy3"]
 [ext_resource type="Texture2D" uid="uid://dywk5wnp8vpon" path="res://assets/CarLevel/tire_pile.png" id="1_rh8pt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wlwb"]
@@ -20,12 +21,20 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ou3y"]
 
 [node name="TirePile" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_byiy3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_6aqb1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 7
+visibility_layer = 7
+z_index = 1
 position = Vector2(-7, 4)
 scale = Vector2(6, 6)
 shape = SubResource("CapsuleShape2D_2ou3y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

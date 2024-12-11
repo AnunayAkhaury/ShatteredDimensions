@@ -16,7 +16,7 @@ func _on_area_entered(missile: Missile) -> void:
 		
 		get_child(0).visible = false
 		
-		%Car.input_enabled = true
+		%Car.movement_enabled = true
 	
 	missile.queue_free()
 

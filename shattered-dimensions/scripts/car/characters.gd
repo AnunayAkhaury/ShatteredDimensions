@@ -4,6 +4,8 @@ extends Node
 enum Type {
 	PLAYER_CAR,
 	ENEMY,
+	PLAYER,
+	POLICE
 }
 
 # Called when the node enters the scene tree for the first time.

@@ -1,5 +1,6 @@
-[gd_scene load_steps=51 format=4 uid="uid://b4hrc5xbxausp"]
+[gd_scene load_steps=52 format=4 uid="uid://b4hrc5xbxausp"]
 
+[ext_resource type="Script" path="res://scripts/car/car_level.gd" id="1_adyet"]
 [ext_resource type="PackedScene" uid="uid://c37auavbmu8ye" path="res://scenes/car/labels/lives.tscn" id="2_b3muw"]
 [ext_resource type="PackedScene" uid="uid://b5yh853uf0prf" path="res://scenes/car/bg.tscn" id="2_fhgbu"]
 [ext_resource type="Texture2D" uid="uid://dkl1lsuf2gjoe" path="res://assets/CarLevel/Abusive Prison Tileset Pack/img/tilesets/Prison_B.png" id="2_hd0bc"]
@@ -13325,6 +13326,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wekmw"]
+size = Vector2(20, 226)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exbef"]
 texture = ExtResource("6_1a2t4")
 19:1/0 = 0
@@ -13695,10 +13699,8 @@ sources/0 = SubResource("TileSetAtlasSource_exbef")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xkm6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wekmw"]
-size = Vector2(20, 226)
-
 [node name="CarLevel" type="Node2D"]
+script = ExtResource("1_adyet")
 
 [node name="Bg" parent="." instance=ExtResource("2_fhgbu")]
 
@@ -13712,22 +13714,46 @@ position = Vector2(66, 464)
 collision_layer = 3
 collision_mask = 3
 
-[node name="PlayerBattleLocation" type="Node2D" parent="."]
+[node name="PoliceOfficer" parent="." instance=ExtResource("6_l3s77")]
 unique_name_in_owner = true
-position = Vector2(2597, 559)
-scale = Vector2(0.95625, 0.979708)
+position = Vector2(3035, 556)
+scale = Vector2(0.08, 0.08)
 
-[node name="ExtraElements" type="Node2D" parent="."]
+[node name="CarPlayer" parent="." instance=ExtResource("7_mx8p4")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(2608, 554)
+scale = Vector2(2.5, 2.5)
+jump_velocity_input = -520
 
-[node name="TirePile" parent="ExtraElements" instance=ExtResource("7_navjn")]
-z_index = 1
-position = Vector2(3157, 553)
-rotation = -0.202704
-scale = Vector2(0.5, 0.5)
+[node name="PlayerBar" type="ProgressBar" parent="CarPlayer"]
+unique_name_in_owner = true
+offset_left = -16.8
+offset_top = -26.0
+offset_right = 67.2
+offset_bottom = 1.0
+scale = Vector2(0.414105, 0.344)
 
-[node name="Traps" parent="ExtraElements" instance=ExtResource("5_0vm44")]
+[node name="PoliceBattleElements" type="Node2D" parent="."]
 position = Vector2(2482, 606)
 scale = Vector2(0.35, 0.346)
+
+[node name="PlayerBattleLocation" type="Node2D" parent="PoliceBattleElements"]
+unique_name_in_owner = true
+position = Vector2(328.571, -135.838)
+scale = Vector2(2.73214, 2.83153)
+
+[node name="TirePile" parent="PoliceBattleElements" instance=ExtResource("7_navjn")]
+z_index = 1
+position = Vector2(1928.57, -153.179)
+rotation = -0.204983
+scale = Vector2(1.42924, 1.44442)
+skew = 0.00453341
+
+[node name="Traps" parent="PoliceBattleElements" instance=ExtResource("5_0vm44")]
+unique_name_in_owner = true
+
+[node name="ExtraElements" type="Node2D" parent="."]
 
 [node name="TimedTrap" parent="ExtraElements" instance=ExtResource("6_bs7vm")]
 position = Vector2(14728, 610)
@@ -13758,18 +13784,17 @@ position = Vector2(17321, 503)
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_ll25o")
 
+[node name="KeyCheckpoint" type="Area2D" parent="ExtraElements"]
+position = Vector2(16654, -718)
+script = ExtResource("26_mlarx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExtraElements/KeyCheckpoint"]
+position = Vector2(163, 1151)
+shape = SubResource("RectangleShape2D_wekmw")
+
 [node name="Car" parent="." groups=["car"] instance=ExtResource("4_4lvlx")]
 unique_name_in_owner = true
-position = Vector2(5510, 441)
-
-[node name="PoliceOfficer" parent="." instance=ExtResource("6_l3s77")]
-position = Vector2(3035, 556)
-scale = Vector2(0.08, 0.08)
-
-[node name="CarPlayer" parent="." instance=ExtResource("7_mx8p4")]
-visible = false
-position = Vector2(2608, 554)
-scale = Vector2(2.5, 2.5)
+position = Vector2(680, 491)
 
 [node name="CarCamera" parent="." instance=ExtResource("10_7ovoo")]
 unique_name_in_owner = true
@@ -13779,15 +13804,11 @@ unique_name_in_owner = true
 [node name="EnemyPlatform" type="TileMapLayer" parent="Enemies"]
 position = Vector2(-654, 607)
 scale = Vector2(1.34003, 1.44637)
-tile_map_data = PackedByteArray("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")
+tile_map_data = PackedByteArray("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")
 tile_set = SubResource("TileSet_upvmt")
 
 [node name="M" parent="Enemies" instance=ExtResource("8_mh5jj")]
 position = Vector2(4242, 134)
-
-[node name="B" parent="Enemies" instance=ExtResource("6_p3wkt")]
-visible = false
-position = Vector2(3439, 282)
 
 [node name="M2" parent="Enemies" instance=ExtResource("8_mh5jj")]
 position = Vector2(7547, 109)
@@ -13816,29 +13837,25 @@ position = Vector2(5209, 378)
 [node name="M5" parent="Enemies" instance=ExtResource("8_mh5jj")]
 position = Vector2(16265, 299)
 
-[node name="RightBoundary" type="StaticBody2D" parent="."]
-position = Vector2(6444, 3112)
-scale = Vector2(30, 30)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary"]
-position = Vector2(352.567, -66)
-shape = SubResource("RectangleShape2D_4xkm6")
-
-[node name="LeftBoundary" type="StaticBody2D" parent="."]
-position = Vector2(6444, 3112)
-scale = Vector2(30, 30)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary"]
-position = Vector2(-224.933, -92.2)
-shape = SubResource("RectangleShape2D_4xkm6")
-
 [node name="BoostUps" type="Node2D" parent="."]
 
 [node name="Health" parent="BoostUps" instance=ExtResource("14_ey41v")]
-position = Vector2(968, 511)
+position = Vector2(5186, 568)
 
 [node name="Fuel" parent="BoostUps" instance=ExtResource("13_0qi2e")]
-position = Vector2(1185, 521)
+position = Vector2(6720, 566)
+
+[node name="Health2" parent="BoostUps" instance=ExtResource("14_ey41v")]
+position = Vector2(7675, 577)
+
+[node name="Health4" parent="BoostUps" instance=ExtResource("14_ey41v")]
+position = Vector2(15331, 504)
+
+[node name="Health5" parent="BoostUps" instance=ExtResource("14_ey41v")]
+position = Vector2(10393, 540)
+
+[node name="Health3" parent="BoostUps" instance=ExtResource("14_ey41v")]
+position = Vector2(12391, 556)
 
 [node name="PrisonFront" type="Node2D" parent="."]
 
@@ -13891,12 +13908,20 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("23_8ecqp")
 script = ExtResource("24_1dmba")
 
-[node name="KeyCheckpoint" type="Area2D" parent="."]
-position = Vector2(16654, -718)
-script = ExtResource("26_mlarx")
+[node name="RightBoundary" type="StaticBody2D" parent="."]
+position = Vector2(6444, 3112)
+scale = Vector2(30, 30)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KeyCheckpoint"]
-position = Vector2(163, 1151)
-shape = SubResource("RectangleShape2D_wekmw")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary"]
+position = Vector2(352.567, -66)
+shape = SubResource("RectangleShape2D_4xkm6")
+
+[node name="LeftBoundary" type="StaticBody2D" parent="."]
+position = Vector2(6444, 3112)
+scale = Vector2(30, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary"]
+position = Vector2(-224.933, -92.2)
+shape = SubResource("RectangleShape2D_4xkm6")
 
 [connection signal="animation_finished" from="ExtraElements/KeyCage/Cage/Explosion" to="ExtraElements/KeyCage/Cage" method="_on_explosion_animation_finished"]

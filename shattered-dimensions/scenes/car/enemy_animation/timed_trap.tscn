@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://blrxo1wo5vrdr"]
 
-[ext_resource type="Script" path="res://scenes/car/enemy_animation/timed_trap.gd" id="1_q7008"]
+[ext_resource type="Script" path="res://scripts/car/timed_trap.gd" id="1_q7008"]
 [ext_resource type="Texture2D" uid="uid://bwweq5gj8141j" path="res://assets/CarLevel/floor spikes/floor spikes.svg" id="2_61uuc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wcg6i"]
@@ -227,7 +227,7 @@ _data = {
 size = Vector2(13.75, 49.125)
 
 [node name="Traps" type="Area2D"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.45, 0.45)
 script = ExtResource("1_q7008")
 
 [node name="Spike" type="AnimatedSprite2D" parent="."]
