@@ -13792,7 +13792,7 @@ shape = SubResource("RectangleShape2D_wekmw")
 
 [node name="Car" parent="." groups=["car"] instance=ExtResource("4_4lvlx")]
 unique_name_in_owner = true
-position = Vector2(567, 447)
+position = Vector2(16564, 432)
 
 [node name="CarCamera" parent="." instance=ExtResource("10_7ovoo")]
 unique_name_in_owner = true

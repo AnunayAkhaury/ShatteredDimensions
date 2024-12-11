@@ -10,7 +10,7 @@ var width: float
 
 func _init() -> void:
 	character_type = Characters.Type.ENEMY
-	_defeated_by_player = false # CHANGE THIS BACK TO FALSE
+	_defeated_by_player = true # CHANGE THIS BACK TO FALSE
 	_showed_defeated_label = false
 	width = get_viewport_rect().size.x / 2
 	#_speed = 600

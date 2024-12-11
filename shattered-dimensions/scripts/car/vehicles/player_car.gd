@@ -14,7 +14,7 @@ var boost_speed: bool
 var boost_speed_time: float
 var movement_enabled: bool = true
 var input_enabled: bool = true
-var is_missile_enabled: bool = false
+var is_missile_enabled: bool
 
 @onready var bullet = preload("res://scenes/car/bullet.tscn")
 @onready var missile = preload("res://scenes/car/missile.tscn")
@@ -25,11 +25,13 @@ func _init() -> void:
 	character_type = Characters.Type.PLAYER_CAR
 	boost_speed = false
 	boost_speed_time = _BOOST_SPEED_TIME
+	kills_until_missile = _MIN_KILL_FOR_MISSILE
+	is_missile_enabled = false
+
 
 	_speed = 600
 	_max_speed = 40
 	_bullet_damage = 0
-	kills_until_missile = _MIN_KILL_FOR_MISSILE
 	
 	_respawn_timer = Timer.new()
 	_respawn_timer.autostart = true
@@ -45,10 +47,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:	
-	if kills_until_missile == 0:
-		is_missile_enabled = true
-		kills_until_missile = _MIN_KILL_FOR_MISSILE
-	
 	if not movement_enabled:
 		stop_car()
 	else:
@@ -58,19 +56,17 @@ func _physics_process(delta: float) -> void:
 		stop_car()
 	else:	
 		if Input.is_action_pressed("move_right"):
-			#start_tires()
 			for wheel in _wheels:
 				if wheel.angular_velocity < _max_speed:
 					wheel.apply_torque_impulse(_speed * delta * 60)
 		
 		if Input.is_action_pressed("move_left"):
-			#start_tires()
 			for wheel in _wheels:
 				if wheel.angular_velocity >  -_max_speed:
 					wheel.apply_torque_impulse(-_speed * delta * 60)
 			
 		if Input.is_action_just_pressed("enable_missile") and kills_until_missile == 0:
-			is_missile_enabled != is_missile_enabled
+			is_missile_enabled = !is_missile_enabled
 			
 		if Input.is_action_just_pressed("shoot"):
 			_shoot()
@@ -110,7 +106,8 @@ func _shoot_missile() -> void:
 	cur_bullet.target_pos = get_global_mouse_position()
 	add_sibling(cur_bullet)
 	is_missile_enabled = false
-	
+	kills_until_missile = _MIN_KILL_FOR_MISSILE
+
 func respawn() -> void:
 	GlobalVars.car_lives -= 1
 	health = 100
