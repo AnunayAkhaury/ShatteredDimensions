@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var bullet = preload("res://scenes/car/bullet.tscn")
 @onready var car = %Car
 
-const SHOOT_INTERVAL = 0.7
+const SHOOT_INTERVAL = 2
 var shoot_radius = 500
 var shoot_timer = SHOOT_INTERVAL
 var health: int
@@ -25,7 +25,7 @@ func _is_within_shoot_radius() -> bool:
 
 func _shoot() -> void:
 	var cur_bullet = bullet.instantiate() as Bullet
-	cur_bullet.damage = 30
+	cur_bullet.damage = 10
 	cur_bullet.bullet_origin = Characters.Type.ENEMY
 	cur_bullet.start_pos = position
 	cur_bullet.target_pos = car.position

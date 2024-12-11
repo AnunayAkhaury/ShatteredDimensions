@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c043eos3amkax"]
 
-[ext_resource type="Texture2D" uid="uid://o3o0xqkyafg8" path="res://assets/humvee/tires_trimmed.png" id="1_g4m3r"]
+[ext_resource type="Texture2D" uid="uid://o3o0xqkyafg8" path="res://assets/CarLevel/humvee/tires_trimmed.png" id="1_g4m3r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2b6tg"]
 radius = 18.0

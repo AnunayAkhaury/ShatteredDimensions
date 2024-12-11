@@ -1,9 +1,9 @@
 extends Label
 
-@onready var car_camera: Camera2D = %CarCamera
+@onready var car = $/root/CarLevel/Car
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	text = "Lives: " + str(GlobalVars.car_lives)
-	position = car_camera.position + Vector2(485, -300)
+	text = "Kill Count: " + str(car.kill_count)
 	

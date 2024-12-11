@@ -5,6 +5,8 @@ class_name BaseBullet
 @export var speed: int = 600
 @export var damage_amount: int = 1
 var direction : int
+
+var bullet_origin = Characters.Type.PLAYER
 func _physics_process(delta: float) -> void:
 	move_local_x(direction * speed * delta)
 

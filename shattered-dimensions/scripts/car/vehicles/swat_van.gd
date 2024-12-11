@@ -5,12 +5,14 @@ var _defeated_by_player: bool
 var _showed_defeated_label: bool
 var width: float
 
+
+
 @onready var _escaped_label = preload("res://scenes/car/labels/defeated_police.tscn")
 @onready var camera: Camera2D = %CarCamera
 
 func _init() -> void:
 	character_type = Characters.Type.ENEMY
-	_defeated_by_player = false
+	_defeated_by_player = false # CHANGE THIS BACK TO FALSE
 	_showed_defeated_label = false
 	width = get_viewport_rect().size.x / 2
 	#_speed = 600

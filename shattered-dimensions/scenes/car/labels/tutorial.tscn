@@ -12,5 +12,8 @@ theme_override_constants/outline_size = 5
 theme_override_constants/shadow_outline_size = -2
 theme_override_font_sizes/font_size = 20
 text = "Use arrows or A and D to move the car
-Use click to aim and shoot"
+Use click to aim and shoot
+Kill 5 enemies = unlock 1 power up bullet
+Use shift to toggle and shoot the power up bullet
+Save the power up bullets for blasting things!"
 horizontal_alignment = 1

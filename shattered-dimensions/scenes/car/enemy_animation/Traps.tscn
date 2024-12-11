@@ -132,7 +132,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2kk4"]
-size = Vector2(58.875, 20)
+size = Vector2(35.1875, 20)
 
 [node name="Traps" type="Area2D"]
 script = ExtResource("1_h6s6q")
@@ -159,6 +159,6 @@ sprite_frames = SubResource("SpriteFrames_t4i4k")
 frame_progress = 0.803801
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-21, -43)
+position = Vector2(26.375, -43)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_o2kk4")
