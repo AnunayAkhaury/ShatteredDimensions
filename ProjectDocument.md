@@ -112,32 +112,32 @@ Player movement was pretty simple and required only 4 main controls which were m
 
 ![ScreenRecording2024-12-10at11 17 55AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/d39a3627-d6b8-47aa-9702-b8354827252e)
 
-- Level 2 has a slightly more complex camera where there is a push-box implementation similar to exercise 2. I made it so the player can push on the right-side around halfway into the screen but on the left, there would be some space before the camera moves back left. This was to ensure certain areas like the downward descent in Level 2 were fully visible on the screen without any camera movement necessary since many of the obstacles were not easily seen without this system.
+- Level 2 has a slightly more complex camera where there is a [push-box implementation](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/platformer/level2/camera2.gd#L1) similar to exercise 2. I made it so the player can push on the right-side around halfway into the screen but on the left, there would be some space before the camera moves back left. This was to ensure certain areas like the downward descent in Level 2 were fully visible on the screen without any camera movement necessary since many of the obstacles were not easily seen without this system.
 
 ![ScreenRecording2024-12-10at11 21 45AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/362881a2-710a-482a-beaf-637d20dcba1e)
 
 _Checkpoints_
 
 - There is also a checkpoint system in Level 2 that gives players a chance to respawn at the last checkpoint without having to return to the beginning. 
-- I created a scene for these checkpoints and used an export variable in the script that would allow me to mark different checkpoint numbers.
-- The player script would keep track of the current checkpoint each time it was activated and I created an array in the script that had coordinates pertaining to each checkpoint to be used in the respawn function.
+- I created a scene for these checkpoints and used an [export variable in the script](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/platformer/level2/checkpoint.gd#L3) that would allow me to mark different checkpoint numbers.
+- The player script would keep track of the [current checkpoint](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/player/player.gd#L15) each time it was activated and I created an array in the script that had [coordinates pertaining to each checkpoint](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/player/player.gd#L16) to be used in the respawn function.
 
 _Next World Door_
 
-- The next world door is a small laser-looking node that detects player entry and shifts the player to the next level after playing the fading animation between the levels.
-- When the next level is instantiated, the door will play the animation in reverse to create a fade-in effect as well.
-- The player node contains information about which level the player is on in the script and the next world door uses this to check which scene it should call.
+- The next world door is a small laser-looking node that detects player entry and shifts the player to the next level after [playing the fading animation](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/platformer/next_world_door.gd#L13) between the levels.
+- When the next level is instantiated, the door will [play the animation in reverse](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/platformer/next_world_door.gd#L16) to create a fade-in effect as well.
+- The player node contains information about [which level](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/player/player.gd#L12) the player is on in the script and the next world door uses this to check which scene it should call.
 
 
 ### Enemies/Obstacles
 
-There are many obstacles with various use-cases all around the levels. I made a universal KillZone class that already implemented the death response when a player enters the obstacle and so I was able to use that for every enemy. This ensured that there was no need for an additional script on each obstacle, rather they all called KillZone.
+There are many obstacles with various use-cases all around the levels. I made a universal [KillZone class](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/platformer/killzone.gd#L3) that already implemented the death response when a player enters the obstacle and so I was able to use that for every enemy. This ensured that there was no need for an additional script on each obstacle, rather they all called KillZone.
 
 _Basic Spike, Saw Blade, Spike Ball_
 
 - The basic spike is a core obstacle that is scattered throughout the floor pieces of both levels. I used the spikes in many sizes using the scale attribute and used a collision polygon to get the hitbox exactly in a triangular shape.
-- The saw blade and spike ball are similarly present in both levels. I added a script that would constantly rotate the saw blade at a certain pace so that it would replicate a real saw blade motion. Here I only needed to use a collision shape, namely a circle since the rotation would anyway prevent there ever from being a slip through a small point in the blade.
-- For the spike ball, I had a similar script but with a much slower rotation, necessating a very accurate collision polygon.
+- The saw blade and spike ball are similarly present in both levels. I added a script that would [constantly rotate the saw blade](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/platformer/traps/saw.gd#L5) at a certain pace using (rotation += constant * delta) so that it would replicate a real saw blade motion. Here I only needed to use a collision shape, namely a circle since the rotation would anyway prevent there ever from being a slip through a small point in the blade.
+- For the spike ball, I had a [similar script](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/platformer/traps/spike_ball.gd#L4) but with a much slower rotation, necessating a very accurate collision polygon.
 
 ![ScreenRecording2024-12-10at11 42 19AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/b2680a81-9f5b-4f09-b555-dc6c3d01b9cb)
 
