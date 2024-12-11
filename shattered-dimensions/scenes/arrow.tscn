@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bn1hl34s1eooc"]
 
-[ext_resource type="Script" path="res://scenes/arrow.gd" id="1_aflan"]
+[ext_resource type="Script" path="res://scripts/spaceship/arrow.gd" id="1_aflan"]
 [ext_resource type="Texture2D" uid="uid://o4kjlgikisng" path="res://assets/Foozle_2DS0011_Void_MainShip/Main ship weapons/PNGs/Main ship weapon - Projectile - Rocket.png" id="1_ei8ox"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mk27s"]

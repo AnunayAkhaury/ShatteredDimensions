@@ -78,19 +78,48 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Team Assets
 
-All assets were procured from itch.io's asset store/collection and will be linked below:
+All assets are detailed below:
 
-[Pixel Adventure](https://pixelfrog-assets.itch.io/pixel-adventure-1) by Pixel Frog licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+[Space Background](https://dinvstudio.itch.io/dynamic-space-background-lite-free): by DinVStudio, license below
+    <br>- Personal and commercial purposes, but you not allowed to re-distribute or re-sell the asset or any part of it
 
-[Pixel Fantasy "Caves"](https://szadiart.itch.io/pixel-fantasy-caves) by Szadi art. licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+[Spaceship](https://foozlecc.itch.io/void-main-ship): by Foozle licensed under Creative Commons Zero, CC0
 
-[Fantasy Swamp Forest Tileset](https://theflavare.itch.io/forest-nature-fantasy-tileset) by The Flavare licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+[Asteroids](https://opengameart.org/content/2d-asteroid-sprite): by nightzero licensed under Creative Commons Attribution 3.0
 
-[Super Grotto Escape](https://ansimuz.itch.io/super-grotto-escape-pack) by ansimuz licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+[Explosion](https://opengameart.org/content/explosion-tilesets): by elnineo licensed under Creative Commons Attribution 1.0
 
-[Castle Platformer Tileset](https://rottingpixels.itch.io/castle-platformer-tileset-16x16free) by Rotting Pixels licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+[Explosion Sound Effect](https://pixabay.com/sound-effects/explosion-sound-effect-1-free-on-gamesfxpackscom-241821/): by BLANK licensed under Pixabay Content License
 
-[RPG Essentials SFX Pack](https://leohpaz.itch.io/rpg-essentials-sfx-free) by Leohpaz licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+[UFOs](https://opengameart.org/content/ufo-spritesheet): by badmug licensed under Creative Commons Attribution 4.0
+
+[Arrow Shoot Sound Effect](https://pixabay.com/sound-effects/shoot-1-81135/): by Leszek_Szary licensed under Pixabay Content License
+
+[Background Music](https://pixabay.com/sound-effects/space-72679/): by AstronautChild licensed under Pixabay Content License
+
+[Glowing Ball Powerup](https://lvgames.itch.io/free-glowing-ball-sprite-pixel-fx-rpg-maker-ready): by LVGames licensed under Free for commercial use
+
+[Powerup Sound Effect](https://pixabay.com/sound-effects/power-up-type-1-230548/): by RibhavAgrawal licensed under Pixabay Content License
+
+[Laser Blast Sound Effect](https://pixabay.com/sound-effects/laser-gun-81720/): by sunnyflower licensed under Pixabay Content License
+
+[Lock Unlocking Sound](https://pixabay.com/sound-effects/item-pick-up-38258/): by Mr.\_Fritz\_ licensed under Pixabay Content License
+
+[Prison](https://jestan.itch.io/prison): by Jestan, license below 
+    <br>- You may not distribute the contents of this .zip file in  whole or in part, unless as part of a game or similar product.
+    <br>- If you use this material in a game or other product, please give  attribution to Jestan in the credits.
+    <br>- You are free to use this in any commercial / non-commercial product(s).
+
+[Locks](https://dantepixels.itch.io/key-items-16x16): by DantePixels, license below 
+    <br>- You can :
+        <br>&nbsp; &nbsp;- Use the assets for non-commercial AND commercial project.
+        <br>&nbsp; &nbsp;- Adapt and/or modify the assets to match your project.
+        <br>&nbsp; &nbsp;- Credit me with my Twitter: @pixelahead
+    <br>- You can NOT:
+        <br>&nbsp; &nbsp;- Distribute or sell those assets directly (even modified).
+        <br>&nbsp; &nbsp;- Claim the asset yours.
+
+[Prison Background Music](https://pixabay.com/sound-effects/a-dungeon-ambience-loop-79423/): by Grubzyy licensed under Pixabay Content License
 
 
 ## Platformer Level
@@ -536,52 +565,115 @@ The **Health Management System** ensures that both player and enemy health is co
 *Email: ssanegepalli@ucdavis.edu*   
 *Github: ssaneg*
 
-**Class Content**
+Below I have described the main features and functionality of my level, along with their relation to class concepts, lectures, and exercises. 
 
-*Autoscroll Camera Movement with Partital PushBox* - The camera movement of the game is a combination of different features of the pushbox and controllers in Exercise 2. The camera is set to perform a [constant horizontal autoscroll](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/225a96834739d2f906e4af3a0d7a5ef6a8226745/shattered-dimensions/scripts/spaceship/camera.gd#L14) and the player (spaceship) is [pushed by the left edge of the pushbox](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/camera.gd#L17). The right edge is not restricted so the user must manually ensure they stay within the camera viewport at all times. The player is free to move vertically until they reach the bounds of the background and the [camera follows the player when they move vertically](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/spaceship.gd#L80). 
+**Autoscroll Camera Movement with Partial PushBox**
 
-*Arrow Instantiation System* - The component system discussed in class is employed to create a self contained **fire scene**. This scene contains the [functionality for a set of arrows to be released from the holder and fired across the screen](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/fire.gd#L27). Upon the press of the space bar, the spaceship [instantiates a new set of arrows](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/spaceship.gd#L111) that are loaded onto the spaceship and fired at the incoming UFOs. Each arrow is released at a different time in line with the release animation. The most difficult part of this feature was to handle movement of the spaceship during the firing animation. I needed to ensure that I was [updating the position of the holder and arrows that were not yet fired](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/spaceship.gd#L125) if the spaceship moved. This meant that each arrow had to function individually, independent of the others. My familiarity with the projectile instantiation system from Exercise 3 was extremely helpful for building out this feature.
+- The camera movement of the game is a combination of different features of the pushbox and controllers in Exercise 2. 
 
-*Add video of arrow firing*
+- The camera is set to perform a [constant horizontal autoscroll](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/225a96834739d2f906e4af3a0d7a5ef6a8226745/shattered-dimensions/scripts/spaceship/camera.gd#L14) and the player (spaceship) is [pushed by the left edge of the pushbox](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/camera.gd#L17). 
 
-*Spaceship Movement and Statistics* - The movement of the spaceship is directly tied to specific keys for different functions. The **healthLevel variable** keeps track of the damage done to the spaceship based on collisions with different objects. The statistics in the top right corner consist of a health bar that is constantly updated and a kill count to show how many spaceships the player still has to defeat to win the level. The UFOs have their own health that is depleted by the arrows fired by the spaceship. The [kill count is updated](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/225a96834739d2f906e4af3a0d7a5ef6a8226745/shattered-dimensions/scripts/spaceship/enemy.gd#L19) upon defeat of a UFO. This implementation of this feature involves skills I developed with collision objects, signals, and health management in my boss battle from Exercise 1.
+- The right edge is not restricted so the user must manually ensure they stay within the camera viewport at all times. 
 
-*Add picture of stats*
+- The player is free to move vertically until they reach the bounds of the background and the [camera follows the player when they move vertically](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/spaceship.gd#L80). 
 
-*Enemy Onscreen Detection* - The laser blast system of the enemies also employs the command pattern as each blast is treated as a self contained object. There are numerous enemies placed throughout the map of my level. I was able to set up an automated blast firing system that executes only during the time that an enemy is detected to be within the player's viewport. This system is set to fire with a specific delay between each blast, using concepts from the recharge delay of Stage 1 in Exercise 3. I was able to accomplish onscreen detection by [comparing the camera position to the enemy position](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/enemy.gd#L35). The UFOs also have [automated movement](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/enemy.gd#L23) to add to the difficulty of the level. 
+*Add video of auto scroll*
 
-*Add video of enemy firing*
+**Arrow Instantiation System**
 
-*User Interface* - I was able to use the skills I developed with working on Exercise 1 to create animations for sprites, implement sound effects, and use tilemap layers to set up the background of this level. Some examples are explosions of rotating asteroids after collision, the firing sounds for the spaceship and UFOs, and the space background for the autoscroll. All of these aspects contribute significantly to the game feel and enhance the gaming experience for the user. I also added a menu that displays upon player death so that the user can choose to either return to the lobby or restart the game. 
+- The component system discussed in class is employed to create a self contained **fire scene**. This scene contains the [functionality for a set of arrows to be released from the holder and fired across the screen](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/fire.gd#L27). 
 
-*Add pictures of menu, asteroid explosion*
+- Upon the press of the space bar, the spaceship [instantiates a new set of arrows](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/spaceship.gd#L111) that are loaded onto the spaceship and fired at the incoming UFOs. Each arrow is released at a different time in line with the release animation. 
 
-**Assets**
+- The most difficult part of this feature was to handle movement of the spaceship during the firing animation. I needed to ensure that I was [updating the position of the holder and arrows that were not yet fired](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/spaceship.gd#L125) if the spaceship moved. This meant that each arrow had to function individually, independent of the others.
 
-[Space Background](https://dinvstudio.itch.io/dynamic-space-background-lite-free): Personal and commercial purposes, but you not allowed to re-distribute or re-sell the asset or any part of it
+- The logic of the spaceship sets a delay after every set of arrows is fired. This way, the spaceship can only fire one set of arrows at a time.
 
-[Spaceship](https://foozlecc.itch.io/void-main-ship): Creative Commons Zero, CC0
+- My familiarity with the projectile instantiation system and recharge delay from Exercise 3 was extremely helpful for building out this feature.
 
-[Asteroids](https://opengameart.org/content/2d-asteroid-sprite): Creative Commons Attribution 3.0
+![firearrows1](https://github.com/user-attachments/assets/393a76bb-4a8b-4681-9177-8117e01085b7)
 
-[Explosion](https://opengameart.org/content/explosion-tilesets): Creative Commons Attribution 1.0
+![firing2](https://github.com/user-attachments/assets/9e6b6203-3fe8-4da3-9c0a-a2b652b45dc4)
 
-[Explosion Sound Effect](https://pixabay.com/sound-effects/explosion-sound-effect-1-free-on-gamesfxpackscom-241821/): Pixabay Content License
+**Spaceship Movement and Statistics** 
 
-[UFOs](https://opengameart.org/content/ufo-spritesheet): Creative Commons Attribution 4.0
+- The movement of the spaceship is directly tied to the up/W, down/S, and right/D keys.
 
-[Arrow Shoot Sound Effect](https://pixabay.com/sound-effects/shoot-1-81135/): Pixabay Content License
+- Pressing the SHIFT key triggers an animation and boosts the spaceship to the right.
+  
+![boost](https://github.com/user-attachments/assets/b472f615-cdcb-41db-a555-aabd6a9de86d)
 
-[Background Music](https://pixabay.com/sound-effects/space-72679/): Pixabay Content License
+- The **healthLevel variable** keeps track of the damage done to the spaceship based on collisions with different objects. 
 
-[Glowing Ball Powerup](https://lvgames.itch.io/free-glowing-ball-sprite-pixel-fx-rpg-maker-ready): Free for commercial use
+- The statistics in the top right corner consist of a health bar that is constantly updated and a kill count to show how many spaceships the player still has to defeat to win the level.
 
-[Powerup Sound Effect](https://pixabay.com/sound-effects/power-up-type-1-230548/): Pixabay Content License
+<img width="200" alt="Player Stats" src="https://github.com/user-attachments/assets/6f11d71d-35d1-4063-8f9c-cc379487ead6" />
 
-[Laser Blast Sound Effect](https://pixabay.com/sound-effects/laser-gun-81720/): Pixabay Content License
+- The UFOs have their own health that is depleted by the arrows fired by the spaceship. The [kill count is updated](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/225a96834739d2f906e4af3a0d7a5ef6a8226745/shattered-dimensions/scripts/spaceship/enemy.gd#L19) upon defeat of a UFO.
 
-[Kill Count](): 
+- The spaceship is configured to bounce back after collision with an asteroid, creating a cooldown period during which user input is unbinded.
+  
+![IMG_4802](https://github.com/user-attachments/assets/6fbc0767-7182-420b-be6b-3a80d7239adc)
 
+- My implementation of this feature involves skills I developed with collision objects, signals, and health management in my boss battle from Exercise 1.
+
+**Enemy Onscreen Detection and Blast Firing System** 
+
+- The laser blast system of the enemies also employs the command pattern as each blast is treated as a self contained object. There are numerous enemies placed throughout the map of my level. 
+
+- I was able to set up an **automated blast firing system** that executes only during the time that an enemy is detected to be within the player's viewport. This system is set to fire with a specific delay between each blast, using concepts from the recharge delay of Stage 1 in Exercise 3. 
+
+- I was able to accomplish **onscreen detection** by [comparing the camera position to the enemy position](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/enemy.gd#L35). 
+
+- The UFOs also have [automated movement](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/enemy.gd#L23) to add to the difficulty of the level. 
+
+![UFOs](https://github.com/user-attachments/assets/040ac0ab-90fa-4d5c-9ae6-5e2d3076bb0d)
+
+**Losing & Level Menu**
+
+- I created a scene with buttons where the user can choose to restart the level or return to the lobby.
+
+- This scene pops up as an overlay in **two cases**:
+
+    1. The player's health reaches 0 before they reach the end of the level.
+    2. The player reaches the end of the level but they have not defeated at least 3 UFOs.
+
+![overlaymenu](https://github.com/user-attachments/assets/85bc0673-d287-44fe-92aa-156e70110a4c)
+
+**Winning & Key**
+
+- The key scene is instantiated upon the player reaching the end of the level and defeating at least 3 UFOs.
+
+- The key is equipped with a collision object that detects the spaceship and returns the player to the prison.
+
+*Add picture of key*
+
+**Design**
+
+I was able to use the skills I developed with working on Exercise 1 to design my level.
+
+- *Background*
+    
+    - I was able to make use of the **ParallaxBackground** node in Godot to create two layers for the background, the space and the stars. The stars move slightly faster than the space colors giving the level an immersive effect.
+
+- *Sound*
+
+    - I was able to implement sound for the following actions
+        
+        - asteroid explosion sound effect
+        - arrow shooting sound effects
+        - background music that continually loops
+        - powerup pickup sound effect
+        - laser blast sound effect
+          
+- *Animations*
+
+    - **Rotating Asteroids**: I was able to manually create an animation for asteroid rotation by creating frames with incremental values for the rotation property of the sprite.
+    - **Asteroid Explosion**: sourced from spritesheet
+    - **Spaceship Shooting Arrows**: sourced from spritesheet
+    - **Laser Blast**: sourced from spritesheet
+    - **UFO Movement**: sourced from spritesheet
+    - **Powerup**: sourced from spritesheet
 
 ## User Interface and Input
 
@@ -702,32 +794,29 @@ Gun Mechanics were covered extensively in the main **Run and Gun Level** section
 *Email: ssanegepalli@ucdavis.edu*   
 *Github: ssaneg*
 
-I was able to source the necessary assets for the prison lobby and implement the underlying logic. The prison setting of this main lobby allows the player access into all 4 dimensions to play the minigames necessary to escape. The assets chosen for this scene provide cohesion with the story of the initial cutscene and allow the player to move around and explore the different dimensions. Each window serves as a portal to a different minigame and is equipped with a collision object to detect the player's entrance. I have also implemented an automated [moving platform](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8434e8191ef8215c6ded14c60ae8eafa1faf97ad/shattered-dimensions/scripts/platform.gd#L18) to allow the player to move from the ground floor to the top floor of the prison. After the play successfully beats a level, they are awarded a key with triggers the unlocking function of one lock on the prison wall. Once all keys are unlocked, the player has won the game.
+The prison setting of this main lobby allows the player access into all 4 dimensions to play the minigames necessary to escape. 
 
-The variables for level completion were made global by **Abhimanyu Warrier**.
+- **Visuals**: I was able to source the necessary visual sprites and assets for the background of the prison to provide cohesion with the story from the initial cutscene. 
 
-**Assets**
+- **Accessing Levels**: Each window serves as a portal to a different minigame.
+    
+    - Windows are equipped with collision shapes to detect the player's entrance and transition to the respective level.
+    
+- **Moving Platform**: I was able to implement an automated [moving platform](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8434e8191ef8215c6ded14c60ae8eafa1faf97ad/shattered-dimensions/scripts/platform.gd#L18) to allow the player to move from the ground floor to the top floor of the prison. 
 
-[Lock Unlocking Sound](https://pixabay.com/sound-effects/item-pick-up-38258/): Pixabay Content License
+- **Keys & Locks**: After the play successfully beats a level, they are awarded a key with triggers the [completeLevel function](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/a60a4df470f8b8e5541cfa08845b568f5a85204c/shattered-dimensions/scripts/levels.gd#L26) of one lock on the prison wall. 
 
-[Prison](https://jestan.itch.io/prison): 
-    - You may not distribute the contents of this .zip file in  whole or in part, unless as part of a game or similar product.
-    - If you use this material in a game or other product, please give  attribution to Jestan in the credits.
-    - You are free to use this in any commercial / non-commercial product(s).
+    - I originally triggered the unlocking function using 4 boolean variables that showed whether or not each level was completed.
+    
+    - *For easier access, these variables were made global by Abhimanyu.*
 
-[Locks](https://dantepixels.itch.io/key-items-16x16)
-    - You can :
-        - Use the assets for non-commercial AND commercial project.
-        - Adapt and/or modify the assets to match your project.
-        - Credit me with my Twitter: @pixelahead
-    - You can NOT:
-        - Distribute or sell those assets directly (even modified).
-        - Claim the asset yours.
+    - I also implemented logic that [drops each lock](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/a60a4df470f8b8e5541cfa08845b568f5a85204c/shattered-dimensions/scripts/lock.gd#L10) from its position once it is unlocked.
 
-[Background Music](): 
-    - sourced and attached by **Anunary Akhaury** 
+- **Background Music**: I was able to source eerie music to play in the background of the prison scene.
+    
+    - *For smoother feel, a slight delay was added to the start of the music by Anunay.* 
 
-<img src="https://github.com/user-attachments/assets/ecdf6eb4-ff5b-4a77-ba4a-7002e15b0a0a" width="700">
+Once all keys are unlocked, the player has won the game!
 
 ## Gameplay Testing
 
