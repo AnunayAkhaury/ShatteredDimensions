@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://b4hrc5xbxausp"]
+[gd_scene load_steps=35 format=4 uid="uid://b4hrc5xbxausp"]
 
 [ext_resource type="Script" path="res://scripts/car/car_level.gd" id="1_adyet"]
 [ext_resource type="PackedScene" uid="uid://c37auavbmu8ye" path="res://scenes/car/labels/lives.tscn" id="2_b3muw"]
@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="7_mx8p4"]
 [ext_resource type="PackedScene" uid="uid://cvxn17he7m1ev" path="res://scenes/car/tire_pile.tscn" id="7_navjn"]
 [ext_resource type="PackedScene" uid="uid://cm8cgpnselc8i" path="res://scenes/car/enemy_animation/mushroom_animations.tscn" id="8_mh5jj"]
-[ext_resource type="PackedScene" uid="uid://cekfcjskjtw8c" path="res://scenes/car/key.tscn" id="9_bygmi"]
+[ext_resource type="PackedScene" uid="uid://cekfcjskjtw8c" path="res://scenes/car/Key.tscn" id="9_bygmi"]
 [ext_resource type="PackedScene" uid="uid://cy8py1778oupt" path="res://scenes/car/car_camera.tscn" id="10_7ovoo"]
 [ext_resource type="Texture2D" uid="uid://d4gmfwc2dx6hb" path="res://assets/CarLevel/explosion pack 1/Bonus/From explosions pack 2/explosion-b/explosion-b.png" id="12_v5ewq"]
 [ext_resource type="PackedScene" uid="uid://brndnt11i221r" path="res://scenes/car/boost_ups/fuel.tscn" id="13_0qi2e"]
@@ -13713,6 +13713,36 @@ unique_name_in_owner = true
 position = Vector2(66, 464)
 collision_layer = 3
 collision_mask = 3
+
+[node name="PlayerBattleLocation" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(2597, 559)
+scale = Vector2(0.95625, 0.979708)
+
+[node name="ExtraElements" type="Node2D" parent="."]
+
+[node name="TirePile" parent="ExtraElements" instance=ExtResource("7_navjn")]
+z_index = 1
+position = Vector2(3157, 553)
+rotation = -0.202704
+scale = Vector2(0.5, 0.5)
+
+[node name="Traps" parent="ExtraElements" instance=ExtResource("5_0vm44")]
+unique_name_in_owner = true
+position = Vector2(2482, 606)
+scale = Vector2(0.35, 0.346)
+
+[node name="Key" parent="ExtraElements" instance=ExtResource("9_bygmi")]
+position = Vector2(17322, 543)
+
+[node name="PrisonFront" type="TileMapLayer" parent="ExtraElements"]
+position = Vector2(17249, 83)
+tile_map_data = PackedByteArray("AAAAABgAAAAYAAAAAAAAABkAAAAYAAEAAAAAABoAAAAYAAIAAAAAABsAAAAYAAMAAAAAABwAAAAYAAQAAAAAAB0AAAAYAAUAAAAAAB4AAAAYAAYAAAAAAB8AAAAYAAcAAAACABgAAAAaAAAAAAACABkAAAAaAAEAAAACABoAAAAaAAIAAAACABsAAAAaAAMAAAACABwAAAAaAAQAAAACAB0AAAAaAAUAAAACAB4AAAAaAAYAAAACAB8AAAAaAAcAAAADABgAAAAbAAAAAAADABkAAAAbAAEAAAADABoAAAAbAAIAAAADABsAAAAbAAMAAAADABwAAAAbAAQAAAADAB0AAAAbAAUAAAADAB4AAAAbAAYAAAADAB8AAAAbAAcAAAAFABgAAAAdAAAAAAAFABkAAAAdAAEAAAAFABoAAAAdAAIAAAAFABsAAAAdAAMAAAAFABwAAAAdAAQAAAAFAB0AAAAdAAUAAAAFAB4AAAAdAAYAAAAFAB8AAAAdAAcAAAAGABgAAAAeAAAAAAAGABkAAAAeAAEAAAAGABoAAAAeAAIAAAAGABsAAAAeAAMAAAAGABwAAAAeAAQAAAAGAB0AAAAeAAUAAAAGAB4AAAAeAAYAAAAGAB8AAAAeAAcAAAAIABgAAAAgAAAAAAAIABkAAAAgAAEAAAAIABoAAAAgAAIAAAAIABsAAAAgAAMAAAAIABwAAAAgAAQAAAAIAB0AAAAgAAUAAAAIAB4AAAAgAAYAAAAIAB8AAAAgAAcAAAAAACAAAAAYAAgAAAABABgAAAAZAAAAAAABACAAAAAZAAgAAAACACAAAAAaAAgAAAADACAAAAAbAAgAAAAEABgAAAAcAAAAAAAEACAAAAAcAAgAAAAFACAAAAAdAAgAAAAGACAAAAAeAAgAAAAHABgAAAAfAAAAAAAHACAAAAAfAAgAAAAIACAAAAAgAAgAAAA=")
+tile_set = SubResource("TileSet_jjwe4")
+
+[node name="Car" parent="." instance=ExtResource("4_4lvlx")]
+unique_name_in_owner = true
+position = Vector2(375, 420)
 
 [node name="PoliceOfficer" parent="." instance=ExtResource("6_l3s77")]
 unique_name_in_owner = true

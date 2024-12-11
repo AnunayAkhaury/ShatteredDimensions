@@ -90,13 +90,14 @@ func _physics_process(delta: float):
 	if GlobalVars.car_level_stat == 'Car Level Entered':
 		return
 		
-	if GlobalVars.car_level_stat == 'battle':
+	if GlobalVars.car_level_stat == 'Battle':
 		bind_player_input_commands()
 		if player_killed:
 			%Car.respawn()
 			%CarPlayer.visible = false
 			GlobalVars.car_level_stat = "Battle Over"
 			return
+	
 	if Global.run_gun:
 		jump_velocity_input = -445
 	else:
@@ -133,13 +134,12 @@ func _physics_process(delta: float):
 		idle.execute(self)
 			
 	# FUNCTION CAR-LEVEL
-	if (Input.is_action_just_pressed("shoot") and GlobalVars.car_level_stat == "battle"):
+	if (Input.is_action_just_pressed("shoot") and GlobalVars.car_level_stat == "Battle"):
 		if move_input != 0.0:
 			current_state = STATE.RUN_SHOOT
 			update_muzzle_position()
 		else:
 			current_state = STATE.SHOOT
-			shoot.execute(self)
 		var cur_bullet = carlevel_bullet.instantiate() as Bullet
 		cur_bullet.damage = 10
 		cur_bullet.bullet_origin = Characters.Type.PLAYER
@@ -329,7 +329,7 @@ func _on_knockback_timer_timeout() -> void:
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	
-	if GlobalVars.car_level_stat == "battle":
+	if GlobalVars.car_level_stat == "Battle":
 		var damage = 0
 		if area is Bullet and carlevel_health - damage >= 0:
 			carlevel_health -= damage

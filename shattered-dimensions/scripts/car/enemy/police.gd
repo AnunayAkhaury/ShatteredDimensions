@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 	if killed:
 		$AnimatedSprite2D.play("dead")
 		queue_free()
-		GlobalVars.car_level_stat = "Player Won"
+		GlobalVars.car_level_stat = "Battle Over"
 		return 
 	%PoliceHealth.value = health
 	# Apply gravity if not on the floor
@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	if GlobalVars.car_level_stat == 'battle':
+	if GlobalVars.car_level_stat == 'Battle':
 		shoot_timer -= delta
 		if shoot_timer <= 0:
 			shoot_player(%CarPlayer)
