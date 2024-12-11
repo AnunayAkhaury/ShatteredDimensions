@@ -156,7 +156,7 @@ func _physics_process(delta: float):
 			current_state = STATE.SHOOT
 		var cur_bullet = carlevel_bullet.instantiate() as Bullet
 		cur_bullet.damage = 10
-		cur_bullet.bullet_origin = Characters.Type.PLAYER
+		cur_bullet.ammo_origin = Characters.Type.PLAYER
 		cur_bullet.start_pos = global_position
 		cur_bullet.target_pos = get_global_mouse_position()
 		add_sibling(cur_bullet)
@@ -291,7 +291,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if GlobalVars.car_level_stat == "Battle":
 		if area is TirePile:
 			return
-		if area is Bullet and area.bullet_origin != Characters.Type.POLICE:
+		if area is Bullet and area.ammo_origin != Characters.Type.POLICE:
 			return
 		var damage = 1
 		if area is Bullet and carlevel_health - damage >= 0:

@@ -102,17 +102,19 @@ func _shoot() -> void:
 	else:
 		var cur_bullet = bullet.instantiate() as Bullet
 		cur_bullet.damage = _bullet_damage
-		cur_bullet.bullet_origin = Characters.Type.PLAYER_CAR
+		cur_bullet.ammo_origin = Characters.Type.PLAYER_CAR
 		cur_bullet.start_pos = position + Vector2(30, -90)
 		cur_bullet.target_pos = get_global_mouse_position()
 		add_sibling(cur_bullet)
 	
 func _shoot_missile() -> void:
 	var cur_bullet = missile.instantiate() as Missile
+	cur_bullet.ammo_origin = Characters.Type.PLAYER_CAR
 	cur_bullet.start_pos = position + Vector2(30, -90)
 	cur_bullet.target_pos = get_global_mouse_position()
 	add_sibling(cur_bullet)
 	is_missile_enabled = false
+	tot_missiles -= 1
 	kills_until_missile = _MIN_KILL_FOR_MISSILE
 
 func respawn() -> void:
@@ -127,7 +129,7 @@ func respawn() -> void:
 func _delayed_action() -> void:
 	_speed = 600
 	_max_speed = 40
-	_bullet_damage = 5
+	_bullet_damage = 15
 	
 func stop_car():
 	freeze = true

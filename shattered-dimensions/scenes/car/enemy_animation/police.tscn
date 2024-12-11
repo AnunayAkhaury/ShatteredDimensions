@@ -55,7 +55,7 @@
 [ext_resource type="Texture2D" uid="uid://d32cecd0wxteg" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/walk/1_police_Walk_005.png" id="37_7dar5"]
 [ext_resource type="Texture2D" uid="uid://6cx23ns7xmfe" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/walk/1_police_Walk_006.png" id="38_c1f5c"]
 [ext_resource type="Texture2D" uid="uid://ky4d8enovcll" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/walk/1_police_Walk_007.png" id="39_lo8vb"]
-[ext_resource type="Script" path="res://scripts/car/police_hitbox.gd" id="47_d4qw4"]
+[ext_resource type="Script" path="res://scripts/car/detection_boxes/police_hitbox.gd" id="47_d4qw4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jnp8w"]
 atlas = ExtResource("2_gb3lg")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b7vfrdynaejj"]
 
-[ext_resource type="Script" path="res://scripts/car/missile.gd" id="1_5u26d"]
+[ext_resource type="Script" path="res://scripts/car/shooting/missile.gd" id="1_5u26d"]
 [ext_resource type="Texture2D" uid="uid://bkgt3lw1v0ppt" path="res://assets/All_Fire_Bullet_Pixel_16x16.png" id="2_a0lll"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nc6vh"]
