@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c4pgpxsbm8qs6" path="res://assets/CarLevel/Abusive Prison Tileset Pack/img/tilesets/Prison_A5.png" id="4_58skg"]
 [ext_resource type="PackedScene" uid="uid://i6arnh3jkabk" path="res://scenes/car/swat_van/swat_van.tscn" id="4_pn4bw"]
 [ext_resource type="PackedScene" uid="uid://ufiexds0mv81" path="res://scenes/car/labels/start_countdown.tscn" id="4_toqhx"]
-[ext_resource type="PackedScene" uid="uid://cw3djta8tgr1a" path="res://scenes/car/enemy_animation/traps.tscn" id="5_0vm44"]
+[ext_resource type="PackedScene" uid="uid://cw3djta8tgr1a" path="res://scenes/car/enemy_animation/Traps.tscn" id="5_0vm44"]
 [ext_resource type="Script" path="res://scripts/car/labels/start_countdown.gd" id="5_x0elv"]
 [ext_resource type="Texture2D" uid="uid://cusdkqvtkp0ou" path="res://assets/CarLevel/PhysicsCarGameAssets/Images/Terrain/jungle tileset.png" id="6_1a2t4"]
 [ext_resource type="PackedScene" uid="uid://c446mbiy6y5vo" path="res://scenes/car/enemy_animation/timed_trap.tscn" id="6_bs7vm"]
@@ -13903,7 +13903,6 @@ to get spare tires for the car!
 "
 
 [node name="GunAimer" type="Sprite2D" parent="."]
-visible = false
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("23_8ecqp")
 script = ExtResource("24_1dmba")

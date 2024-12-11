@@ -1,9 +1,10 @@
-[gd_scene load_steps=45 format=3 uid="uid://codpqct4heeh4"]
+[gd_scene load_steps=46 format=3 uid="uid://codpqct4heeh4"]
 
 [ext_resource type="Texture2D" uid="uid://mnk53ih88m5k" path="res://assets/Anunay's Boss/Microwave/Microwave/Death.png" id="2_oqoju"]
 [ext_resource type="Texture2D" uid="uid://3co81fc5h2wk" path="res://assets/Anunay's Boss/Microwave/Microwave/Idle.png" id="3_6tp07"]
 [ext_resource type="Texture2D" uid="uid://bgmtnudfllkel" path="res://assets/Anunay's Boss/Microwave/Microwave/Hit.png" id="3_ejlt2"]
 [ext_resource type="Texture2D" uid="uid://dy2vhwpg3myej" path="res://assets/Anunay's Boss/Microwave/Microwave/Attack.png" id="5_s3vod"]
+[ext_resource type="AudioStream" uid="uid://df0dup0gfnd1v" path="res://assets/Anunay's Sounds/enemy_damage.wav" id="6_g2xhb"]
 [ext_resource type="Texture2D" uid="uid://8n1yd1gcq73a" path="res://assets/Anunay's Boss/Microwave/Microwave/Walk.png" id="6_swc0x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w4rl1"]
@@ -316,3 +317,7 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_3yqbx")
 animation = &"walk"
 autoplay = "idle"
+
+[node name="EnemyDamageAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_g2xhb")
+volume_db = -10.0

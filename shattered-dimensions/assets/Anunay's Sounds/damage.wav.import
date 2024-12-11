@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bcnqrjt04ke0q"
+path="res://.godot/imported/damage.wav-75c2a18917f43e61a146a7a531860505.sample"
+
+[deps]
+
+source_file="res://assets/Anunay's Sounds/damage.wav"
+dest_files=["res://.godot/imported/damage.wav-75c2a18917f43e61a146a7a531860505.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

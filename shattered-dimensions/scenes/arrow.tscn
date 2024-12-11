@@ -36,21 +36,19 @@ animations = [{
 size = Vector2(5.33333, 13.5593)
 
 [node name="Arrow" type="Area2D"]
-visible = false
+scale = Vector2(1.2, 1.2)
 disable_mode = 1
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_aflan")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(-355, -41)
 rotation = 1.5708
 scale = Vector2(2.4375, 1.84375)
 sprite_frames = SubResource("SpriteFrames_dng3c")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-356.5, -42.5)
+position = Vector2(-1, -1)
 rotation = 1.5708
 scale = Vector2(2.4375, 1.84375)
 shape = SubResource("RectangleShape2D_cybuc")

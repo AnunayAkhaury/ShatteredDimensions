@@ -30,6 +30,8 @@ func _on_area_entered(object: Area2D) -> void:
 		
 	if object is Key:
 		await get_tree().create_timer(.25).timeout
+		GlobalVars.carCompleted = true
+		GlobalVars.car_level_stat = "game_over"
 		get_tree().change_scene_to_file("res://scenes/platformer/victory.tscn")
 	
 	if object is Traps and GlobalVars.car_level_stat != "Battle Over":

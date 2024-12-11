@@ -1,20 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://bw2tt2h0046yk"]
+[gd_scene load_steps=8 format=3 uid="uid://bw2tt2h0046yk"]
 
 [ext_resource type="Script" path="res://scripts/car/terrains/terrain.gd" id="1_4sw2d"]
 [ext_resource type="Texture2D" uid="uid://blc5owkcgehvh" path="res://assets/CarLevel/PhysicsCarGameAssets/Images/Terrain/Grass.png" id="3_c6qde"]
 [ext_resource type="Texture2D" uid="uid://b0cdi7my1xt5f" path="res://assets/CarLevel/PhysicsCarGameAssets/Images/Terrain/terrain.jpg" id="3_tr0kw"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jxbd4"]
-load_path = "res://.godot/imported/grass (1).png-a40269199f52e59d686ff56d6f903c6d.ctex"
 
 [sub_resource type="Curve2D" id="Curve2D_uosv5"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -1079.51, 316.611, -123.754, 1.52525, 123.754, -1.52525, -581.155, 322.671, -72.679, -14.9824, 72.679, 14.9824, -41.3973, 336.305, -159.894, 25.3549, 159.894, -25.3549, 343.916, 262.075, -241.052, 9.21996, 241.052, -9.21996, 719.676, 278.739, -176.852, -51.8623, 176.852, 51.8623, 1065.18, 371.147, -144.147, 9.21996, 144.147, -9.21996, 1428.21, 307.522, -259.222, 58.7772, 259.222, -58.7772, 2009.36, 375.692, -201.078, 19.5924, 201.078, -19.5924, 2362.83, 252.986, 0, 0, 0, 0, 2705.16, 315.097, 0, 0, 0, 0, 2759.29, 346.909, 0, 0, 0, 0, 2754.51, 487.794, 0, 0, 0, 0, -1081.11, 490.823)
 }
 point_count = 13
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o6skp"]
-load_path = "res://.godot/imported/terrain_image.jpg-c89c1b6aa5e7e94a7a2b867910ba54b6.ctex"
 
 [sub_resource type="GDScript" id="GDScript_dgql5"]
 script/source = "extends StaticBody2D
@@ -63,7 +57,7 @@ script = ExtResource("1_4sw2d")
 [node name="Line2D" type="Line2D" parent="Terrain"]
 texture_repeat = 2
 width = 65.0
-texture = SubResource("CompressedTexture2D_jxbd4")
+texture = ExtResource("3_c6qde")
 texture_mode = 1
 
 [node name="Path2D" type="Path2D" parent="Terrain"]
@@ -72,7 +66,7 @@ curve = SubResource("Curve2D_uosv5")
 
 [node name="Polygon2D" type="Polygon2D" parent="Terrain"]
 texture_repeat = 2
-texture = SubResource("CompressedTexture2D_o6skp")
+texture = ExtResource("3_tr0kw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain"]
 
@@ -84,7 +78,7 @@ script = ExtResource("1_4sw2d")
 [node name="Line2D" type="Line2D" parent="Terrain2"]
 texture_repeat = 2
 width = 65.0
-texture = SubResource("CompressedTexture2D_jxbd4")
+texture = ExtResource("3_c6qde")
 texture_mode = 1
 
 [node name="Path2D" type="Path2D" parent="Terrain2"]
@@ -93,7 +87,7 @@ curve = SubResource("Curve2D_uosv5")
 
 [node name="Polygon2D" type="Polygon2D" parent="Terrain2"]
 texture_repeat = 2
-texture = SubResource("CompressedTexture2D_o6skp")
+texture = ExtResource("3_tr0kw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain2"]
 
@@ -105,7 +99,7 @@ script = ExtResource("1_4sw2d")
 [node name="Line2D" type="Line2D" parent="Terrain3"]
 texture_repeat = 2
 width = 65.0
-texture = SubResource("CompressedTexture2D_jxbd4")
+texture = ExtResource("3_c6qde")
 texture_mode = 1
 
 [node name="Path2D" type="Path2D" parent="Terrain3"]
@@ -114,7 +108,7 @@ curve = SubResource("Curve2D_uosv5")
 
 [node name="Polygon2D" type="Polygon2D" parent="Terrain3"]
 texture_repeat = 2
-texture = SubResource("CompressedTexture2D_o6skp")
+texture = ExtResource("3_tr0kw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain3"]
 
@@ -126,7 +120,7 @@ script = ExtResource("1_4sw2d")
 [node name="Line2D" type="Line2D" parent="Terrain4"]
 texture_repeat = 2
 width = 65.0
-texture = SubResource("CompressedTexture2D_jxbd4")
+texture = ExtResource("3_c6qde")
 texture_mode = 1
 
 [node name="Path2D" type="Path2D" parent="Terrain4"]
@@ -135,7 +129,7 @@ curve = SubResource("Curve2D_uosv5")
 
 [node name="Polygon2D" type="Polygon2D" parent="Terrain4"]
 texture_repeat = 2
-texture = SubResource("CompressedTexture2D_o6skp")
+texture = ExtResource("3_tr0kw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain4"]
 
@@ -147,7 +141,7 @@ script = ExtResource("1_4sw2d")
 [node name="Line2D" type="Line2D" parent="Terrain5"]
 texture_repeat = 2
 width = 65.0
-texture = SubResource("CompressedTexture2D_jxbd4")
+texture = ExtResource("3_c6qde")
 texture_mode = 1
 
 [node name="Path2D" type="Path2D" parent="Terrain5"]
@@ -156,7 +150,7 @@ curve = SubResource("Curve2D_uosv5")
 
 [node name="Polygon2D" type="Polygon2D" parent="Terrain5"]
 texture_repeat = 2
-texture = SubResource("CompressedTexture2D_o6skp")
+texture = ExtResource("3_tr0kw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain5"]
 
@@ -168,7 +162,7 @@ script = ExtResource("1_4sw2d")
 [node name="Line2D" type="Line2D" parent="Terrain6"]
 texture_repeat = 2
 width = 65.0
-texture = SubResource("CompressedTexture2D_jxbd4")
+texture = ExtResource("3_c6qde")
 texture_mode = 1
 
 [node name="Path2D" type="Path2D" parent="Terrain6"]
@@ -177,7 +171,7 @@ curve = SubResource("Curve2D_uosv5")
 
 [node name="Polygon2D" type="Polygon2D" parent="Terrain6"]
 texture_repeat = 2
-texture = SubResource("CompressedTexture2D_o6skp")
+texture = ExtResource("3_tr0kw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain6"]
 
@@ -189,7 +183,7 @@ script = ExtResource("1_4sw2d")
 [node name="Line2D" type="Line2D" parent="Terrain7"]
 texture_repeat = 2
 width = 65.0
-texture = SubResource("CompressedTexture2D_jxbd4")
+texture = ExtResource("3_c6qde")
 texture_mode = 1
 
 [node name="Path2D" type="Path2D" parent="Terrain7"]
@@ -198,7 +192,7 @@ curve = SubResource("Curve2D_uosv5")
 
 [node name="Polygon2D" type="Polygon2D" parent="Terrain7"]
 texture_repeat = 2
-texture = SubResource("CompressedTexture2D_o6skp")
+texture = ExtResource("3_tr0kw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain7"]
 
@@ -235,7 +229,7 @@ script = SubResource("GDScript_v4ypj")
 [node name="Line2D" type="Line2D" parent="TerrainEnd"]
 texture_repeat = 2
 width = 65.0
-texture = SubResource("CompressedTexture2D_jxbd4")
+texture = ExtResource("3_c6qde")
 texture_mode = 1
 
 [node name="Path2D" type="Path2D" parent="TerrainEnd"]
@@ -244,6 +238,6 @@ curve = SubResource("Curve2D_uosv5")
 
 [node name="Polygon2D" type="Polygon2D" parent="TerrainEnd"]
 texture_repeat = 2
-texture = SubResource("CompressedTexture2D_o6skp")
+texture = ExtResource("3_tr0kw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TerrainEnd"]
