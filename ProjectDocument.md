@@ -145,7 +145,7 @@ _Basic Spike, Saw Blade, Spike Ball_
 _SpikeBlock/Factory_
 
 - I made this obstacle specifically for level 2 as a moving block with 2 spikes attached on the left and right. It was animated to move left and right on a given surface.
-- The raising spike factory used the Factory Pattern concept to create a class that constantly spawns spike blocks in an upward or downward direction. I also added an export variable to determine speed so I could create different spike blocks at different speeds.
+- The raising spike factory used the [Factory Pattern](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/12c81d35dd38c35933e762211abd42acec03bbf2/shattered-dimensions/scripts/platformer/traps/raising_spike_factory.gd#L12) concept to create a class that constantly spawns [spike blocks](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/12c81d35dd38c35933e762211abd42acec03bbf2/shattered-dimensions/scripts/platformer/traps/raising_spike.gd#L11) in an upward or downward direction. I also added an export variable to determine speed so I could create different spike blocks at different speeds.
 
 ![ScreenRecording2024-12-10at11 27 54AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/c695c2cf-a256-4f17-a53b-a1d0dd48d1b3)
 
@@ -153,7 +153,7 @@ _SpikeBlock/Factory_
 _Descent Zone (2 new enemies)_
 
 - For the descent zone in level 2, I added 2 special enemies, specifically a Thwomp and a pea shooter. The Thwomp was inspired by the Mario world and worked in a similar fashion where it was animated to come down, wait a little bit, and slownly come up, before waiting and repeating.
-- The pea shooter was located in a space in the wall and made to shoot a green ball at a regular interval. I used an animation to achieve this where the ball would shoot to the other side, wait, and then repeat the animation. This made it so that players would need to crouch to avoid the pea.
+- The pea shooter was located in a space in the wall and made to shoot a [rotating green ball](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/12c81d35dd38c35933e762211abd42acec03bbf2/shattered-dimensions/scripts/platformer/traps/pea.gd#L3) at a regular interval. I used an animation to achieve this where the ball would shoot to the other side, wait, and then repeat the animation. This made it so that players would need to crouch to avoid the pea.
 
 ![ScreenRecording2024-12-10at11 27 07AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/a0227051-e4c5-4b9f-bdd6-b97d0b45a133)
 
@@ -179,23 +179,29 @@ _Moving Platform_
 ![ScreenRecording2024-12-10at12 05 32PM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/f70ca0a9-938e-4d2d-bd27-ab2fc9db823e)
 
 
-_Blue orb (Double Jump)_
+_Blue orb Bouncer (Double Jump)_
 - The blue orb allows players to press the jump input again for a double jump.
-- I used a sprite with an area_body_2d and collision shape to achieve this
+- I used a sprite with an area_body_2d and collision shape to achieve this.
+- The jump is tracked in using the [bouncer script](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/12c81d35dd38c35933e762211abd42acec03bbf2/shattered-dimensions/scripts/platformer/supports/bouncer.gd#L7) which has signals for body entered and exited.
+- These signals change the result of the variable player.double_jump which then allows the [jump checking conditional](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/12c81d35dd38c35933e762211abd42acec03bbf2/shattered-dimensions/scripts/player/player.gd#L140) to evaluate to true and allow for a second jump.
 
 ![ScreenRecording2024-12-10at12 06 32PM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/bf84e1d5-e80c-498f-ba61-d5328c46cc99)
 
 
 _Orange/Green orb (ascend/descend)_
-- The orange orb allows the player's current platform to start ascending until a given point. This was achieved through an animation.
+- The orange orb allows the player's current platform to start ascending until a given point.
+- This was achieved through an animation called by the [mover_platform script](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/12c81d35dd38c35933e762211abd42acec03bbf2/shattered-dimensions/scripts/platformer/supports/mover_platform.gd#L1) based on the signals set to either entering or exiting the orb.
 - The green orb allows players to have their platform descend, so very similar to ascend.
+- It makes use of the same type of animation just switching the play-backwards and forwards.
 
 ![ScreenRecording2024-12-10at12 07 27PM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/e123d699-0dd6-4376-a0b1-e1e70efc0a23)
 
 
 _Trampoline_
 - The trampoline is an animated sprite that allows players to have a much higher jump when springing off this component.
-- I added a conditional in the player script to check whether or not the player was on the trampoline and if so, change the jump velocity to be much more negative to achieve a much higher jump.
+- To check if the player was on the trampoline, I added an area2d just above it to make sure the player was touching the "ground".
+- I added a script with the [area-entered signal](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/12c81d35dd38c35933e762211abd42acec03bbf2/shattered-dimensions/scripts/platformer/traps/trampoline.gd#L5) that changed the "on_trampoline" variable in the player to allow for the changed jumping mechanic.
+- I then added a [conditional in the player script](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/12c81d35dd38c35933e762211abd42acec03bbf2/shattered-dimensions/scripts/player/player.gd#L141) to check whether or not the player was on the trampoline and if so, change the jump velocity to be much more negative to achieve a much higher jump.
 
 ![ScreenRecording2024-12-10at11 29 22AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/92477476-e419-4c35-813f-dc5649fe7cda)
 
