@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://b4hrc5xbxausp"]
+[gd_scene load_steps=43 format=4 uid="uid://b4hrc5xbxausp"]
 
 [ext_resource type="Script" path="res://scripts/car/car_level.gd" id="1_adyet"]
 [ext_resource type="PackedScene" uid="uid://b5yh853uf0prf" path="res://scenes/car/bg.tscn" id="2_fhgbu"]
@@ -29,6 +29,9 @@
 [ext_resource type="Texture2D" uid="uid://d0dgge3gw0fo7" path="res://assets/Crosshair Pack/White/512/2.png" id="23_8ecqp"]
 [ext_resource type="Script" path="res://scripts/car/shooting/aim.gd" id="24_1dmba"]
 [ext_resource type="Script" path="res://scripts/car/game_elements/key_checkpoint.gd" id="26_mlarx"]
+[ext_resource type="AudioStream" uid="uid://q2il3viivpxx" path="res://assets/CarLevel/Abusive Prison Tileset Pack/audio/bgm/Gundatsch-InnerCore.ogg" id="30_xhe40"]
+[ext_resource type="AudioStream" uid="uid://pydvosdjpfyi" path="res://assets/CarLevel/police_siren.mp3" id="31_ubuk3"]
+[ext_resource type="AudioStream" uid="uid://dcnhxca7k4tuw" path="res://assets/CarLevel/car_start.mp3" id="32_olxvu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wekmw"]
 size = Vector2(20, 226)
@@ -13867,3 +13870,20 @@ collision_mask = 512
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BattleBoundaryLeft"]
 position = Vector2(-224.933, -92.2)
 shape = SubResource("RectangleShape2D_4xkm6")
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("30_xhe40")
+volume_db = -14.237
+autoplay = true
+parameters/looping = true
+
+[node name="PoliceSiren" type="AudioStreamPlayer2D" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("31_ubuk3")
+
+[node name="CarStart" type="AudioStreamPlayer2D" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("32_olxvu")
+volume_db = 7.333

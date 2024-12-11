@@ -22,7 +22,8 @@ func _init() -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_wheels = [%FrontWheel, %BackWheel]
-
+	%PoliceSiren.play()
+	%CarStart.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:

@@ -6,6 +6,9 @@ func _init() -> void:
 	
 func _on_area_entered(ammo:Ammo) -> void:
 	if owner is SwatVan:
+		%CarHit.play()
+		
+	if owner is SwatVan:
 		ammo.damage /= 3
 		
 	if ammo.ammo_origin != owner.character_type:
