@@ -8,6 +8,8 @@ var _respawn_timer: Timer
 var _bullet_damage: float
 var _caught_by_police: bool
 
+
+var tot_missiles: int
 var kills_until_missile: int
 var kill_count: int
 var boost_speed: bool
@@ -21,6 +23,7 @@ var is_missile_enabled: bool
 @onready var health_bar: ProgressBar = %CarCamera.get_child(0)
 
 func _init() -> void:
+	tot_missiles = 0
 	kill_count = 0
 	character_type = Characters.Type.PLAYER_CAR
 	boost_speed = false
@@ -47,6 +50,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:	
+	if kills_until_missile == 0:
+		tot_missiles += 1
+		kills_until_missile = _MIN_KILL_FOR_MISSILE
+	
 	if not movement_enabled:
 		stop_car()
 	else:
@@ -65,7 +72,7 @@ func _physics_process(delta: float) -> void:
 				if wheel.angular_velocity >  -_max_speed:
 					wheel.apply_torque_impulse(-_speed * delta * 60)
 			
-		if Input.is_action_just_pressed("enable_missile") and kills_until_missile == 0:
+		if Input.is_action_just_pressed("enable_missile") and tot_missiles > 0:
 			is_missile_enabled = !is_missile_enabled
 			
 		if Input.is_action_just_pressed("shoot"):

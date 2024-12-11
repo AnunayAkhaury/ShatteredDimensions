@@ -27,7 +27,6 @@ func _on_area_entered(object: Area2D) -> void:
 		
 	if object is KeyCheckpoint:
 		owner.movement_enabled = false
-		owner.is_missile_enabled = true
 		
 	if object is Key:
 		await get_tree().create_timer(.25).timeout

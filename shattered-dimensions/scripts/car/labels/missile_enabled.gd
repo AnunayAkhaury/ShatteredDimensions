@@ -1,11 +1,14 @@
 extends Label
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@onready var car = $/root/CarLevel/Car
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
+	var is_enabled 
+	if car.is_missile_enabled :
+		is_enabled = "ENABLED " + str(car.tot_missiles)
+	else:
+		is_enabled = "DISABLED"
+		
+	text = "Bullet power up: " + is_enabled
