@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bl2eeoldwnydu"]
+[gd_scene load_steps=32 format=3 uid="uid://bl2eeoldwnydu"]
 
 [ext_resource type="Script" path="res://scripts/car/vehicles/player_car.gd" id="1_0wm3u"]
 [ext_resource type="Texture2D" uid="uid://cydnsk6xymx31" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-duck.png" id="2_w5tmd"]
@@ -7,9 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://dpwuih5udon20" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-jump.png" id="4_k58lr"]
 [ext_resource type="Texture2D" uid="uid://cart612wkg4y5" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-run.png" id="5_7pis0"]
 [ext_resource type="Script" path="res://scripts/player/animated_sprite_2d.gd" id="6_t0i4d"]
-[ext_resource type="Texture2D" uid="uid://bmwt5pcdht5h8" path="res://assets/humvee/humvee-no-tires_trimmed.png" id="7_nmrlq"]
+[ext_resource type="Texture2D" uid="uid://bmwt5pcdht5h8" path="res://assets/CarLevel/humvee/humvee-no-tires_trimmed.png" id="7_nmrlq"]
 [ext_resource type="Script" path="res://scripts/car/detection_boxes/crash_box.gd" id="9_7t1ob"]
 [ext_resource type="Script" path="res://scripts/car/detection_boxes/player_detection_box.gd" id="9_lo5t1"]
+[ext_resource type="AudioStream" uid="uid://di3qokgu47w6s" path="res://assets/CarLevel/car_crash.mp3" id="11_1mgeq"]
+[ext_resource type="AudioStream" uid="uid://f41kr8a3prrn" path="res://assets/CarLevel/car_hit.mp3" id="11_yn716"]
+[ext_resource type="AudioStream" uid="uid://2xopgxxtn8pe" path="res://assets/CarLevel/tire_puncture.mp3" id="13_w2oya"]
+[ext_resource type="AudioStream" uid="uid://bgcx2bwxu2gl0" path="res://assets/CarLevel/PhysicsCarGameAssets/Audio/Coin.wav" id="14_1uv7v"]
+[ext_resource type="AudioStream" uid="uid://b4ggr4eope2nt" path="res://assets/CarLevel/PhysicsCarGameAssets/Audio/Fuel.wav" id="14_3qgmw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kw7ln"]
 atlas = ExtResource("2_w5tmd")
@@ -196,10 +201,26 @@ script = ExtResource("9_7t1ob")
 position = Vector2(-12, -47.5709)
 polygon = PackedVector2Array(-67, 20.2429, -69, 11, -68, -6, -58, -25.3036, 30, -26, 75, 5, 76, 16, 72, 18, 30, 31, -62, 27.3279)
 
-[node name="HealthBar" type="ProgressBar" parent="."]
+[node name="CarHit" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-offset_left = -36.0
-offset_top = -106.275
-offset_right = 114.0
-offset_bottom = -79.2753
-scale = Vector2(0.434742, 0.384409)
+stream = ExtResource("11_yn716")
+volume_db = -5.333
+
+[node name="CarCrash" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_1mgeq")
+
+[node name="TirePuncture" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_w2oya")
+volume_db = 4.667
+
+[node name="BlingSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("14_1uv7v")
+volume_db = 6.667
+
+[node name="FuelRecharge" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("14_3qgmw")
+volume_db = 3.333

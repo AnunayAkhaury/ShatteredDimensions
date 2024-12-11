@@ -95,7 +95,14 @@ All assets were procured from itch.io's asset store/collection and will be linke
 
 ## Platformer Level
 
-Abhi's main role was the platformer level, a level based on games like _I wanna be the guy_ and _Super Meatboy_. Because we split our roles into levels rather than overarching systems, we all got to do a little bit of everything, which is what I will go into detail about below. Overall, the game consists of 2 main levels with the second more difficult than the first. Below I will explain all the systems necessary to making the game.
+### **Student Information**  
+**Name**: Abhimanyu Warrier  
+**Email**: avwarrier@ucdavis.edu  
+**Github**: [avwarrier](https://github.com/avwarrier)  
+
+---
+
+The Platformer is a level based on games like _I wanna be the guy_ and _Super Meatboy_. Because we split our roles into levels rather than overarching systems, we all got to do a little bit of everything, which is what I will go into detail about below. Overall, the game consists of 2 main levels with the second more difficult than the first. Below I will explain all the systems necessary to making the game.
 
 ### Player Movement/Physics
 
@@ -105,19 +112,32 @@ Player movement was pretty simple and required only 4 main controls which were m
 
 ![ScreenRecording2024-12-10at11 17 55AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/d39a3627-d6b8-47aa-9702-b8354827252e)
 
-- Level 2 has a slightly more complex camera where there is a push-box implementation similar to exercise 2. I made it so the player can push on the right-side around halfway into the screen but on the left, there would be some space before the camera moves back left. This was to ensure certain areas like the downward descent in Level 2 were fully visible on the screen without any camera movement necessary since many of the obstacles were not easily seen without this system.
+- Level 2 has a slightly more complex camera where there is a [push-box implementation](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/platformer/level2/camera2.gd#L1) similar to exercise 2. I made it so the player can push on the right-side around halfway into the screen but on the left, there would be some space before the camera moves back left. This was to ensure certain areas like the downward descent in Level 2 were fully visible on the screen without any camera movement necessary since many of the obstacles were not easily seen without this system.
 
 ![ScreenRecording2024-12-10at11 21 45AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/362881a2-710a-482a-beaf-637d20dcba1e)
 
+_Checkpoints_
+
+- There is also a checkpoint system in Level 2 that gives players a chance to respawn at the last checkpoint without having to return to the beginning. 
+- I created a scene for these checkpoints and used an [export variable in the script](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/platformer/level2/checkpoint.gd#L3) that would allow me to mark different checkpoint numbers.
+- The player script would keep track of the [current checkpoint](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/player/player.gd#L15) each time it was activated and I created an array in the script that had [coordinates pertaining to each checkpoint](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/player/player.gd#L16) to be used in the respawn function.
+
+_Next World Door_
+
+- The next world door is a small laser-looking node that detects player entry and shifts the player to the next level after [playing the fading animation](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/platformer/next_world_door.gd#L13) between the levels.
+- When the next level is instantiated, the door will [play the animation in reverse](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/platformer/next_world_door.gd#L16) to create a fade-in effect as well.
+- The player node contains information about [which level](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/player/player.gd#L12) the player is on in the script and the next world door uses this to check which scene it should call.
+
+
 ### Enemies/Obstacles
 
-There are many obstacles with various use-cases all around the levels. I made a universal KillZone class that already implemented the death response when a player enters the obstacle and so I was able to use that for every enemy. This ensured that there was no need for an additional script on each obstacle, rather they all called KillZone.
+There are many obstacles with various use-cases all around the levels. I made a universal [KillZone class](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/platformer/killzone.gd#L3) that already implemented the death response when a player enters the obstacle and so I was able to use that for every enemy. This ensured that there was no need for an additional script on each obstacle, rather they all called KillZone.
 
 _Basic Spike, Saw Blade, Spike Ball_
 
 - The basic spike is a core obstacle that is scattered throughout the floor pieces of both levels. I used the spikes in many sizes using the scale attribute and used a collision polygon to get the hitbox exactly in a triangular shape.
-- The saw blade and spike ball are similarly present in both levels. I added a script that would constantly rotate the saw blade at a certain pace so that it would replicate a real saw blade motion. Here I only needed to use a collision shape, namely a circle since the rotation would anyway prevent there ever from being a slip through a small point in the blade.
-- For the spike ball, I had a similar script but with a much slower rotation, necessating a very accurate collision polygon.
+- The saw blade and spike ball are similarly present in both levels. I added a script that would [constantly rotate the saw blade](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/platformer/traps/saw.gd#L5) at a certain pace using (rotation += constant * delta) so that it would replicate a real saw blade motion. Here I only needed to use a collision shape, namely a circle since the rotation would anyway prevent there ever from being a slip through a small point in the blade.
+- For the spike ball, I had a [similar script](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/8f287235bf6d66aab84fe6dfa2245ddb308faa30/shattered-dimensions/scripts/platformer/traps/spike_ball.gd#L4) but with a much slower rotation, necessating a very accurate collision polygon.
 
 ![ScreenRecording2024-12-10at11 42 19AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/b2680a81-9f5b-4f09-b555-dc6c3d01b9cb)
 
@@ -125,7 +145,7 @@ _Basic Spike, Saw Blade, Spike Ball_
 _SpikeBlock/Factory_
 
 - I made this obstacle specifically for level 2 as a moving block with 2 spikes attached on the left and right. It was animated to move left and right on a given surface.
-- The raising spike factory used the Factory Pattern concept to create a class that constantly spawns spike blocks in an upward or downward direction. I also added an export variable to determine speed so I could create different spike blocks at different speeds.
+- The raising spike factory used the [Factory Pattern](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/12c81d35dd38c35933e762211abd42acec03bbf2/shattered-dimensions/scripts/platformer/traps/raising_spike_factory.gd#L12) concept to create a class that constantly spawns [spike blocks](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/12c81d35dd38c35933e762211abd42acec03bbf2/shattered-dimensions/scripts/platformer/traps/raising_spike.gd#L11) in an upward or downward direction. I also added an export variable to determine speed so I could create different spike blocks at different speeds.
 
 ![ScreenRecording2024-12-10at11 27 54AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/c695c2cf-a256-4f17-a53b-a1d0dd48d1b3)
 
@@ -133,7 +153,7 @@ _SpikeBlock/Factory_
 _Descent Zone (2 new enemies)_
 
 - For the descent zone in level 2, I added 2 special enemies, specifically a Thwomp and a pea shooter. The Thwomp was inspired by the Mario world and worked in a similar fashion where it was animated to come down, wait a little bit, and slownly come up, before waiting and repeating.
-- The pea shooter was located in a space in the wall and made to shoot a green ball at a regular interval. I used an animation to achieve this where the ball would shoot to the other side, wait, and then repeat the animation. This made it so that players would need to crouch to avoid the pea.
+- The pea shooter was located in a space in the wall and made to shoot a [rotating green ball](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/12c81d35dd38c35933e762211abd42acec03bbf2/shattered-dimensions/scripts/platformer/traps/pea.gd#L3) at a regular interval. I used an animation to achieve this where the ball would shoot to the other side, wait, and then repeat the animation. This made it so that players would need to crouch to avoid the pea.
 
 ![ScreenRecording2024-12-10at11 27 07AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/a0227051-e4c5-4b9f-bdd6-b97d0b45a133)
 
@@ -159,23 +179,29 @@ _Moving Platform_
 ![ScreenRecording2024-12-10at12 05 32PM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/f70ca0a9-938e-4d2d-bd27-ab2fc9db823e)
 
 
-_Blue orb (Double Jump)_
+_Blue orb Bouncer (Double Jump)_
 - The blue orb allows players to press the jump input again for a double jump.
-- I used a sprite with an area_body_2d and collision shape to achieve this
+- I used a sprite with an area_body_2d and collision shape to achieve this.
+- The jump is tracked in using the [bouncer script](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/12c81d35dd38c35933e762211abd42acec03bbf2/shattered-dimensions/scripts/platformer/supports/bouncer.gd#L7) which has signals for body entered and exited.
+- These signals change the result of the variable player.double_jump which then allows the [jump checking conditional](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/12c81d35dd38c35933e762211abd42acec03bbf2/shattered-dimensions/scripts/player/player.gd#L140) to evaluate to true and allow for a second jump.
 
 ![ScreenRecording2024-12-10at12 06 32PM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/bf84e1d5-e80c-498f-ba61-d5328c46cc99)
 
 
 _Orange/Green orb (ascend/descend)_
-- The orange orb allows the player's current platform to start ascending until a given point. This was achieved through an animation.
+- The orange orb allows the player's current platform to start ascending until a given point.
+- This was achieved through an animation called by the [mover_platform script](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/12c81d35dd38c35933e762211abd42acec03bbf2/shattered-dimensions/scripts/platformer/supports/mover_platform.gd#L1) based on the signals set to either entering or exiting the orb.
 - The green orb allows players to have their platform descend, so very similar to ascend.
+- It makes use of the same type of animation just switching the play-backwards and forwards.
 
 ![ScreenRecording2024-12-10at12 07 27PM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/e123d699-0dd6-4376-a0b1-e1e70efc0a23)
 
 
 _Trampoline_
 - The trampoline is an animated sprite that allows players to have a much higher jump when springing off this component.
-- I added a conditional in the player script to check whether or not the player was on the trampoline and if so, change the jump velocity to be much more negative to achieve a much higher jump.
+- To check if the player was on the trampoline, I added an area2d just above it to make sure the player was touching the "ground".
+- I added a script with the [area-entered signal](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/12c81d35dd38c35933e762211abd42acec03bbf2/shattered-dimensions/scripts/platformer/traps/trampoline.gd#L5) that changed the "on_trampoline" variable in the player to allow for the changed jumping mechanic.
+- I then added a [conditional in the player script](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/12c81d35dd38c35933e762211abd42acec03bbf2/shattered-dimensions/scripts/player/player.gd#L141) to check whether or not the player was on the trampoline and if so, change the jump velocity to be much more negative to achieve a much higher jump.
 
 ![ScreenRecording2024-12-10at11 29 22AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/92477476-e419-4c35-813f-dc5649fe7cda)
 
@@ -203,6 +229,8 @@ I used AudioStreamPlayers in all the relevant levels for playing audio
 *Pushbox Camera in Lvl 2* - The camera in level 2 implements the idea of the push box that we learned about and used in some parts of exercise 2. When the player moves right, the camera moves along with him, but when moving left it does not move until a certain boundary has been touched at which point it moves at the same speed as the player. This is built upon the ideas learned in class as well when going over the many camera processes and variations.
 
 *Path Planning* - The movement and planning process for the enemies in the platformer were based on what we learned in class about Game AI and understanding how, when, and where the enemy would go and what actions it would take. Though the platformer only had very simple enemies, it was still necessary for some of the special enemy types such as the pea shooter, thwomp, and circling rocks to have a planned path and correct execution. Using the class concepts was necessary to achieve that.
+
+*Factory Pattern* - The Raising Spike Factory is based on the factory pattern we learned in exercise 3. I used a very similar process with a spawn function that instantiated the packed scene which stored the raising spike block and waited a set amount of time before instantiating the next one so it would constantly spawn at a fixed rate. This was similar to the time schedule we needed to implement for the testing part of the final stage in exercise 3.
 
 ## Run and Gun Level  
 

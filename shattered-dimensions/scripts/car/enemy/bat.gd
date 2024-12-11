@@ -28,5 +28,6 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.flip_h = true
 			dead = true
 			
+			
 	
 	super(delta)
