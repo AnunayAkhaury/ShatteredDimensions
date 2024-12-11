@@ -3147,7 +3147,7 @@ progress = 331.334
 [node name="SpikeHead" parent="MapLayers/Path2D/PathFollow2D2" instance=ExtResource("18_i3pje")]
 
 [node name="NextWorldDoor" parent="MapLayers" instance=ExtResource("25_l62ee")]
-position = Vector2(4514, 512)
+position = Vector2(4526, 512)
 scale = Vector2(2, 2)
 
 [node name="CaveBottom" type="TileMapLayer" parent="MapLayers"]

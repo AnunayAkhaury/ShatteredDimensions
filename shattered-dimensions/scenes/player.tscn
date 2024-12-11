@@ -262,9 +262,6 @@ tracks/0/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_iac7c"]
-resource_name = "idle"
-
 [sub_resource type="Animation" id="Animation_pjhv5"]
 resource_name = "hit_flashing"
 length = 0.5
@@ -280,6 +277,9 @@ tracks/0/keys = {
 "update": 1,
 "values": [true, false]
 }
+
+[sub_resource type="Animation" id="Animation_iac7c"]
+resource_name = "idle"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ee2sd"]
 _data = {
