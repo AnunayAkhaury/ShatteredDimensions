@@ -77,6 +77,9 @@ func _physics_process(delta: float) -> void:
 			
 		if Input.is_action_just_pressed("shoot"):
 			_shoot()
+			
+		if Input.is_action_just_pressed("restart"):
+			health = 0
 				
 		if boost_speed:
 			for wheel in _wheels:

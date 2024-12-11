@@ -13825,6 +13825,17 @@ offset_right = 16646.0
 offset_bottom = 432.0
 text = "Hmm, bullets aren't powerful enough to break the cage."
 
+[node name="RestartHint" parent="Labels" instance=ExtResource("3_euuak")]
+unique_name_in_owner = true
+visible = false
+offset_left = 8325.0
+offset_top = 290.0
+offset_right = 8986.0
+offset_bottom = 380.0
+text = "If you don't have a 
+power bullet to break the cage, 
+press R to restart!"
+
 [node name="StartCountdown" parent="Labels" instance=ExtResource("4_toqhx")]
 offset_left = -413.0
 offset_top = 207.0

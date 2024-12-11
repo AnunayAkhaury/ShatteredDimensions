@@ -29,6 +29,7 @@ func _on_area_entered(ammo: Ammo) -> void:
 		num_bullets_before_hint -= 1
 		if num_bullets_before_hint == 0:
 			%CageHint.visible = true
+			%RestartHint.visible = true
 
 			if %Car.tot_missiles == 0:
 				%CageHint.text = "You don't have the weapons to break the cage!"
