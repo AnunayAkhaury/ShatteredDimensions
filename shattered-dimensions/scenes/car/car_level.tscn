@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://b4hrc5xbxausp"]
+[gd_scene load_steps=54 format=4 uid="uid://b4hrc5xbxausp"]
 
 [ext_resource type="Script" path="res://scripts/car/car_level.gd" id="1_adyet"]
 [ext_resource type="PackedScene" uid="uid://b5yh853uf0prf" path="res://scenes/car/bg.tscn" id="2_fhgbu"]
@@ -29,6 +29,9 @@
 [ext_resource type="Texture2D" uid="uid://d0dgge3gw0fo7" path="res://assets/Crosshair Pack/White/512/2.png" id="23_8ecqp"]
 [ext_resource type="Script" path="res://scripts/car/aim.gd" id="24_1dmba"]
 [ext_resource type="Script" path="res://scripts/car/key_checkpoint.gd" id="26_mlarx"]
+[ext_resource type="AudioStream" uid="uid://q2il3viivpxx" path="res://assets/CarLevel/Abusive Prison Tileset Pack/audio/bgm/Gundatsch-InnerCore.ogg" id="30_xhe40"]
+[ext_resource type="AudioStream" uid="uid://pydvosdjpfyi" path="res://assets/CarLevel/police_siren.mp3" id="31_ubuk3"]
+[ext_resource type="AudioStream" uid="uid://dcnhxca7k4tuw" path="res://assets/CarLevel/car_start.mp3" id="32_olxvu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb6qs"]
 texture = ExtResource("2_hd0bc")
@@ -13720,19 +13723,6 @@ scale = Vector2(0.95625, 0.979708)
 
 [node name="ExtraElements" type="Node2D" parent="."]
 
-[node name="Traps" parent="ExtraElements" instance=ExtResource("5_0vm44")]
-unique_name_in_owner = true
-position = Vector2(2482, 606)
-scale = Vector2(0.35, 0.346)
-
-[node name="Key" parent="ExtraElements" instance=ExtResource("9_bygmi")]
-position = Vector2(17322, 543)
-
-[node name="PrisonFront" type="TileMapLayer" parent="ExtraElements"]
-position = Vector2(17249, 83)
-tile_map_data = PackedByteArray("AAAAABgAAAAYAAAAAAAAABkAAAAYAAEAAAAAABoAAAAYAAIAAAAAABsAAAAYAAMAAAAAABwAAAAYAAQAAAAAAB0AAAAYAAUAAAAAAB4AAAAYAAYAAAAAAB8AAAAYAAcAAAACABgAAAAaAAAAAAACABkAAAAaAAEAAAACABoAAAAaAAIAAAACABsAAAAaAAMAAAACABwAAAAaAAQAAAACAB0AAAAaAAUAAAACAB4AAAAaAAYAAAACAB8AAAAaAAcAAAADABgAAAAbAAAAAAADABkAAAAbAAEAAAADABoAAAAbAAIAAAADABsAAAAbAAMAAAADABwAAAAbAAQAAAADAB0AAAAbAAUAAAADAB4AAAAbAAYAAAADAB8AAAAbAAcAAAAFABgAAAAdAAAAAAAFABkAAAAdAAEAAAAFABoAAAAdAAIAAAAFABsAAAAdAAMAAAAFABwAAAAdAAQAAAAFAB0AAAAdAAUAAAAFAB4AAAAdAAYAAAAFAB8AAAAdAAcAAAAGABgAAAAeAAAAAAAGABkAAAAeAAEAAAAGABoAAAAeAAIAAAAGABsAAAAeAAMAAAAGABwAAAAeAAQAAAAGAB0AAAAeAAUAAAAGAB4AAAAeAAYAAAAGAB8AAAAeAAcAAAAIABgAAAAgAAAAAAAIABkAAAAgAAEAAAAIABoAAAAgAAIAAAAIABsAAAAgAAMAAAAIABwAAAAgAAQAAAAIAB0AAAAgAAUAAAAIAB4AAAAgAAYAAAAIAB8AAAAgAAcAAAAAACAAAAAYAAgAAAABABgAAAAZAAAAAAABACAAAAAZAAgAAAACACAAAAAaAAgAAAADACAAAAAbAAgAAAAEABgAAAAcAAAAAAAEACAAAAAcAAgAAAAFACAAAAAdAAgAAAAGACAAAAAeAAgAAAAHABgAAAAfAAAAAAAHACAAAAAfAAgAAAAIACAAAAAgAAgAAAA=")
-tile_set = SubResource("TileSet_jjwe4")
-
 [node name="TimedTrap" parent="ExtraElements" instance=ExtResource("6_bs7vm")]
 position = Vector2(14728, 610)
 
@@ -13800,10 +13790,6 @@ scale = Vector2(0.414105, 0.344)
 position = Vector2(2482, 606)
 scale = Vector2(0.35, 0.346)
 
-[node name="PlayerBattleLocation" type="Node2D" parent="PoliceBattleElements"]
-position = Vector2(328.571, -135.838)
-scale = Vector2(2.73214, 2.83153)
-
 [node name="TirePile" parent="PoliceBattleElements" instance=ExtResource("7_navjn")]
 z_index = -1
 position = Vector2(1480, -98.2659)
@@ -13812,8 +13798,7 @@ scale = Vector2(1.42924, 1.44442)
 skew = 0.00453341
 
 [node name="Traps" parent="PoliceBattleElements" instance=ExtResource("5_0vm44")]
-
-[node name="ExtraElements2" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="CarCamera" parent="." instance=ExtResource("10_7ovoo")]
 unique_name_in_owner = true
@@ -13921,7 +13906,6 @@ to get spare tires for the car!
 "
 
 [node name="GunAimer" type="Sprite2D" parent="."]
-visible = false
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("23_8ecqp")
 script = ExtResource("24_1dmba")
@@ -13947,5 +13931,22 @@ collision_mask = 512
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BattleBoundaryLeft"]
 position = Vector2(-224.933, -92.2)
 shape = SubResource("RectangleShape2D_4xkm6")
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("30_xhe40")
+volume_db = -14.237
+autoplay = true
+parameters/looping = true
+
+[node name="PoliceSiren" type="AudioStreamPlayer2D" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("31_ubuk3")
+
+[node name="CarStart" type="AudioStreamPlayer2D" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("32_olxvu")
+volume_db = 7.333
 
 [connection signal="animation_finished" from="ExtraElements/KeyCage/Cage/Explosion" to="ExtraElements/KeyCage/Cage" method="_on_explosion_animation_finished"]

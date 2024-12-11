@@ -40,6 +40,21 @@ _data = {
 "long_spike_collision": SubResource("Animation_xy0c0")
 }
 
+[sub_resource type="Animation" id="Animation_52ctt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spike2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-62.2222, 40)]
+}
+
 [sub_resource type="Animation" id="Animation_dpuka"]
 resource_name = "long_spike_collision"
 length = 3.0
@@ -57,25 +72,25 @@ tracks/0/keys = {
 "values": [Vector2(-62.222, 45), Vector2(-62.222, 65), Vector2(-62.222, 90), Vector2(-62.222, 115), Vector2(-62.222, 140), Vector2(-62.222, 165), Vector2(-62.222, 165)]
 }
 
-[sub_resource type="Animation" id="Animation_52ctt"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hdldt"]
+_data = {
+"RESET": SubResource("Animation_52ctt"),
+"long_spike_collision": SubResource("Animation_dpuka")
+}
+
+[sub_resource type="Animation" id="Animation_nqxc6"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Spike2:position")
+tracks/0/path = NodePath("../Spike3:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-62.2222, 40)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hdldt"]
-_data = {
-"RESET": SubResource("Animation_52ctt"),
-"long_spike_collision": SubResource("Animation_dpuka")
+"values": [Vector2(26.6667, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_i46q7"]
@@ -95,25 +110,25 @@ tracks/0/keys = {
 "values": [Vector2(26.6667, 0), Vector2(26.667, 25), Vector2(26.667, 50), Vector2(26.667, 75), Vector2(26.667, 100), Vector2(26.667, 125), Vector2(26.667, 150), Vector2(26.667, 175), Vector2(26.667, 175)]
 }
 
-[sub_resource type="Animation" id="Animation_nqxc6"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d671e"]
+_data = {
+"RESET": SubResource("Animation_nqxc6"),
+"short_spike": SubResource("Animation_i46q7")
+}
+
+[sub_resource type="Animation" id="Animation_pi212"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Spike3:position")
+tracks/0/path = NodePath("../Spike4:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(26.6667, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_d671e"]
-_data = {
-"RESET": SubResource("Animation_nqxc6"),
-"short_spike": SubResource("Animation_i46q7")
+"values": [Vector2(115.556, 44.4444)]
 }
 
 [sub_resource type="Animation" id="Animation_ou4aa"]
@@ -131,21 +146,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(115.556, 45), Vector2(115.556, 65), Vector2(115.556, 90), Vector2(115.556, 115), Vector2(115.556, 140), Vector2(115.556, 165), Vector2(115.556, 165)]
-}
-
-[sub_resource type="Animation" id="Animation_pi212"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Spike4:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(115.556, 44.4444)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m1kdx"]

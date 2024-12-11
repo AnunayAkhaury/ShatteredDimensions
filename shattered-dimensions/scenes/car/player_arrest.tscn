@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c3jhvcacvhvdf"]
+[gd_scene load_steps=42 format=3 uid="uid://c3jhvcacvhvdf"]
 
 [ext_resource type="Script" path="res://scripts/car/player_arrest.gd" id="1_2nd2v"]
 [ext_resource type="PackedScene" uid="uid://xu6eycwicik0" path="res://scenes/car/labels/caught_by_police.tscn" id="1_h8mcy"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d1wcg6atnncvl" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-run-shoot.png" id="8_voo8y"]
 [ext_resource type="Texture2D" uid="uid://csjqa06rb4jxf" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-shoot.png" id="9_jr0d1"]
 [ext_resource type="Script" path="res://scripts/player/animated_sprite_2d.gd" id="10_ih4pd"]
+[ext_resource type="AudioStream" uid="uid://chb1i8bdi2t1s" path="res://assets/IntialCutscene/Audio/cage_sound-[AudioTrimmer.com].mp3" id="12_x6sch"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fj1rk"]
 shader = ExtResource("3_60l51")
@@ -264,6 +265,10 @@ _data = {
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_2nd2v")
+
+[node name="CageSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_x6sch")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0

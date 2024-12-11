@@ -5,5 +5,5 @@ extends Label
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	text = "Missile " + str(car.kill_count)
+	text = "Kill Count: " + str(car.kill_count)
 	
