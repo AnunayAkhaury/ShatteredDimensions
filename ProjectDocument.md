@@ -78,19 +78,48 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Team Assets
 
-All assets were procured from itch.io's asset store/collection and will be linked below:
+All assets are detailed below:
 
-[Pixel Adventure](https://pixelfrog-assets.itch.io/pixel-adventure-1) by Pixel Frog licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+[Space Background](https://dinvstudio.itch.io/dynamic-space-background-lite-free): by BLANK license below
+- Personal and commercial purposes, but you not allowed to re-distribute or re-sell the asset or any part of it
 
-[Pixel Fantasy "Caves"](https://szadiart.itch.io/pixel-fantasy-caves) by Szadi art. licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+[Spaceship](https://foozlecc.itch.io/void-main-ship): by BLANK licensed under Creative Commons Zero, CC0
 
-[Fantasy Swamp Forest Tileset](https://theflavare.itch.io/forest-nature-fantasy-tileset) by The Flavare licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+[Asteroids](https://opengameart.org/content/2d-asteroid-sprite): by BLANK licensed under Creative Commons Attribution 3.0
 
-[Super Grotto Escape](https://ansimuz.itch.io/super-grotto-escape-pack) by ansimuz licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+[Explosion](https://opengameart.org/content/explosion-tilesets): by BLANK licensed under Creative Commons Attribution 1.0
 
-[Castle Platformer Tileset](https://rottingpixels.itch.io/castle-platformer-tileset-16x16free) by Rotting Pixels licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+[Explosion Sound Effect](https://pixabay.com/sound-effects/explosion-sound-effect-1-free-on-gamesfxpackscom-241821/): by BLANK licensed under Pixabay Content License
 
-[RPG Essentials SFX Pack](https://leohpaz.itch.io/rpg-essentials-sfx-free) by Leohpaz licensed under [Creative Commons Zero v1.0 Universal](https://itch.io/game-assets/assets-cc0)
+[UFOs](https://opengameart.org/content/ufo-spritesheet): by BLANK licensed under Creative Commons Attribution 4.0
+
+[Arrow Shoot Sound Effect](https://pixabay.com/sound-effects/shoot-1-81135/): by BLANK licensed under Pixabay Content License
+
+[Background Music](https://pixabay.com/sound-effects/space-72679/): by BLANK licensed under Pixabay Content License
+
+[Glowing Ball Powerup](https://lvgames.itch.io/free-glowing-ball-sprite-pixel-fx-rpg-maker-ready): by BLANK licensed under Free for commercial use
+
+[Powerup Sound Effect](https://pixabay.com/sound-effects/power-up-type-1-230548/): by BLANK licensed under Pixabay Content License
+
+[Laser Blast Sound Effect](https://pixabay.com/sound-effects/laser-gun-81720/): by BLANK licensed under Pixabay Content License
+
+[Lock Unlocking Sound](https://pixabay.com/sound-effects/item-pick-up-38258/): by BLANK licensed under Pixabay Content License
+
+[Prison](https://jestan.itch.io/prison): by BLANK license below 
+    - You may not distribute the contents of this .zip file in  whole or in part, unless as part of a game or similar product.
+    - If you use this material in a game or other product, please give  attribution to Jestan in the credits.
+    - You are free to use this in any commercial / non-commercial product(s).
+
+[Locks](https://dantepixels.itch.io/key-items-16x16): by BLANK license below 
+    - You can :
+        - Use the assets for non-commercial AND commercial project.
+        - Adapt and/or modify the assets to match your project.
+        - Credit me with my Twitter: @pixelahead
+    - You can NOT:
+        - Distribute or sell those assets directly (even modified).
+        - Claim the asset yours.
+
+[Prison Background Music](https://pixabay.com/sound-effects/a-dungeon-ambience-loop-79423/): by BLANK licensed under Pixabay Content License
 
 
 ## Platformer Level
@@ -556,27 +585,37 @@ Below I have described the main features and functionality of my level, along wi
 
 - Upon the press of the space bar, the spaceship [instantiates a new set of arrows](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/spaceship.gd#L111) that are loaded onto the spaceship and fired at the incoming UFOs. Each arrow is released at a different time in line with the release animation. 
 
-- The most difficult part of this feature was to handle movement of the spaceship during the firing animation. I needed to ensure that I was [updating the position of the holder and arrows that were not yet fired](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/spaceship.gd#L125) if the spaceship moved. This meant that each arrow had to function individually, independent of the others. 
+- The most difficult part of this feature was to handle movement of the spaceship during the firing animation. I needed to ensure that I was [updating the position of the holder and arrows that were not yet fired](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/spaceship.gd#L125) if the spaceship moved. This meant that each arrow had to function individually, independent of the others.
 
-- My familiarity with the projectile instantiation system from Exercise 3 was extremely helpful for building out this feature.
+- The logic of the spaceship sets a delay after every set of arrows is fired. This way, the spaceship can only fire one set of arrows at a time.
 
-*Add video of arrow firing*
+- My familiarity with the projectile instantiation system and recharge delay from Exercise 3 was extremely helpful for building out this feature.
+
+![firearrows1](https://github.com/user-attachments/assets/393a76bb-4a8b-4681-9177-8117e01085b7)
+
+![firing2](https://github.com/user-attachments/assets/9e6b6203-3fe8-4da3-9c0a-a2b652b45dc4)
 
 **Spaceship Movement and Statistics** 
 
 - The movement of the spaceship is directly tied to the up/W, down/S, and right/D keys.
 
 - Pressing the SHIFT key triggers an animation and boosts the spaceship to the right.
+  
+![boost](https://github.com/user-attachments/assets/b472f615-cdcb-41db-a555-aabd6a9de86d)
 
 - The **healthLevel variable** keeps track of the damage done to the spaceship based on collisions with different objects. 
 
-- The statistics in the top right corner consist of a health bar that is constantly updated and a kill count to show how many spaceships the player still has to defeat to win the level. 
+- The statistics in the top right corner consist of a health bar that is constantly updated and a kill count to show how many spaceships the player still has to defeat to win the level.
 
-- The UFOs have their own health that is depleted by the arrows fired by the spaceship. The [kill count is updated](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/225a96834739d2f906e4af3a0d7a5ef6a8226745/shattered-dimensions/scripts/spaceship/enemy.gd#L19) upon defeat of a UFO. 
+<img width="200" alt="Player Stats" src="https://github.com/user-attachments/assets/6f11d71d-35d1-4063-8f9c-cc379487ead6" />
 
-- This implementation of this feature involves skills I developed with collision objects, signals, and health management in my boss battle from Exercise 1.
+- The UFOs have their own health that is depleted by the arrows fired by the spaceship. The [kill count is updated](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/225a96834739d2f906e4af3a0d7a5ef6a8226745/shattered-dimensions/scripts/spaceship/enemy.gd#L19) upon defeat of a UFO.
 
-*Add picture of stats*
+- The spaceship is configured to bounce back after collision with an asteroid, creating a cooldown period during which user input is unbinded.
+  
+![IMG_4802](https://github.com/user-attachments/assets/6fbc0767-7182-420b-be6b-3a80d7239adc)
+
+- My implementation of this feature involves skills I developed with collision objects, signals, and health management in my boss battle from Exercise 1.
 
 **Enemy Onscreen Detection and Blast Firing System** 
 
@@ -588,7 +627,7 @@ Below I have described the main features and functionality of my level, along wi
 
 - The UFOs also have [automated movement](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/enemy.gd#L23) to add to the difficulty of the level. 
 
-*Add video of enemy firing*
+![UFOs](https://github.com/user-attachments/assets/040ac0ab-90fa-4d5c-9ae6-5e2d3076bb0d)
 
 **Losing & Level Menu**
 
@@ -599,7 +638,7 @@ Below I have described the main features and functionality of my level, along wi
     1. The player's health reaches 0 before they reach the end of the level.
     2. The player reaches the end of the level but they have not defeated at least 3 UFOs.
 
-*Add picture of level menu*
+![overlaymenu](https://github.com/user-attachments/assets/85bc0673-d287-44fe-92aa-156e70110a4c)
 
 **Winning & Key**
 
@@ -626,8 +665,7 @@ I was able to use the skills I developed with working on Exercise 1 to design my
         - background music that continually loops
         - powerup pickup sound effect
         - laser blast sound effect
-
-
+          
 - *Animations*
 
     - **Rotating Asteroids**: I was able to manually create an animation for asteroid rotation by creating frames with incremental values for the rotation property of the sprite.
@@ -636,33 +674,6 @@ I was able to use the skills I developed with working on Exercise 1 to design my
     - **Laser Blast**: sourced from spritesheet
     - **UFO Movement**: sourced from spritesheet
     - **Powerup**: sourced from spritesheet
-
-**Assets**
-
-[Space Background](https://dinvstudio.itch.io/dynamic-space-background-lite-free): Personal and commercial purposes, but you not allowed to re-distribute or re-sell the asset or any part of it
-
-[Spaceship](https://foozlecc.itch.io/void-main-ship): Creative Commons Zero, CC0
-
-[Asteroids](https://opengameart.org/content/2d-asteroid-sprite): Creative Commons Attribution 3.0
-
-[Explosion](https://opengameart.org/content/explosion-tilesets): Creative Commons Attribution 1.0
-
-[Explosion Sound Effect](https://pixabay.com/sound-effects/explosion-sound-effect-1-free-on-gamesfxpackscom-241821/): Pixabay Content License
-
-[UFOs](https://opengameart.org/content/ufo-spritesheet): Creative Commons Attribution 4.0
-
-[Arrow Shoot Sound Effect](https://pixabay.com/sound-effects/shoot-1-81135/): Pixabay Content License
-
-[Background Music](https://pixabay.com/sound-effects/space-72679/): Pixabay Content License
-
-[Glowing Ball Powerup](https://lvgames.itch.io/free-glowing-ball-sprite-pixel-fx-rpg-maker-ready): Free for commercial use
-
-[Powerup Sound Effect](https://pixabay.com/sound-effects/power-up-type-1-230548/): Pixabay Content License
-
-[Laser Blast Sound Effect](https://pixabay.com/sound-effects/laser-gun-81720/): Pixabay Content License
-
-[Kill Count](): 
-
 
 ## User Interface and Input
 
@@ -806,31 +817,6 @@ The prison setting of this main lobby allows the player access into all 4 dimens
     - *For smoother feel, a slight delay was added to the start of the music by Anunay.* 
 
 Once all keys are unlocked, the player has won the game!
-
-**Assets**
-
-[Lock Unlocking Sound](https://pixabay.com/sound-effects/item-pick-up-38258/): Pixabay Content License
-
-[Prison](https://jestan.itch.io/prison): 
-    - You may not distribute the contents of this .zip file in  whole or in part, unless as part of a game or similar product.
-    - If you use this material in a game or other product, please give  attribution to Jestan in the credits.
-    - You are free to use this in any commercial / non-commercial product(s).
-
-[Locks](https://dantepixels.itch.io/key-items-16x16)
-    - You can :
-        - Use the assets for non-commercial AND commercial project.
-        - Adapt and/or modify the assets to match your project.
-        - Credit me with my Twitter: @pixelahead
-    - You can NOT:
-        - Distribute or sell those assets directly (even modified).
-        - Claim the asset yours.
-
-[Prison Background Music](https://pixabay.com/sound-effects/a-dungeon-ambience-loop-79423/): Pixabay Content License
-
-*Add moving platform gif*
-<img src="assets/moving_platform.gif">
-
-<img src="https://github.com/user-attachments/assets/ecdf6eb4-ff5b-4a77-ba4a-7002e15b0a0a" width="700">
 
 ## Gameplay Testing
 
