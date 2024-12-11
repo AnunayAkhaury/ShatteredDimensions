@@ -13785,6 +13785,8 @@ unique_name_in_owner = true
 visible = false
 position = Vector2(2608, 554)
 scale = Vector2(2.5, 2.5)
+collision_layer = 513
+collision_mask = 513
 jump_velocity_input = -520
 
 [node name="PlayerBar" type="ProgressBar" parent="CarPlayer"]
@@ -13804,7 +13806,7 @@ position = Vector2(328.571, -135.838)
 scale = Vector2(2.73214, 2.83153)
 
 [node name="TirePile" parent="PoliceBattleElements" instance=ExtResource("7_navjn")]
-z_index = 1
+z_index = -1
 position = Vector2(1480, -98.2659)
 rotation = -0.00798132
 scale = Vector2(1.42924, 1.44442)
@@ -13931,8 +13933,21 @@ script = ExtResource("24_1dmba")
 unique_name_in_owner = true
 position = Vector2(10109, 3065)
 scale = Vector2(30, 30)
+collision_layer = 512
+collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BattleBoundaryRight"]
+position = Vector2(-224.933, -92.2)
+shape = SubResource("RectangleShape2D_4xkm6")
+
+[node name="BattleBoundaryLeft" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(8839, 3076)
+scale = Vector2(30, 30)
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BattleBoundaryLeft"]
 position = Vector2(-224.933, -92.2)
 shape = SubResource("RectangleShape2D_4xkm6")
 

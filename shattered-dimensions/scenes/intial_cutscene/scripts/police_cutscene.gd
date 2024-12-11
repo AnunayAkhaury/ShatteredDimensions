@@ -2,7 +2,7 @@ class_name police_cutscene
 extends Character
 
 
-@export var speed: float = 200.0
+@export var speed: float = 400
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimatedSprite2D.flip_h = true

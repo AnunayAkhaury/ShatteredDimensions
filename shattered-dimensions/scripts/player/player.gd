@@ -330,10 +330,13 @@ func _on_knockback_timer_timeout() -> void:
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	
-	if area is TirePile:
-		return
+	
 	if GlobalVars.car_level_stat == "Battle":
-		var damage = 0
+		if area is TirePile:
+			return
+		if area is Bullet and area.bullet_origin != Characters.Type.POLICE:
+			return
+		var damage = 1
 		if area is Bullet and carlevel_health - damage >= 0:
 			carlevel_health -= damage
 		else:

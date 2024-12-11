@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bi20elyi7vh0r"]
+[gd_scene load_steps=34 format=4 uid="uid://bi20elyi7vh0r"]
 
 [ext_resource type="Texture2D" uid="uid://blxg8nggmmk55" path="res://assets/IntialCutscene/Starry_Night_Itch_Package/Layers_1920x1080/Starry_night_Layer_8.png" id="1_4rb1e"]
 [ext_resource type="Script" path="res://scenes/intial_cutscene/scripts/intialcut_manager.gd" id="1_nonto"]
@@ -14,6 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://dfa85if87aoq2" path="res://assets/IntialCutscene/diamond-sh.png" id="9_ya6ec"]
 [ext_resource type="Texture2D" uid="uid://bxg8ww8xisldm" path="res://assets/IntialCutscene/laser_beam.png" id="11_lq78r"]
 [ext_resource type="Texture2D" uid="uid://bx5b5hnxcxy8f" path="res://assets/IntialCutscene/prison_bars.png" id="14_hpx1g"]
+[ext_resource type="PackedScene" uid="uid://cp6qagch173k0" path="res://scenes/intial_cutscene/dialogue_box.tscn" id="15_sn1se"]
+[ext_resource type="AudioStream" uid="uid://chjyvjmu8408a" path="res://assets/IntialCutscene/Audio/cutscene_sound-[AudioTrimmer.com].mp3" id="16_1j6dw"]
+[ext_resource type="AudioStream" uid="uid://chb1i8bdi2t1s" path="res://assets/IntialCutscene/Audio/cage_sound-[AudioTrimmer.com].mp3" id="16_drfoj"]
+[ext_resource type="AudioStream" uid="uid://478cqxpttsef" path="res://assets/IntialCutscene/Audio/emergency_alarm-[AudioTrimmer.com].mp3" id="16_th4me"]
+[ext_resource type="AudioStream" uid="uid://bykwxyftx1rts" path="res://assets/IntialCutscene/Audio/police_handsup-[AudioTrimmer.com].mp3" id="18_ac5kr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ptiyq"]
 size = Vector2(22.5046, 21.4701)
@@ -4295,8 +4300,8 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_4rb1e")
 
 [node name="Podium" type="Area2D" parent="."]
-position = Vector2(115, 456)
-scale = Vector2(0.15, 0.151)
+position = Vector2(81, 498)
+scale = Vector2(0.09, 0.092)
 
 [node name="Sprite2D" type="Sprite2D" parent="Podium"]
 texture = ExtResource("2_77vwa")
@@ -4317,8 +4322,8 @@ tile_set = SubResource("TileSet_pelg1")
 use_kinematic_bodies = true
 
 [node name="Diamond" type="Node2D" parent="."]
-position = Vector2(-213, -525)
-scale = Vector2(3, 3)
+position = Vector2(-137, -151)
+scale = Vector2(2, 2)
 script = ExtResource("9_7yswq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Diamond"]
@@ -4329,8 +4334,8 @@ frame_progress = 0.0574733
 [node name="StolenDiamond" type="Node2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(-210, -386)
-scale = Vector2(3, 3)
+position = Vector2(-124, -78)
+scale = Vector2(2, 2)
 script = ExtResource("9_7yswq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StolenDiamond"]
@@ -4339,9 +4344,11 @@ sprite_frames = SubResource("SpriteFrames_x8f47")
 frame_progress = 0.0574733
 
 [node name="Characters" type="Node2D" parent="."]
+position = Vector2(602, 263)
+scale = Vector2(0.5, 0.5)
 
 [node name="MainCharacter" parent="Characters" instance=ExtResource("8_81b7f")]
-position = Vector2(1069, 456)
+position = Vector2(-48, 472)
 scale = Vector2(4, 4)
 script = ExtResource("9_52yir")
 speed = 200.0
@@ -4350,18 +4357,18 @@ speed = 200.0
 position = Vector2(1289, 476)
 scale = Vector2(0.15, 0.15)
 script = ExtResource("7_04rod")
-speed = 200.0
+speed = 400.0
 
 [node name="Police1" parent="Characters" instance=ExtResource("6_onoqk")]
 position = Vector2(1217, 476)
 scale = Vector2(0.15, 0.15)
 script = ExtResource("7_04rod")
-speed = 200.0
+speed = 400.0
 
 [node name="Lasers" type="Node2D" parent="."]
-position = Vector2(-80, 36)
+position = Vector2(-34, 202)
 rotation = 2.9092
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="Lasers"]
 position = Vector2(-107.724, -117.982)
@@ -4376,7 +4383,8 @@ texture = ExtResource("11_lq78r")
 [node name="PrisonBars" type="RigidBody2D" parent="."]
 visible = false
 z_index = 2
-position = Vector2(270, 259)
+position = Vector2(190, 262)
+scale = Vector2(0.4, 0.4)
 collision_layer = 4
 collision_mask = 4
 gravity_scale = 0.0
@@ -4390,5 +4398,26 @@ shape = SubResource("RectangleShape2D_8x44w")
 position = Vector2(-2, 1)
 scale = Vector2(0.231633, 0.3)
 texture = ExtResource("14_hpx1g")
+
+[node name="DialogueBox" parent="." instance=ExtResource("15_sn1se")]
+position = Vector2(445, 57)
+
+[node name="cage_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_drfoj")
+volume_db = 7.131
+
+[node name="alarm_sound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(445, 57)
+stream = ExtResource("16_th4me")
+volume_db = 24.0
+
+[node name="background_sound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(445, 57)
+stream = ExtResource("16_1j6dw")
+volume_db = -2.971
+
+[node name="police_handsup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_ac5kr")
+volume_db = 16.64
 
 [connection signal="body_entered" from="Podium" to="." method="_on_podium_body_entered"]
