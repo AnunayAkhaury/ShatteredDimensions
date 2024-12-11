@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://c37auavbmu8ye"]
 
-[ext_resource type="Script" path="res://scripts/car/labels/lives.gd" id="1_2d2rn"]
+[ext_resource type="Script" path="res://scripts/car/labels/lives.gd" id="1_7bq3f"]
 
-[node name="Lives" type="Label"]
+[node name="KillCount" type="Label"]
 offset_top = -1.0
 offset_right = 110.0
 offset_bottom = 27.0
@@ -15,4 +15,4 @@ theme_override_constants/shadow_outline_size = -2
 theme_override_font_sizes/font_size = 20
 text = "Lives: 20"
 horizontal_alignment = 1
-script = ExtResource("1_2d2rn")
+script = ExtResource("1_7bq3f")

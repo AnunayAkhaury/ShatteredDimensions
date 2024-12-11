@@ -25,7 +25,7 @@ func _is_within_shoot_radius() -> bool:
 
 func _shoot() -> void:
 	var cur_bullet = bullet.instantiate() as Bullet
-	cur_bullet.damage = 5
+	cur_bullet.damage = 10
 	cur_bullet.bullet_origin = Characters.Type.ENEMY
 	cur_bullet.start_pos = position
 	cur_bullet.target_pos = car.position

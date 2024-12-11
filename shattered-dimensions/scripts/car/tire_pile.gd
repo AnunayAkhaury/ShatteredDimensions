@@ -10,7 +10,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.queue_free()
-		visible = false
 		%Car/Player.visible = true
 		%Car.input_enabled = true
+		queue_free()
 	return # Replace with function body.
