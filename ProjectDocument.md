@@ -230,7 +230,7 @@ I used AudioStreamPlayers in all the relevant levels for playing audio
 
 *Path Planning* - The movement and planning process for the enemies in the platformer were based on what we learned in class about Game AI and understanding how, when, and where the enemy would go and what actions it would take. Though the platformer only had very simple enemies, it was still necessary for some of the special enemy types such as the pea shooter, thwomp, and circling rocks to have a planned path and correct execution. Using the class concepts was necessary to achieve that.
 
-*Factory Pattern* - The movement and planning process for the enemies in the platformer were based on what we learned in class about Game AI and understanding how, when, and where the enemy would go and what actions it would take. Though the platformer only had very simple enemies, it was still necessary for some of the special enemy types such as the pea shooter, thwomp, and circling rocks to have a planned path and correct execution. Using the class concepts was necessary to achieve that.
+*Factory Pattern* - The Raising Spike Factory is based on the factory pattern we learned in exercise 3. I used a very similar process with a spawn function that instantiated the packed scene which stored the raising spike block and waited a set amount of time before instantiating the next one so it would constantly spawn at a fixed rate. This was similar to the time schedule we needed to implement for the testing part of the final stage in exercise 3.
 
 ## Run and Gun Level  
 
