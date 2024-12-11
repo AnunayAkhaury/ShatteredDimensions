@@ -22,7 +22,7 @@ func _on_area_entered(object: Area2D) -> void:
 		object.queue_free()
 		
 	if object is Health:
-		owner.health = clampi(owner.health + 50, 0, 100)
+		owner.health = clampi(owner.health + 25, 0, 100)
 		object.queue_free()
 		
 	if object is KeyCheckpoint:
@@ -42,7 +42,7 @@ func _on_area_entered(object: Area2D) -> void:
 		player.visible = true
 		object.queue_free()
 		
-	if object is Traps_Two:
+	if object is Spike:
 		owner.movement_enabled = false
 		owner.health = 0
 		

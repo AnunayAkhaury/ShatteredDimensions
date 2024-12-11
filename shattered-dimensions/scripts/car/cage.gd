@@ -8,7 +8,7 @@ func _init() -> void:
 	area_entered.connect(_on_area_entered)
 	
 func _on_area_entered(missile: Missile) -> void:
-	health -= 10
+	health -= 100
 	if health <= 0:
 		var explosion = get_child(2)
 		explosion.visible = true

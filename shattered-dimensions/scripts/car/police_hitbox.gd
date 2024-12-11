@@ -8,12 +8,12 @@ func _init() -> void:
 	
 func _on_area_entered(object: Area2D) -> void:	
 	if GlobalVars.car_level_stat == 'Battle':
-		if object is Bullet and object.bullet_origin == Characters.Type.PLAYER:
-			if owner.health - damage >= 0:
+		if object is Bullet and object.bullet_origin == Characters.Type.PLAYER:	
+			if owner.health > 0:
 				owner.health -= damage
-			else:
-				owner.health = 0
-				owner.killed = true
+				if owner.health <= 0:
+					owner.health = 0
+					owner.killed = true
 	
 	
 	

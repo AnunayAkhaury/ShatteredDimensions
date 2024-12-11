@@ -3,16 +3,18 @@ extends Vehicle
 
 var _RESPAWN_DELAY: float = 2
 var _BOOST_SPEED_TIME: float = 2
+var _MIN_KILL_FOR_MISSILE = 5
 var _respawn_timer: Timer
 var _bullet_damage: float
 var _caught_by_police: bool
 
+var kills_until_missile: int
 var kill_count: int
 var boost_speed: bool
 var boost_speed_time: float
 var movement_enabled: bool = true
 var input_enabled: bool = true
-var is_missile_enabled: bool = false
+var is_missile_enabled: bool
 
 @onready var bullet = preload("res://scenes/car/bullet.tscn")
 @onready var missile = preload("res://scenes/car/missile.tscn")
@@ -23,6 +25,9 @@ func _init() -> void:
 	character_type = Characters.Type.PLAYER_CAR
 	boost_speed = false
 	boost_speed_time = _BOOST_SPEED_TIME
+	kills_until_missile = _MIN_KILL_FOR_MISSILE
+	is_missile_enabled = false
+
 
 	_speed = 600
 	_max_speed = 40
@@ -39,6 +44,7 @@ func _init() -> void:
 func _ready() -> void:
 	GlobalVars.car_level_stat = "Car Level Entered"
 	_wheels = [%FrontWheel, %BackWheel]
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:	
 	if not movement_enabled:
@@ -50,17 +56,18 @@ func _physics_process(delta: float) -> void:
 		stop_car()
 	else:	
 		if Input.is_action_pressed("move_right"):
-			#start_tires()
 			for wheel in _wheels:
 				if wheel.angular_velocity < _max_speed:
 					wheel.apply_torque_impulse(_speed * delta * 60)
 		
 		if Input.is_action_pressed("move_left"):
-			#start_tires()
 			for wheel in _wheels:
 				if wheel.angular_velocity >  -_max_speed:
 					wheel.apply_torque_impulse(-_speed * delta * 60)
-					
+			
+		if Input.is_action_just_pressed("enable_missile") and kills_until_missile == 0:
+			is_missile_enabled = !is_missile_enabled
+			
 		if Input.is_action_just_pressed("shoot"):
 			_shoot()
 				
@@ -84,10 +91,7 @@ func _physics_process(delta: float) -> void:
 	
 func _shoot() -> void:
 	if is_missile_enabled:
-		var cur_bullet = missile.instantiate() as Missile
-		cur_bullet.start_pos = position + Vector2(30, -90)
-		cur_bullet.target_pos = get_global_mouse_position()
-		add_sibling(cur_bullet)
+		_shoot_missile()
 	else:
 		var cur_bullet = bullet.instantiate() as Bullet
 		cur_bullet.damage = _bullet_damage
@@ -96,11 +100,16 @@ func _shoot() -> void:
 		cur_bullet.target_pos = get_global_mouse_position()
 		add_sibling(cur_bullet)
 	
+func _shoot_missile() -> void:
+	var cur_bullet = missile.instantiate() as Missile
+	cur_bullet.start_pos = position + Vector2(30, -90)
+	cur_bullet.target_pos = get_global_mouse_position()
+	add_sibling(cur_bullet)
+	is_missile_enabled = false
+	kills_until_missile = _MIN_KILL_FOR_MISSILE
+
 func respawn() -> void:
 	GlobalVars.car_lives -= 1
-	#print(input_enabled)
-	#print("RESPAWN: ", GlobalVars.car_lives)
-	#print(GlobalVars.car_level_stat)
 	health = 100
 	if _caught_by_police:
 		get_tree().change_scene_to_file("res://scenes/car/player_arrest.tscn")

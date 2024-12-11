@@ -10,6 +10,5 @@ func _on_body_entered(van: SwatVan) -> void:
 	if !van._defeated_by_player and owner.has_method("take_damage"):
 		owner.take_damage(100)
 		if van.health > 0:
-			print("CRASH SUCCESS")
 			van.take_damage(100)
 			owner._caught_by_police = true
