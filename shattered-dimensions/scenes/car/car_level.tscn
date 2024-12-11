@@ -13709,47 +13709,14 @@ scale = Vector2(1, 0.988)
 
 [node name="SwatVan" parent="." instance=ExtResource("4_pn4bw")]
 unique_name_in_owner = true
-position = Vector2(66, 464)
+position = Vector2(104, 402)
 collision_layer = 3
 collision_mask = 3
 
-[node name="PoliceOfficer" parent="." instance=ExtResource("6_l3s77")]
-position = Vector2(3035, 556)
-scale = Vector2(0.08, 0.08)
-
-[node name="CarPlayer" parent="." instance=ExtResource("7_mx8p4")]
+[node name="PlayerBattleLocation" type="Node2D" parent="."]
 unique_name_in_owner = true
-visible = false
-position = Vector2(2608, 554)
-scale = Vector2(2.5, 2.5)
-jump_velocity_input = -520
-
-[node name="PlayerBar" type="ProgressBar" parent="CarPlayer"]
-unique_name_in_owner = true
-offset_left = -16.8
-offset_top = -26.0
-offset_right = 67.2
-offset_bottom = 1.0
-scale = Vector2(0.414105, 0.344)
-
-[node name="PoliceBattleElements" type="Node2D" parent="."]
-position = Vector2(2482, 606)
-scale = Vector2(0.35, 0.346)
-
-[node name="PlayerBattleLocation" type="Node2D" parent="PoliceBattleElements"]
-unique_name_in_owner = true
-position = Vector2(328.571, -135.838)
-scale = Vector2(2.73214, 2.83153)
-
-[node name="TirePile" parent="PoliceBattleElements" instance=ExtResource("7_navjn")]
-z_index = 1
-position = Vector2(1928.57, -153.179)
-rotation = -0.204983
-scale = Vector2(1.42924, 1.44442)
-skew = 0.00453341
-
-[node name="Traps" parent="PoliceBattleElements" instance=ExtResource("5_0vm44")]
-unique_name_in_owner = true
+position = Vector2(2597, 559)
+scale = Vector2(0.95625, 0.979708)
 
 [node name="ExtraElements" type="Node2D" parent="."]
 
@@ -13790,9 +13757,45 @@ script = ExtResource("26_mlarx")
 position = Vector2(163, 1151)
 shape = SubResource("RectangleShape2D_wekmw")
 
-[node name="Car" parent="." groups=["car"] instance=ExtResource("4_4lvlx")]
+[node name="Car" parent="." instance=ExtResource("4_4lvlx")]
 unique_name_in_owner = true
-position = Vector2(447, 456)
+position = Vector2(542, 446)
+
+[node name="PoliceOfficer" parent="." instance=ExtResource("6_l3s77")]
+unique_name_in_owner = true
+position = Vector2(2912, 555)
+scale = Vector2(0.08, 0.08)
+
+[node name="CarPlayer" parent="." instance=ExtResource("7_mx8p4")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(2608, 554)
+scale = Vector2(2.5, 2.5)
+collision_layer = 513
+collision_mask = 513
+jump_velocity_input = -520
+
+[node name="PlayerBar" type="ProgressBar" parent="CarPlayer"]
+unique_name_in_owner = true
+offset_left = -16.8
+offset_top = -26.0
+offset_right = 67.2
+offset_bottom = 1.0
+scale = Vector2(0.414105, 0.344)
+
+[node name="PoliceBattleElements" type="Node2D" parent="."]
+position = Vector2(2482, 606)
+scale = Vector2(0.35, 0.346)
+
+[node name="TirePile" parent="PoliceBattleElements" instance=ExtResource("7_navjn")]
+z_index = -1
+position = Vector2(1480, -98.2659)
+rotation = -0.00798132
+scale = Vector2(1.42924, 1.44442)
+skew = 0.00453341
+
+[node name="Traps" parent="PoliceBattleElements" instance=ExtResource("5_0vm44")]
+unique_name_in_owner = true
 
 [node name="CarCamera" parent="." instance=ExtResource("10_7ovoo")]
 unique_name_in_owner = true
@@ -13900,23 +13903,30 @@ to get spare tires for the car!
 "
 
 [node name="GunAimer" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("23_8ecqp")
 script = ExtResource("24_1dmba")
 
-[node name="RightBoundary" type="StaticBody2D" parent="."]
-position = Vector2(6444, 3112)
+[node name="BattleBoundaryRight" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(10109, 3065)
 scale = Vector2(30, 30)
+collision_layer = 512
+collision_mask = 512
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary"]
-position = Vector2(352.567, -66)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BattleBoundaryRight"]
+position = Vector2(-224.933, -92.2)
 shape = SubResource("RectangleShape2D_4xkm6")
 
-[node name="LeftBoundary" type="StaticBody2D" parent="."]
-position = Vector2(6444, 3112)
+[node name="BattleBoundaryLeft" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(8839, 3076)
 scale = Vector2(30, 30)
+collision_layer = 512
+collision_mask = 512
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BattleBoundaryLeft"]
 position = Vector2(-224.933, -92.2)
 shape = SubResource("RectangleShape2D_4xkm6")
 

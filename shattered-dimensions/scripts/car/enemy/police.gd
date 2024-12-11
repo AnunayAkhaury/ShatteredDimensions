@@ -15,20 +15,21 @@ func _ready() -> void:
 	$AnimatedSprite2D.play("idle")
 
 func _physics_process(delta: float) -> void:
-	
 	if killed:
 		$AnimatedSprite2D.play("dead")
+		await get_tree().create_timer(1.0).timeout
 		queue_free()
-		GlobalVars.car_level_stat = "Player Won"
+		GlobalVars.car_level_stat = "Battle Over"
+		
 		return 
 	%PoliceHealth.value = health
-	# Apply gravity if not on the floor
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
 	move_and_slide()
 	
-	if GlobalVars.car_level_stat == 'battle':
+	if GlobalVars.car_level_stat == 'Battle':
 		shoot_timer -= delta
 		if shoot_timer <= 0:
 			shoot_player(%CarPlayer)
@@ -56,12 +57,13 @@ func stop()-> void:
 	$AnimatedSprite2D.play("idle")
 
 func shoot_player(target: Character)-> void:
-	var cur_bullet = bullet.instantiate() as Bullet
-	cur_bullet.damage = 10
-	cur_bullet.bullet_origin = Characters.Type.POLICE
-	cur_bullet.start_pos = global_position
-	cur_bullet.target_pos = target.global_position
-	add_sibling(cur_bullet)
+	if not killed:
+		var cur_bullet = bullet.instantiate() as Bullet
+		cur_bullet.damage = 10
+		cur_bullet.bullet_origin = Characters.Type.POLICE
+		cur_bullet.start_pos = global_position
+		cur_bullet.target_pos = target.global_position
+		add_sibling(cur_bullet)
 	   
 func follow(target: Character):
 	var distance = target.position.x - position.x

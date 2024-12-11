@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://0n8jr3oavnss"]
+[gd_scene load_steps=114 format=3 uid="uid://0n8jr3oavnss"]
 
 [ext_resource type="Texture2D" uid="uid://blhgghbmad2fq" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/hurt/1_police_Hurt_000.png" id="1_0jk5b"]
 [ext_resource type="Script" path="res://scripts/car/enemy/police.gd" id="1_tuh3i"]
@@ -12,17 +12,26 @@
 [ext_resource type="Texture2D" uid="uid://dfrkx6gwmc8ob" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack3/1_police_attack_Attack3_003.png" id="5_hviqa"]
 [ext_resource type="Texture2D" uid="uid://c80rlepdk3w0x" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/hurt/1_police_Hurt_005.png" id="6_du5n5"]
 [ext_resource type="Texture2D" uid="uid://d33l42sa2nrmh" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack3/1_police_attack_Attack3_004.png" id="6_duw0j"]
-[ext_resource type="Texture2D" uid="uid://daf7u8e1ickbm" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack3/1_police_attack_Attack3_005.png" id="7_4g884"]
 [ext_resource type="Texture2D" uid="uid://dfnlu322f12pu" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/hurt/1_police_Hurt_006.png" id="7_abj04"]
+[ext_resource type="Texture2D" uid="uid://stcuds2t4d55" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_000.png" id="8_1haev"]
 [ext_resource type="Texture2D" uid="uid://bpcer7w155dvr" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/hurt/1_police_Hurt_007.png" id="8_14ihe"]
 [ext_resource type="Texture2D" uid="uid://7obtxc3oskbh" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/hurt/1_police_Hurt_008.png" id="9_2ovhx"]
+[ext_resource type="Texture2D" uid="uid://uhp5aaarewp" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_001.png" id="9_05ta7"]
+[ext_resource type="Texture2D" uid="uid://dv8q637pu4pyf" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_002.png" id="10_k8n8c"]
 [ext_resource type="Texture2D" uid="uid://c3qaaun4e30qn" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/idle/1_police_Idle_000.png" id="10_l725t"]
 [ext_resource type="Texture2D" uid="uid://bbswo80d0laeg" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/idle/1_police_Idle_001.png" id="11_7c2e3"]
+[ext_resource type="Texture2D" uid="uid://bvneuf33ej264" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_003.png" id="11_ky2j6"]
 [ext_resource type="Texture2D" uid="uid://doarj3sroxory" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/idle/1_police_Idle_002.png" id="12_2ieas"]
+[ext_resource type="Texture2D" uid="uid://b55wv0mtthqt4" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_004.png" id="12_xynak"]
 [ext_resource type="Texture2D" uid="uid://bb12muuxsuoqg" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/idle/1_police_Idle_003.png" id="13_s43pr"]
+[ext_resource type="Texture2D" uid="uid://bxcfia8mjp62h" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_005.png" id="13_t6wkh"]
 [ext_resource type="Texture2D" uid="uid://dm13m74ljhln3" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/idle/1_police_Idle_004.png" id="14_c7bdy"]
+[ext_resource type="Texture2D" uid="uid://dlgqvacpxomvu" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_006.png" id="14_vbrtj"]
 [ext_resource type="Texture2D" uid="uid://d3vu87tma7cci" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/idle/1_police_Idle_005.png" id="15_bhtqm"]
+[ext_resource type="Texture2D" uid="uid://43pm70e3m551" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_007.png" id="15_ok2jw"]
+[ext_resource type="Texture2D" uid="uid://bjbvsjmvtpaue" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_008.png" id="16_126fn"]
 [ext_resource type="Texture2D" uid="uid://broefskq0ax6j" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/idle/1_police_Idle_006.png" id="16_u65eq"]
+[ext_resource type="Texture2D" uid="uid://3upg3hluudop" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/attack1/1_police_attack_Attack1_009.png" id="17_4lgks"]
 [ext_resource type="Texture2D" uid="uid://cl2q36syg5xsd" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/idle/1_police_Idle_007.png" id="17_oivdu"]
 [ext_resource type="Texture2D" uid="uid://bvkvlaawkbrhs" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/jump/1_police_Jump_000.png" id="18_qlnc0"]
 [ext_resource type="Texture2D" uid="uid://cqih6hgqc1f13" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/jump/1_police_Jump_001.png" id="19_2a6q1"]
@@ -68,9 +77,45 @@ region = Rect2(0, 0, 982, 1208)
 atlas = ExtResource("6_duw0j")
 region = Rect2(0, 0, 982, 1208)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pup5c"]
-atlas = ExtResource("7_4g884")
-region = Rect2(0, 0, 982, 1208)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghcd3"]
+atlas = ExtResource("8_1haev")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuv3r"]
+atlas = ExtResource("9_05ta7")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbeqe"]
+atlas = ExtResource("10_k8n8c")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt5od"]
+atlas = ExtResource("11_ky2j6")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi8bq"]
+atlas = ExtResource("12_xynak")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4ubo"]
+atlas = ExtResource("13_t6wkh")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ba3yq"]
+atlas = ExtResource("14_vbrtj")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4601u"]
+atlas = ExtResource("15_ok2jw")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do6lj"]
+atlas = ExtResource("16_126fn")
+region = Rect2(0, 0, 982, 1218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4egr"]
+atlas = ExtResource("17_4lgks")
+region = Rect2(0, 0, 982, 1218)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ni37h"]
 atlas = ExtResource("1_0jk5b")
@@ -245,13 +290,45 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tfioi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pup5c")
 }],
 "loop": false,
 "name": &"attack",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghcd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuv3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbeqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt5od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi8bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4ubo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ba3yq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4601u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_do6lj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4egr")
+}],
+"loop": true,
+"name": &"attack_batton",
+"speed": 17.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -418,12 +495,12 @@ flip_h = true
 script = ExtResource("47_d4qw4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OfficerHitBox"]
-position = Vector2(210, 35)
+position = Vector2(55, -55)
 scale = Vector2(60, 60)
 shape = SubResource("CapsuleShape2D_bvubj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(225.625, 28.7505)
+position = Vector2(55, -70)
 scale = Vector2(60, 60)
 shape = SubResource("RectangleShape2D_yuru7")
 
