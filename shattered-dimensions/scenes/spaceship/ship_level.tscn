@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://vgt7alglvxgx" path="res://assets/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Shields/PNGs/Main Ship - Shields - Round Shield.png" id="13_08rg7"]
 [ext_resource type="Script" path="res://scripts/spaceship/camera.gd" id="14_ptu70"]
 [ext_resource type="PackedScene" uid="uid://rsdk8mltfkpq" path="res://scenes/spaceship/asteroid_1.tscn" id="15_1p6lo"]
-[ext_resource type="Texture2D" uid="uid://cv6m44l5ewpdn" path="res://assets/3DS - Regular Show Mordecai and Rigby in 8-Bit Land - UFO.png" id="15_qh4k3"]
+[ext_resource type="Texture2D" uid="uid://bdjjb4ju66nnf" path="res://assets/ufo2.png" id="15_ga87y"]
 [ext_resource type="PackedScene" uid="uid://c6dxcam5a1ip3" path="res://scenes/spaceship/asteroid_2.tscn" id="16_yoa8q"]
 [ext_resource type="PackedScene" uid="uid://dbcgmomj13fhn" path="res://scenes/spaceship/enemy.tscn" id="19_1l8wj"]
 [ext_resource type="AudioStream" uid="uid://db2qwt340yvcs" path="res://assets/space-72679.mp3" id="20_3ep5y"]
@@ -930,25 +930,39 @@ text = "YOU LOST!"
 [node name="KillCount" type="Node2D" parent="Camera2D"]
 
 [node name="UFO1" type="Sprite2D" parent="Camera2D/KillCount"]
-position = Vector2(431, -254)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("15_qh4k3")
+position = Vector2(408.75, -254.5)
+scale = Vector2(0.1325, 0.271428)
+texture = ExtResource("15_ga87y")
 region_enabled = true
-region_rect = Rect2(6.5, 41.75, 43.5, 32)
+region_rect = Rect2(-0.75, 0.832001, 200, 70.5)
 
 [node name="UFO2" type="Sprite2D" parent="Camera2D/KillCount"]
-position = Vector2(480, -254)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("15_qh4k3")
+position = Vector2(441.875, -254.5)
+scale = Vector2(0.14125, 0.271429)
+texture = ExtResource("15_ga87y")
 region_enabled = true
-region_rect = Rect2(6.5, 41.75, 43.5, 32)
+region_rect = Rect2(-0.75, 0.832001, 200, 70.5)
 
 [node name="UFO3" type="Sprite2D" parent="Camera2D/KillCount"]
-position = Vector2(526, -254)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("15_qh4k3")
+position = Vector2(477.25, -254)
+scale = Vector2(0.1375, 0.257143)
+texture = ExtResource("15_ga87y")
 region_enabled = true
-region_rect = Rect2(6.5, 41.75, 43.5, 32)
+region_rect = Rect2(-0.75, 0.832001, 200, 70.5)
+
+[node name="UFO4" type="Sprite2D" parent="Camera2D/KillCount"]
+position = Vector2(509.75, -253.5)
+scale = Vector2(0.1325, 0.271428)
+texture = ExtResource("15_ga87y")
+region_enabled = true
+region_rect = Rect2(-0.75, 0.832001, 200, 70.5)
+
+[node name="UFO5" type="Sprite2D" parent="Camera2D/KillCount"]
+position = Vector2(541.75, -253.5)
+scale = Vector2(0.1325, 0.271428)
+texture = ExtResource("15_ga87y")
+region_enabled = true
+region_rect = Rect2(-0.75, 0.832001, 200, 70.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1095,7 +1109,7 @@ offset_top = -175.0
 offset_right = 34.0
 offset_bottom = -126.0
 text = "Press the space bar to shoot missles at the UFOs!
-You must kill 3 to win!"
+You must kill 5 to win!"
 
 [node name="Label3" type="Label" parent="Labels"]
 offset_left = 1154.0

@@ -608,9 +608,6 @@ I was able to use the skills I developed with working on Exercise 1 to design my
     - **Laser Blast**: sourced from spritesheet
     - **UFO Movement**: sourced from spritesheet
     - **Powerup**: sourced from spritesheet
-  
-
-*Add videos of animations + background*
 
 **Assets**
 
@@ -802,7 +799,7 @@ Once all keys are unlocked, the player has won the game!
 
 [Prison Background Music](https://pixabay.com/sound-effects/a-dungeon-ambience-loop-79423/): Pixabay Content License
 
-*Add video of prison w/ moving platform*
+*Add moving platform gif*
 
 <img src="https://github.com/user-attachments/assets/ecdf6eb4-ff5b-4a77-ba4a-7002e15b0a0a" width="700">
 
