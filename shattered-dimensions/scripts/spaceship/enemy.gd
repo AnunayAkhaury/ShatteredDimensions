@@ -16,8 +16,8 @@ func _process(delta: float) -> void:
 	
 	# remove enemy from tree if dead
 	if healthLevel <= 0:
-		queue_free()
 		get_parent().get_parent().get_node("Camera2D").get_node("KillCount").get_children()[-1].queue_free()
+		queue_free()
 		
 	# UFO constant movement functionality
 	if position.y<=originalPosition.y - 750:
@@ -35,8 +35,13 @@ func _process(delta: float) -> void:
 	if camera.position.x + 500 >= position.x and abs(camera.position.y-position.y)<=250 and delay==75:
 		var blast = blastScene.instantiate() as LaserBlast
 		get_parent().add_child(blast)
+		$Sound.play()
 		blast.position = position
 		startDelay = true
+		
+	# remove UFO if spaceship has already passed it
+	if camera.position.x - 650 >= position.x:
+		queue_free()
 		
 	# handle delay between each blast
 	if startDelay:

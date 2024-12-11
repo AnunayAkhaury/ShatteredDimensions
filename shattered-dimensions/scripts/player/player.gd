@@ -36,6 +36,7 @@ var spaceshipCompleted = GlobalVars.spaceshipCompleted
 @onready var hurtbox : Area2D = $Hurtbox
 @onready var shoot_cooldown_timer : Timer = $ShootCoolDownTimer
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var invunerable_timer: Timer = $InvunerableTimer
 
 
 @export var knockback_force: float = 300 
@@ -52,6 +53,8 @@ var crouching: bool = false
 var original_hit_box_shape : int
 var original_hit_box_y : int
 var can_shoot: bool = true
+var is_invulnerable: bool = false 
+var cutscene_state : bool = false
 
 #VARIABLE FOR CAR-LEVEL
 var character_type : Characters.Type
@@ -68,12 +71,16 @@ enum STATE {
 	RUN_SHOOT,
 	JUMP
 }
+# Sound Effects
 
-
-
+@onready var item_pick_up_audio: AudioStreamPlayer2D = $ItemPickUpAudio
+@onready var shooting_audio: AudioStreamPlayer2D = $ShootingAudio
 @onready var jump_audio: AudioStreamPlayer = $JumpAudio
 @onready var trampoline_audio: AudioStreamPlayer = $TrampolineAudio
 @onready var death_audio: AudioStreamPlayer = $DeathAudio
+@onready var damge_audio: AudioStreamPlayer2D = $DamgeAudio
+@onready var run_gun_death_audio: AudioStreamPlayer2D = $RunGunDeathAudio
+@onready var dialogue_box: Control = $DialogueBox
 
 func _ready():
 	if GlobalVars.car_level_stat == "Car Level Entered":
@@ -85,7 +92,8 @@ func _ready():
 	original_hit_box_y = hitbox.position.y
 	shoot_cooldown_timer.wait_time = shoot_cooldown	
 	jump_velocity = jump_velocity_input
-
+	HealthManager.on_health_increased.connect(_on_health_increased)
+	
 func _physics_process(delta: float):
 	#print(player_killed)
 	if GlobalVars.car_level_stat == 'Car Level Entered':
@@ -99,6 +107,11 @@ func _physics_process(delta: float):
 			GlobalVars.car_level_stat == 'Battle Over'
 			return
 	
+	if cutscene_state:
+		_apply_gravity(delta)
+		move_and_slide()
+		return
+		
 	if Global.run_gun:
 		jump_velocity_input = -445
 	else:
@@ -158,6 +171,7 @@ func _physics_process(delta: float):
 		else:
 			current_state = STATE.SHOOT
 			shoot.execute(self)
+		shooting_audio.play()
 		shoot_cooldown_timer.start()
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or double_jump):
 		if on_trampoline:
@@ -197,68 +211,9 @@ func platformer_respawn():
 		position.x = 67
 		position.y = 590
 
-#func take_damage(damage:int) -> void:
-	#health -= damage
-	#_damaged = true
-	#if 0 >= health:
-		#_play($Audio/defeat)
-		#_dead = true
-		#animation_tree.active = false
-		#animation_player.play("death")
-	#else:
-		#_play($Audio/hurt)
-
-
-#Logic to support the state machine in the AnimationTree
-#func _manage_animation_tree_state() -> void:
-	#if !is_zero_approx(velocity.x):
-		#animation_tree["parameters/conditions/idle"] = false
-		#animation_tree["parameters/conditions/moving"] = true
-	#else:
-		#animation_tree["parameters/conditions/idle"] = true
-		#animation_tree["parameters/conditions/moving"] = false
-	#
-	#if is_on_floor():
-		#animation_tree["parameters/conditions/jumping"] = false
-		#animation_tree["parameters/conditions/on_floor"] = true
-	#else:
-		#animation_tree["parameters/conditions/jumping"] = true
-		#animation_tree["parameters/conditions/on_floor"] = false
-	#
-	##toggles
-	#if attacking:
-		#animation_tree["parameters/conditions/attacking"] = true
-		#attacking = false
-	#else:
-		#animation_tree["parameters/conditions/attacking"] = false
-	#
-	#if sword_up:
-		#animation_tree["parameters/conditions/sword_up"] = true
-		#sword_up = false
-	#else:
-		#animation_tree["parameters/conditions/sword_up"] = false
-		#
-	#if _damaged:
-		#animation_tree["parameters/conditions/damaged"] = true
-		#_damaged = false
-	#else:
-		#animation_tree["parameters/conditions/damaged"] = false
-
-
-#func command_callback(cmd_name:String) -> void:
-	#if "attack" == cmd_name:
-		#_play($Audio/attack)
-		#
-	#if "jump" == cmd_name:
-		#_play($Audio/jump)
-		#
-	#if "engage" == cmd_name:
-		#_play($Audio/engage)
-		#
-	#if "undeath" == cmd_name:
-		#_play($Audio/undeath)
-
 func bind_player_input_commands():
+	velocity.x = 0
+	velocity.y = 0
 	right_cmd = MoveRightCommand.new()
 	left_cmd = MoveLeftCommand.new()
 	up_cmd = JumpCommand.new()
@@ -290,8 +245,6 @@ func update_amination():
 		sprite_2d.play('idle')
 	elif current_state == STATE.RUN and sprite_2d.animation != 'run_gun':
 		sprite_2d.play('run')
-	elif current_state == STATE.JUMP:
-		sprite_2d.play('jump')
 	elif current_state == STATE.RUN_SHOOT:
 		sprite_2d.play('run_gun')
 	elif current_state ==  STATE.SHOOT:
@@ -305,12 +258,14 @@ func update_muzzle_position():
 		muzzle.position.x = -abs(muzzle_position.x)  
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemy") and not knockback_active:
+	if body.is_in_group("enemy") and not knockback_active and not is_invulnerable:
+		start_invulnerability()
 		var knockback_direction: Vector2 = (position - body.position).normalized()
 		velocity = knockback_direction * knockback_force
 		knockback_active = true
 		knockback_timer.start(0.33)
-		HitAnimationPlayer.play("hit_flash")
+		#HitAnimationPlayer.play("hit_flash")
+		damge_audio.play()
 		HealthManager.decrease_health(body.damage_amount)
 	if HealthManager.current_health <= 0:
 		player_death()
@@ -320,8 +275,10 @@ func player_death() -> void:
 	player_death_instance.global_position = global_position
 	get_parent().add_child(player_death_instance)
 	queue_free()
-			
-	
+
+func _on_health_increased():
+	item_pick_up_audio.play()
+
 	
 func _on_knockback_timer_timeout() -> void:
 	knockback_active = false
@@ -343,21 +300,25 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			carlevel_health = 0
 			player_killed = true
 			return
-	if area.is_in_group("ComboHitBox"):
+	if area.is_in_group("ComboHitBox") and not is_invulnerable:
+		start_invulnerability()
 		var knockback_direction: Vector2 = (position - area.global_position).normalized()
 		velocity = knockback_direction * knockback_force
 		knockback_active = true
 		knockback_timer.start(0.15)
-		HitAnimationPlayer.play("hit_flash")
+		#HitAnimationPlayer.play("hit_flash")
+		damge_audio.play()
 		HealthManager.decrease_health(area.damage_amount)
 			
-	if area.get_parent().has_method("get_enemyproj_amount") and not knockback_active:
+	if area.get_parent().has_method("get_enemyproj_amount") and not knockback_active and not is_invulnerable:
+		start_invulnerability()
 		var node = area.get_parent() as Node
 		var knockback_direction: Vector2 = (global_position - area.global_position).normalized()
 		velocity = knockback_direction * knockback_force
 		knockback_active = true
 		knockback_timer.start(0.15)
-		HitAnimationPlayer.play("hit_flash")
+		#HitAnimationPlayer.play("hit_flash")
+		damge_audio.play()
 		HealthManager.decrease_health(node.damage_amount)
 	if HealthManager.current_health <= 0:
 		player_death()
@@ -393,12 +354,12 @@ func set_bullet_type(new_bullet: PackedScene) -> void:
 
 func _on_platformer_body_entered(body: Node2D) -> void:
 	if not platformerCompleted:
-		get_tree().change_scene_to_file("res://scenes/platformer/difficulty_selector.tscn")
+		get_tree().change_scene_to_file("res://scenes/platformer/platformer_controls.tscn")
 
 
 func _on_shooter_body_entered(body: Node2D) -> void:
 	if not shooterCompleted:
-		get_tree().change_scene_to_file("res://scenes/run_gun/level1/level1.tscn")
+		get_tree().change_scene_to_file("res://scenes/run_gun/rungun_controls.tscn")
 		
 func _on_car_body_entered(body: Node2D) -> void:
 	if not carCompleted:
@@ -408,3 +369,11 @@ func _on_car_body_entered(body: Node2D) -> void:
 func _on_spaceship_body_entered(body: Node2D) -> void:
 	if not spaceshipCompleted:
 		get_tree().change_scene_to_file("res://scenes/spaceship/ship_level.tscn")
+
+func start_invulnerability() -> void:
+	is_invulnerable = true
+	HitAnimationPlayer.play("hit_flashing")
+	invunerable_timer.start()
+	
+func _on_invunerable_timer_timeout() -> void:
+	is_invulnerable = false

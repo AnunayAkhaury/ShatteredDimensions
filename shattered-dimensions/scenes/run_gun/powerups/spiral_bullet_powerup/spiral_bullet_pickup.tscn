@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://i63jkyqe4nn"]
+[gd_scene load_steps=9 format=3 uid="uid://i63jkyqe4nn"]
 
 [ext_resource type="Texture2D" uid="uid://csccedf0evor1" path="res://assets/Legacy Collection/Legacy Collection/Assets/Packs/grotto_escape_pack/Base pack/Spritesheets/items.png" id="1_0wcxy"]
 [ext_resource type="Script" path="res://scripts/run_gun/powerups/spiral_bullet_pickup.gd" id="1_vi5mt"]
+[ext_resource type="AudioStream" uid="uid://drkwnnmgomhcf" path="res://assets/Anunay's Sounds/itempickup.wav" id="3_wt1id"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dyjlw"]
 atlas = ExtResource("1_0wcxy")
@@ -53,6 +54,9 @@ shape = SubResource("CircleShape2D_fihkm")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
+
+[node name="ItemPickUpAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wt1id")
 
 [connection signal="body_entered" from="Item{PickUp" to="." method="_on_item_pick_up_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

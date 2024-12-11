@@ -1,21 +1,32 @@
 extends BaseEnemy
 class_name MechanicBoss
-@export var follow_distance: float = 400
-@export var leash_distance: float = 800  
+
+@export var follow_distance: float = 600
+@export var leash_distance: float = 1000  
 @export var shoot_distance: float = 500  
 @export var shoot_interval: float = 2.0  
 @export var attack_distance: float = 50  
 @export var jump_threshold: float = 50   
 @export var ScoutSummonPoints: Node
 @export var SentinalSummonPoints: Node
+@export var shoot_cooldown: float = 3
+
 @onready var attack_timer: Timer = $AttackTimer
 @onready var muzzle: Marker2D = $Muzzle
 @onready var combo_hit_box: Area2D = $ComboHitBox
 @onready var summon_timer: Timer = $SummonTimer
 @onready var heath_marker: Marker2D = $"../HeathMarker"
+@onready var shoot_audio: AudioStreamPlayer2D = $ShootAudio
+@onready var summon_audio: AudioStreamPlayer2D = $SummonAudio
+@onready var boss_damage_audio: AudioStreamPlayer2D = $BossDamageAudio
+@onready var boss_combo_audio: AudioStreamPlayer2D = $BossComboAudio
+@onready var boss_dead: AudioStreamPlayer2D = $BossDead
+@onready var key_marker: Marker2D = $"../KeyMarker"
 
 var health_powerup_scene = preload('res://scenes/run_gun/powerups/health_pickup.tscn')
 var spiral_bullet_powerup = preload('res://scenes/run_gun/powerups/spiral_bullet_powerup/spiral_bullet_pickup.tscn')
+var victory_key_scene = preload('res://scenes/run_gun/victory_key.tscn')
+
 var summoned_enemies: Array = []  
 var muzzle_position: Vector2
 var combo_hitbox_pos : Vector2
@@ -28,12 +39,11 @@ var death : bool = false
 var health_thresholds = [100, 75, 50, 25]  
 var triggered_thresholds = []       
 var health_max : int
-@export var shoot_cooldown: float = 3
 var rage_mode_triggered: bool = false 
 
 func _ready() -> void:
 	player = get_node_or_null(player_node_path)
-	bind_player_input_commands()
+	unbind_player_input_commands()
 	combo_attack_command = ComboAttackCommand.new()
 	boss_follow_command = BossFollowCommand.new(player)
 	boss_shoot_command = BossShootCommand.new()
@@ -74,6 +84,7 @@ func _physics_process(delta: float) -> void:
 			current_state = STATE.IDLE
 			
 		if distance_to_player <= attack_distance and not is_attacking:
+			boss_combo_audio.play()
 			var status = combo_attack_command.execute(self)
 			if status == Command.Status.ACTIVE:
 				current_state = STATE.FOLLOW  
@@ -122,6 +133,7 @@ func _on_attack_timer_timeout() -> void:
 		update_muzzle_position()
 		combo_hit_box.monitorable = true
 		combo_hit_box.monitoring = true
+		shoot_audio.play()
 		boss_shoot_command.execute(self)
 		current_state = STATE.FOLLOW
 		
@@ -157,7 +169,7 @@ func prevent_landing_on_player() -> void:
 
 func _on_summon_timer_timeout() -> void:
 	if is_following:
-		print("summoning")
+		summon_audio.play()
 		boss_summon_command.execute(self)
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
@@ -165,7 +177,8 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		return
 	if area == self.get_node("HitBox"):  
 		return
-	if area.get_parent().has_method("get_damage_amount"):
+	if area.get_parent().has_method("get_damage_amount") and is_following and not death:
+		boss_damage_audio.play()
 		hitflashplayer.play("hit_flash")
 		var node = area.get_parent() as Node
 		health -= node.damage_amount
@@ -173,18 +186,24 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			animatedsprite.stop()
 			death = true
 			unbind_player_input_commands()
+			boss_dead.play()
+			spawn_victory_key()
+			attack_timer.stop()
+			summon_timer.stop()
+			while not is_on_floor():
+				await get_tree().process_frame
 			animatedsprite.play("death")
 			for enemy in summoned_enemies:
 				if enemy != null and is_instance_valid(enemy):
 					enemy.queue_free()
 			summoned_enemies.clear()
-			Global.run_gun = false
+			
 
 
 func spawn_health_powerup() -> void:
 	if health_powerup_scene and heath_marker:
 		var powerup = health_powerup_scene.instantiate()
-		powerup.global_position = heath_marker.global_position  #
+		powerup.global_position = heath_marker.global_position  
 		get_parent().add_child(powerup)
 		
 					
@@ -210,4 +229,14 @@ func activate_rage_mode() -> void:
 	movement_speed = movement_speed * 2  
 	shoot_cooldown = shoot_cooldown / 1.25 
 	attack_timer.wait_time = shoot_cooldown  
-	print("Rage Mode Activated: Speed doubled, shooting faster!")
+
+func start_fight() -> void:
+	bind_player_input_commands()	
+	player.bind_player_input_commands()
+	current_state = STATE.FOLLOW
+
+func spawn_victory_key() -> void:
+	var victory_key = victory_key_scene.instantiate()
+	victory_key.global_position = key_marker.global_position
+	victory_key.player_node_path = player_node_path
+	get_parent().add_child(victory_key)

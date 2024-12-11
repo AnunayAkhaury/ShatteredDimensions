@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqvaov46cgoxm"]
+
+[ext_resource type="Script" path="res://scripts/final_cutscene/choice_menu.gd" id="1_ymak0"]
+
+[node name="ChoiceMenu" type="CanvasLayer"]
+script = ExtResource("1_ymak0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 833.0
+offset_bottom = 330.0
+
+[node name="Yes" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 68.0
+offset_bottom = 28.0
+text = "YES"
+metadata/_edit_use_anchors_ = true
+
+[node name="No" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 260.0
+offset_bottom = 28.0
+text = "NO"
+
+[connection signal="pressed" from="Control/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="Control/No" to="." method="_on_no_pressed"]

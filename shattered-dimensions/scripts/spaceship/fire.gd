@@ -1,8 +1,10 @@
 class_name Arrows
 extends Node2D
 
-@onready var firing: Node2D = $Firing
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var weaponsBase = get_node("Weapons").position
+@onready var arrowBases = [Vector2(23,-41),Vector2(36,-28),Vector2(51.5,-18),Vector2(53,20),Vector2(38,32),Vector2(22,44)]
+
 
 var startFire:bool = false
 var speed = 300
@@ -14,22 +16,20 @@ func _process(delta: float) -> void:
 	
 	# start the process of firing arrows
 	if startFire:
-		for arrow in firing.get_children():
-			arrow.visible = true
 		animation_player.play("release")
-	
 	
 	# move the arrows across the screen
 	var count = -1
-	for arrow in firing.get_children():
+	for arrow in get_node("Arrows").get_children():
 		count += 1
-		if arrow.get_node("Fire").visible:
+		
+		if arrow.visible:
 			arrow.position.x += speed * delta
+			
 			if soundPlayed[count] == false:
 				$Sound.play()
 				soundPlayed[count] = true
-			
-	
+
 
 # after arrows have reached their max distance
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -37,45 +37,5 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	# reset variables and remove arrow from tree
 	if anim_name == "release":
 		startFire = false
-		#for arrow in firing.get_children():
-		#	arrow.queue_free()
-		#	arrow = null
 		get_parent().get_node("Spaceship").allowFire = true
 		queue_free()
-
-
-# handle each collision of an arrow with a UFO
-func _on_arrow_1_body_entered(body: Enemy) -> void:
-	body.healthLevel -= 25
-	var node = get_node("Firing/Arrow1")
-	node.queue_free()
-
-
-func _on_arrow_2_body_entered(body: Enemy) -> void:
-	body.healthLevel -= 25
-	var node = get_node("Firing/Arrow2")
-	node.queue_free()
-
-
-func _on_arrow_3_body_entered(body: Enemy) -> void:
-	body.healthLevel -= 25
-	var node = get_node("Firing/Arrow3")
-	node.queue_free()
-
-
-func _on_arrow_4_body_entered(body: Enemy) -> void:
-	body.healthLevel -= 25
-	var node = get_node("Firing/Arrow4")
-	node.queue_free()
-
-
-func _on_arrow_5_body_entered(body: Enemy) -> void:
-	body.healthLevel -= 25
-	var node = get_node("Firing/Arrow5")
-	node.queue_free()
-
-
-func _on_arrow_6_body_entered(body: Enemy) -> void:
-	body.healthLevel -= 25
-	var node = get_node("Firing/Arrow6")
-	node.queue_free()
