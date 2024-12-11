@@ -1,6 +1,6 @@
 [gd_scene load_steps=42 format=3 uid="uid://c3jhvcacvhvdf"]
 
-[ext_resource type="Script" path="res://scripts/car/player_arrest.gd" id="1_2nd2v"]
+[ext_resource type="Script" path="res://scripts/car/other_screens/player_arrest.gd" id="1_2nd2v"]
 [ext_resource type="PackedScene" uid="uid://xu6eycwicik0" path="res://scenes/car/labels/caught_by_police.tscn" id="1_h8mcy"]
 [ext_resource type="Texture2D" uid="uid://dkl1lsuf2gjoe" path="res://assets/CarLevel/Abusive Prison Tileset Pack/img/tilesets/Prison_B.png" id="1_ujiqr"]
 [ext_resource type="Shader" uid="uid://cjlwlvtndb20s" path="res://scenes/run_gun/player/hit_flash.tres" id="3_60l51"]
