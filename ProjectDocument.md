@@ -644,6 +644,13 @@ Once all four keys are collected, the global script triggers the final cutscene.
    - Upon selecting "Yes" and reaching the game’s end, I added a **credits screen** that rolls through team members and contributors.  
    - This was implemented using basic controls and signal connections.  
 
+**Boss Fight Cutscene**:  
+   - I implemented a **custom cutscene** specifically for the **boss fight**.  
+   - This uses two cameras:  
+     - The camera **zooms in** on the boss when the encounter starts.  
+     - The camera then **smoothly transitions** and zooms out to focus on both the boss and player, setting up the battle seamlessly.  
+   - These transitions enhance the atmosphere and emphasize the significance of the boss fight.  
+
 ### **Powerups**  
 Powerups were covered extensively in the main **Run and Gun Level** section, where I implemented:  
 - **Health Powerups**  
