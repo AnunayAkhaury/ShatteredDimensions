@@ -87,15 +87,16 @@ func _ready():
 	jump_velocity = jump_velocity_input
 
 func _physics_process(delta: float):
+	#print(player_killed)
 	if GlobalVars.car_level_stat == 'Car Level Entered':
 		return
 		
 	if GlobalVars.car_level_stat == 'Battle':
 		bind_player_input_commands()
 		if player_killed:
-			%Car.respawn()
+			%Car._caught_by_police = true
 			%CarPlayer.visible = false
-			GlobalVars.car_level_stat = "Battle Over"
+			GlobalVars.car_level_stat == 'Battle Over'
 			return
 	
 	if Global.run_gun:
@@ -329,6 +330,8 @@ func _on_knockback_timer_timeout() -> void:
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	
+	if area is TirePile:
+		return
 	if GlobalVars.car_level_stat == "Battle":
 		var damage = 0
 		if area is Bullet and carlevel_health - damage >= 0:

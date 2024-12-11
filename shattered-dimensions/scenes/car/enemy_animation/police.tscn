@@ -488,20 +488,19 @@ script = ExtResource("1_tuh3i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_aqsto")
-animation = &"attack_batton"
-frame_progress = 0.417134
+animation = &"dead"
 flip_h = true
 
 [node name="OfficerHitBox" type="Area2D" parent="."]
 script = ExtResource("47_d4qw4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OfficerHitBox"]
-position = Vector2(275, -100)
+position = Vector2(55, -55)
 scale = Vector2(60, 60)
 shape = SubResource("CapsuleShape2D_bvubj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(260, -110)
+position = Vector2(55, -70)
 scale = Vector2(60, 60)
 shape = SubResource("RectangleShape2D_yuru7")
 
