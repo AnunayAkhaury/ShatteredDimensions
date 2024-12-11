@@ -69,7 +69,7 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 [Satya Sanegapalli](ssanegapalli@ucdavis.edu)  -  Spaceship Level + Prison Lobby
 
-[Anunay Akhaury](?@ucdavis.edu)  -  RunGun Level + IDK
+[Anunay Akhaury](?@ucdavis.edu)  -  RunGun Level + SubRole: (Cinematics, Powerups, Player/Enemy Gun Logic)
 
 [SriLakshmi Panda](?@ucdavis.edu)  -  Car Level (Physics) + Press Kit/Trailer
 
@@ -95,7 +95,7 @@ All assets were procured from itch.io's asset store/collection and will be linke
 
 ## Platformer Level
 
-My main role was the platformer level, a level based on games like _I wanna be the guy_ and _Super Meatboy_. Because we split our roles into levels rather than overarching systems, we all got to do a little bit of everything, which is what I will go into detail about below. Overall, the game consists of 2 main levels with the second more difficult than the first. Below I will explain all the systems necessary to making the game.
+Abhi's main role was the platformer level, a level based on games like _I wanna be the guy_ and _Super Meatboy_. Because we split our roles into levels rather than overarching systems, we all got to do a little bit of everything, which is what I will go into detail about below. Overall, the game consists of 2 main levels with the second more difficult than the first. Below I will explain all the systems necessary to making the game.
 
 ### Player Movement/Physics
 
@@ -204,6 +204,303 @@ I used AudioStreamPlayers in all the relevant levels for playing audio
 
 *Path Planning* - The movement and planning process for the enemies in the platformer were based on what we learned in class about Game AI and understanding how, when, and where the enemy would go and what actions it would take. Though the platformer only had very simple enemies, it was still necessary for some of the special enemy types such as the pea shooter, thwomp, and circling rocks to have a planned path and correct execution. Using the class concepts was necessary to achieve that.
 
+## Run and Gun Level  
+
+### **Student Information**  
+**Name**: Anunay Akhaury  
+**Email**: aakhaury@ucdavis.edu  
+**Github**: [AnunayAkhaury](https://github.com/AnunayAkhaury)  
+
+---
+
+## **Level Overview**  
+
+The **Run and Gun Level** in *Shattered Dimensions* combines fast-paced platforming and combat mechanics. The level is split into two distinct stages: a **skyline stage** and a **boss stage** set in a futuristic city. Players must navigate platforms, defeat enemies, and survive challenges to complete the level.  
+
+### **Stage 1: Skyline**  
+The player starts high above a futuristic city, jumping across rooftops and floating platforms while engaging enemies. Enemies fire projectiles, requiring careful movement and shooting. Power-ups like **health refills** and **weapon upgrades** are scattered throughout the stage to assist progression.  
+
+### **Stage 2: City and Boss Battle**  
+After completing the skyline, the player descends into the city for the final **boss fight**. This stage introduces two new enemy types and additional challenges.  
+The level culminates in a **boss fight** against a mechanic with multiple attack phases. The player must dodge lasers, avoid drones, and time their shots to defeat the boss.  
+
+---
+
+## **Player/Gun Movement/Physics**  
+
+The **Run and Gun Level** introduces shooting mechanics alongside core platforming controls, allowing the player to shoot while running, jumping, or standing still. This functionality enhances movement dynamics and integrates combat seamlessly.  
+
+### **Player Movement**  
+The player retains the standard platforming controls with an incresed jump height.
+Shooting is integrated seamlessly with movement, and the player can shoot:  
+
+- **Airborne**: Shoot mid-air without compromising control.  
+- **Running**: Shoot while moving for fluid combat.  
+- **Idle**: Shoot while standing still for precise aiming.  
+
+These mechanics are implemented using the **command pattern**, ensuring modularity and clean integration with the existing movement system.  
+
+### **Shooting Mechanics**  
+Shooting is executed from a **muzzle point** attached to the player sprite. Bullets have their own logic, including:  
+
+- **Cooldown Timer**:  
+   The Timer node checks the firing rate and prevents the player from shooting until the cooldown period expires. This balances combat and prevents overuse of the shooting mechanic.
+- **Speed and Damage**: Configurable through exported variables for flexibility.  
+- **Bullet Lifespan**:  
+   - **Collision with Enemies**: Triggers damage logic.  
+   - **Collision with Tilemap**: Simulates environmental interaction.  
+   - **Timeout**: Bullets expire after **5 seconds** to optimize performance.  
+- **Death Effects**: A visual effect plays when bullets collide or expire, enhancing feedback and polish.  
+
+### **Physics Adjustments**  
+The primary physics changes involve integrating shooting with the existing movement system:  
+
+1. A **muzzle point** spawns bullets aligned with the player’s facing direction.  
+2. Bullet trajectory and velocity adapt dynamically to the player’s position.  
+3. Shooting functionality integrates smoothly without disrupting movement physics.  
+
+These enhancements ensure fluid, responsive controls where platforming and combat work together seamlessly.  
+
+---
+
+### Enemies/Obstacles
+
+All enemies in the **Run and Gun Level** derive from a **base `Character` class**, which is extended by a **base enemy class**. This allows for shared behaviors across enemies while enabling specific features for each type.  
+
+#### General Enemy Features
+
+- **Collision Layers**:  
+  Enemies are assigned their own collision layer to prevent them from interacting with each other, ensuring only player-enemy interactions result in damage.
+
+- **Damage Through Collision**:  
+   Enemies can deal damage to the player through **physical collision**. This is handled using an `Area2D` trigger on both the player and enemy, which communicates with the **HealthManager** script to reduce health accordingly.
+
+- **Patrol Behavior**:  
+  Enemies can patrol between two designated points using `Marker2D` nodes. This behavior is implemented through the **Command Pattern**, making it reusable for all enemies.  
+
+- **Hit Flash Effect**:  
+  A red flash effect is displayed on the enemy sprite when they take damage, providing clear visual feedback.
+
+- **Death Effect**:  
+  Enemies have a unique death effect, such as explosions or particle effects, which play when their health reaches zero.
+
+- **Sound Effects**:  
+  Enemies play specific sound effects when performing actions, such as shooting, getting hit, or dying, adding to the game’s polish.
+
+---
+
+#### Individual Enemy Types
+
+1. **MechBot**  
+   - **Description**: The most basic enemy type that patrols between two points.  
+   - **Behavior**: Acts as a moving obstacle.  
+
+2. **Soldier**  
+   - **Description**: A ground enemy capable of patrolling or shooting.  
+   - **Behavior**:  
+     - Patrols its designated area when not attacking.  
+     - Periodically fires bullets at the player using the same bullet logic as the player.  
+   - **Special Features**: Unique bullet animations and impact effects.  
+
+3. **Scout**  
+   - **Description**: A flying enemy that actively follows the player.  
+   - **Behavior**:  
+     - Tracks the player within a defined range and fires projectiles at intervals.  
+     - Stops following if the player exits its "leash range."  
+   - **Special Features**: Shooting animations and a custom projectile system.  
+
+4. **Sentinel**  
+   - **Description**: A ground-based enemy with patrol behavior and an **Area of Effect (AoE)** attack.  
+   - **Behavior**:  
+     - Patrols a region while maintaining a larger hitbox for its AoE attacks.  
+     - Deals damage to the player if they enter its attack range.
+
+---
+
+#### Key Features
+
+- **Patrol Logic**:  
+  All enemies can utilize patrol behavior to move between two points autonomously, using the **Command Pattern** for modular control.
+
+- **Shooting Mechanics**:  
+  Enemies like the **Soldier** and **Scout** fire bullets at intervals. The bullet logic is modular and includes:  
+  - Speed, lifespan, and collision interactions.  
+  - Impact animations and sound effects for visual feedback.
+
+- **Hit Flash and Death Effects**:  
+  A red flash effect plays when enemies take damage. Upon death, each enemy triggers a unique effect such as an explosion or disintegration animation.
+
+- **Sound Effects**:  
+  Each enemy includes custom sound effects for key actions like shooting, being hit, and dying. This enhances immersion and game polish.
+
+---
+
+### Boss Fight: The MechBoss Encounter
+
+The **Boss Fight** in the Run and Gun Level introduces a challenging, multi-phase enemy encounter that tests the player's combat and movement skills. The boss has unique attack patterns, a rage mode, and summons additional enemies during the fight.
+
+---
+
+#### Boss Encounter Initialization
+
+- The boss fight begins when the player **enters the boss arena**, triggering a brief **cutscene** to introduce the boss.  
+- Once the cutscene ends, the boss becomes active and starts its attack cycle.  
+
+---
+
+#### Boss Behavior (Command Pattern)
+
+The boss’s behavior is implemented using the **Command Pattern**, allowing for modular and reusable actions. Each action—tracking, attacking, summoning, or transitioning phases—is encapsulated as a command.
+
+1. **Player Tracking**  
+   - The boss follows the player across the arena, mimicking their jumps and movements.  
+   - Implemented as a **MoveCommand** that tracks the player’s position.
+
+2. **Projectile Attack**  
+   - At set intervals, the boss performs a **projectile attack**, firing bullets periodically.  
+   - **Invulnerability**: During this attack, the boss cannot take damage.  
+   - Managed using a **ShootCommand**, with bullet logic handled separately.
+
+3. **Melee Combo Attack**  
+   - If the boss gets close to the player, it triggers a **melee combo attack** with a large hitbox.  
+   - **Invulnerability**: The boss cannot be damaged during the melee combo.  
+   - Managed with a **MeleeAttackCommand**.
+
+4. **Enemy Summons**  
+   - The boss periodically summons **Sentinels** and **Scouts** to assist in combat.  
+   - Summons are executed using a **SummonCommand** to spawn enemies dynamically.
+
+---
+
+#### Rage Mode (33% Health Threshold)
+
+- When the boss's health drops to **33%**, it enters **Rage Mode**:  
+  - **Increased Speed**: The boss moves and follows the player at **double speed**.  
+  - **Faster Projectile Attacks**: The frequency of projectile attacks increases significantly.  
+- The **Super Power-Up Shot** spawns during this phase, allowing the player to deal more damage.
+
+---
+
+#### Health and Power-Ups
+
+- Health power-ups spawn automatically at **100%, 75%, 50%, and 25%** boss health.  
+- Power-ups allow the player to recover health and maintain combat readiness during the fight.
+
+---
+
+#### Boss Sound Effects and Animations
+
+- The boss features custom **sound effects** for:  
+  - Attack actions (projectile and melee).  
+  - Entering rage mode.  
+  - Taking damage.  
+  - Dying.
+
+- **Death Animation**: Upon defeat, the boss plays a unique death animation, and the **Golden Key** spawns for the player to collect.
+
+---
+
+#### Summary of Phases
+
+| Phase               | Behavior                             | Command Implementation       | Notes                                      |
+|---------------------|--------------------------------------|------------------------------|-------------------------------------------|
+| **Initial Phase**   | Player tracking, projectile attack   | MoveCommand, ShootCommand    | Invulnerable during projectile attacks.    |
+| **Melee Phase**     | Melee combo attack at close range    | MeleeAttackCommand           | Large hitbox; invulnerable during combo.   |
+| **Summon Phase**    | Summons Sentinels and Scouts         | SummonCommand                | Enemies assist the boss.                  |
+| **Rage Mode**       | Triggered at 33% health              | MoveCommand, ShootCommand    | Double speed, faster projectile attacks.   |
+
+---
+
+### Command Pattern Usage
+
+The **Command Pattern** is used throughout the boss implementation to modularize its behavior:  
+- **MoveCommand**: Handles player tracking.  
+- **ShootCommand**: Manages periodic projectile firing.  
+- **MeleeAttackCommand**: Triggers the melee combo attack.  
+- **SummonCommand**: Spawns additional enemies during combat.  
+
+Using the **Command Pattern** ensures the boss logic is clean, modular, and reusable. Each behavior can be easily modified or extended without impacting the rest of the boss fight system.
+
+---
+
+This multi-phase boss fight challenges the player to manage movement, dodging, and combat strategies. Successfully defeating the boss rewards the player with the **Golden Key** and progression to the next challenge.
+
+### Power-Ups
+
+The **Power-Ups** in the Run and Gun Level enhance player abilities and are implemented using **Area2D signals** and unique **collision layers** to detect pickups. Each power-up provides a specific boost to the player, improving combat effectiveness or survivability.
+
+---
+
+#### Health Power-Up
+
+- **Effect**: Increases the player’s health bar by one unit upon collection.  
+- **Implementation**:  
+   - The health power-up uses an **Area2D** node with a collision shape.  
+   - Upon entering the area, the player’s health value is incremented.  
+   - A **signal** is emitted to update the health bar UI, ensuring immediate visual feedback.  
+
+---
+
+#### Rapid Fire Power-Up
+
+- **Effect**: Removes the shooting cooldown, allowing the player to shoot continuously without delay.  
+- **Duration**: Lasts for a limited time before reverting to normal shooting mechanics.  
+- **Implementation**:  
+   - On pickup, the player’s shooting cooldown is temporarily set to zero.  
+   - A **timer** node tracks the duration of the power-up.  
+   - Once the timer expires, the cooldown value is restored to its default setting.
+
+---
+
+#### Spiral Shot Power-Up
+
+- **Effect**: Changes the player’s bullet type to a larger, spiral-pattern projectile that:  
+   - Travels faster.  
+   - Deals increased damage.  
+- **Duration**: Limited time before returning to the default bullet.  
+- **Implementation**:  
+   - The power-up temporarily replaces the player’s bullet instance with a spiral bullet.  
+   - A **timer** node reverts the bullet type to default after the effect ends.  
+   - The spiral bullet uses its own animation and collision logic to simulate the unique behavior.
+
+---
+
+### Health Management
+
+The **Health Management System** ensures that both player and enemy health is consistently tracked and updated throughout the game.
+
+---
+
+#### Player Health System
+
+- **Health Tracking**:  
+   Player health is managed globally, ensuring updates are consistent across levels. A dynamic health bar UI reflects the current health status.
+
+- **Damage Handling**:  
+   When the player takes damage through an **Area2D hitbox trigger**, health is reduced, and the UI updates. To prevent instant death from rapid hits, the player experiences **knockback** and gains **0.5 seconds of invulnerability** after taking damage.
+
+- **Death and Scene Reload**:  
+   If the player’s health reaches zero, a death animation is triggered, and the current scene reloads to reset gameplay.
+
+- **Health Cap**:  
+   The player’s maximum health is capped at **5 hearts**.
+
+---
+
+#### Enemy Health System
+
+- **Base Logic**:  
+   All enemies derive their health systems from a **base enemy class**, which ensures consistent damage handling and health tracking.
+
+- **Damage and Defeat**:  
+   Enemies take damage through their **hitboxes** when hit by player bullets or attacks. Upon defeat, enemies play a **hit flash effect** and a **death animation** for visual feedback.
+
+- **Invulnerability**:  
+   Enemies do not gain invulnerability, making them susceptible to consecutive hits, unlike the player. But is managed through the player shot cooldown
+
+---
+
+
 ## Spaceship Level
 
 ### Student Information
@@ -256,6 +553,7 @@ I used AudioStreamPlayers in all the relevant levels for playing audio
 [Laser Blast Sound Effect](https://pixabay.com/sound-effects/laser-gun-81720/): Pixabay Content License
 
 [Kill Count](): 
+
 
 ## User Interface and Input
 
@@ -311,6 +609,63 @@ The player development was based on the needs for 2 out of the 4 mini-games, nam
 Because the player node was being used in both the Platformer level and also the Run n Gun level, I created [divided sections](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/cfaf076168504e1c8e5793a9c240a6b728543a44/shattered-dimensions/scripts/player/player.gd#L10) to place variables and functions for both level types so that it would be well organized. For the platformer level, I created a [respawn function](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/cfaf076168504e1c8e5793a9c240a6b728543a44/shattered-dimensions/scripts/player/player.gd#L154) that relocates the player position rather than reloading the entire script. For the Run n Gun the death process involved creating a death animation that would be instantiated on losing all lives.
 
 Additional work was also done by other team members who needed very specific functionality with the player node so there are additional functions and variables as well.
+
+## **Sub-Roles**  
+**Sub-Role: Cinematics, Powerups, Player/Enemy Gun Logic**  
+
+### **Student Information**  
+**Name**: Anunay Akhaury  
+**Email**: aakhaury@ucdavis.edu  
+**Github**: [AnunayAkhaury](https://github.com/AnunayAkhaury)  
+
+---
+
+### **Cinematics**  
+For the final cinematic, I implemented a dynamic **cutscene system** using the **Durative Command Pattern**, similar to concepts learned in Exercise 1. This system allowed me to sequence various actions like dialogue, animations, and movement into a structured cutscene.
+
+#### **Final Cutscene Overview**  
+Once all four keys are collected, the global script triggers the final cutscene. In this sequence:  
+1. **Player Choice Integration**:  
+   - I added interactivity by allowing the player to **choose Yes or No** during the cutscene.  
+   - **Yes**: Continues the story to the game’s conclusion.  
+   - **No**: Triggers an alternate cutscene where the player is sent back to the prison.  
+   - This branching logic was handled through **button inputs**, signals, and logic in my **CutsceneManager**.  
+
+2. **Cutscene Commands**:  
+   - I managed the flow of the cutscene by iterating through an **array of commands**, including dialogue, movement, and animation.  
+   - I structured these commands to allow clean integration of branching choices and specific logic for each outcome.  
+
+3. **Visual and Audio Enhancements**:  
+   - Added a **parallax background** for the final cinematic scene to enhance visual appeal.  
+   - Designed and integrated a **new character** with unique animations specific to this stage.  
+   - Implemented background music and sound effects for a polished cinematic experience.  
+
+4. **Credits Roll**:  
+   - Upon selecting "Yes" and reaching the game’s end, I added a **credits screen** that rolls through team members and contributors.  
+   - This was implemented using basic controls and signal connections.  
+
+**Boss Fight Cutscene**:  
+   - I implemented a **custom cutscene** specifically for the **boss fight**.  
+   - This uses two cameras:  
+     - The camera **zooms in** on the boss when the encounter starts.  
+     - The camera then **smoothly transitions** and zooms out to focus on both the boss and player, setting up the battle seamlessly.  
+   - These transitions enhance the atmosphere and emphasize the significance of the boss fight.  
+
+### **Powerups**  
+Powerups were covered extensively in the main **Run and Gun Level** section, where I implemented:  
+- **Health Powerups**  
+- **Rapid Fire Powerups**  
+- **Spiral Shot Powerups**  
+
+Each powerup used distinct collision layers and `Area2D` signals for pickup detection, and they were seamlessly integrated with the game’s logic.
+
+### **Player/Enemy Gun Logic**  
+Gun Mechanics were covered extensively in the main **Run and Gun Level** section. The gun mechanics for both the player and enemies were implemented using:  
+- A **command-based shooting system**.  
+- Customizable bullets with specific behaviors, such as speed, damage, and collision effects.  
+- Visual feedback through hit animations and sound effects.  
+
+---
 
 ## Prison Lobby
 
