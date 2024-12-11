@@ -95,7 +95,14 @@ All assets were procured from itch.io's asset store/collection and will be linke
 
 ## Platformer Level
 
-Abhi's main role was the platformer level, a level based on games like _I wanna be the guy_ and _Super Meatboy_. Because we split our roles into levels rather than overarching systems, we all got to do a little bit of everything, which is what I will go into detail about below. Overall, the game consists of 2 main levels with the second more difficult than the first. Below I will explain all the systems necessary to making the game.
+### **Student Information**  
+**Name**: Abhimanyu Warrier  
+**Email**: avwarrier@ucdavis.edu  
+**Github**: [avwarrier](https://github.com/avwarrier)  
+
+---
+
+The Platformer is a level based on games like _I wanna be the guy_ and _Super Meatboy_. Because we split our roles into levels rather than overarching systems, we all got to do a little bit of everything, which is what I will go into detail about below. Overall, the game consists of 2 main levels with the second more difficult than the first. Below I will explain all the systems necessary to making the game.
 
 ### Player Movement/Physics
 
@@ -108,6 +115,19 @@ Player movement was pretty simple and required only 4 main controls which were m
 - Level 2 has a slightly more complex camera where there is a push-box implementation similar to exercise 2. I made it so the player can push on the right-side around halfway into the screen but on the left, there would be some space before the camera moves back left. This was to ensure certain areas like the downward descent in Level 2 were fully visible on the screen without any camera movement necessary since many of the obstacles were not easily seen without this system.
 
 ![ScreenRecording2024-12-10at11 21 45AM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/362881a2-710a-482a-beaf-637d20dcba1e)
+
+_Checkpoints_
+
+- There is also a checkpoint system in Level 2 that gives players a chance to respawn at the last checkpoint without having to return to the beginning. 
+- I created a scene for these checkpoints and used an export variable in the script that would allow me to mark different checkpoint numbers.
+- The player script would keep track of the current checkpoint each time it was activated and I created an array in the script that had coordinates pertaining to each checkpoint to be used in the respawn function.
+
+_Next World Door_
+
+- The next world door is a small laser-looking node that detects player entry and shifts the player to the next level after playing the fading animation between the levels.
+- When the next level is instantiated, the door will play the animation in reverse to create a fade-in effect as well.
+- The player node contains information about which level the player is on in the script and the next world door uses this to check which scene it should call.
+
 
 ### Enemies/Obstacles
 
@@ -203,6 +223,8 @@ I used AudioStreamPlayers in all the relevant levels for playing audio
 *Pushbox Camera in Lvl 2* - The camera in level 2 implements the idea of the push box that we learned about and used in some parts of exercise 2. When the player moves right, the camera moves along with him, but when moving left it does not move until a certain boundary has been touched at which point it moves at the same speed as the player. This is built upon the ideas learned in class as well when going over the many camera processes and variations.
 
 *Path Planning* - The movement and planning process for the enemies in the platformer were based on what we learned in class about Game AI and understanding how, when, and where the enemy would go and what actions it would take. Though the platformer only had very simple enemies, it was still necessary for some of the special enemy types such as the pea shooter, thwomp, and circling rocks to have a planned path and correct execution. Using the class concepts was necessary to achieve that.
+
+*Factory Pattern* - The movement and planning process for the enemies in the platformer were based on what we learned in class about Game AI and understanding how, when, and where the enemy would go and what actions it would take. Though the platformer only had very simple enemies, it was still necessary for some of the special enemy types such as the pea shooter, thwomp, and circling rocks to have a planned path and correct execution. Using the class concepts was necessary to achieve that.
 
 ## Run and Gun Level  
 
