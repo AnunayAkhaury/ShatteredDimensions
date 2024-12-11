@@ -828,6 +828,7 @@ Once all keys are unlocked, the player has won the game!
 [Prison Background Music](https://pixabay.com/sound-effects/a-dungeon-ambience-loop-79423/): Pixabay Content License
 
 *Add moving platform gif*
+<img src="assets/moving_platform.gif">
 
 <img src="https://github.com/user-attachments/assets/ecdf6eb4-ff5b-4a77-ba4a-7002e15b0a0a" width="700">
 
