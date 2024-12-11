@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvxn17he7m1ev"]
 
-[ext_resource type="Script" path="res://scripts/car/tire_pile.gd" id="1_byiy3"]
+[ext_resource type="Script" path="res://scripts/car/game_elements/tire_pile.gd" id="1_byiy3"]
 [ext_resource type="Texture2D" uid="uid://dywk5wnp8vpon" path="res://assets/CarLevel/tire_pile.png" id="1_rh8pt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wlwb"]

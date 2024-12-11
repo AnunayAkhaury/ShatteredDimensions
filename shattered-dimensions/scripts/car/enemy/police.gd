@@ -60,7 +60,7 @@ func shoot_player(target: Character)-> void:
 	if not killed:
 		var cur_bullet = bullet.instantiate() as Bullet
 		cur_bullet.damage = 10
-		cur_bullet.bullet_origin = Characters.Type.POLICE
+		cur_bullet.ammo_origin = Characters.Type.POLICE
 		cur_bullet.start_pos = global_position
 		cur_bullet.target_pos = target.global_position
 		add_sibling(cur_bullet)

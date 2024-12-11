@@ -10,7 +10,7 @@ func _on_area_entered(object: Area2D) -> void:
 	
 	if object is Bullet and GlobalVars.car_level_stat != "Battle":
 		var bullet = object
-		if bullet.bullet_origin != owner.character_type:
+		if bullet.ammo_origin != owner.character_type:
 			owner.take_damage(bullet.damage)
 			if owner.health <= 0 and owner.health + bullet.damage > 0 and owner.character_type == Characters.Type.ENEMY:
 				owner._defeated_by_player = true
