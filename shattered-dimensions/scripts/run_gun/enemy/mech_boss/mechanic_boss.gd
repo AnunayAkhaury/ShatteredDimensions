@@ -1,5 +1,6 @@
 extends BaseEnemy
 class_name MechanicBoss
+
 @export var follow_distance: float = 600
 @export var leash_distance: float = 1000  
 @export var shoot_distance: float = 500  
@@ -8,6 +9,8 @@ class_name MechanicBoss
 @export var jump_threshold: float = 50   
 @export var ScoutSummonPoints: Node
 @export var SentinalSummonPoints: Node
+@export var shoot_cooldown: float = 3
+
 @onready var attack_timer: Timer = $AttackTimer
 @onready var muzzle: Marker2D = $Muzzle
 @onready var combo_hit_box: Area2D = $ComboHitBox
@@ -18,9 +21,12 @@ class_name MechanicBoss
 @onready var boss_damage_audio: AudioStreamPlayer2D = $BossDamageAudio
 @onready var boss_combo_audio: AudioStreamPlayer2D = $BossComboAudio
 @onready var boss_dead: AudioStreamPlayer2D = $BossDead
+@onready var key_marker: Marker2D = $"../KeyMarker"
 
 var health_powerup_scene = preload('res://scenes/run_gun/powerups/health_pickup.tscn')
 var spiral_bullet_powerup = preload('res://scenes/run_gun/powerups/spiral_bullet_powerup/spiral_bullet_pickup.tscn')
+var victory_key_scene = preload('res://scenes/run_gun/victory_key.tscn')
+
 var summoned_enemies: Array = []  
 var muzzle_position: Vector2
 var combo_hitbox_pos : Vector2
@@ -33,7 +39,6 @@ var death : bool = false
 var health_thresholds = [100, 75, 50, 25]  
 var triggered_thresholds = []       
 var health_max : int
-@export var shoot_cooldown: float = 3
 var rage_mode_triggered: bool = false 
 
 func _ready() -> void:
@@ -172,7 +177,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		return
 	if area == self.get_node("HitBox"):  
 		return
-	if area.get_parent().has_method("get_damage_amount") and is_following:
+	if area.get_parent().has_method("get_damage_amount") and is_following and not death:
 		boss_damage_audio.play()
 		hitflashplayer.play("hit_flash")
 		var node = area.get_parent() as Node
@@ -182,6 +187,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			death = true
 			unbind_player_input_commands()
 			boss_dead.play()
+			spawn_victory_key()
 			attack_timer.stop()
 			summon_timer.stop()
 			while not is_on_floor():
@@ -191,7 +197,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 				if enemy != null and is_instance_valid(enemy):
 					enemy.queue_free()
 			summoned_enemies.clear()
-			Global.run_gun = false
+			
 
 
 func spawn_health_powerup() -> void:
@@ -228,3 +234,9 @@ func start_fight() -> void:
 	bind_player_input_commands()	
 	player.bind_player_input_commands()
 	current_state = STATE.FOLLOW
+
+func spawn_victory_key() -> void:
+	var victory_key = victory_key_scene.instantiate()
+	victory_key.global_position = key_marker.global_position
+	victory_key.player_node_path = player_node_path
+	get_parent().add_child(victory_key)
