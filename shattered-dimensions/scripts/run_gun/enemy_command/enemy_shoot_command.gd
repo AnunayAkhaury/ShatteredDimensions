@@ -13,6 +13,7 @@ func execute(character: Character) -> Status:
 	return Status.DONE
 
 func _on_shoot_animation_finished(character: Character) -> void:
+	character.shot_audio.play()
 	var bullet_instance = character.bullet.instantiate() as Node2D
 	bullet_instance.global_position = character.muzzle.global_position
 	if character.facing == Character.Facing.RIGHT:

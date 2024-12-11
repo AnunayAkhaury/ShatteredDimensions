@@ -4,11 +4,14 @@ class_name Scout
 @export var leash_distance: float = 400 
 @export var follow_distance: float = 400 
 @export var shoot_interval: float = 2.0 
+
 @onready var attack_timer: Timer = $AttackTimer
 @onready var muzzle : Marker2D = $Muzzle
+@onready var shot_audio: AudioStreamPlayer2D = $ShotAudio
+
 var muzzle_position : Vector2
 var is_following : bool
- 
+
 func _ready() -> void:
 	super._ready()
 	follow = EnemyFollowCommand.new(player)
