@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var bullet = preload("res://scenes/car/bullet.tscn")
 @onready var car = %Car
 
-const SHOOT_INTERVAL = 2
+const SHOOT_INTERVAL = 1
 var shoot_radius = 500
 var shoot_timer = SHOOT_INTERVAL
 var health: int

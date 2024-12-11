@@ -17,5 +17,5 @@ func _on_area_entered(ammo:Ammo) -> void:
 			owner._defeated_by_player = true
 			var car = $/root/CarLevel/Car
 			car.kill_count += 1
-			car.kills_until_missile = clampi(car.kills_until_missile - 1, 0, 5)
+			car.kills_until_missile = clampi(car.kills_until_missile - 1, 0, car._MIN_KILL_FOR_MISSILE)
 		ammo.queue_free()

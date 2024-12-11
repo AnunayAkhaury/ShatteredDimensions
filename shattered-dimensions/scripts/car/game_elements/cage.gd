@@ -3,10 +3,12 @@ extends Area2D
 
 var health: int
 var num_bullets_before_hint: int = 15
+var blasted: bool
 
 func _init() -> void:
 	health = 100
 	area_entered.connect(_on_area_entered)
+	blasted = false
 	
 func _on_area_entered(ammo: Ammo) -> void:
 	var ammo_is_missile = ammo is Missile
@@ -18,6 +20,7 @@ func _on_area_entered(ammo: Ammo) -> void:
 			explosion.visible = true
 			explosion.play("default")
 			
+			blasted = true
 			get_child(0).visible = false
 			%CageHint.visible = false
 			
@@ -26,6 +29,7 @@ func _on_area_entered(ammo: Ammo) -> void:
 		num_bullets_before_hint -= 1
 		if num_bullets_before_hint == 0:
 			%CageHint.visible = true
+			%RestartHint.visible = true
 
 			if %Car.tot_missiles == 0:
 				%CageHint.text = "You don't have the weapons to break the cage!"
