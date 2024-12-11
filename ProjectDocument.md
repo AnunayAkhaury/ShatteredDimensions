@@ -80,46 +80,46 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 All assets are detailed below:
 
-[Space Background](https://dinvstudio.itch.io/dynamic-space-background-lite-free): by BLANK license below
-- Personal and commercial purposes, but you not allowed to re-distribute or re-sell the asset or any part of it
+[Space Background](https://dinvstudio.itch.io/dynamic-space-background-lite-free): by DinVStudio, license below
+    <br>- Personal and commercial purposes, but you not allowed to re-distribute or re-sell the asset or any part of it
 
-[Spaceship](https://foozlecc.itch.io/void-main-ship): by BLANK licensed under Creative Commons Zero, CC0
+[Spaceship](https://foozlecc.itch.io/void-main-ship): by Foozle licensed under Creative Commons Zero, CC0
 
-[Asteroids](https://opengameart.org/content/2d-asteroid-sprite): by BLANK licensed under Creative Commons Attribution 3.0
+[Asteroids](https://opengameart.org/content/2d-asteroid-sprite): by nightzero licensed under Creative Commons Attribution 3.0
 
-[Explosion](https://opengameart.org/content/explosion-tilesets): by BLANK licensed under Creative Commons Attribution 1.0
+[Explosion](https://opengameart.org/content/explosion-tilesets): by elnineo licensed under Creative Commons Attribution 1.0
 
 [Explosion Sound Effect](https://pixabay.com/sound-effects/explosion-sound-effect-1-free-on-gamesfxpackscom-241821/): by BLANK licensed under Pixabay Content License
 
-[UFOs](https://opengameart.org/content/ufo-spritesheet): by BLANK licensed under Creative Commons Attribution 4.0
+[UFOs](https://opengameart.org/content/ufo-spritesheet): by badmug licensed under Creative Commons Attribution 4.0
 
-[Arrow Shoot Sound Effect](https://pixabay.com/sound-effects/shoot-1-81135/): by BLANK licensed under Pixabay Content License
+[Arrow Shoot Sound Effect](https://pixabay.com/sound-effects/shoot-1-81135/): by Leszek_Szary licensed under Pixabay Content License
 
-[Background Music](https://pixabay.com/sound-effects/space-72679/): by BLANK licensed under Pixabay Content License
+[Background Music](https://pixabay.com/sound-effects/space-72679/): by AstronautChild licensed under Pixabay Content License
 
-[Glowing Ball Powerup](https://lvgames.itch.io/free-glowing-ball-sprite-pixel-fx-rpg-maker-ready): by BLANK licensed under Free for commercial use
+[Glowing Ball Powerup](https://lvgames.itch.io/free-glowing-ball-sprite-pixel-fx-rpg-maker-ready): by LVGames licensed under Free for commercial use
 
-[Powerup Sound Effect](https://pixabay.com/sound-effects/power-up-type-1-230548/): by BLANK licensed under Pixabay Content License
+[Powerup Sound Effect](https://pixabay.com/sound-effects/power-up-type-1-230548/): by RibhavAgrawal licensed under Pixabay Content License
 
-[Laser Blast Sound Effect](https://pixabay.com/sound-effects/laser-gun-81720/): by BLANK licensed under Pixabay Content License
+[Laser Blast Sound Effect](https://pixabay.com/sound-effects/laser-gun-81720/): by sunnyflower licensed under Pixabay Content License
 
-[Lock Unlocking Sound](https://pixabay.com/sound-effects/item-pick-up-38258/): by BLANK licensed under Pixabay Content License
+[Lock Unlocking Sound](https://pixabay.com/sound-effects/item-pick-up-38258/): by Mr.\_Fritz\_ licensed under Pixabay Content License
 
-[Prison](https://jestan.itch.io/prison): by BLANK license below 
-    - You may not distribute the contents of this .zip file in  whole or in part, unless as part of a game or similar product.
-    - If you use this material in a game or other product, please give  attribution to Jestan in the credits.
-    - You are free to use this in any commercial / non-commercial product(s).
+[Prison](https://jestan.itch.io/prison): by Jestan, license below 
+    <br>- You may not distribute the contents of this .zip file in  whole or in part, unless as part of a game or similar product.
+    <br>- If you use this material in a game or other product, please give  attribution to Jestan in the credits.
+    <br>- You are free to use this in any commercial / non-commercial product(s).
 
-[Locks](https://dantepixels.itch.io/key-items-16x16): by BLANK license below 
-    - You can :
-        - Use the assets for non-commercial AND commercial project.
-        - Adapt and/or modify the assets to match your project.
-        - Credit me with my Twitter: @pixelahead
-    - You can NOT:
-        - Distribute or sell those assets directly (even modified).
-        - Claim the asset yours.
+[Locks](https://dantepixels.itch.io/key-items-16x16): by DantePixels, license below 
+    <br>- You can :
+        <br>&nbsp; &nbsp;- Use the assets for non-commercial AND commercial project.
+        <br>&nbsp; &nbsp;- Adapt and/or modify the assets to match your project.
+        <br>&nbsp; &nbsp;- Credit me with my Twitter: @pixelahead
+    <br>- You can NOT:
+        <br>&nbsp; &nbsp;- Distribute or sell those assets directly (even modified).
+        <br>&nbsp; &nbsp;- Claim the asset yours.
 
-[Prison Background Music](https://pixabay.com/sound-effects/a-dungeon-ambience-loop-79423/): by BLANK licensed under Pixabay Content License
+[Prison Background Music](https://pixabay.com/sound-effects/a-dungeon-ambience-loop-79423/): by Grubzyy licensed under Pixabay Content License
 
 
 ## Platformer Level
