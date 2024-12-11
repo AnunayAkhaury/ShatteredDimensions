@@ -3,7 +3,7 @@ extends Vehicle
 
 var _RESPAWN_DELAY: float = 2
 var _BOOST_SPEED_TIME: float = 2
-var _MIN_KILL_FOR_MISSILE = 5
+var _MIN_KILL_FOR_MISSILE = 4
 var _respawn_timer: Timer
 var _bullet_damage: float
 var _caught_by_police: bool
