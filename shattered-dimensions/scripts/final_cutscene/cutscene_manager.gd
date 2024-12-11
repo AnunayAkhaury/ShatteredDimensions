@@ -125,9 +125,7 @@ func show_choice_menu():
 	
 func _on_choice_made(result: String):
 	if result == "yes":
-		print("Player chose YES - continuing the cutscene.")
 		handle_yes_choice()
 	elif result == "no":
-		print("Player chose NO - triggering alternate sequence.")
 		handle_no_choice()
 		

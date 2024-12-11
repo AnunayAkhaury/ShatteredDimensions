@@ -170,7 +170,6 @@ one_shot = true
 
 [node name="EnemyDamageAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_6ente")
-volume_db = -10.0
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

@@ -13,7 +13,11 @@ func execute(character:Character) -> Command.Status:
 		var rich_label = character.dialogue_box.get_node("RichTextLabel") as RichTextLabel
 		rich_label.bbcode_enabled = true
 		rich_label.clear()
-		rich_label.text = _script 
+		var text_color = "#FFD700"
+		if character.is_in_group("old_guy"):
+			text_color = "white" 
+			
+		rich_label.text = "[color=" + text_color + "]" + _script + "[/color]"
 		character.dialogue_box.visible = true
 		_timer = Timer.new()
 		character.add_child(_timer)

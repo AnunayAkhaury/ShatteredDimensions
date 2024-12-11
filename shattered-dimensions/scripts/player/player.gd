@@ -249,7 +249,8 @@ func update_amination():
 		sprite_2d.play('run_gun')
 	elif current_state ==  STATE.SHOOT:
 		sprite_2d.play('shoot')
-		if !sprite_2d.is_playing():  sprite_2d.play('shoot')
+		if !sprite_2d.is_playing():  
+			sprite_2d.play('shoot')
 		
 func update_muzzle_position():
 	if facing == Character.Facing.RIGHT:
@@ -286,8 +287,6 @@ func _on_knockback_timer_timeout() -> void:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	
-	
 	if GlobalVars.car_level_stat == "Battle":
 		if area is TirePile:
 			return

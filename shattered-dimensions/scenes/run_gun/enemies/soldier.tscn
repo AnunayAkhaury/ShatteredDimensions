@@ -173,7 +173,6 @@ one_shot = true
 
 [node name="EnemyDamageAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_d47kj")
-volume_db = -10.0
 
 [node name="ShotAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_7ogoy")
