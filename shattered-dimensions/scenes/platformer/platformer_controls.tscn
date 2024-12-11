@@ -62,7 +62,8 @@ theme_override_font_sizes/font_size = 25
 text = "move left  -  [a]  or  [left arrow]
 move right  -  [d]  or  [right arrow]
 jump  -  [w]  or  [up arrow] or [space bar]
-crouch  -  [s]  or  [down arrow]"
+crouch  -  [s]  or  [down arrow]
+skip level (only if you are super stuck)  -  [forward slash(/)]"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
