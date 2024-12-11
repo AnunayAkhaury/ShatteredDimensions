@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b6fgo14jilwgp" path="res://assets/tropy.png" id="1_ti2k3"]
 [ext_resource type="Script" path="res://scripts/platformer/victory.gd" id="1_y8ike"]
 [ext_resource type="AudioStream" uid="uid://b4owma2qec1sc" path="res://assets/Knock2 - Rock Ur World (feat. Fussy) [ ezmp3.cc ].mp3" id="3_xiygl"]
-[ext_resource type="Script" path="res://scripts/victory_music.gd" id="4_0x8oj"]
+[ext_resource type="AudioStream" uid="uid://duqf3in7qtkux" path="res://assets/Anunay's Sounds/victory.mp3" id="5_i7h0v"]
 
 [sub_resource type="Animation" id="Animation_accgs"]
 length = 0.001
@@ -125,7 +125,9 @@ text = "Return"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_xiygl")
-autoplay = true
-script = ExtResource("4_0x8oj")
+volume_db = -3.0
+
+[node name="ShooterAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_i7h0v")
 
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]

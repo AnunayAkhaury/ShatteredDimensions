@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Shattered Dimensions"
-run/main_scene="res://scenes/platformer/level2/platformer_level_2.tscn"
+run/main_scene="res://scenes/prison.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 HealthManager="*res://scripts/player/health_manager.gd"
 Global="*res://scripts/global.gd"
+Globals="*res://scripts/globals.gd"
 
 [display]
 

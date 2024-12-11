@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dh7lwrd6jqdep"]
+[gd_scene load_steps=60 format=3 uid="uid://dh7lwrd6jqdep"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_1w0xd"]
 [ext_resource type="PackedScene" uid="uid://dvberjv2fsl3s" path="res://scenes/character.tscn" id="1_82jgl"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://csjqa06rb4jxf" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-shoot.png" id="8_m4pkq"]
 [ext_resource type="AudioStream" uid="uid://br8srrohqm74w" path="res://assets/boing sound effect 1 (mp3cut.net).mp3" id="9_mpq2w"]
 [ext_resource type="AudioStream" uid="uid://5vq18exo475h" path="res://assets/RPG_Essentials_Free/10_Battle_SFX/03_Claw_03.wav" id="10_ek2iw"]
+[ext_resource type="Texture2D" uid="uid://bign1ew3fikhi" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-spin.png" id="10_l5qc1"]
 [ext_resource type="AudioStream" uid="uid://bavv1bi18qmpl" path="res://assets/Anunay's Sounds/bulletshort.wav" id="14_3mblx"]
 [ext_resource type="AudioStream" uid="uid://bcnqrjt04ke0q" path="res://assets/Anunay's Sounds/damage.wav" id="15_64g5x"]
 [ext_resource type="AudioStream" uid="uid://drkwnnmgomhcf" path="res://assets/Anunay's Sounds/itempickup.wav" id="15_kmrfu"]
@@ -117,6 +118,42 @@ region = Rect2(32, 0, 32, 38)
 [sub_resource type="AtlasTexture" id="AtlasTexture_brfh2"]
 atlas = ExtResource("8_m4pkq")
 region = Rect2(64, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7v0k"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(0, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pwoi"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(32, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvmc2"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(64, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frk4s"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(96, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpsft"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(128, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8xn5"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(160, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8na35"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(192, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osbda"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(224, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpfvs"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(0, 0, 32, 38)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xoxd8"]
 animations = [{
@@ -226,6 +263,38 @@ animations = [{
 "loop": false,
 "name": &"shoot",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7v0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pwoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvmc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frk4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpsft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8xn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8na35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osbda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpfvs")
+}],
+"loop": false,
+"name": &"spin",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cx102"]
@@ -304,10 +373,8 @@ shoot_cooldown = 0.33
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_7j168")
 sprite_frames = SubResource("SpriteFrames_xoxd8")
-animation = &"shoot"
+animation = &"spin"
 autoplay = "idle"
-frame = 2
-frame_progress = 0.498263
 script = ExtResource("3_h0a6v")
 
 [node name="CollisionShape2D" parent="." index="1" groups=["player"]]
@@ -361,6 +428,17 @@ volume_db = -10.0
 [node name="InvunerableTimer" type="Timer" parent="." index="13"]
 wait_time = 0.5
 one_shot = true
+
+[node name="DialogueBox" type="Control" parent="." index="14"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueBox" index="0"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

@@ -53,6 +53,7 @@ var original_hit_box_shape : int
 var original_hit_box_y : int
 var can_shoot: bool = true
 var is_invulnerable: bool = false 
+var cutscene_state : bool = false
 
 var current_state = STATE.IDLE
 enum STATE {
@@ -72,6 +73,7 @@ enum STATE {
 @onready var death_audio: AudioStreamPlayer = $DeathAudio
 @onready var damge_audio: AudioStreamPlayer2D = $DamgeAudio
 @onready var run_gun_death_audio: AudioStreamPlayer2D = $RunGunDeathAudio
+@onready var dialogue_box: Control = $DialogueBox
 
 func _ready():
 	#animation_tree.active = true
@@ -84,6 +86,11 @@ func _ready():
 	HealthManager.on_health_increased.connect(_on_health_increased)
 	
 func _physics_process(delta: float):
+	if cutscene_state:
+		_apply_gravity(delta)
+		move_and_slide()
+		return
+		
 	if Global.run_gun:
 		jump_velocity_input = -445
 	else:
@@ -302,7 +309,7 @@ func _on_platformer_body_entered(body: Node2D) -> void:
 
 func _on_shooter_body_entered(body: Node2D) -> void:
 	if not shooterCompleted:
-		get_tree().change_scene_to_file("res://scenes/run_gun/level1/level1.tscn")
+		get_tree().change_scene_to_file("res://scenes/run_gun/rungun_controls.tscn")
 		
 func _on_car_body_entered(body: Node2D) -> void:
 	if not carCompleted:

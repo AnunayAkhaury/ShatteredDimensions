@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://d0rv1sddxvjit"]
+[gd_scene load_steps=22 format=3 uid="uid://d0rv1sddxvjit"]
 
 [ext_resource type="Texture2D" uid="uid://b2pirall5f3na" path="res://assets/Sewers pack files/Assets/Spritesheets/soldier.png" id="1_ok2ug"]
 [ext_resource type="Script" path="res://scripts/run_gun/soldier.gd" id="1_yyatb"]
 [ext_resource type="Shader" uid="uid://cjlwlvtndb20s" path="res://scenes/run_gun/player/hit_flash.tres" id="2_pyhxj"]
 [ext_resource type="AudioStream" uid="uid://df0dup0gfnd1v" path="res://assets/Anunay's Sounds/enemy_damage.wav" id="4_d47kj"]
+[ext_resource type="AudioStream" uid="uid://waav3m0a6vol" path="res://assets/Anunay's Sounds/short_enemy_shot.mp3" id="5_7ogoy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oxhjs"]
 radius = 6.0
@@ -173,6 +174,10 @@ one_shot = true
 [node name="EnemyDamageAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_d47kj")
 volume_db = -10.0
+
+[node name="ShotAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_7ogoy")
+max_distance = 1000.0
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

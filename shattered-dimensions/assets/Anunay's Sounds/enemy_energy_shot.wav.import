@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqc7ro2q7r1gi"
+path="res://.godot/imported/enemy_energy_shot.wav-842aac9b7306392e228a64843a1aed48.sample"
+
+[deps]
+
+source_file="res://assets/Anunay's Sounds/enemy_energy_shot.wav"
+dest_files=["res://.godot/imported/enemy_energy_shot.wav-842aac9b7306392e228a64843a1aed48.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
