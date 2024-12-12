@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="7_mx8p4"]
 [ext_resource type="PackedScene" uid="uid://cvxn17he7m1ev" path="res://scenes/car/tire_pile.tscn" id="7_navjn"]
 [ext_resource type="PackedScene" uid="uid://cm8cgpnselc8i" path="res://scenes/car/enemy_animation/mushroom_animations.tscn" id="8_mh5jj"]
-[ext_resource type="PackedScene" uid="uid://cekfcjskjtw8c" path="res://scenes/car/key.tscn" id="9_bygmi"]
+[ext_resource type="PackedScene" uid="uid://cekfcjskjtw8c" path="res://scenes/car/Key.tscn" id="9_bygmi"]
 [ext_resource type="Script" path="res://scripts/car/game_elements/cage_v2.gd" id="9_od4a2"]
 [ext_resource type="PackedScene" uid="uid://cy8py1778oupt" path="res://scenes/car/car_camera.tscn" id="10_7ovoo"]
 [ext_resource type="PackedScene" uid="uid://brndnt11i221r" path="res://scenes/car/boost_ups/fuel.tscn" id="13_0qi2e"]
@@ -13805,20 +13805,8 @@ tile_set = SubResource("TileSet_jjwe4")
 [node name="Labels" type="Node2D" parent="."]
 position = Vector2(668, -45)
 
-[node name="Tutorial" parent="Labels" instance=ExtResource("3_euuak")]
-offset_left = -528.0
-offset_top = 272.0
-offset_right = -160.0
-offset_bottom = 345.0
-text = "Use arrows or A and D to move the car
-Use click to aim and shoot
-Kill 4 enemies = unlock 1 power up bullet
-Use shift to toggle and shoot the power up bullet
-Save the power up bullets for blasting things!"
-
 [node name="CageHint" parent="Labels" instance=ExtResource("3_euuak")]
 unique_name_in_owner = true
-visible = false
 offset_left = 16105.0
 offset_top = 404.0
 offset_right = 16646.0
@@ -13827,7 +13815,6 @@ text = "Hmm, bullets aren't powerful enough to break the cage."
 
 [node name="RestartHint" parent="Labels" instance=ExtResource("3_euuak")]
 unique_name_in_owner = true
-visible = false
 offset_left = 8325.0
 offset_top = 290.0
 offset_right = 8986.0
