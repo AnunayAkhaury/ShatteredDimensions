@@ -703,7 +703,7 @@ I was able to use the skills I developed with working on Exercise 1 to design my
 
 # Sub-Roles
 
-## Player Mechanics/UI - ABHI
+## Player Mechanics/UI
 **UI**
 The [main menu](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/cfaf076168504e1c8e5793a9c240a6b728543a44/shattered-dimensions/scripts/menu_screens/game_menu.gd#L1) of the game is a simple menu with a moving, space-themed background. Because the theme of the game is focused on escaping a space prison, this background worked well. The options given were:
 - Start - begin the game (get transported to the Prison scene where the cutscene begins)
@@ -740,7 +740,7 @@ Additional work was also done by other team members who needed very specific fun
 
 ---
 
-### **Cinematics**  
+### **Cinematics/Narrative Design**  
 For the final cinematic, I implemented a dynamic **cutscene system** using the **Durative Command Pattern**, similar to concepts learned in Exercise 1. This system allowed me to sequence various actions like dialogue, animations, and movement into a structured cutscene.
 
 #### **Final Cutscene Overview**  
@@ -787,7 +787,7 @@ Gun Mechanics were covered extensively in the main **Run and Gun Level** section
 
 ---
 
-## Prison Lobby
+## Prison Lobby/Gameplay Testing
 
 **Student Information**
 *Name: Satyasree Sanegepalli*   
