@@ -37,9 +37,10 @@ func _init() -> void:
 	_bullet_damage = 0
 	
 	_respawn_timer = Timer.new()
-	_respawn_timer.autostart = true
+	#_respawn_timer.autostart = true
 	_respawn_timer.wait_time = _RESPAWN_DELAY
 	_respawn_timer.timeout.connect(respawn)
+	add_child(_respawn_timer)
 	
 	super()
 
@@ -93,9 +94,9 @@ func _physics_process(delta: float) -> void:
 	health_bar.value = health
 	if GlobalVars.car_lives <= 0:
 		get_tree().change_scene_to_file("res://scenes/car/game_over.tscn")
-	elif health <= 0:
+	elif health <= 0 and _respawn_timer.is_stopped():
 		GlobalVars.car_level_stat = 'Game Over'
-		add_child(_respawn_timer)
+		_respawn_timer.start()
 		
 	super(delta)
 	
