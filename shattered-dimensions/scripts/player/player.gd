@@ -55,7 +55,7 @@ var original_hit_box_y : int
 var can_shoot: bool = true
 var is_invulnerable: bool = false 
 var cutscene_state : bool = false
-
+var boss_dead : bool = false
 #VARIABLE FOR CAR-LEVEL
 var character_type : Characters.Type
 var carlevel_health = 100
@@ -258,6 +258,9 @@ func update_muzzle_position():
 		muzzle.position.x = -abs(muzzle_position.x)  
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
+	if boss_dead:
+		return
+		
 	if body.is_in_group("enemy") and not knockback_active and not is_invulnerable:
 		start_invulnerability()
 		var knockback_direction: Vector2 = (position - body.position).normalized()
@@ -298,6 +301,9 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			carlevel_health = 0
 			player_killed = true
 			return
+	if boss_dead:
+		return
+		
 	if area.is_in_group("ComboHitBox") and not is_invulnerable:
 		start_invulnerability()
 		var knockback_direction: Vector2 = (position - area.global_position).normalized()
