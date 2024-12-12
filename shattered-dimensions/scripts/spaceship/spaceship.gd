@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 			create_key()
 	
 	# shoot missles from spaceship
-	if binded and allowFire and Input.is_action_just_pressed("fire"):
+	if binded and allowFire and Input.is_action_just_pressed("shoot"):
 		currweapon = fire_arrows()
 		
 	# apply boost to spaceship movement
@@ -64,7 +64,7 @@ func _process(delta: float) -> void:
 	
 	# horizontal movement of spaceship
 	var horizontal_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	if binded and horizontal_input > 0.1:
+	if binded and abs(horizontal_input)>0.1:
 		position.x += horizontal_input * speed * delta * 1.5
 	
 	# handle boost
