@@ -71,17 +71,17 @@ Anunay Akhaury  -  Run and Gun Level
 Satya Sanegapalli  -  Spaceship Level
 
 Sub Roles
-Abhimanyu Warrier  -  Player Mechanics
+Abhimanyu Warrier  -  UI/Player Mechanics
 SriLakshmi Panda  -  Press Kit & Trailer
 Janani Asokumar  -  Cutscenes
-Anunay Akhaury  -  Power Ups/Cinematics
-Satya Sanegapalli  -  Prison Lobby
+Anunay Akhaury  -  Cinematics/Narrative Design
+Satya Sanegapalli  -  Prison Lobby/Gameplay Testing
 
 
 
 Professor McCoy
-Nick Treynor
-Piaopiao Long"
+TA Nick Treynor
+TA Piaopiao Long"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Labels"]

@@ -11,10 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://i6arnh3jkabk" path="res://scenes/car/swat_van/swat_van.tscn" id="4_pn4bw"]
 [ext_resource type="PackedScene" uid="uid://ufiexds0mv81" path="res://scenes/car/labels/start_countdown.tscn" id="4_toqhx"]
 [ext_resource type="PackedScene" uid="uid://cw3djta8tgr1a" path="res://scenes/car/enemy_animation/Traps.tscn" id="5_0vm44"]
-[ext_resource type="PackedScene" uid="uid://dm6we13fu62ld" path="res://scenes/car/cage.tscn" id="5_osvmu"]
+[ext_resource type="PackedScene" path="res://scenes/car/cage.tscn" id="5_osvmu"]
 [ext_resource type="Script" path="res://scripts/car/labels/start_countdown.gd" id="5_x0elv"]
 [ext_resource type="Texture2D" uid="uid://cusdkqvtkp0ou" path="res://assets/CarLevel/PhysicsCarGameAssets/Images/Terrain/jungle tileset.png" id="6_1a2t4"]
-[ext_resource type="PackedScene" uid="uid://c446mbiy6y5vo" path="res://scenes/car/enemy_animation/timed_trap.tscn" id="6_bs7vm"]
+[ext_resource type="PackedScene" path="res://scenes/car/enemy_animation/timed_trap.tscn" id="6_bs7vm"]
 [ext_resource type="PackedScene" uid="uid://0n8jr3oavnss" path="res://scenes/car/enemy_animation/police.tscn" id="6_l3s77"]
 [ext_resource type="PackedScene" uid="uid://bmemxcryvtusx" path="res://scenes/car/enemy_animation/bat_animations.tscn" id="6_p3wkt"]
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="7_mx8p4"]
@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cm8cgpnselc8i" path="res://scenes/car/enemy_animation/mushroom_animations.tscn" id="8_mh5jj"]
 [ext_resource type="PackedScene" uid="uid://cekfcjskjtw8c" path="res://scenes/car/Key.tscn" id="9_bygmi"]
 [ext_resource type="Script" path="res://scripts/car/game_elements/cage_v2.gd" id="9_od4a2"]
-[ext_resource type="PackedScene" uid="uid://cy8py1778oupt" path="res://scenes/car/car_camera.tscn" id="10_7ovoo"]
+[ext_resource type="PackedScene" path="res://scenes/car/car_camera.tscn" id="10_7ovoo"]
 [ext_resource type="PackedScene" uid="uid://brndnt11i221r" path="res://scenes/car/boost_ups/fuel.tscn" id="13_0qi2e"]
 [ext_resource type="PackedScene" uid="uid://b7dpnm15y4glj" path="res://scenes/car/boost_ups/health.tscn" id="14_ey41v"]
 [ext_resource type="Texture2D" uid="uid://dwty1wvfryik8" path="res://assets/Dungeon_brick_wall_grey.png.png" id="17_y7ueu"]
@@ -13805,20 +13805,8 @@ tile_set = SubResource("TileSet_jjwe4")
 [node name="Labels" type="Node2D" parent="."]
 position = Vector2(668, -45)
 
-[node name="Tutorial" parent="Labels" instance=ExtResource("3_euuak")]
-offset_left = -528.0
-offset_top = 272.0
-offset_right = -160.0
-offset_bottom = 345.0
-text = "Use arrows or A and D to move the car
-Use click to aim and shoot
-Kill 4 enemies = unlock 1 power up bullet
-Use shift to toggle and shoot the power up bullet
-Save the power up bullets for blasting things!"
-
 [node name="CageHint" parent="Labels" instance=ExtResource("3_euuak")]
 unique_name_in_owner = true
-visible = false
 offset_left = 16105.0
 offset_top = 404.0
 offset_right = 16646.0
@@ -13827,7 +13815,6 @@ text = "Hmm, bullets aren't powerful enough to break the cage."
 
 [node name="RestartHint" parent="Labels" instance=ExtResource("3_euuak")]
 unique_name_in_owner = true
-visible = false
 offset_left = 8325.0
 offset_top = 290.0
 offset_right = 8986.0
