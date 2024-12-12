@@ -87,6 +87,8 @@ func _ready():
 		unbind_player_input_commands()
 	#animation_tree.active = true
 	bind_player_input_commands()
+	if !Global.run_gun:
+		movement_speed = 160
 	muzzle_position = muzzle.position
 	original_hit_box_shape = hitbox.shape.size.y
 	original_hit_box_y = hitbox.position.y
