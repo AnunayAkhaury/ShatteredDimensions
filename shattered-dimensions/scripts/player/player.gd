@@ -95,7 +95,6 @@ func _ready():
 	HealthManager.on_health_increased.connect(_on_health_increased)
 	
 func _physics_process(delta: float):
-	#print(player_killed)
 	if GlobalVars.car_level_stat == 'Car Level Entered':
 		return
 		
