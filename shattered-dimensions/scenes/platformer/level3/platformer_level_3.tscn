@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=4 uid="uid://xo18sp17icwb"]
+[gd_scene load_steps=16 format=4 uid="uid://xo18sp17icwb"]
 
 [ext_resource type="Texture2D" uid="uid://dwty1wvfryik8" path="res://assets/Dungeon_brick_wall_grey.png.png" id="1_c8bcu"]
 [ext_resource type="PackedScene" uid="uid://norvan31e46p" path="res://scenes/platformer/level3/level3_door.tscn" id="2_yramb"]
 [ext_resource type="PackedScene" uid="uid://buvgjm6qx6jap" path="res://scenes/platformer/support/bouncer.tscn" id="4_36r3n"]
-[ext_resource type="PackedScene" uid="uid://ixineaxt6ila" path="res://scenes/platformer/traps/spike_ball.tscn" id="4_k60j0"]
 [ext_resource type="PackedScene" uid="uid://b00thoqwoqjnq" path="res://scenes/platformer/next_world_door.tscn" id="5_88cl8"]
 [ext_resource type="Texture2D" uid="uid://c8k4l72kqj3rl" path="res://assets/Castle Platformer Tileset [16x16][FREE] - RottingPixels/castle-tileset.png" id="5_nf6h7"]
 [ext_resource type="PackedScene" uid="uid://bjb6qsjcxod2b" path="res://scenes/platformer/killzone.tscn" id="6_4630l"]
@@ -177,18 +176,6 @@ position = Vector2(354, 506)
 
 [node name="Saws" type="Node2D" parent="MapLayers/Traps"]
 
-[node name="SpikeBall7" parent="MapLayers/Traps/Saws" instance=ExtResource("4_k60j0")]
-position = Vector2(-241, -62)
-scale = Vector2(0.4, 0.4)
-
-[node name="SpikeBall8" parent="MapLayers/Traps/Saws" instance=ExtResource("4_k60j0")]
-position = Vector2(-322, -62)
-scale = Vector2(0.4, 0.4)
-
-[node name="SpikeBall6" parent="MapLayers/Traps/Saws" instance=ExtResource("4_k60j0")]
-position = Vector2(246, -165)
-scale = Vector2(0.4, 0.4)
-
 [node name="SpikeBalls" type="Node2D" parent="MapLayers/Traps"]
 
 [node name="Platforms" type="TileMapLayer" parent="MapLayers"]
@@ -204,9 +191,6 @@ position = Vector2(555, 455)
 
 [node name="Bouncer2" parent="MapLayers/Supports" instance=ExtResource("4_36r3n")]
 position = Vector2(114, 342)
-
-[node name="Bouncer3" parent="MapLayers/Supports" instance=ExtResource("4_36r3n")]
-position = Vector2(35, 356)
 
 [node name="Boundaries" type="Node2D" parent="MapLayers"]
 
