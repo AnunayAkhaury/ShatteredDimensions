@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/prison.gd" id="1_bku46"]
 [ext_resource type="Texture2D" uid="uid://e8jtvtphnjkl" path="res://assets/tileset_prison.png" id="2_57gt2"]
-[ext_resource type="PackedScene" uid="uid://bd3xqdkulnu2v" path="res://scenes/lock.tscn" id="2_mrxtd"]
+[ext_resource type="PackedScene" path="res://scenes/lock.tscn" id="2_mrxtd"]
 [ext_resource type="AudioStream" uid="uid://bmhqhk3hw1woo" path="res://assets/item-pick-up-38258.mp3" id="3_kpdr1"]
 [ext_resource type="Script" path="res://scripts/platform.gd" id="6_x4h4h"]
 [ext_resource type="Script" path="res://scripts/levels.gd" id="7_is0dy"]
@@ -372,9 +372,9 @@ shape = SubResource("RectangleShape2D_iubs7")
 unique_name_in_owner = true
 stream = ExtResource("3_kpdr1")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_jqh15")
-max_distance = 1e+12
+volume_db = 6.622
 
 [connection signal="body_entered" from="Levels/Platformer" to="Character" method="_on_platformer_body_entered"]
 [connection signal="body_entered" from="Levels/Shooter" to="Character" method="_on_shooter_body_entered"]

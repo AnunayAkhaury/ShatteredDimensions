@@ -2,7 +2,7 @@ extends Control
 
 @onready var character_body = $Character
 @onready var character: Player = $Character
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var audio_stream_player_2d: AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready() -> void:
 	Global.run_gun = false
