@@ -363,7 +363,7 @@ func _on_shooter_body_entered(body: Node2D) -> void:
 		
 func _on_car_body_entered(body: Node2D) -> void:
 	if not carCompleted:
-		get_tree().change_scene_to_file("res://scenes/car/car_level.tscn")
+		get_tree().change_scene_to_file("res://scenes/car/labels/car_controller.tscn")
 
 
 func _on_spaceship_body_entered(body: Node2D) -> void:
