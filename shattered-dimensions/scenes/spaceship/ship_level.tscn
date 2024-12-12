@@ -928,6 +928,7 @@ theme_override_font_sizes/normal_font_size = 50
 text = "YOU LOST!"
 
 [node name="KillCount" type="Node2D" parent="Camera2D"]
+position = Vector2(15, 0)
 
 [node name="UFO1" type="Sprite2D" parent="Camera2D/KillCount"]
 position = Vector2(408.75, -254.5)
@@ -952,13 +953,6 @@ region_rect = Rect2(-0.75, 0.832001, 200, 70.5)
 
 [node name="UFO4" type="Sprite2D" parent="Camera2D/KillCount"]
 position = Vector2(509.75, -253.5)
-scale = Vector2(0.1325, 0.271428)
-texture = ExtResource("15_ga87y")
-region_enabled = true
-region_rect = Rect2(-0.75, 0.832001, 200, 70.5)
-
-[node name="UFO5" type="Sprite2D" parent="Camera2D/KillCount"]
-position = Vector2(541.75, -253.5)
 scale = Vector2(0.1325, 0.271428)
 texture = ExtResource("15_ga87y")
 region_enabled = true
