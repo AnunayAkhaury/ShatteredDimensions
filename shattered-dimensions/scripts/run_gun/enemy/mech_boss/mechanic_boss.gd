@@ -22,6 +22,7 @@ class_name MechanicBoss
 @onready var boss_combo_audio: AudioStreamPlayer2D = $BossComboAudio
 @onready var boss_dead: AudioStreamPlayer2D = $BossDead
 @onready var key_marker: Marker2D = $"../KeyMarker"
+@onready var hurtbox: Area2D = $Hurtbox
 
 var health_powerup_scene = preload('res://scenes/run_gun/powerups/health_pickup.tscn')
 var spiral_bullet_powerup = preload('res://scenes/run_gun/powerups/spiral_bullet_powerup/spiral_bullet_pickup.tscn')
@@ -60,11 +61,11 @@ func _ready() -> void:
 	attack_timer.wait_time = shoot_cooldown
 
 func _physics_process(delta: float) -> void:
+	apply_gravity(delta)
 	if death:
 		return                                 
 	prevent_landing_on_player()
 	move_and_slide()
-	apply_gravity(delta)
 	check_health_thresholds() 
 	if player != null:
 		var distance_to_player = (player.global_position - global_position).length()
@@ -185,12 +186,16 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		if health <= 0:
 			animatedsprite.stop()
 			death = true
+			player.boss_dead = true
 			unbind_player_input_commands()
 			boss_dead.play()
+			hurtbox.monitorable = false
+			hurtbox.monitoring = false
 			spawn_victory_key()
 			attack_timer.stop()
 			summon_timer.stop()
 			while not is_on_floor():
+				move_and_slide()
 				await get_tree().process_frame
 			animatedsprite.play("death")
 			for enemy in summoned_enemies:
