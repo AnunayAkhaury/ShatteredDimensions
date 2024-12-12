@@ -372,7 +372,7 @@ func _on_car_body_entered(body: Node2D) -> void:
 
 func _on_spaceship_body_entered(body: Node2D) -> void:
 	if not spaceshipCompleted:
-		get_tree().change_scene_to_file("res://scenes/spaceship/ship_level.tscn")
+		get_tree().change_scene_to_file("res://scenes/spaceship/spaceship_controls.tscn")
 
 func start_invulnerability() -> void:
 	is_invulnerable = true

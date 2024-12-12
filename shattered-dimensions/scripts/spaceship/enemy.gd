@@ -16,7 +16,9 @@ func _process(delta: float) -> void:
 	
 	# remove enemy from tree if dead
 	if healthLevel <= 0:
-		get_parent().get_parent().get_node("Camera2D").get_node("KillCount").get_children()[-1].queue_free()
+		var kills = get_parent().get_parent().get_node("Camera2D").get_node("KillCount").get_children()
+		if len(kills)>0:
+			kills[-1].queue_free()
 		queue_free()
 		
 	# UFO constant movement functionality
