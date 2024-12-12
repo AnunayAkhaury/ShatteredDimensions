@@ -39,6 +39,8 @@ Move to the top right and collect the key. You deserve it!
 
 ### Car Level ###
 
+The objective of the car level is to drive to the endpoint in order to obtain the key while escaping all obstacles along the way and killing enough enemies in order to retrieve weapons that will allow you to unlock the key. The scene starts off with a car chase, followed by a mini police battle. The car then has to continue driving, ensuring not to drive over spikes, kill enough enemies, and protect your health by getting the health power ups and/or the fuel power ups to help them survive. There are basic move right and left commands to the car, which are controlled by A,D or the arrows. The player can shoot by using click, and if they earned a power up bullet, they can use shift to toggle between a normal bullet and the power up. The player takes damage from bullets being shot by enemies, from crashing with a car, or driving over spikes. The player health bar, remaining lives, kill count, and bullet power up enabled information are shown at the the top right and left corners of the screen.
+
 ### Spaceship Level ###
 
 The objective of this level is for the player's spaceship to reach the end of the space domain without fatal damage and kill a minimum of 5 UFOs in its path. The player can use the up/W, down/S, and right/D keys for movement and press SHIFT for a boost. The player takes damage upon collision with an asteroid or from being hit by a blast from the UFO. The player statistics in the top right corner displays a health bar and a count for the number of UFOs the player still has to defeat. When the player successfully reaches the end of the level, they can pick up their golden key!
@@ -50,6 +52,8 @@ The objective of this level is for the player's spaceship to reach the end of th
 If your project contains code that: 1) your team did not write, and 2) does not fit cleanly into a role, please document it in this section. Please include the author of the code, where to find the code, and note which scripts, folders, or other files that comprise the external contribution. Additionally, include the license for the external code that permits you to use it. You do not need to include the license for code provided by the instruction team.
 
 If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
+
+- [Guidance for car physics](https://www.youtube.com/watch?v=nPX9MrnvNLo)
 
 # Main Roles #
 
@@ -71,7 +75,7 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 [Anunay Akhaury](?@ucdavis.edu)  -  RunGun Level + SubRole: (Cinematics, Powerups, Player/Enemy Gun Logic)
 
-[SriLakshmi Panda](?@ucdavis.edu)  -  Car Level (Physics) + Press Kit/Trailer
+[SriLakshmi Panda](slpanda@ucdavis.edu)  -  Car Level (Physics) + Press Kit/Trailer
 
 [Janani Asokumar](?@ucdavis.edu)  -  Car Level + Initial Cutscene
 
@@ -674,6 +678,20 @@ I was able to use the skills I developed with working on Exercise 1 to design my
     - **Laser Blast**: sourced from spritesheet
     - **UFO Movement**: sourced from spritesheet
     - **Powerup**: sourced from spritesheet
+
+## Car Level
+
+### **Student Information**  
+**Name**: Sri Lakshmi Panda  
+**Email**: slpanda@ucdavis.edu  
+**Github**: [srilakshmipanda](https://github.com/srilakshmipanda)  
+
+---
+
+The Car level is similar to games like hill-climb racing but also brings together many other different features, such as shooting and car chases.
+
+### Player Movement/Physics
+
 
 ## User Interface and Input
 

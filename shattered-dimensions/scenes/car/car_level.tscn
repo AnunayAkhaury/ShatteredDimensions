@@ -13805,20 +13805,8 @@ tile_set = SubResource("TileSet_jjwe4")
 [node name="Labels" type="Node2D" parent="."]
 position = Vector2(668, -45)
 
-[node name="Tutorial" parent="Labels" instance=ExtResource("3_euuak")]
-offset_left = -528.0
-offset_top = 272.0
-offset_right = -160.0
-offset_bottom = 345.0
-text = "Use arrows or A and D to move the car
-Use click to aim and shoot
-Kill 4 enemies = unlock 1 power up bullet
-Use shift to toggle and shoot the power up bullet
-Save the power up bullets for blasting things!"
-
 [node name="CageHint" parent="Labels" instance=ExtResource("3_euuak")]
 unique_name_in_owner = true
-visible = false
 offset_left = 16105.0
 offset_top = 404.0
 offset_right = 16646.0
@@ -13827,7 +13815,6 @@ text = "Hmm, bullets aren't powerful enough to break the cage."
 
 [node name="RestartHint" parent="Labels" instance=ExtResource("3_euuak")]
 unique_name_in_owner = true
-visible = false
 offset_left = 8325.0
 offset_top = 290.0
 offset_right = 8986.0
