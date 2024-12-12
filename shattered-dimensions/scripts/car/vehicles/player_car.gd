@@ -118,7 +118,6 @@ func _shoot_missile() -> void:
 	add_sibling(cur_bullet)
 	is_missile_enabled = false
 	tot_missiles -= 1
-	kills_until_missile = _MIN_KILL_FOR_MISSILE
 
 func respawn() -> void:
 	GlobalVars.car_lives -= 1
