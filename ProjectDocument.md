@@ -41,7 +41,7 @@ The objective of the car level is to drive to the endpoint in order to obtain th
 
 ### Spaceship Level ###
 
-The objective of this level is for the player's spaceship to reach the end of the space domain without fatal damage and kill a minimum of 5 UFOs in its path. The player can use the up/W, down/S, and right/D keys for movement and press SHIFT for a boost. The player takes damage upon collision with an asteroid or from being hit by a blast from the UFO. The player statistics in the top right corner displays a health bar and a count for the number of UFOs the player still has to defeat. When the player successfully reaches the end of the level, they can pick up their golden key!
+The objective of this level is for the player's spaceship to reach the end of the space domain without fatal damage and kill a minimum of 4 UFOs in its path. The player can use the up/W, down/S, left/A, and right/D keys for movement and press SHIFT for a boost. The player takes damage upon collision with an asteroid or from being hit by a blast from the UFO. The player statistics in the top right corner displays a health bar and a count for the number of UFOs the player still has to defeat. When the player successfully reaches the end of the level, they can pick up their golden key!
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
@@ -567,7 +567,21 @@ Below I have described the main features and functionality of my level, along wi
 
 - The player is free to move vertically until they reach the bounds of the background and the [camera follows the player when they move vertically](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/spaceship.gd#L80). 
 
-*Add video of auto scroll*
+**Spaceship Movement and Statistics** 
+
+- The movement of the spaceship is directly tied to the up/W, down/S, right/D, and left/A keys.
+
+- Pressing the SHIFT key triggers an animation and boosts the spaceship to the right.
+  
+![boost](https://github.com/user-attachments/assets/b472f615-cdcb-41db-a555-aabd6a9de86d)
+
+- The **healthLevel variable** keeps track of the damage done to the spaceship based on collisions with different objects. 
+
+- The statistics in the top right corner consist of a health bar that is constantly updated and a kill count to show how many spaceships the player still has to defeat to win the level. *The condition of defeating 5 spaceships as shown in these images and gifs was later updated to 4. This is discussed further in the gameplay testing section.*
+
+- After an arrow from the spaceship collides with a UFO, the UFO's health decreases and the arrow is removed from the scene tree. The [kill count is updated](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/225a96834739d2f906e4af3a0d7a5ef6a8226745/shattered-dimensions/scripts/spaceship/enemy.gd#L19) upon defeat of a UFO.
+
+<img width="200" alt="Player Stats" src="https://github.com/user-attachments/assets/6f11d71d-35d1-4063-8f9c-cc379487ead6" />
 
 **Arrow Instantiation System**
 
@@ -577,7 +591,7 @@ Below I have described the main features and functionality of my level, along wi
 
 - The most difficult part of this feature was to handle movement of the spaceship during the firing animation. I needed to ensure that I was [updating the position of the holder and arrows that were not yet fired](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/spaceship.gd#L125) if the spaceship moved. This meant that each arrow had to function individually, independent of the others.
 
-- The logic of the spaceship sets a delay after every set of arrows is fired. This way, the spaceship can only fire one set of arrows at a time.
+- The logic of the spaceship ensures that the spaceship can only fire one set of arrows at a time, so the spaceship cannot fire again until the previous set of arrows are past the viewport and freed from the tree.
 
 - My familiarity with the projectile instantiation system and recharge delay from Exercise 3 was extremely helpful for building out this feature.
 
@@ -585,23 +599,11 @@ Below I have described the main features and functionality of my level, along wi
 
 ![firing2](https://github.com/user-attachments/assets/9e6b6203-3fe8-4da3-9c0a-a2b652b45dc4)
 
-**Spaceship Movement and Statistics** 
-
-- The movement of the spaceship is directly tied to the up/W, down/S, and right/D keys.
-
-- Pressing the SHIFT key triggers an animation and boosts the spaceship to the right.
-  
-![boost](https://github.com/user-attachments/assets/b472f615-cdcb-41db-a555-aabd6a9de86d)
-
-- The **healthLevel variable** keeps track of the damage done to the spaceship based on collisions with different objects. 
-
-- The statistics in the top right corner consist of a health bar that is constantly updated and a kill count to show how many spaceships the player still has to defeat to win the level.
-
-<img width="200" alt="Player Stats" src="https://github.com/user-attachments/assets/6f11d71d-35d1-4063-8f9c-cc379487ead6" />
-
-- The UFOs have their own health that is depleted by the arrows fired by the spaceship. The [kill count is updated](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/225a96834739d2f906e4af3a0d7a5ef6a8226745/shattered-dimensions/scripts/spaceship/enemy.gd#L19) upon defeat of a UFO.
+**Asteroids**
 
 - The spaceship is configured to bounce back after collision with an asteroid, creating a cooldown period during which user input is unbinded.
+  
+- The asteroids are of type RigidBody2D, so they are able to bounce off the spaceship and transition into an explosion upon collision. 
   
 ![IMG_4802](https://github.com/user-attachments/assets/6fbc0767-7182-420b-be6b-3a80d7239adc)
 
@@ -611,9 +613,9 @@ Below I have described the main features and functionality of my level, along wi
 
 - The laser blast system of the enemies also employs the command pattern as each blast is treated as a self contained object. There are numerous enemies placed throughout the map of my level. 
 
-- I was able to set up an **automated blast firing system** that executes only during the time that an enemy is detected to be within the player's viewport. This system is set to fire with a specific delay between each blast, using concepts from the recharge delay of Stage 1 in Exercise 3. 
+- I was able to set up an **automated blast firing system** that executes only during the time that an enemy is detected to be within the camera viewport. This system is set to fire with a constant delay between each blast, using concepts from the recharge delay of Stage 1 in Exercise 3. 
 
-- I was able to accomplish **onscreen detection** by [comparing the camera position to the enemy position](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/enemy.gd#L35). 
+- I was able to accomplish **onscreen detection** by [comparing the camera position to the enemy position](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/enemy.gd#L35). Once the left edge of the viewport has scrolled past a spaceship, it is removed from the scene tree as it is no longer able to interact with the player.
 
 - The UFOs also have [automated movement](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/enemy.gd#L23) to add to the difficulty of the level. 
 
@@ -623,20 +625,20 @@ Below I have described the main features and functionality of my level, along wi
 
 - I created a scene with buttons where the user can choose to restart the level or return to the lobby.
 
-- This scene pops up as an overlay in **two cases**:
+- This scene pops up as an overlay and the camera continues to scroll in the background until the end of the level is reached. This allows for an engaging visual effect and a change for the player to observe the rest of the level.
+
+- The player loses in **two cases**:
 
     1. The player's health reaches 0 before they reach the end of the level.
-    2. The player reaches the end of the level but they have not defeated at least 3 UFOs.
+    2. The player reaches the end of the level but they have not defeated at least 4 UFOs.
 
 ![overlaymenu](https://github.com/user-attachments/assets/85bc0673-d287-44fe-92aa-156e70110a4c)
 
-**Winning & Key**
+**Winning & Key Collection**
 
-- The key scene is instantiated upon the player reaching the end of the level and defeating at least 3 UFOs.
+- The key scene is instantiated upon the player reaching the end of the level and defeating at least 4 UFOs.
 
 - The key is equipped with a collision object that detects the spaceship and returns the player to the prison.
-
-*Add picture of key*
 
 **Design**
 
@@ -781,6 +783,7 @@ Gun Mechanics were covered extensively in the main **Run and Gun Level** section
 *Email: ssanegepalli@ucdavis.edu*   
 *Github: ssaneg*
 
+### Prison Lobby
 The prison setting of this main lobby allows the player access into all 4 dimensions to play the minigames necessary to escape. 
 
 - **Visuals**: I was able to source the necessary visual sprites and assets for the background of the prison to provide cohesion with the story from the initial cutscene. 
@@ -805,11 +808,13 @@ The prison setting of this main lobby allows the player access into all 4 dimens
 
 Once all keys are unlocked, the player has won the game!
 
-## Gameplay Testing
+### Gameplay Testing
 
-**Add a link to the full results of your gameplay tests.**
+Here is a link to the full results of our gameplay tests: *add link*
 
-**Summarize the key findings from your gameplay tests.**
+Here is a link to the Google Form we used: *add link*
+
+In addition to the results collected through the use of this Google Form, we also got a lot of feedback from our peers, TAs, and Professor from our game demo during the Final Festival. Since our games consists of several minigames that different team members were responsible for, internal testing also resulted in the discovery of a lot of bugs and necessary improvements to our overall game.
 
 ## Narrative Design
 
