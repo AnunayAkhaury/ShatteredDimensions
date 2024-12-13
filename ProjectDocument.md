@@ -1,4 +1,4 @@
-# Shattered Dimensions #
+![car_physics](https://github.com/user-attachments/assets/c0953bc7-8f74-4f58-b608-9576edbf38a1)# Shattered Dimensions #
 
 ## Summary ##
 Shattered Dimensions is a prison escape game focused on a space explorer who has been trapped in a dimensional prison. In order for him to escape, he must venture through the 4 dimensional gates and retrieve the 4 keys which come from each separate dimension. Each dimension is a different type of level with a unique style including a platformer level, run and gun level, car level, and spaceship level. Once players beat each level to retrieve the special keys, they can escape the prison and win the game. Do you have what it takes to escape this dimensional prison? Enter the cosmos and find out.
@@ -725,7 +725,7 @@ _Camera_
 - After the player beats the swat van in the car chase, the camera is programmed to slowly pan to the the right of the car. For the rest of the game, the camera is offset to the right of the player car such that the player car is on the left end of the frame and it allows them to see a larger portion of the coming terrain/path.
 
 
-![car physics](https://file%2B.vscode-resource.vscode-cdn.net/Users/siri/Downloads/Gifs/car_physics.gif?version%3D1734075782023)
+![car_physics](https://github.com/user-attachments/assets/83b8bc02-b3d6-43dc-8a21-729b448c85a4)
 
 
 ### Shooting
@@ -753,7 +753,8 @@ _Ammo Implementation_
 - Bullet class
     - Animation and sprite is small
                 
-    ![bullet shooting](https://file+.vscode-resource.vscode-cdn.net/Users/siri/Downloads/Gifs/gbullet_gif-ezgif.com-video-to-gif-converter%20%281%29.gif?version%3D1734076269935)
+    ![gbullet](https://github.com/user-attachments/assets/79cae636-7462-40f3-997e-f39493bdc3f0)
+
 
 - Missile class
     - Bullet origin is set to car_player upon instantiation
@@ -761,8 +762,8 @@ _Ammo Implementation_
     - Animation and sprite is a large fireball
     - A missile is not a default and needs to be earned. For every 4 enemies which the player kills, they earn 1 missile. The missile is powerful and will defeat anyone/anything with one hit. The missiles should be saved to blow up obstacles otherwise the level will not be winnable
 
+    ![gmissile](https://github.com/user-attachments/assets/8bfba664-b052-47bb-bad3-56bc007d3a21)
 
-        INSERT GIF HEREEEEEE
 
 ### Enemies / Obstacles
 
@@ -775,6 +776,8 @@ _SWAT Van_
 - The van has a simple health bar above it to assist the player
 - If the swat van catches up to the car (aka crashes into the creator) and the player gets caught, a small cutscene is triggered showing the player getting arrested
 - The crash / catch up is detected using Area2D nodes using the area_entered signal
+  
+![gswat](https://github.com/user-attachments/assets/8f642b9e-615b-4133-948a-5e591bb99a5e)
 
 _Spikes_
 
@@ -782,6 +785,8 @@ _Spikes_
 - If the car drives over the spikes / touches the spikes, the player loses a life and respawns
 - To achieve precision, I used a collision polygon 2d to get the exact shape of the spikes were
 - The slow movement and scattered animation of one moving after another was achieved by giving 2 spikes a faster animation and 2 spikes slower. Then I used a script to play the animation of each spike one after another
+  
+![gspike](https://github.com/user-attachments/assets/aa57f45f-eb74-4f73-b2e1-af5de98cefd9)
 
 _Cages_
 
@@ -789,6 +794,7 @@ _Cages_
 - The cages can be removed only by blowing it up using a missile, which requires a minimum kill
 - The cage has an area2d node which detects a missile entering. Upon getting hit by a missile, an explosion animation is played and the cage is removed
 
+![gcage](https://github.com/user-attachments/assets/d2fd44eb-3d6f-4969-98d4-8f6041077173)
 
 ### Other (Boost ups, health bar, lives, extra scene, Collecting Key)
 
@@ -797,23 +803,30 @@ _Boost Ups_
 - There are two boost ups in the game, health and fuel
 - A health power up, which increases the health bar by 25
 - A fuel power up, which speeds up the car for some fixed amount of time regardless of whether the car is going faster than the max_speed or not
+  
+![gboost](https://github.com/user-attachments/assets/0e792f2a-925c-41fb-b3be-c571bd778ee0)
 
 _Health Bar & Lives_
 
 - The health of the player is displayed using a progress bar (a percentage is also shown) on the top right corner. This indicates the amount of health they have left before they lose another life.
 - When the health decreases to 0, the player loses a life and the player respawns from the beginning of the game. There are no checkpoints in this level as that would make it super easy to beat the game.
 - The player has a total of 5 lives before they lose the game, and the number of lives the player has is displayed on the top right corner of the screen using heart icons. Upon losing a life, a life icon disappears.
+  
+![ghealth](https://github.com/user-attachments/assets/900573a0-95c0-4361-87a6-bdcd36ea0681)
 
 _Collecting Key_
 
 - If the player reaches the end of the game where the key is, there is a checkpoint at which the user's input and car's movement is disabled. The key is inside a cage, and the player needs to blow up the cage using a missile if they have one, upon which the user's input and car movement is enabled again and they can collect the key
 - If the player reaches the end and they do not have the missile, they are informed that they don't have the weapons needed to win the game and the game restarts and they need to try to reach the end while earning enough missiles.
 
+![gkey](https://github.com/user-attachments/assets/a7c2ac8d-6c2d-4aba-b51a-74f6706e026f)
+
 _Extra Scenes_
 
 - Cutscene upon getting caught by the SWAT van includes loading a different scene with a bar cell falling on the player, and displaying text letting the player know that they were caught
 - If the player loses all 5 lives, a game_over scene is loaded with a simple skull animation, and the player can choose to either return to the lobby or restart the game
 
+![garrest](https://github.com/user-attachments/assets/d4a08a3d-b28f-43bb-beec-6584c09140f1)
 
 ### Animations
 
