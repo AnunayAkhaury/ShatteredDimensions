@@ -701,26 +701,26 @@ _Physics_
 _User input_
 
 - The car has basic right and left movements implemented which are controlled with user input (arrows or "A","D").
-- The move functions are implemented by controlling the wheel's angular velocity which would automatically make the car move right and left according to the direction of the angular velocity (since it is bound by the pin joint)
+- The [move functions are implemented by controlling the wheel's angular velocity](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/1d74ff599a6d1ab6a16e34445755d3c52e471302/shattered-dimensions/scripts/car/vehicles/player_car.gd#L66-L73) which would automatically make the car move right and left according to the direction of the angular velocity (since it is bound by the pin joint)
 
 _Generalized Car Implementation_
 
 - The game includes the player's car as well as a SWAT van, thus I made a vehicle class to generalize the code needed for a vehicle
-- The vehicle class contains general properties needed for the car, such as the wheels which are bound to the car, max speed, and speed at which torque is applied
+- The vehicle class [contains general properties](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/f3139c4b43e77c428a699bf81419676e22c3144e/shattered-dimensions/scripts/car/vehicles/vehicle.gd#L1-L12) needed for the car, such as the wheels which are bound to the car, max speed, and speed at which torque is applied
 - The player car and swat van both extend the vehicle class thus the implementation for how they are moved are the same
 
 _Collision & Detection Boxes_
 
 - The car has a collision box under the Rigid2DNode which will apply general collision with the swat van, spikes, cage, and general terrain
-- The car has an Area2D node which acts as a detection box. Using the area_entered signal, we are able to recognize the following:
-    - Bullets - upon which the player's health is decreased
-    - Boost ups - fuel, and health, and player's health or car speed is updated accordingly
-    - Traps / spikes - player dies
-    - Key - the player wins if the key is collected and the game returns to the lobby
+- The car has an Area2D node which acts as a detection box. Using the [area_entered signal](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/f3139c4b43e77c428a699bf81419676e22c3144e/shattered-dimensions/scripts/car/detection_boxes/player_detection_box.gd#L8), we are able to recognize the following:
+    - [Bullets](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/f3139c4b43e77c428a699bf81419676e22c3144e/shattered-dimensions/scripts/car/detection_boxes/player_detection_box.gd#L11) - upon which the player's health is decreased
+    - [Boost ups](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/f3139c4b43e77c428a699bf81419676e22c3144e/shattered-dimensions/scripts/car/detection_boxes/player_detection_box.gd#L22-L30) - fuel, and health, and player's health or car speed is updated accordingly
+    - [Traps / spikes](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/f3139c4b43e77c428a699bf81419676e22c3144e/shattered-dimensions/scripts/car/detection_boxes/player_detection_box.gd#L42-L52) - player dies
+    - [Key](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/f3139c4b43e77c428a699bf81419676e22c3144e/shattered-dimensions/scripts/car/detection_boxes/player_detection_box.gd#L35-L40) - the player wins if the key is collected and the game returns to the lobby
 
 _Camera_
 
-- The camera in this level is simple and consistently just follows the car at a certain offset.
+- The [camera in this level](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/f3139c4b43e77c428a699bf81419676e22c3144e/shattered-dimensions/scripts/car/camera.gd#L14) is simple and consistently just follows the car at a certain offset.
 - However, for the initial car chase, the camera is offset to the left of the car in order to ensure that the SWAT van and the car are both in the frame. 
 - After the player beats the swat van in the car chase, the camera is programmed to slowly pan to the the right of the car. For the rest of the game, the camera is offset to the right of the player car such that the player car is on the left end of the frame and it allows them to see a larger portion of the coming terrain/path.
 
@@ -735,8 +735,8 @@ _Shooting Mechanics_
 - Shooting implementation was done using factory pattern. Items that can be shot are classified as ammo, and there are two things that can be shooted, a bullet and missile, both which extend the ammo class. 
     - The bullet is implemented so that any character in the game is able to shoot using its implementation by specifiying needed parameters. 
     - The missile, theoretically can be used by any character, but only the car player has the ability to shoot the missile in our game
-- Each character that has the ability to shoot calls its shoot function which instantiates the bullet and adds it to the scene tree based on the specified parameters
-- Player shooting - user input
+- Each character that has the ability to shoot calls its [shoot function](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/7fcffe53c371a297c7e065398e32587d0a8674d3/shattered-dimensions/scripts/car/vehicles/player_car.gd#L108-L117) which instantiates the bullet and adds it to the scene tree based on the specified parameters
+- Player shooting - user inputs
     - The player is able to control shooting with the user inputs "P" or a mouse click. 
     - The aim guide is drawn wherever the cursor is on the screen to help the users visualize where the bullet will travel to
     - The player has limited missiles which they earn, and they can choose when to shoot them by using "Shift" to toggle the enabling/disabling of the missile. The information of whether the missile is enabled or not is displayed on the top left corner of the screen. The actual shooting of the missile works the same as specified above
@@ -746,16 +746,16 @@ _Shooting Mechanics_
 
 _Ammo Implementation_
 
-- The ammo class
+- The [ammo class](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/f3139c4b43e77c428a699bf81419676e22c3144e/shattered-dimensions/scripts/car/shooting/ammo.gd#L4-L9)
     - Consists of a damage value, the start position, the target position, speed, and the origin of the bullet (aka which character of the game is initiating the shooting of this bullet) all of which can be specified according to requirmentes
     - Using the target pos and starting pos, the _direction in which the ammo should travel is calculated, and the ammo is shot at the specified speed in that direction
 - Bullet and missile lifespan is either until it hits a character, or until it exits the screen upon which it is freed from the scene tree
-- Bullet class
+- [Bullet class](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/f3139c4b43e77c428a699bf81419676e22c3144e/shattered-dimensions/scripts/car/shooting/bullet.gd#L1-L12)
     - Animation and sprite is small
                 
     ![bullet shooting](https://file+.vscode-resource.vscode-cdn.net/Users/siri/Downloads/Gifs/gbullet_gif-ezgif.com-video-to-gif-converter%20%281%29.gif?version%3D1734076269935)
 
-- Missile class
+- [Missile class](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/7fcffe53c371a297c7e065398e32587d0a8674d3/shattered-dimensions/scripts/car/shooting/missile.gd#L1)
     - Bullet origin is set to car_player upon instantiation
     - Damage value of the bullet is set to 100, so it kills an enemy in one shot
     - Animation and sprite is a large fireball
@@ -771,30 +771,30 @@ In general, there are two sequences of special enemies in the beginning, the SWA
 _SWAT Van_
 
 - The game starts off with a car chase to setup the scene of the level of the player trying to escape, and the player needs to kill the van before a certain checkpoint in order to defeat it
-- The swat van is slightly faster than the car to make it more difficult and to ensure that the car needs to kill the van before it catches up to the van
+- The swat van is [slightly faster than the car](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/7fcffe53c371a297c7e065398e32587d0a8674d3/shattered-dimensions/scripts/car/vehicles/swat_van.gd#L48-L49) to make it more difficult and to ensure that the car needs to kill the van before it catches up to the van
 - The van has a simple health bar above it to assist the player
 - If the swat van catches up to the car (aka crashes into the creator) and the player gets caught, a small cutscene is triggered showing the player getting arrested
-- The crash / catch up is detected using Area2D nodes using the area_entered signal
+- The crash / catch up is [detected using Area2D nodes](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/7fcffe53c371a297c7e065398e32587d0a8674d3/shattered-dimensions/scripts/car/detection_boxes/crash_box.gd#L6-L15) using the area_entered signal
 
 _Spikes_
 
 - Throughout the course, there are spike traps the slowly move up and down and then dissappear into the floor/ceiling. There is a small time interval given where the spikes go down and it is safe for the car to drive through
 - If the car drives over the spikes / touches the spikes, the player loses a life and respawns
 - To achieve precision, I used a collision polygon 2d to get the exact shape of the spikes were
-- The slow movement and scattered animation of one moving after another was achieved by giving 2 spikes a faster animation and 2 spikes slower. Then I used a script to play the animation of each spike one after another
+- The slow movement and scattered animation of one moving after another was achieved by giving 2 spikes a faster animation and 2 spikes slower. 
 
 _Cages_
 
 - The cages are implemented using a simple sprite and collision shape, and they prevent the car from going forwards
 - The cages can be removed only by blowing it up using a missile, which requires a minimum kill
-- The cage has an area2d node which detects a missile entering. Upon getting hit by a missile, an explosion animation is played and the cage is removed
+- The cage has an area2d node which detects a missile entering. Upon getting [hit by a missile, an explosion animation is played and the cage is removed](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/7fcffe53c371a297c7e065398e32587d0a8674d3/shattered-dimensions/scripts/car/game_elements/cage.gd#L13-L37)
 
 
 ### Other (Boost ups, health bar, lives, extra scene, Collecting Key)
 
 _Boost Ups_
 
-- There are two boost ups in the game, health and fuel
+- There are [two boost ups](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/7fcffe53c371a297c7e065398e32587d0a8674d3/shattered-dimensions/scripts/car/detection_boxes/player_detection_box.gd#L22-L31) in the game, health and fuel
 - A health power up, which increases the health bar by 25
 - A fuel power up, which speeds up the car for some fixed amount of time regardless of whether the car is going faster than the max_speed or not
 
@@ -802,16 +802,16 @@ _Health Bar & Lives_
 
 - The health of the player is displayed using a progress bar (a percentage is also shown) on the top right corner. This indicates the amount of health they have left before they lose another life.
 - When the health decreases to 0, the player loses a life and the player respawns from the beginning of the game. There are no checkpoints in this level as that would make it super easy to beat the game.
-- The player has a total of 5 lives before they lose the game, and the number of lives the player has is displayed on the top right corner of the screen using heart icons. Upon losing a life, a life icon disappears.
+- The player has a total of 5 lives before they lose the game, and the number of lives the player has is displayed on the top right corner of the screen using heart icons. [Upon losing a life, a life icon disappears](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/7fcffe53c371a297c7e065398e32587d0a8674d3/shattered-dimensions/scripts/car/game_elements/lives_visibility.gd#L13-L15).
 
 _Collecting Key_
 
-- If the player reaches the end of the game where the key is, there is a checkpoint at which the user's input and car's movement is disabled. The key is inside a cage, and the player needs to blow up the cage using a missile if they have one, upon which the user's input and car movement is enabled again and they can collect the key
-- If the player reaches the end and they do not have the missile, they are informed that they don't have the weapons needed to win the game and the game restarts and they need to try to reach the end while earning enough missiles.
+- If the player reaches the end of the game where the key is, there is a [checkpoint](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/7fcffe53c371a297c7e065398e32587d0a8674d3/shattered-dimensions/scripts/car/detection_boxes/player_detection_box.gd#L32-L40) at which the user's input and car's movement is disabled. The key is inside a cage, and the player needs to blow up the cage using a missile if they have one, upon which the user's input and car movement is enabled again and they can collect the key
+- If the player reaches the end and [they do not have the missile](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/7fcffe53c371a297c7e065398e32587d0a8674d3/shattered-dimensions/scripts/car/game_elements/cage.gd#L29-L38), they are informed that they don't have the weapons needed to win the game and the game restarts and they need to try to reach the end while earning enough missiles.
 
 _Extra Scenes_
 
-- Cutscene upon getting caught by the SWAT van includes loading a different scene with a bar cell falling on the player, and displaying text letting the player know that they were caught
+- Cutscene upon getting caught by the SWAT van includes [loading a different scene](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/7fcffe53c371a297c7e065398e32587d0a8674d3/shattered-dimensions/scripts/car/other_screens/player_arrest.gd#L8-L13) with a bar cell falling on the player, and displaying text letting the player know that they were caught
 - If the player loses all 5 lives, a game_over scene is loaded with a simple skull animation, and the player can choose to either return to the lobby or restart the game
 
 
@@ -825,13 +825,13 @@ Animations were integral to our level as they were used for multiple elements in
 
 ### Class related content
 
-_Detection Boxes (Hit/Hurt)_ - Similar to the hit/hurt boxes of the characters from exercise 1, there are many places where we had to implement hurt boxes in order to detect the bullets hitting the player or enemy. In addition, the same technique was used to detect when the cars crashed into each other, if the missile hit the health, and if the key was successfully collected.
+_[Detection Boxes](https://github.com/AnunayAkhaury/ShatteredDimensions/tree/car-level/shattered-dimensions/scripts/car/detection_boxes) (Hit/Hurt)_ - Similar to the hit/hurt boxes of the characters from exercise 1, there are many places where we had to implement hurt boxes in order to detect the bullets hitting the player or enemy. In addition, the same technique was used to detect when the cars crashed into each other, if the missile hit the health, and if the key was successfully collected.
 
 _Camera_ - Our level implements a camera and the information from exercise 2 was very applicable to doing so. Our camera is pretty simple where it follows the player car based on a certain offset, and stage 1 of exercise 2 came in handy to do this as the only difference was the offset. 
 
 _Factory Pattern_ - The ammo (bullets & missiles) are implemented using the factory pattern method we learnt from exercise 3. The process was very similar in that I created a generalized class that has parameters to allow us to customize it, and a shooting function which instantiates scene with the ammo upon the user's "shoot" input (mouse click / "P").
 
-_Timers_ - We learnt about how to use timers in our exercise 3 when we had our test and the projectiles had to shoot one after another. This came into play while I was implemented the start delay and respawn delay in the game.
+_Timers_ - We learnt about how to use timers in our exercise 3 when we had our test and the projectiles had to shoot one after another. This came into play while I was implemented the [start delay](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/7fcffe53c371a297c7e065398e32587d0a8674d3/shattered-dimensions/scripts/car/vehicles/vehicle.gd#L19-L23) and respawn delay in the game.
 
 _Physics Bodies_ - We learnt about how the physics bodies work along the way of exercise 1 while building our cutscene. This helped me build the car physics and work with the properties of RigidBody2D nodes in order to achieve what I wanted for the car. In addition, using different collision layers was something that was picked up from exercise 1 as well. 
 
@@ -979,6 +979,21 @@ The prison setting of this main lobby allows the player access into all 4 dimens
     - *For smoother feel, a slight delay was added to the start of the music by Anunay.* 
 
 Once all keys are unlocked, the player has won the game!
+
+
+## Press Kit & Trailer
+
+**Student Information**
+*Name: Sri Lakshmi Panda*   
+*Email: slpanda@ucdavis.edu*   
+*Github: [srilakshmipanda](https://github.com/srilakshmipanda)*
+
+The prison setting of this main lobby allows the player access into all 4 dimensions to play the minigames necessary to escape. 
+
+- **Trailer**: ...
+
+- **PressKit**: ...
+
 
 ## Gameplay Testing
 
