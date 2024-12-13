@@ -1,4 +1,4 @@
-![car_physics](https://github.com/user-attachments/assets/c0953bc7-8f74-4f58-b608-9576edbf38a1)# Shattered Dimensions #
+# Shattered Dimensions #
 
 ## Summary ##
 Shattered Dimensions is a prison escape game focused on a space explorer who has been trapped in a dimensional prison. In order for him to escape, he must venture through the 4 dimensional gates and retrieve the 4 keys which come from each separate dimension. Each dimension is a different type of level with a unique style including a platformer level, run and gun level, car level, and spaceship level. Once players beat each level to retrieve the special keys, they can escape the prison and win the game. Do you have what it takes to escape this dimensional prison? Enter the cosmos and find out.
@@ -751,7 +751,7 @@ _Ammo Implementation_
     - Using the target pos and starting pos, the _direction in which the ammo should travel is calculated, and the ammo is shot at the specified speed in that direction
 - Bullet and missile lifespan is either until it hits a character, or until it exits the screen upon which it is freed from the scene tree
 - Bullet class
-    - Animation and sprite is small
+    - Animation and sprite is a small red/orange/yellow bullet with movement animation
                 
     ![gbullet](https://github.com/user-attachments/assets/79cae636-7462-40f3-997e-f39493bdc3f0)
 
