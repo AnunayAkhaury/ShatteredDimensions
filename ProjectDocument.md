@@ -1,5 +1,3 @@
-![battle_start](https://github.com/user-attachments/assets/49555ebb-7fb9-4caf-af9b-310c2c9f3309)# Shattered Dimensions #
-
 ## Summary ##
 Shattered Dimensions is a prison escape game focused on a space explorer who has been trapped in a dimensional prison. In order for him to escape, he must venture through the 4 dimensional gates and retrieve the 4 keys which come from each separate dimension. Each dimension is a different type of level with a unique style including a platformer level, run and gun level, car level, and spaceship level. Once players beat each level to retrieve the special keys, they can escape the prison and win the game. Do you have what it takes to escape this dimensional prison? Enter the cosmos and find out.
 
@@ -889,7 +887,7 @@ _Physics Bodies_ - We learnt about how the physics bodies work along the way of 
   
 - I found spritesheets for a spike, which looked like spikes popping in and out of the ground. I combined four different spikes into one node. When the car drives over the trap, input is disabled. Under the detection box for the player, in the on_area_entered class, I added code under an if object is Trap statement to set up the scene. This disables input for the car and implements a stop_car() function in player_car.gd to completely stop the wheels regardless of gravity. The visibility of the character inside the car is turned off, and the character's visibility already present in the battle area is turned on. This way, I created the illusion of teleportation.
 
-![Uploading battle_start.gif…]()
+![battle_start](https://github.com/user-attachments/assets/49555ebb-7fb9-4caf-af9b-310c2c9f3309)
 
 - **Additionally, I utilized GlobalVariables which were set to "Not On Car level", "Car Level Entered", "Battle", "Battle Over", and "Game Over"**. These five states match the point of the game the player is in. In the player.gd file, I unbinded the player input until the car_level_stat variable was set to "Battle." It was difficult to work with the player.gd file since my level didn't require much of the default player behavior. The use of global variables resolved this issue and made it easier to control the player behavior in the car battle.
   
