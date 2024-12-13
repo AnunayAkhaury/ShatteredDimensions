@@ -688,9 +688,156 @@ I was able to use the skills I developed with working on Exercise 1 to design my
 
 ---
 
-The Car level is similar to games like hill-climb racing but also brings together many other different features, such as shooting and car chases.
+The Car level is similar to games like hill-climb racing but also brings together many other different features, such as shooting and car chases. The general objective of the game is to reach the end of the game while killing enemies along the way and dodging all obstacles. The game includes specific sequences, such as a car chase and a small police encounter. In addition, there are spikes, cages, and general enemies along the way. The player needs to kill some amount of enemies in order to unlock the missile, which is required in order to escape some obstacles such as the cage.
 
-### Player Movement/Physics
+### Car Movement/Physics
+
+_Physics_
+
+    - The car physics was implemented using RigidBody2D nodes and a PinJoint node which would serve as the axle for the wheels of the car. This allows me to rotate the wheel along their center without having to add any sort of animation. 
+    - Initially, the car was really light and the car would flip on the hills due to high momentum and velocity. It took some trial and error to find a good level of gravity force, mass of the car, to ensure that the car is not lifted off the ground
+    - In order to ensure that the car cannot accerlate infinitely, I had to implement a max_speed for the car. I had to play around with this as well to find a good value that will allow the car to go through our terrain without difficulty
+
+_User input_
+
+    - The car has basic right and left movements implemented which are controlled with user input (arrows or "A","D").
+    - The move functions are implemented by controlling the wheel's angular velocity which would automatically make the car move right and left according to the direction of the angular velocity (since it is bound by the pin joint)
+
+_Generalized Car Implementation_
+
+    - The game includes the player's car as well as a SWAT van, thus I made a vehicle class to generalize the code needed for a vehicle
+    - The vehicle class contains general properties needed for the car, such as the wheels which are bound to the car, max speed, and speed at which torque is applied
+    - The player car and swat van both extend the vehicle class thus the implementation for how they are moved are the same
+
+_Collision & Detection Boxes_
+
+    - The car has a collision box under the Rigid2DNode which will apply general collision with the swat van, spikes, cage, and general terrain
+    - The car has an Area2D node which acts as a detection box. Using the area_entered signal, we are able to recognize the following:
+        - Bullets - upon which the player's health is decreased
+        - Boost ups - fuel, and health, and player's health or car speed is updated accordingly
+        - Traps / spikes - player dies
+        - Key - the player wins if the key is collected and the game returns to the lobby
+
+_Camera_
+
+    - The camera in this level is simple and consistently just follows the car at a certain offset.
+    - However, for the initial car chase, the camera is offset to the left of the car in order to ensure that the SWAT van and the car are both in the frame. 
+    - After the player beats the swat van in the car chase, the camera is programmed to slowly pan to the the right of the car. For the rest of the game, the camera is offset to the right of the player car such that the player car is on the left end of the frame and it allows them to see a larger portion of the coming terrain/path.
+
+
+PUT GIF HEREEE
+
+
+
+### Shooting
+
+_Shooting Mechanics_ 
+
+    - Shooting implementation was done using factory pattern. Items that can be shot are classified as ammo, and there are two things that can be shooted, a bullet and missile, both which extend the ammo class. 
+        - The bullet is implemented so that any character in the game is able to shoot using its implementation by specifiying needed parameters. 
+        - The missile, theoretically can be used by any character, but only the car player has the ability to shoot the missile in our game
+    - Each character that has the ability to shoot calls its shoot function which instantiates the bullet and adds it to the scene tree based on the specified parameters
+    - Player shooting - user input
+        - The player is able to control shooting with the user inputs "P" or a mouse click. 
+        - The aim guide is drawn wherever the cursor is on the screen to help the users visualize where the bullet will travel to
+        - The player has limited missiles which they earn, and they can choose when to shoot them by using "Shift" to toggle the enabling/disabling of the missile. The information of whether the missile is enabled or not is displayed on the top left corner of the screen. The actual shooting of the missile works the same as specified above
+    - Enemies shooting
+        - The enemies are designed to constantly shoot with a specified time interval
+        - The damage value of the bullets originating from enemies are smaller than the damage value of the bullets originating from the player in order to ensure that the game is beatable
+
+_Ammo Implementation_
+
+    - The ammo class
+        - Consists of a damage value, the start position, the target position, speed, and the origin of the bullet (aka which character of the game is initiating the shooting of this bullet) all of which can be specified according to requirmentes
+        - Using the target pos and starting pos, the _direction in which the ammo should travel is calculated, and the ammo is shot at the specified speed in that direction
+    - Bullet and missile lifespan is either until it hits a character, or until it exits the screen upon which it is freed from the scene tree
+    - Bullet class
+        - Animation and sprite is small
+        
+        INSERT GIF HEREEE
+
+    - Missile class
+        - Bullet origin is set to car_player upon instantiation
+        - Damage value of the bullet is set to 100, so it kills an enemy in one shot
+        - Animation and sprite is a large fireball
+        - A missile is not a default and needs to be earned. For every 4 enemies which the player kills, they earn 1 missile. The missile is powerful and will defeat anyone/anything with one hit. The missiles should be saved to blow up obstacles otherwise the level will not be winnable
+
+
+        INSERT GIF HEREEEEEE
+
+### Enemies / Obstacles
+
+In general, there are two sequences of special enemies in the beginning, the SWAT van and the police, then throughout the course there are regular enemies on platforms that are shooting at you. There are also various obstacles along the way such as spikes and cages that make the course more difficult. We keep track of a kill count which is displayed on the top left corner. In general, I implemented everything except the police and the regular enemies on the platforms, and my partner implemented the two listed.
+
+_SWAT Van_
+
+    - The game starts off with a car chase to setup the scene of the level of the player trying to escape, and the player needs to kill the van before a certain checkpoint in order to defeat it
+    - The swat van is slightly faster than the car to make it more difficult and to ensure that the car needs to kill the van before it catches up to the van
+    - The van has a simple health bar above it to assist the player
+    - If the swat van catches up to the car (aka crashes into the creator) and the player gets caught, a small cutscene is triggered showing the player getting arrested
+        - The crash / catch up is detected using Area2D nodes using the area_entered signal
+
+_Spikes_
+
+    - Throughout the course, there are spike traps the slowly move up and down and then dissappear into the floor/ceiling. There is a small time interval given where the spikes go down and it is safe for the car to drive through
+    - If the car drives over the spikes / touches the spikes, the player loses a life and respawns
+    - To achieve precision, I used a collision polygon 2d to get the exact shape of the spikes were
+    - The slow movement and scattered animation of one moving after another was achieved by giving 2 spikes a faster animation and 2 spikes slower. Then I used a script to play the animation of each spike one after another
+
+_Cages_
+
+    - The cages are implemented using a simple sprite and collision shape, and they prevent the car from going forwards
+    - The cages can be removed only by blowing it up using a missile, which requires a minimum kill
+    - The cage has an area2d node which detects a missile entering. Upon getting hit by a missile, an explosion animation is played and the cage is removed
+
+
+### Other (Boost ups, health bar, lives, extra scene, Collecting Key)
+
+_Boost Ups_
+
+    - There are two boost ups in the game, health and fuel
+    - A health power up, which increases the health bar by 25
+    - A fuel power up, which speeds up the car for some fixed amount of time regardless of whether the car is going faster than the max_speed or not
+
+_Health Bar & Lives_
+
+    - The health of the player is displayed using a progress bar (a percentage is also shown) on the top right corner. This indicates the amount of health they have left before they lose another life.
+    - When the health decreases to 0, the player loses a life and the player respawns from the beginning of the game. There are no checkpoints in this level as that would make it super easy to beat the game.
+    - The player has a total of 5 lives before they lose the game, and the number of lives the player has is displayed on the top right corner of the screen using heart icons. Upon losing a life, a life icon disappears.
+
+_Collecting Key_
+
+    - If the player reaches the end of the game where the key is, there is a checkpoint at which the user's input and car's movement is disabled. The key is inside a cage, and the player needs to blow up the cage using a missile if they have one, upon which the user's input and car movement is enabled again and they can collect the key
+    - If the player reaches the end and they do not have the missile, they are informed that they don't have the weapons needed to win the game and the game restarts and they need to try to reach the end while earning enough missiles.
+
+_Extra Scenes_
+
+    - Cutscene upon getting caught by the SWAT van includes loading a different scene with a bar cell falling on the player, and displaying text letting the player know that they were caught
+    - If the player loses all 5 lives, a game_over scene is loaded with a simple skull animation, and the player can choose to either return to the lobby or restart the game
+
+
+### Animations
+
+Animations were integral to our level as they were used for multiple elements in the game.
+
+    - The bullet and missile are both animated sprites
+    - The obstacles were developed using animations, such as the spikes animation of moving up and down, and the explosion animation after the cage is hit
+    - The bar cell falling over the player in the cutscene of getting caught by the police was made using an animation 
+
+### Class related content
+
+_Detection Boxes (Hit/Hurt)_ - Similar to the hit/hurt boxes of the characters from exercise 1, there are many places where we had to implement hurt boxes in order to detect the bullets hitting the player or enemy. In addition, the same technique was used to detect when the cars crashed into each other, if the missile hit the health, and if the key was successfully collected.
+
+_Camera_ - Our level implements a camera and the information from exercise 2 was very applicable to doing so. Our camera is pretty simple where it follows the player car based on a certain offset, and stage 1 of exercise 2 came in handy to do this as the only difference was the offset. 
+
+_Factory Pattern_ - The ammo (bullets & missiles) are implemented using the factory pattern method we learnt from exercise 3. The process was very similar in that I created a generalized class that has parameters to allow us to customize it, and a shooting function which instantiates scene with the ammo upon the user's "shoot" input (mouse click / "P").
+
+_Timers_ - We learnt about how to use timers in our exercise 3 when we had our test and the projectiles had to shoot one after another. This came into play while I was implemented the start delay and respawn delay in the game.
+
+_Physics Bodies_ - We learnt about how the physics bodies work along the way of exercise 1 while building our cutscene. This helped me build the car physics and work with the properties of RigidBody2D nodes in order to achieve what I wanted for the car. In addition, using different collision layers was something that was picked up from exercise 1 as well. 
+
+
+
 
 
 ## User Interface and Input

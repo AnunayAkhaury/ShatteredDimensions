@@ -81,6 +81,11 @@ func _physics_process(delta: float) -> void:
 			
 		if Input.is_action_just_pressed("restart"):
 			health = 0
+			
+		if Input.is_action_just_pressed("pause"):
+			GlobalVars.car_level_stat = "Not On Car Level"
+			GlobalVars.car_lives = 5
+			get_tree().change_scene_to_file("res://scenes/prison.tscn")
 				
 		if boost_speed:
 			for wheel in _wheels:
