@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Shattered Dimensions"
-run/main_scene="res://scenes/menu_screens/game_menu.tscn"
+run/main_scene="res://scenes/platformer/difficulty_selector.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
