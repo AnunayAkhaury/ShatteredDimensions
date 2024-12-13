@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cy8py1778oupt"]
+[gd_scene load_steps=8 format=3 uid="uid://dc7swykc4vopi"]
 
 [ext_resource type="Script" path="res://scripts/car/camera.gd" id="1_sueyj"]
 [ext_resource type="Script" path="res://scripts/car/game_elements/lives_visibility.gd" id="2_qtqfv"]

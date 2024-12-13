@@ -10,9 +10,11 @@ var _dead:bool = false
 # VARIABLES FOR PLATFORMER
 var double_jump: bool = false
 @export var platformer_level: int
+@export var on_platformer: bool = false
 var lives: int = GlobalVars.lives
 var on_trampoline: bool = false
 var checkpoint_num: int = 0
+var death_process: bool = false
 var checkpoints: Array = [
 	[65, 589],
 	[967, 395],
@@ -87,6 +89,8 @@ func _ready():
 		unbind_player_input_commands()
 	#animation_tree.active = true
 	bind_player_input_commands()
+	if on_platformer:
+		movement_speed = 150
 	muzzle_position = muzzle.position
 	original_hit_box_shape = hitbox.shape.size.y
 	original_hit_box_y = hitbox.position.y
@@ -196,10 +200,15 @@ func _physics_process(delta: float):
 func platformer_respawn():
 	if lives <= 0:
 		return
+	death_process = true
 	death_audio.play()
-	Engine.time_scale = 0.3
-	await get_tree().create_timer(0.2).timeout
-	Engine.time_scale = 1
+	var player_death_instance = player_death_effect.instantiate() as Node2D
+	player_death_instance.global_position = global_position
+	get_parent().add_child(player_death_instance)
+	
+	self.hide()
+	self.velocity = Vector2(0, 0)
+	
 	if platformer_level == 1:
 		position.x = 65
 		position.y = 595
@@ -208,7 +217,15 @@ func platformer_respawn():
 		position.y = checkpoints[checkpoint_num][1]
 	else:
 		position.x = 67
-		position.y = 590
+		position.y = 542
+		
+	self.unbind_player_input_commands()
+	await get_tree().create_timer(1).timeout
+	
+	self.bind_player_input_commands()
+	self.show()
+	death_process = false
+	player_death_instance.timeout()
 
 func bind_player_input_commands():
 	velocity.x = 0

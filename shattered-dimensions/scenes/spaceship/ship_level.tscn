@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://c5cxli8knclox"]
+[gd_scene load_steps=118 format=3 uid="uid://c5cxli8knclox"]
 
 [ext_resource type="Texture2D" uid="uid://budnm0xkdtrqi" path="res://assets/Dynamic Space Background FREE/Nebula Blue.png" id="1_kq3ca"]
 [ext_resource type="Texture2D" uid="uid://cwmawlsmtjfrj" path="res://assets/Dynamic Space Background FREE/Stars-Big_1_1_PC.png" id="3_qs3bp"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c6dxcam5a1ip3" path="res://scenes/spaceship/asteroid_2.tscn" id="16_yoa8q"]
 [ext_resource type="PackedScene" uid="uid://dbcgmomj13fhn" path="res://scenes/spaceship/enemy.tscn" id="19_1l8wj"]
 [ext_resource type="AudioStream" uid="uid://db2qwt340yvcs" path="res://assets/space-72679.mp3" id="20_3ep5y"]
+[ext_resource type="PackedScene" uid="uid://bmoaon1yut05y" path="res://scenes/pause_menu.tscn" id="21_isi8p"]
 [ext_resource type="PackedScene" uid="uid://dmxua8roddue8" path="res://scenes/spaceship/powerup.tscn" id="21_u67m8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_20ihf"]
@@ -1133,6 +1134,11 @@ position = Vector2(5761, -683)
 
 [node name="Powerup5" parent="Powerups" instance=ExtResource("21_u67m8")]
 position = Vector2(6217, 253)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("21_isi8p")]
+visible = false
 
 [connection signal="pressed" from="Camera2D/PauseMenu/Restart" to="Spaceship" method="_on_restart_pressed"]
 [connection signal="pressed" from="Camera2D/PauseMenu/Return" to="Spaceship" method="_on_return_pressed"]

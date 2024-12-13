@@ -993,7 +993,7 @@ script = ExtResource("1_q0pc7")
 metadata/_edit_vertical_guides_ = [4399.0]
 
 [node name="Character" parent="." instance=ExtResource("1_1qifa")]
-position = Vector2(19, 361)
+position = Vector2(53, 296)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 zoom = Vector2(1.485, 1.485)
@@ -1005,10 +1005,10 @@ script = ExtResource("3_idg4d")
 player = NodePath("../Character")
 
 [node name="MechanicBoss" parent="." node_paths=PackedStringArray("ScoutSummonPoints", "SentinalSummonPoints", "patrol_points") instance=ExtResource("9_34bb2")]
-position = Vector2(5041, 366)
+position = Vector2(5041, 367)
 ScoutSummonPoints = NodePath("../ScoutSummonPoints")
 SentinalSummonPoints = NodePath("../SentinalSummonPoints")
-health = 1
+health = 20
 patrol_points = NodePath("../PatrolPoints")
 initial_facing = true
 player_node_path = NodePath("../Character")

@@ -8,11 +8,9 @@ Shattered Dimensions is a prison escape game focused on a space explorer who has
 [Web-playable version of your game.](https://itch.io/)  
 [Trailor](https://youtube.com)  
 [Press Kit](https://dopresskit.com/)  
-[Proposal: make your own copy of the linked doc.](https://docs.google.com/document/d/1qwWCpMwKJGOLQ-rRJt8G8zisCa2XHFhv6zSWars0eWM/edit?usp=sharing)  
+[Proposal](https://docs.google.com/document/d/1xjGdmtULjXItcZ0VLk4QCZCKcBdBED-yvpBHiZQ-zjI/edit?usp=sharing)  
 
 ## Gameplay Explanation ##
-
-**In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
 
 Shattered Dimensions is a 4 level game, and requires players to be skilled in various types of gaming styles. Once players begin the game, they will enter the Prison where there are 4 entrances to each of the different levels. The controls and play style of each level is explained below:
 
@@ -49,31 +47,19 @@ The objective of this level is for the player's spaceship to reach the end of th
 
 # External Code, Ideas, and Structure #
 
-If your project contains code that: 1) your team did not write, and 2) does not fit cleanly into a role, please document it in this section. Please include the author of the code, where to find the code, and note which scripts, folders, or other files that comprise the external contribution. Additionally, include the license for the external code that permits you to use it. You do not need to include the license for code provided by the instruction team.
-
 If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
 
 - [Guidance for car physics](https://www.youtube.com/watch?v=nPX9MrnvNLo)
 
 # Main Roles #
 
-Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
-
-Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least four such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content. 
-
-*Short Description* - Long description of your work item that includes how it is relevant to topics discussed in class. [link to evidence in your repository](https://github.com/dr-jam/ECS189L/edit/project-description/ProjectDocumentTemplate.md)
-
-Here is an example:  
-*Procedural Terrain* - The game's background consists of procedurally generated terrain produced with Perlin noise. The game can modify this terrain at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based on the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://github.com/dr-jam/CameraControlExercise/blob/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
-
-You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 ## Team Info
 
 [Abhimanyu Warrier](avwarrier@ucdavis.edu)  -  Platformer Level + UI/Player Mechanics
 
-[Satya Sanegapalli](ssanegapalli@ucdavis.edu)  -  Spaceship Level + Prison Lobby
+[Satya Sanegapalli](ssanegapalli@ucdavis.edu)  -  Spaceship Level + Prison Lobby/Gameplay Testing
 
-[Anunay Akhaury](?@ucdavis.edu)  -  RunGun Level + SubRole: (Cinematics, Powerups, Player/Enemy Gun Logic)
+[Anunay Akhaury](?@ucdavis.edu)  -  RunGun Level + Cinematics/Narrative Design
 
 [SriLakshmi Panda](slpanda@ucdavis.edu)  -  Car Level (Physics) + Press Kit/Trailer
 
@@ -693,36 +679,19 @@ The Car level is similar to games like hill-climb racing but also brings togethe
 ### Player Movement/Physics
 
 
-## User Interface and Input
-
-**Describe your user interface and how it relates to gameplay. This can be done via the template.**
-**Describe the default input configuration.**
-
-**Add an entry for each platform or input style your project supports.**
-
-## Movement/Physics
-
-**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
-
-## Animation and Visuals
-
-**List your assets, including their sources and licenses.**
-
-### Prison
-
-### Spaceship Level
-
-
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
-
-## Game Logic
-
-**Document the game states and game data you managed and the design patterns you used to complete your task.**
-
 # Sub-Roles
 
 ## Player Mechanics/UI
-**UI**
+
+### **Student Information**  
+**Name**: Abhimanyu Warrier  
+**Email**: avwarrier@ucdavis.edu  
+**Github**: [avwarrier](https://github.com/avwarrier)  
+
+---
+
+### UI
+
 The [main menu](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/cfaf076168504e1c8e5793a9c240a6b728543a44/shattered-dimensions/scripts/menu_screens/game_menu.gd#L1) of the game is a simple menu with a moving, space-themed background. Because the theme of the game is focused on escaping a space prison, this background worked well. The options given were:
 - Start - begin the game (get transported to the Prison scene where the cutscene begins)
 - [Instructions](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/cfaf076168504e1c8e5793a9c240a6b728543a44/shattered-dimensions/scripts/menu_screens/instructions.gd#L1) - get an idea of what the game is about and how to go about playing it
@@ -734,7 +703,7 @@ The [credits scene uses a script](https://github.com/AnunayAkhaury/ShatteredDime
 
 ![ScreenRecording2024-12-09at5 54 17PMonline-video-cutter com-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/4f2c0008-77e9-4cd8-96dd-8b241a5b3618)
 
-**Player Mechanics**
+### Player Mechanics
 
 ![ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/ea7a6699-322f-4e91-9eaa-4423940ab023)
 
