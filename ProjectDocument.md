@@ -1,3 +1,5 @@
+
+https://github.com/user-attachments/assets/bf8ee3d8-8fa5-432b-ac16-3d3b335bf404
 ## Summary ##
 Shattered Dimensions is a prison escape game focused on a space explorer who has been trapped in a dimensional prison. In order for him to escape, he must venture through the 4 dimensional gates and retrieve the 4 keys which come from each separate dimension. Each dimension is a different type of level with a unique style including a platformer level, run and gun level, car level, and spaceship level. Once players beat each level to retrieve the special keys, they can escape the prison and win the game. Do you have what it takes to escape this dimensional prison? Enter the cosmos and find out.
 
@@ -980,7 +982,6 @@ Additional work was also done by other team members who needed very specific fun
 **Github**: [AnunayAkhaury](https://github.com/AnunayAkhaury)  
 
 ---
-
 ### **Cinematics/Narrative Design**  
 For the final cinematic, I implemented a dynamic **cutscene system** using the **Durative Command Pattern**, similar to concepts learned in Exercise 1. This system allowed me to sequence various actions like dialogue, animations, and movement into a structured cutscene.
 
@@ -1027,6 +1028,37 @@ Gun Mechanics were covered extensively in the main **Run and Gun Level** section
 - Visual feedback through hit animations and sound effects.  
 
 ---
+## Intial Cutscene
+
+**Student Information**
+*Name: Janani Asokumar*   
+*Email: jasokumar@ucdavis.edu*   
+*Github: https://github.com/janania*
+
+**Implementation Process**
+
+- Elements: There are various elements present in the initial cutscene, such as the player himself, two police officers, an animated diamond along with the podium for the diamond, and the laser beams for the diamond’s protection.
+
+- Class Design: The cutscene requires durative commands that aren’t enabled through user input. So, for the main character and the two police officers, I created two scripts that extend character.gd to handle the durative commands. The player has a move_left() and a shoot_action() function, which take time represented as a float as their parameter. The police have move_left(), move_back(), shoot_action(), and baton_action() functions. These functions were all built with custom functionality to meet the requirements of the narrative.
+
+- The various elements of the cutscene are brought together by the initialcutscene_manager.gd, which contains the code that directs the entire cutscene. I utilized await get_tree().create_timer(t).timeout to ensure that the animations and actions of my characters were perfectly synchronized.
+
+- I used my knowledge from Exercise 1, which helped me with this cutscene in terms of timing the movements of the characters. Additionally, there were some design choices that I made, such as having two diamonds on the screen but turning on/off the visibility to mimic teleportation (which was easier to implement than actually changing the location of the diamond). The cutscene immediately switches to the prison, where the player can officially start the game.
+
+**Animations:**
+
+- I created the animations for the diamond (it slowly moves up and down).
+Officer animations
+Player sliding with a gun in hand
+
+**Sounds:**
+
+- Background suspense sound
+- Alarm sound
+- Police shouting “Hands Up”
+- Cage dropping on the player (arrest)
+  
+![intial_cutscene](https://github.com/user-attachments/assets/01fee089-7952-40b9-87f8-65366faf0f8d)
 
 ## Prison Lobby/Gameplay Testing
 
