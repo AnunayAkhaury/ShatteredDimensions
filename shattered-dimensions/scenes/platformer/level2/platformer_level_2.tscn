@@ -1,10 +1,9 @@
-[gd_scene load_steps=70 format=4 uid="uid://cg6fpw1rgpq71"]
+[gd_scene load_steps=69 format=4 uid="uid://cg6fpw1rgpq71"]
 
 [ext_resource type="Texture2D" uid="uid://cpucqr5lldfid" path="res://assets/Fantasy Swamp Forest/Free/BG_1/BG_1.png" id="1_ls6fx"]
 [ext_resource type="PackedScene" uid="uid://bjb6qsjcxod2b" path="res://scenes/platformer/killzone.tscn" id="2_1p5oo"]
 [ext_resource type="PackedScene" uid="uid://b1iv1met25ybc" path="res://scenes/platformer/traps/spike.tscn" id="2_hlvjk"]
 [ext_resource type="Texture2D" uid="uid://ffegkmgrvjj2" path="res://assets/Fantasy Swamp Forest/Free/Terrain_and_Props.png" id="2_i2xw3"]
-[ext_resource type="Texture2D" uid="uid://03dhm4cwuy3q" path="res://assets/Fantasy Swamp Forest/Free/BG_2/BG_2.png" id="2_os6g1"]
 [ext_resource type="Script" path="res://scripts/platformer/lives.gd" id="3_03beg"]
 [ext_resource type="PackedScene" uid="uid://ixineaxt6ila" path="res://scenes/platformer/traps/spike_ball.tscn" id="3_xobak"]
 [ext_resource type="Script" path="res://scripts/platformer/level2/camera2.gd" id="4_cswts"]
@@ -2601,46 +2600,6 @@ motion_mirroring = Vector2(1440, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(-559, -115)
 scale = Vector2(1.5875, 1.5875)
-texture = ExtResource("1_ls6fx")
-
-[node name="BackBackground" type="TextureRect" parent="."]
-visible = false
-offset_left = 1131.0
-offset_top = 152.0
-offset_right = 3834.0
-offset_bottom = 747.0
-texture = ExtResource("2_os6g1")
-
-[node name="BackBackground2" type="TextureRect" parent="."]
-visible = false
-offset_left = -1346.0
-offset_top = 77.0
-offset_right = 1357.0
-offset_bottom = 672.0
-texture = ExtResource("2_os6g1")
-
-[node name="Background" type="TextureRect" parent="."]
-visible = false
-offset_left = -582.0
-offset_top = 141.0
-offset_right = 2215.0
-offset_bottom = 721.0
-texture = ExtResource("1_ls6fx")
-
-[node name="Background3" type="TextureRect" parent="."]
-visible = false
-offset_left = 1156.0
-offset_top = 141.0
-offset_right = 3953.0
-offset_bottom = 721.0
-texture = ExtResource("1_ls6fx")
-
-[node name="Background4" type="TextureRect" parent="."]
-visible = false
-offset_left = -2155.0
-offset_top = 141.0
-offset_right = 642.0
-offset_bottom = 721.0
 texture = ExtResource("1_ls6fx")
 
 [node name="Decor" type="TileMapLayer" parent="."]
