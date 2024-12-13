@@ -1,4 +1,4 @@
-# Shattered Dimensions #
+![battle_start](https://github.com/user-attachments/assets/49555ebb-7fb9-4caf-af9b-310c2c9f3309)# Shattered Dimensions #
 
 ## Summary ##
 Shattered Dimensions is a prison escape game focused on a space explorer who has been trapped in a dimensional prison. In order for him to escape, he must venture through the 4 dimensional gates and retrieve the 4 keys which come from each separate dimension. Each dimension is a different type of level with a unique style including a platformer level, run and gun level, car level, and spaceship level. Once players beat each level to retrieve the special keys, they can escape the prison and win the game. Do you have what it takes to escape this dimensional prison? Enter the cosmos and find out.
@@ -849,6 +849,74 @@ _Timers_ - We learnt about how to use timers in our exercise 3 when we had our t
 _Physics Bodies_ - We learnt about how the physics bodies work along the way of exercise 1 while building our cutscene. This helped me build the car physics and work with the properties of RigidBody2D nodes in order to achieve what I wanted for the car. In addition, using different collision layers was something that was picked up from exercise 1 as well. 
 
 
+## Car Level
+
+### **Student Information**
+**Name**: Janani Asokumar
+**Email**: jasokumar@ucdavis.edu
+**Github**: [janania](https://github.com/janania) 
+   
+### Brief
+- **Objective**: Escape the police van, battle enemies, and unlock the key to proceed.
+- **Key Gameplay Elements**:
+    - **Escape Sequence**: Shoot the SWAT van until it loses all health.
+    - **Trap & Battle**: Car tires get punctured; player must fight a police officer to retrieve spare tires.
+    - **Enemy Combat**: Face hostile animals shooting at the car; kill 4 enemies to unlock a missile.
+    - **Missile Use**: Break down game obstacles and unlock the key.
+    - **Boosts & Hazards**: Fuel for increased speed, health boosts, and timed traps to avoid.
+- **Role Breakdown**:
+    - **Partner**: Car-level physics.
+    - **Self**: UI design and level setup.
+        
+### Parallax Background Development
+- I had planned the design of the level to be in the jungle, which would explain a rocky terrain along with enemies that are animals. Additionally, there is another design element of the tile design at the start of the game, noting "Cell Block." I had created the initial template of the design, and my partner added more onto the design to create a complete look. Thus, with the chase beginning at the start of the prison-like structure, there is a good flow of narrative as to how the SWAT van is chasing the player. I had initially tried to copy-paste the background image numerous times to cover the course of the entire game. However, remember that parallax backgrounds serve that exact purpose. The background is made up of different layers of trees, all moving at different speeds (the closest layer moves faster than the others), which creates a more realistic look and travels through the terrain. For the parallax background, I utilized the parallax layer node in Godot 4.
+![parallax](https://github.com/user-attachments/assets/b2b11c56-cd66-47a4-9773-c503beaf5401)
+
+### Terrain Development
+- In order to provide a more interactive experience and mimic a real jungle/forest environment, I developed a curved terrain. This terrain is essentially a node consisting of Polygon2D, Path2D, Line2D, and CollisionPolygon2D. The steps to creating the terrain involved using the draw feature in Path2D to create a rough draft and then smoothing it out (creating the curve). Next, I had to provide the correct sprite to mimic the rough terrain with grass on top. The Polygon2D and Line2D nodes were useful for this, as I added the correct images to their textures. The CollisionPolygon2D took care of the interaction between the car and the terrain. These four components were tied together by a script. In this script, I was able to get the points from the Path2D and assign them to the polygon shapes of their respective nodes, ensuring that all elements maintained the shape of the original Path2D drawing.
+
+- The other method that I tried to experiment with was using Smart Shapes 2D, which was a plugin from a few years ago. However, the above-listed method worked the best despite all of the glitchy/unexplainable behavior. In the 2D view of the car level, elements that should be placed directly on top of the terrain need to be placed a location lower than they are intended to be in order for them to correctly reflect when the scene runs. The current design of the terrain for the whole game initially wanted different terrain shapes being placed together to avoid repetitive behavior. However, upon building new terrains, I saw an increase in the number of glitches. Therefore, with respect to the time constraints, we decided that the repetitive nature of the pattern does not detract from the visual aspect of the game.
+![terrain](https://github.com/user-attachments/assets/a5a03ac9-ebab-4672-81ce-6b248d70b846)
+
+<img width="952" alt="terrain_2dview" src="https://github.com/user-attachments/assets/20ee5042-95be-4a61-ba52-c4e281df1cc4" />
+
+### Enemy + Hurt Box
+- I had created a class for the bat and mushroom enemies, so that they can dynamically shoot when the car gets within a certain radius of the enemy. These enemies also have a health value, which initially starts off at 100. Their default animation is set to "attack" since the enemy would have started attacking the player when they are seen. The damage that the enemies take is a set value defined to be 25 units (damage detected in the hurtbox, which is an Area2D with a signal attached). For testing purposes, I used a progress bar node in Godot to mimic a health bar, however, for a cleaner UI look, I turned off visibility for the health bar. For targeted shooting, I used the bullet class that my partner had implemented to shoot at the car (the origin of the bullet is the enemy and the target is set as the position of the car). There is a shooting interval + shoot radius variable which specifies how often to shoot at the car and when. Once the enemy dies, the enemy death animation plays once, and a variable called 'dead' is set to true. This ensures that the animation is only played once.
+![enemy_death](https://github.com/user-attachments/assets/575e8e4e-544b-4ff8-9cfb-c2183f2768b5)
+
+### Police Battle
+- I incorporated a short combat element in the middle of the terrain course. Essentially, the player drives over a trap that punctures the car's tires. They must then battle an officer and win to access spare tires and continue the game.
+  
+- I found spritesheets for a spike, which looked like spikes popping in and out of the ground. I combined four different spikes into one node. When the car drives over the trap, input is disabled. Under the detection box for the player, in the on_area_entered class, I added code under an if object is Trap statement to set up the scene. This disables input for the car and implements a stop_car() function in player_car.gd to completely stop the wheels regardless of gravity. The visibility of the character inside the car is turned off, and the character's visibility already present in the battle area is turned on. This way, I created the illusion of teleportation.
+
+![Uploading battle_start.gif…]()
+
+- **Additionally, I utilized GlobalVariables which were set to "Not On Car level", "Car Level Entered", "Battle", "Battle Over", and "Game Over"**. These five states match the point of the game the player is in. In the player.gd file, I unbinded the player input until the car_level_stat variable was set to "Battle." It was difficult to work with the player.gd file since my level didn't require much of the default player behavior. The use of global variables resolved this issue and made it easier to control the player behavior in the car battle.
+  
+- **I used the default move left, move right, and jump commands. However, I implemented my own shoot command to utilize the bullets implemented by my teammate**. I also modified the on_entered_hurtbox function in player.gd to effectively handle damage incurred by the police. Once killed, the respawn function is called to restart the game.
+  
+- **I created a Police Character class that extends Character to give movement and combat abilities to the officer. The police start shooting when car_level_stat is set to "Battle."** Here again, I used the bullet class for shooting. My officer can move left, move right, and shoot. I didn't modify player.gd since the police weren't controlled by inputs. I also implemented logic for the police to move toward the player, mimicking a chase which increased the difficulty of the battle.
+Once the battle is won, car_level_stat is set to "Battle Over" and the variable killed under the police class is set to true (the death animation plays and the queue is freed). The player must then run toward the pile of tires and come in contact with it to get back in the car and continue on with the game. The tire pile has a _on_area_entered function that detects when the player enters it. Once entered, the player is queue-free, the player inside the car is visible again, and the input is enabled for the car.
+![player_dead](https://github.com/user-attachments/assets/a91187d4-545a-4037-a542-476ca061c493)
+
+![police_dead](https://github.com/user-attachments/assets/d5f88e5c-7ac8-4f44-960b-5f227a670a2c)
+
+### Animation
+- Terrain: Gravel + Grass
+- Rotating Key Animation
+- Initial plan for the Prison Entrance
+- Platforms for the enemies 
+- Enemy Animations 
+- Police Officer Animations
+
+### Sound
+- I was responsible for the sounds in our level. There is an energetic and suspenseful sound playing throughout the game, which provides a more immersive experience for the player. Additionally, there are sounds for:
+    - the police siren (during the car chase)
+    - car engine starting in the player's car
+    - damage to the car
+    - death of enemies
+    - trap puncture sound
+    - fuel/health pick up
 
 ## User Interface and Input
 
