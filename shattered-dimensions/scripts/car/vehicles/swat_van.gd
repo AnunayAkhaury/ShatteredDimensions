@@ -3,7 +3,6 @@ extends Vehicle
 
 var _defeated_by_player: bool
 var _showed_defeated_label: bool
-var width: float
 
 
 
@@ -14,7 +13,6 @@ func _init() -> void:
 	character_type = Characters.Type.ENEMY
 	_defeated_by_player = false # CHANGE THIS BACK TO FALSE
 	_showed_defeated_label = false
-	width = get_viewport_rect().size.x / 2
 	#_speed = 600
 	#_max_speed = 60
 	super()

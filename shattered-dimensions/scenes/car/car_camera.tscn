@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/car/camera.gd" id="1_sueyj"]
 [ext_resource type="Script" path="res://scripts/car/game_elements/lives_visibility.gd" id="2_qtqfv"]
 [ext_resource type="Texture2D" uid="uid://bbtx83lkdhryw" path="res://scenes/run_gun/player/health_bar/heart_full.png" id="3_u27w2"]
-[ext_resource type="PackedScene" path="res://scenes/car/labels/kill_count.tscn" id="4_v52mx"]
+[ext_resource type="PackedScene" uid="uid://c37auavbmu8ye" path="res://scenes/car/labels/kill_count.tscn" id="4_v52mx"]
 [ext_resource type="Script" path="res://scripts/car/labels/missile_enabled.gd" id="5_dac4a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkari"]

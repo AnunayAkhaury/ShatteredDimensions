@@ -125,6 +125,13 @@ All assets are detailed below:
 
 [Prison Background Music](https://pixabay.com/sound-effects/a-dungeon-ambience-loop-79423/): by Grubzyy licensed under Pixabay Content License
 
+[Player Car/SWAT Van](https://overcrafted.itch.io/free-paid-vehicle-car-sprites-): by 
+
+[Bullet/Missile](https://bdragon1727.itch.io/fire-pixel-bullet-16x16)
+
+[Explosion](https://ansimuz.itch.io/explosion-animations-pack)
+
+[Fuel, Terrain](https://lucylavend.itch.io/physics-car-game-asset-pack)
 
 ## Platformer Level
 
@@ -1003,7 +1010,7 @@ Once all keys are unlocked, the player has won the game!
 
 The prison setting of this main lobby allows the player access into all 4 dimensions to play the minigames necessary to escape. 
 
-- **Trailer**: [ShatteredDimensions](https://www.youtube.com/watch?v=dAQCB9caG2s)
+- **Trailer**: [ShatteredDimensions](https://youtu.be/KvXeMq3m5cQ)
 
 - **PressKit**: ...
 
