@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bfmefiwoc5g0s"]
 
 [ext_resource type="Script" path="res://scripts/platformer/game_over.gd" id="1_aj66r"]
-[ext_resource type="Texture2D" uid="uid://cd2wq8kis8ka5" path="res://assets/300 Characters Free! 128x128/pixelart_skull.png" id="1_ftva7"]
+[ext_resource type="Texture2D" uid="uid://bbd76jlj4w4pb" path="res://assets/pixelart_skull.png" id="2_h875e"]
 [ext_resource type="AudioStream" uid="uid://kxq2iqnqvc3k" path="res://assets/Super Mario Bros. - Game Over Sound Effect.mp3" id="3_e33dj"]
 
 [sub_resource type="Animation" id="Animation_accgs"]
@@ -92,7 +92,7 @@ vertical_alignment = 1
 [node name="Sprite2D" type="Sprite2D" parent="ColorRect/Devil"]
 position = Vector2(578, 345)
 scale = Vector2(0.259766, 0.259766)
-texture = ExtResource("1_ftva7")
+texture = ExtResource("2_h875e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/Devil"]
 libraries = {
