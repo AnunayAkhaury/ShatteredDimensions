@@ -12,14 +12,18 @@ var killed = false
 @onready var bullet = preload("res://scenes/car/bullet.tscn")
 
 func _ready() -> void:
-	$AnimatedSprite2D.play("idle")
+	$AnimatedSprite2D.play("attack")
 
 func _physics_process(delta: float) -> void:
+	if GlobalVars.car_level_stat == "Battle Over" and not killed:
+		queue_free()
 	if killed:
+		%PoliceDeath.play()
 		$AnimatedSprite2D.play("dead")
 		await get_tree().create_timer(1.0).timeout
-		queue_free()
 		GlobalVars.car_level_stat = "Battle Over"
+		queue_free()
+		
 		
 		return 
 	%PoliceHealth.value = health

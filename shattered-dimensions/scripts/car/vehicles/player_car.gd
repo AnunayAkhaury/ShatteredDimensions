@@ -117,6 +117,7 @@ func _shoot() -> void:
 		add_sibling(cur_bullet)
 	
 func _shoot_missile() -> void:
+	%Missile.play()
 	var cur_bullet = missile.instantiate() as Missile
 	cur_bullet.ammo_origin = Characters.Type.PLAYER_CAR
 	cur_bullet.start_pos = position + Vector2(30, -90)
