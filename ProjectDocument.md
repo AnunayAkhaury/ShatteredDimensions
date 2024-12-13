@@ -990,7 +990,7 @@ Once all keys are unlocked, the player has won the game!
 
 The prison setting of this main lobby allows the player access into all 4 dimensions to play the minigames necessary to escape. 
 
-- **Trailer**: ...
+- **Trailer**: [ShatteredDimensions](https://www.youtube.com/watch?v=dAQCB9caG2s)
 
 - **PressKit**: ...
 
