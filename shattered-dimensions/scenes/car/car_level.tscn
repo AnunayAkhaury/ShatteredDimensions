@@ -13695,6 +13695,7 @@ scale = Vector2(0.08, 0.08)
 
 [node name="CarPlayer" parent="." instance=ExtResource("7_mx8p4")]
 unique_name_in_owner = true
+visible = false
 position = Vector2(2608, 554)
 scale = Vector2(2.5, 2.5)
 collision_layer = 513
