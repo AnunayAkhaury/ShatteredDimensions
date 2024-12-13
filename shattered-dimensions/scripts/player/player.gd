@@ -10,6 +10,7 @@ var _dead:bool = false
 # VARIABLES FOR PLATFORMER
 var double_jump: bool = false
 @export var platformer_level: int
+@export var on_platformer: bool = false
 var lives: int = GlobalVars.lives
 var on_trampoline: bool = false
 var checkpoint_num: int = 0
@@ -88,8 +89,8 @@ func _ready():
 		unbind_player_input_commands()
 	#animation_tree.active = true
 	bind_player_input_commands()
-	if !Global.run_gun:
-		movement_speed = 160
+	if on_platformer:
+		movement_speed = 150
 	muzzle_position = muzzle.position
 	original_hit_box_shape = hitbox.shape.size.y
 	original_hit_box_y = hitbox.position.y

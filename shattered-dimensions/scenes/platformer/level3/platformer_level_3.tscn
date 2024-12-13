@@ -243,6 +243,7 @@ unique_name_in_owner = true
 position = Vector2(67, 542)
 collision_layer = 2
 platformer_level = 3
+on_platformer = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_hlkua")
