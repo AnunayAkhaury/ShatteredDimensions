@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://dc7swykc4vopi"]
+
+[ext_resource type="Script" path="res://scripts/car/camera.gd" id="1_sueyj"]
+[ext_resource type="Script" path="res://scripts/car/game_elements/lives_visibility.gd" id="2_qtqfv"]
+[ext_resource type="Texture2D" uid="uid://bbtx83lkdhryw" path="res://scenes/run_gun/player/health_bar/heart_full.png" id="3_u27w2"]
+[ext_resource type="PackedScene" path="res://scenes/car/labels/kill_count.tscn" id="4_v52mx"]
+[ext_resource type="Script" path="res://scripts/car/labels/missile_enabled.gd" id="5_dac4a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkari"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74t02"]
+bg_color = Color(0.313942, 0.660736, 0.291623, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="CarCamera" type="Camera2D"]
+z_index = 1
+offset = Vector2(30, 0)
+script = ExtResource("1_sueyj")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = 432.0
+offset_top = -263.0
+offset_right = 740.0
+offset_bottom = -208.0
+scale = Vector2(0.434742, 0.384409)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/background = SubResource("StyleBoxFlat_vkari")
+theme_override_styles/fill = SubResource("StyleBoxFlat_74t02")
+rounded = true
+
+[node name="Lives" type="Node2D" parent="."]
+position = Vector2(47, 31)
+scale = Vector2(1.1, 1.1)
+script = ExtResource("2_qtqfv")
+
+[node name="LifeOne" type="Sprite2D" parent="Lives"]
+visible = false
+position = Vector2(359.955, -293.682)
+scale = Vector2(2, 2)
+texture = ExtResource("3_u27w2")
+
+[node name="LifeTwo" type="Sprite2D" parent="Lives"]
+visible = false
+position = Vector2(385, -293.636)
+scale = Vector2(2, 2)
+texture = ExtResource("3_u27w2")
+
+[node name="LifeThree" type="Sprite2D" parent="Lives"]
+visible = false
+position = Vector2(411, -293.636)
+scale = Vector2(2, 2)
+texture = ExtResource("3_u27w2")
+
+[node name="LifeFour" type="Sprite2D" parent="Lives"]
+visible = false
+position = Vector2(437, -293.636)
+scale = Vector2(2, 2)
+texture = ExtResource("3_u27w2")
+
+[node name="LifeFive" type="Sprite2D" parent="Lives"]
+visible = false
+position = Vector2(463, -293.636)
+scale = Vector2(2, 2)
+texture = ExtResource("3_u27w2")
+
+[node name="KillCount" parent="." instance=ExtResource("4_v52mx")]
+offset_left = -531.0
+offset_top = -308.0
+offset_right = -421.0
+offset_bottom = -280.0
+
+[node name="MissileEnabled" parent="." instance=ExtResource("4_v52mx")]
+offset_left = -531.0
+offset_top = -270.0
+offset_right = -421.0
+offset_bottom = -242.0
+script = ExtResource("5_dac4a")

@@ -1,0 +1,175 @@
+[gd_scene load_steps=23 format=3 uid="uid://dcx778gjmh3ll"]
+
+[ext_resource type="Script" path="res://scripts/run_gun/enemy/mech_unit.gd" id="1_uoml5"]
+[ext_resource type="Texture2D" uid="uid://diqhlxudla0wj" path="res://assets/Legacy Collection/Legacy Collection/Assets/Characters/mech-unit/spritesheet/mech-unit.png" id="1_yycra"]
+[ext_resource type="Shader" uid="uid://cjlwlvtndb20s" path="res://scenes/run_gun/player/hit_flash.tres" id="2_edtmr"]
+[ext_resource type="AudioStream" uid="uid://df0dup0gfnd1v" path="res://assets/Anunay's Sounds/enemy_damage.wav" id="4_6ente"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_et8ie"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7cheh"]
+shader = ExtResource("2_edtmr")
+shader_parameter/enabled = false
+shader_parameter/ColorParameter = Color(0.897126, 0, 0.154434, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vup31"]
+atlas = ExtResource("1_yycra")
+region = Rect2(0, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg01g"]
+atlas = ExtResource("1_yycra")
+region = Rect2(96, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orb75"]
+atlas = ExtResource("1_yycra")
+region = Rect2(192, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqd60"]
+atlas = ExtResource("1_yycra")
+region = Rect2(288, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5xnt"]
+atlas = ExtResource("1_yycra")
+region = Rect2(384, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsrdw"]
+atlas = ExtResource("1_yycra")
+region = Rect2(480, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e5rn"]
+atlas = ExtResource("1_yycra")
+region = Rect2(576, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5ffg"]
+atlas = ExtResource("1_yycra")
+region = Rect2(672, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bg30"]
+atlas = ExtResource("1_yycra")
+region = Rect2(768, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8jpi"]
+atlas = ExtResource("1_yycra")
+region = Rect2(864, 0, 96, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cpmsk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vup31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg01g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orb75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqd60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5xnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsrdw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e5rn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5ffg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bg30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8jpi")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i7o5o"]
+radius = 21.0
+height = 66.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5qmg3"]
+radius = 26.0
+height = 72.0
+
+[sub_resource type="Animation" id="Animation_j4ngs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_gj1ha"]
+resource_name = "hit_flash"
+length = 0.2667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5784s"]
+_data = {
+"RESET": SubResource("Animation_j4ngs"),
+"hit_flash": SubResource("Animation_gj1ha")
+}
+
+[node name="MechUnit" type="CharacterBody2D" groups=["enemy"]]
+material = SubResource("ShaderMaterial_et8ie")
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_uoml5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_7cheh")
+sprite_frames = SubResource("SpriteFrames_cpmsk")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 8)
+shape = SubResource("CapsuleShape2D_i7o5o")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-3, 8)
+shape = SubResource("CapsuleShape2D_5qmg3")
+debug_color = Color(0.990584, 0, 0.276505, 0.42)
+
+[node name="HitFlashPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5784s")
+}
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.267
+one_shot = true
+
+[node name="EnemyDamageAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6ente")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

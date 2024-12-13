@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://0datnb4opgt4"]
+
+[ext_resource type="Texture2D" uid="uid://dmv5ovegqw46" path="res://assets/Legacy Collection/Legacy Collection/Assets/Misc/EnemyProjectile/spritesheet.png" id="1_agr4f"]
+[ext_resource type="Script" path="res://scripts/run_gun/enemy/enemy_bullet.gd" id="2_wu17b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ctnl"]
+atlas = ExtResource("1_agr4f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gp5h"]
+atlas = ExtResource("1_agr4f")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2nw1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ctnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gp5h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6th7k"]
+radius = 5.0
+
+[node name="EnemyBullet" type="AnimatedSprite2D" groups=["enemy"]]
+sprite_frames = SubResource("SpriteFrames_g2nw1")
+autoplay = "default"
+frame = 1
+frame_progress = 0.840484
+script = ExtResource("2_wu17b")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_6th7k")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

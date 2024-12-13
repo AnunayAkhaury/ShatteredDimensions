@@ -1,0 +1,125 @@
+[gd_scene load_steps=6 format=3 uid="uid://dntht2iqmmerm"]
+
+[ext_resource type="Script" path="res://scripts/run_gun/rungun_controls.gd" id="1_te0yb"]
+[ext_resource type="PackedScene" uid="uid://i63jkyqe4nn" path="res://scenes/run_gun/powerups/spiral_bullet_powerup/spiral_bullet_pickup.tscn" id="2_u6rpx"]
+[ext_resource type="PackedScene" uid="uid://tyap2cf7pl1d" path="res://scenes/run_gun/powerups/health_pickup.tscn" id="3_eu42d"]
+[ext_resource type="PackedScene" uid="uid://ceq4aimroumar" path="res://scenes/run_gun/powerups/rapid_fire.tscn" id="4_luh1c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbfmi"]
+bg_color = Color(0, 0.601235, 0.776473, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 2
+shadow_offset = Vector2(0, 1)
+
+[node name="RunGunControls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_te0yb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.113049, 0.113049, 0.113049, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -71.5
+offset_top = 62.0
+offset_right = 71.5
+offset_bottom = 111.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.565395, 0.861216, 1)
+theme_override_font_sizes/font_size = 35
+text = "Shooter Controls"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = -212.0
+offset_right = 531.0
+offset_bottom = 127.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 41
+theme_override_font_sizes/font_size = 25
+text = "move left  -  [a]  or  [left arrow]
+move right  -  [d]  or  [right arrow]
+jump  -  [w]  or  [up arrow] or [space bar]
+crouch  -  [s]  or  [down arrow]
+shoot - mouse click or [p]"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -468.0
+offset_top = -266.0
+offset_right = 27.0
+offset_bottom = 377.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 41
+theme_override_font_sizes/font_size = 25
+text = "
+Health Powerup - Increase Health
+Spiral Shot Powerup - Extra Damage Shot
+Rapid Fire Shot - No shooting cooldown"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = -104.0
+offset_right = 82.0
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_cbfmi")
+text = "Next"
+
+[node name="SpiralBulletPickup" parent="." instance=ExtResource("2_u6rpx")]
+position = Vector2(66, 223)
+scale = Vector2(4, 4)
+
+[node name="HealthPickup" parent="." instance=ExtResource("3_eu42d")]
+position = Vector2(62, 134)
+scale = Vector2(3, 3)
+
+[node name="RapidFire" parent="." instance=ExtResource("4_luh1c")]
+position = Vector2(62, 303)
+scale = Vector2(3, 3)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

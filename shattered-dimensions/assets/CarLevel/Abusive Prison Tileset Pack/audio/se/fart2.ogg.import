@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://brjic1t5lb10l"
+path="res://.godot/imported/fart2.ogg-0c9295c81dfa7121ce28816391fdb65f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/CarLevel/Abusive Prison Tileset Pack/audio/se/fart2.ogg"
+dest_files=["res://.godot/imported/fart2.ogg-0c9295c81dfa7121ce28816391fdb65f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

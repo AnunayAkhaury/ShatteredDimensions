@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://deoppbtw6ydkv"
+path="res://.godot/imported/Battle3.ogg-584bf051e25ec521ae80552bd125007b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/CarLevel/Abusive Prison Tileset Pack/audio/se/Battle3.ogg"
+dest_files=["res://.godot/imported/Battle3.ogg-584bf051e25ec521ae80552bd125007b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

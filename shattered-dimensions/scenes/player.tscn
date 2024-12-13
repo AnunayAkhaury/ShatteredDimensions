@@ -1,15 +1,27 @@
-[gd_scene load_steps=30 format=3 uid="uid://dh7lwrd6jqdep"]
+[gd_scene load_steps=60 format=3 uid="uid://dh7lwrd6jqdep"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_1w0xd"]
-[ext_resource type="PackedScene" uid="uid://fiianho52s3p" path="res://scenes/character.tscn" id="1_82jgl"]
+[ext_resource type="PackedScene" uid="uid://dvberjv2fsl3s" path="res://scenes/character.tscn" id="1_82jgl"]
 [ext_resource type="Texture2D" uid="uid://yieoc0r6y1m4" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-idle.png" id="2_xa7iq"]
+[ext_resource type="Shader" uid="uid://cjlwlvtndb20s" path="res://scenes/run_gun/player/hit_flash.tres" id="3_4t12l"]
 [ext_resource type="Script" path="res://scripts/player/animated_sprite_2d.gd" id="3_h0a6v"]
 [ext_resource type="Texture2D" uid="uid://cydnsk6xymx31" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-duck.png" id="3_sm6sh"]
 [ext_resource type="Texture2D" uid="uid://dpwuih5udon20" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-jump.png" id="4_2w4yt"]
 [ext_resource type="Texture2D" uid="uid://cart612wkg4y5" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-run.png" id="5_osmii"]
+[ext_resource type="Texture2D" uid="uid://d1wcg6atnncvl" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-run-shoot.png" id="7_7734b"]
 [ext_resource type="AudioStream" uid="uid://d36yw8naiuii2" path="res://assets/RPG_Essentials_Free/12_Player_Movement_SFX/30_Jump_03.wav" id="8_5p17m"]
+[ext_resource type="Texture2D" uid="uid://csjqa06rb4jxf" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-shoot.png" id="8_m4pkq"]
 [ext_resource type="AudioStream" uid="uid://br8srrohqm74w" path="res://assets/boing sound effect 1 (mp3cut.net).mp3" id="9_mpq2w"]
 [ext_resource type="AudioStream" uid="uid://5vq18exo475h" path="res://assets/RPG_Essentials_Free/10_Battle_SFX/03_Claw_03.wav" id="10_ek2iw"]
+[ext_resource type="Texture2D" uid="uid://bign1ew3fikhi" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-spin.png" id="10_l5qc1"]
+[ext_resource type="AudioStream" uid="uid://bavv1bi18qmpl" path="res://assets/Anunay's Sounds/bulletshort.wav" id="14_3mblx"]
+[ext_resource type="AudioStream" uid="uid://bcnqrjt04ke0q" path="res://assets/Anunay's Sounds/damage.wav" id="15_64g5x"]
+[ext_resource type="AudioStream" uid="uid://drkwnnmgomhcf" path="res://assets/Anunay's Sounds/itempickup.wav" id="15_kmrfu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7j168"]
+shader = ExtResource("3_4t12l")
+shader_parameter/enabled = false
+shader_parameter/ColorParameter = Color(0.897126, 0, 0.154434, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kw7ln"]
 atlas = ExtResource("3_sm6sh")
@@ -71,6 +83,78 @@ region = Rect2(128, 0, 32, 38)
 atlas = ExtResource("5_osmii")
 region = Rect2(160, 0, 32, 38)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieny0"]
+atlas = ExtResource("7_7734b")
+region = Rect2(0, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf55w"]
+atlas = ExtResource("7_7734b")
+region = Rect2(32, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kbwp"]
+atlas = ExtResource("7_7734b")
+region = Rect2(64, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8rqq"]
+atlas = ExtResource("7_7734b")
+region = Rect2(96, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp1qr"]
+atlas = ExtResource("7_7734b")
+region = Rect2(128, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb70w"]
+atlas = ExtResource("7_7734b")
+region = Rect2(160, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no54v"]
+atlas = ExtResource("8_m4pkq")
+region = Rect2(0, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6scx"]
+atlas = ExtResource("8_m4pkq")
+region = Rect2(32, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brfh2"]
+atlas = ExtResource("8_m4pkq")
+region = Rect2(64, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7v0k"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(0, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pwoi"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(32, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvmc2"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(64, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frk4s"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(96, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpsft"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(128, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8xn5"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(160, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8na35"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(192, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osbda"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(224, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpfvs"]
+atlas = ExtResource("10_l5qc1")
+region = Rect2(0, 0, 32, 38)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_xoxd8"]
 animations = [{
 "frames": [{
@@ -102,6 +186,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_gun",
 "speed": 5.0
 }, {
 "frames": [{
@@ -137,33 +226,158 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ieny0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf55w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kbwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8rqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lp1qr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb70w")
+}],
+"loop": true,
+"name": &"run_gun",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no54v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6scx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brfh2")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7v0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pwoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvmc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frk4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpsft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8xn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8na35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osbda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpfvs")
+}],
+"loop": false,
+"name": &"spin",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cx102"]
 size = Vector2(14, 28)
+
+[sub_resource type="Animation" id="Animation_17ttj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_j22ga"]
+resource_name = "hit_flash"
+length = 0.2667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_pjhv5"]
+resource_name = "hit_flashing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_iac7c"]
 resource_name = "idle"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ee2sd"]
 _data = {
+"RESET": SubResource("Animation_17ttj"),
+"hit_flash": SubResource("Animation_j22ga"),
+"hit_flashing": SubResource("Animation_pjhv5"),
 "idle": SubResource("Animation_iac7c")
 }
 
-[node name="Character" instance=ExtResource("1_82jgl")]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k38ka"]
+radius = 12.0
+height = 32.0
+
+[node name="Character" groups=["player"] instance=ExtResource("1_82jgl")]
 script = ExtResource("1_1w0xd")
 health = 100
 jump_velocity_input = -300
 platformer_level = 0
+knockback_force = 300.0
+shoot_cooldown = 0.33
 
 [node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_7j168")
 sprite_frames = SubResource("SpriteFrames_xoxd8")
-animation = &"run"
+animation = &"spin"
 autoplay = "idle"
-frame_progress = 0.0262518
 script = ExtResource("3_h0a6v")
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1" groups=["player"]]
 position = Vector2(1, 5)
 shape = SubResource("RectangleShape2D_cx102")
 
@@ -180,3 +394,54 @@ stream = ExtResource("9_mpq2w")
 
 [node name="DeathAudio" type="AudioStreamPlayer" parent="." index="5"]
 stream = ExtResource("10_ek2iw")
+
+[node name="Muzzle" type="Marker2D" parent="." index="6"]
+position = Vector2(17, 2)
+
+[node name="Hurtbox" type="Area2D" parent="." index="7" groups=["player"]]
+collision_layer = 2
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0" groups=["player"]]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_k38ka")
+debug_color = Color(0.99035, 0, 0.279418, 0.42)
+
+[node name="KnockbackTimer" type="Timer" parent="." index="8"]
+one_shot = true
+
+[node name="ShootCoolDownTimer" type="Timer" parent="." index="9"]
+wait_time = 0.5
+one_shot = true
+
+[node name="ShootingAudio" type="AudioStreamPlayer2D" parent="." index="10"]
+stream = ExtResource("14_3mblx")
+volume_db = -10.0
+
+[node name="ItemPickUpAudio" type="AudioStreamPlayer2D" parent="." index="11"]
+stream = ExtResource("15_kmrfu")
+
+[node name="DamgeAudio" type="AudioStreamPlayer2D" parent="." index="12"]
+stream = ExtResource("15_64g5x")
+volume_db = -10.0
+
+[node name="InvunerableTimer" type="Timer" parent="." index="13"]
+wait_time = 0.5
+one_shot = true
+
+[node name="DialogueBox" type="Control" parent="." index="14"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueBox" index="0"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockback_timer_timeout"]
+[connection signal="timeout" from="ShootCoolDownTimer" to="." method="_on_shoot_cool_down_timer_timeout"]
+[connection signal="timeout" from="InvunerableTimer" to="." method="_on_invunerable_timer_timeout"]

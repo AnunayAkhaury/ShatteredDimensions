@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7vfrdynaejj"]
+
+[ext_resource type="Script" path="res://scripts/car/shooting/missile.gd" id="1_5u26d"]
+[ext_resource type="Texture2D" uid="uid://bkgt3lw1v0ppt" path="res://assets/All_Fire_Bullet_Pixel_16x16.png" id="2_a0lll"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nc6vh"]
+atlas = ExtResource("2_a0lll")
+region = Rect2(448, 196, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tac6j"]
+atlas = ExtResource("2_a0lll")
+region = Rect2(480, 196, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn1i6"]
+atlas = ExtResource("2_a0lll")
+region = Rect2(512, 196, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro33k"]
+atlas = ExtResource("2_a0lll")
+region = Rect2(544, 196, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lreu3"]
+atlas = ExtResource("2_a0lll")
+region = Rect2(576, 196, 32, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y7jg6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nc6vh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tac6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn1i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro33k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lreu3")
+}],
+"loop": true,
+"name": &"blast_bullet",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hifkk"]
+radius = 8.0
+height = 24.4898
+
+[node name="Missile" type="Area2D" node_paths=PackedStringArray("visibility_notifier")]
+script = ExtResource("1_5u26d")
+visibility_notifier = NodePath("VisibilityNotifier")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 4)
+scale = Vector2(2, 3.07143)
+sprite_frames = SubResource("SpriteFrames_y7jg6")
+animation = &"blast_bullet"
+speed_scale = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+scale = Vector2(1, 0.98)
+shape = SubResource("CapsuleShape2D_hifkk")
+
+[node name="VisibilityNotifier" type="VisibleOnScreenNotifier2D" parent="."]
