@@ -18,7 +18,6 @@ func _physics_process(delta: float) -> void:
 	if GlobalVars.car_level_stat == "Battle Over" and not killed:
 		queue_free()
 	if killed:
-		%PoliceDeath.play()
 		$AnimatedSprite2D.play("dead")
 		await get_tree().create_timer(1.0).timeout
 		GlobalVars.car_level_stat = "Battle Over"
