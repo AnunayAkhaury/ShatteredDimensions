@@ -43,7 +43,7 @@ func _on_area_entered(object: Area2D) -> void:
 		%TirePuncture.play()
 		owner.input_enabled = false
 		var player = $/root/CarLevel/CarPlayer
-		await get_tree().create_timer(4).timeout
+		await get_tree().create_timer(2).timeout
 		%Player.visible = false
 		GlobalVars.car_level_stat = "Battle"
 		player.visible = true

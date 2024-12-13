@@ -8,8 +8,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
-	if $CarPlayer:
+	if GlobalVars.car_level_stat == "Battle":
+		%BattleInstruction.visible = false
 		$CarPlayer/PlayerBar.value =  %CarPlayer.carlevel_health
+	
 		
 		

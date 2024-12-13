@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://5lj1e4gw3pw1" path="res://scenes/run_gun/enemies/old_guy.tscn" id="4_4m03v"]
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="4_qeqsp"]
 [ext_resource type="AudioStream" uid="uid://byfta81g4fwf0" path="res://assets/Anunay's Sounds/final cutscene.wav" id="7_eut6u"]
-[ext_resource type="PackedScene" uid="uid://cqvaov46cgoxm" path="res://scenes/menu_screens/choice_menu.tscn" id="8_yj0yp"]
+[ext_resource type="PackedScene" path="res://scenes/menu_screens/choice_menu.tscn" id="8_yj0yp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xpn3e"]
 texture = ExtResource("3_bua2h")

@@ -12,9 +12,10 @@ func _init() -> void:
 	
 func _ready():
 	$AnimatedSprite2D.flip_h = true
+	%HealthBar.visible = false
 
 func _physics_process(delta: float) -> void:
-	%HealthBar.value = health
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -23,8 +24,12 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("attack")
 	else:
 		if not dead:
+			$EnemyDead.play()
 			$AnimatedSprite2D.play('death')
 			$AnimatedSprite2D.flip_h = true
 			dead = true
+	
+	if %Car.position.x > position.x:
+		$AnimatedSprite2D.flip_h = false
 			
 	super(delta)

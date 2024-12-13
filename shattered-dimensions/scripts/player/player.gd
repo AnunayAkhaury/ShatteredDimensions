@@ -87,6 +87,8 @@ func _ready():
 		unbind_player_input_commands()
 	#animation_tree.active = true
 	bind_player_input_commands()
+	if !Global.run_gun:
+		movement_speed = 160
 	muzzle_position = muzzle.position
 	original_hit_box_shape = hitbox.shape.size.y
 	original_hit_box_y = hitbox.position.y
@@ -99,9 +101,9 @@ func _physics_process(delta: float):
 		return
 		
 	if GlobalVars.car_level_stat == 'Battle':
-		bind_player_input_commands()
 		if player_killed:
-			%Car._caught_by_police = true
+			$Sprite2D.play("crouch")
+			%Car.respawn()
 			%CarPlayer.visible = false
 			GlobalVars.car_level_stat == 'Battle Over'
 			return
@@ -180,6 +182,7 @@ func _physics_process(delta: float):
 		else:
 			up_cmd.execute(self)
 			jump_audio.play()
+			
 	
 		current_state = STATE.JUMP
 		#up_cmd.execute(self)
@@ -294,7 +297,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			return
 		if area is Bullet and area.ammo_origin != Characters.Type.POLICE:
 			return
-		var damage = 1
+		var damage = 9
 		if area is Bullet and carlevel_health - damage >= 0:
 			carlevel_health -= damage
 		else:

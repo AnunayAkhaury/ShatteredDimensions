@@ -11,10 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://i6arnh3jkabk" path="res://scenes/car/swat_van/swat_van.tscn" id="4_pn4bw"]
 [ext_resource type="PackedScene" uid="uid://ufiexds0mv81" path="res://scenes/car/labels/start_countdown.tscn" id="4_toqhx"]
 [ext_resource type="PackedScene" uid="uid://cw3djta8tgr1a" path="res://scenes/car/enemy_animation/Traps.tscn" id="5_0vm44"]
-[ext_resource type="PackedScene" path="res://scenes/car/cage.tscn" id="5_osvmu"]
+[ext_resource type="PackedScene" uid="uid://dm6we13fu62ld" path="res://scenes/car/cage.tscn" id="5_osvmu"]
 [ext_resource type="Script" path="res://scripts/car/labels/start_countdown.gd" id="5_x0elv"]
 [ext_resource type="Texture2D" uid="uid://cusdkqvtkp0ou" path="res://assets/CarLevel/PhysicsCarGameAssets/Images/Terrain/jungle tileset.png" id="6_1a2t4"]
-[ext_resource type="PackedScene" path="res://scenes/car/enemy_animation/timed_trap.tscn" id="6_bs7vm"]
+[ext_resource type="PackedScene" uid="uid://c446mbiy6y5vo" path="res://scenes/car/enemy_animation/timed_trap.tscn" id="6_bs7vm"]
 [ext_resource type="PackedScene" uid="uid://0n8jr3oavnss" path="res://scenes/car/enemy_animation/police.tscn" id="6_l3s77"]
 [ext_resource type="PackedScene" uid="uid://bmemxcryvtusx" path="res://scenes/car/enemy_animation/bat_animations.tscn" id="6_p3wkt"]
 [ext_resource type="PackedScene" uid="uid://dh7lwrd6jqdep" path="res://scenes/player.tscn" id="7_mx8p4"]
@@ -13695,7 +13695,6 @@ scale = Vector2(0.08, 0.08)
 
 [node name="CarPlayer" parent="." instance=ExtResource("7_mx8p4")]
 unique_name_in_owner = true
-visible = false
 position = Vector2(2608, 554)
 scale = Vector2(2.5, 2.5)
 collision_layer = 513
@@ -13832,11 +13831,13 @@ text = "Start in : "
 script = ExtResource("5_x0elv")
 
 [node name="BattleInstruction" parent="Labels" instance=ExtResource("3_euuak")]
+unique_name_in_owner = true
+visible = true
 modulate = Color(1, 0.0901961, 0.0823529, 1)
-offset_left = 1852.0
-offset_top = 212.0
+offset_left = 1876.0
+offset_top = 367.0
 offset_right = 2185.0
-offset_bottom = 283.0
+offset_bottom = 426.0
 scale = Vector2(1.2, 1.2)
 text = "You must fight the officer 
 to get spare tires for the car!

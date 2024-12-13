@@ -1,10 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://bmemxcryvtusx"]
+[gd_scene load_steps=29 format=3 uid="uid://bmemxcryvtusx"]
 
 [ext_resource type="Script" path="res://scripts/car/enemy/bat.gd" id="1_1q3ou"]
 [ext_resource type="Texture2D" uid="uid://cdftd2u8tyhgg" path="res://assets/CarLevel/Enemy/bat/Attack2.png" id="2_ytvva"]
 [ext_resource type="Texture2D" uid="uid://t0m82qii1f0f" path="res://assets/CarLevel/Enemy/bat/Death.png" id="3_smrut"]
 [ext_resource type="Texture2D" uid="uid://bii0av1mhkvm1" path="res://assets/CarLevel/Enemy/bat/Flight.png" id="4_tk7ot"]
 [ext_resource type="Script" path="res://scripts/car/detection_boxes/enemy_hurt_box.gd" id="5_777l7"]
+[ext_resource type="AudioStream" uid="uid://cdyuaqhfhis6k" path="res://assets/CarLevel/bat_sound.mp3" id="6_bh7bc"]
+[ext_resource type="AudioStream" uid="uid://cq8ubqh4ns7g6" path="res://assets/CarLevel/enemy_death.mp3" id="7_8bhgp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svqnx"]
 atlas = ExtResource("2_ytvva")
@@ -190,3 +192,11 @@ offset_left = -69.0
 offset_top = -82.0
 offset_right = 67.0
 offset_bottom = -55.0
+
+[node name="EnemySound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_bh7bc")
+
+[node name="EnemyDead" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_8bhgp")

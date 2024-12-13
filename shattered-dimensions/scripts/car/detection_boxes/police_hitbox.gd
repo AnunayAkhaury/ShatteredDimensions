@@ -2,7 +2,7 @@ class_name Office_HitBox
 extends Area2D
 
 
-var damage = 25
+var damage = 8
 func _init() -> void:
 	area_entered.connect(_on_area_entered)
 	

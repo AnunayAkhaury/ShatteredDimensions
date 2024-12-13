@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://0nmnvxehqgah"]
+[gd_scene load_steps=6 format=3 uid="uid://dntht2iqmmerm"]
 
 [ext_resource type="Script" path="res://scripts/run_gun/rungun_controls.gd" id="1_te0yb"]
 [ext_resource type="PackedScene" uid="uid://i63jkyqe4nn" path="res://scenes/run_gun/powerups/spiral_bullet_powerup/spiral_bullet_pickup.tscn" id="2_u6rpx"]

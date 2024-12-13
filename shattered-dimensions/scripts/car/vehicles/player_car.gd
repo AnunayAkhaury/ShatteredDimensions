@@ -83,7 +83,7 @@ func _physics_process(delta: float) -> void:
 			health = 0
 			
 		if Input.is_action_just_pressed("pause"):
-			GlobalVars.car_level_stat = "Not On Car Level"
+			GlobalVars.car_level_stat = "Not on Car Level"
 			GlobalVars.car_lives = 5
 			get_tree().change_scene_to_file("res://scenes/prison.tscn")
 				
@@ -117,6 +117,7 @@ func _shoot() -> void:
 		add_sibling(cur_bullet)
 	
 func _shoot_missile() -> void:
+	%Missile.play()
 	var cur_bullet = missile.instantiate() as Missile
 	cur_bullet.ammo_origin = Characters.Type.PLAYER_CAR
 	cur_bullet.start_pos = position + Vector2(30, -90)

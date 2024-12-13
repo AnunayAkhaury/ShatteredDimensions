@@ -2057,16 +2057,8 @@ position = Vector2(354, 506)
 
 [node name="Spikes" type="Node2D" parent="MapLayers/Traps"]
 
-[node name="Spike3" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
-position = Vector2(-103, 90)
-scale = Vector2(0.6, 0.6)
-
 [node name="Spike24" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
-position = Vector2(-149, 89)
-scale = Vector2(0.8, 0.8)
-
-[node name="Spike25" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
-position = Vector2(-21, 90)
+position = Vector2(-136, 90)
 scale = Vector2(0.8, 0.8)
 
 [node name="Spike26" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
@@ -2077,12 +2069,8 @@ scale = Vector2(0.8, 0.8)
 position = Vector2(-0.999994, 90)
 scale = Vector2(0.8, 0.8)
 
-[node name="Spike4" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
-position = Vector2(192, 43)
-scale = Vector2(0.8, 0.8)
-
 [node name="Spike29" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
-position = Vector2(117, -38)
+position = Vector2(115, -34)
 scale = Vector2(0.8, 0.8)
 
 [node name="Spike30" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
@@ -2091,10 +2079,6 @@ scale = Vector2(0.8, 0.8)
 
 [node name="Spike2" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
 position = Vector2(85, 89)
-
-[node name="Spike" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
-position = Vector2(72, 89)
-scale = Vector2(0.7, 0.7)
 
 [node name="Spike5" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
 position = Vector2(-151, -67)
@@ -2166,20 +2150,8 @@ position = Vector2(-268, -67)
 rotation = 3.14159
 scale = Vector2(0.5, 0.5)
 
-[node name="Spike19" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
-position = Vector2(-273, -84)
-scale = Vector2(0.5, 0.5)
-
-[node name="Spike20" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
-position = Vector2(-158, -101)
-scale = Vector2(0.6, 0.6)
-
 [node name="Spike21" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
 position = Vector2(-77, -38)
-scale = Vector2(0.8, 0.8)
-
-[node name="Spike28" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
-position = Vector2(-64, -38)
 scale = Vector2(0.8, 0.8)
 
 [node name="Spike22" parent="MapLayers/Traps/Spikes" instance=ExtResource("3_hvw4w")]
@@ -2207,7 +2179,7 @@ position = Vector2(108, -162)
 [node name="SpikeBalls" type="Node2D" parent="MapLayers/Traps"]
 
 [node name="SpikeBall" parent="MapLayers/Traps/SpikeBalls" instance=ExtResource("5_v3y0j")]
-position = Vector2(64, -20)
+position = Vector2(64, -15)
 
 [node name="SpikeBall2" parent="MapLayers/Traps/SpikeBalls" instance=ExtResource("5_v3y0j")]
 position = Vector2(186, -258)
@@ -2239,7 +2211,7 @@ autoplay = "move_side"
 [node name="Supports" type="Node2D" parent="MapLayers"]
 
 [node name="Bouncer" parent="MapLayers/Supports" instance=ExtResource("7_jy77l")]
-position = Vector2(419, 440)
+position = Vector2(419, 443)
 
 [node name="Bouncer2" parent="MapLayers/Supports" instance=ExtResource("7_jy77l")]
 position = Vector2(58, 432)
