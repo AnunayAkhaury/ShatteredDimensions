@@ -1185,7 +1185,15 @@ The prison setting of this main lobby allows the player access into all 4 dimens
 
 - **Trailer**: [ShatteredDimensions](https://youtu.be/-zDo1VSA-OQ)
 
-- **PressKit**: ...
+My main goal as I edited the trailer was to get 2 points across: the general storyline of our game, and the variety of different kinds of experiencees our game entails through the 4 mini levels.  
+
+The achieved the first point by the following the storyline withing the trailer as well. It starts off with shots of the initial cutscene where our player gets arrested, and then a shot of the player in the prison lobby. This sets up the conflict / objective of the game at the beginning itself. Then I move on to achieving the second point, where I have shots of the different types of games and different features we have entailed all in one place. I show a clip of shooting, driving, flying, and the player have to walk and jump through obstacles, which helps display all the different features of our game. I go on to include a clip of the 4 dimensions, and then 4 keys. This achieves gettin implying that they need to all be collected and beat. Then there is a sequence of many short clips cut to the player back in the prison with the question: "Will you escape" displayed to try and intrigue the player to play and find out themself.
+
+- **PressKit**: [Shattered Dimenstions](https://anunayakhaury.github.io/ShatteredDimensions/)
+
+In the press kit, I got an opportunity to showcase more images without having to follow a certain storyline. Here I chose the images based on aesthetic and what captures the feel of the game the best. I opted to put images of our best works and best scenes in order to draw the viewer's attention. I include one image of all 4 levels in the beginning of the press kit itself to display the 4 dimensions and give the viewer an idea of our game right awawy even before they read anything or see anything else.  
+
+In addition, the press kit includes our trailer, instructions on where to find our game in order to play, a general description and all the features of our game, documentation and source code, as well as information about the team members and their roles as well as contact information in order to encourage feedback.
 
 
 ## Gameplay Testing
@@ -1199,12 +1207,6 @@ In addition to the results collected through the use of this Google Form, we als
 ## Narrative Design
 
 **Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
-
-## Press Kit and Trailer
-
-**Include links to your presskit materials and trailer.**
-
-**Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
 
 ## Game Feel and Polish
 
