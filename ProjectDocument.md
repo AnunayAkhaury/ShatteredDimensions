@@ -860,6 +860,7 @@ _Health Bar & Lives_
 - The health of the player is displayed using a progress bar (a percentage is also shown) on the top right corner. This indicates the amount of health they have left before they lose another life.
 - When the health decreases to 0, the player loses a life and the player respawns from the beginning of the game. There are no checkpoints in this level as that would make it super easy to beat the game.
 - The player has a total of 5 lives before they lose the game, and the number of lives the player has is displayed on the top right corner of the screen using heart icons. [Upon losing a life, a life icon disappears](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/7fcffe53c371a297c7e065398e32587d0a8674d3/shattered-dimensions/scripts/car/game_elements/lives_visibility.gd#L13-L15).
+- The lives were implemented using GlobalVariables in order to ensure that this information is retained when the scene is reloaded upon the player's death
   
 ![ghealth](https://github.com/user-attachments/assets/900573a0-95c0-4361-87a6-bdcd36ea0681)
 
