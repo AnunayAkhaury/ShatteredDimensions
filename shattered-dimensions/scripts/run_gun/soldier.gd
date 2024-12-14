@@ -2,10 +2,12 @@ class_name Soldier
 extends BaseEnemy
 
 @export var is_shooter : bool = false
+
 @onready var muzzle : Marker2D = $Muzzle
-var muzzle_position
 @onready var shot_timer : Timer = $ShotTimer
 @onready var shot_audio: AudioStreamPlayer2D = $ShotAudio
+
+var muzzle_position
 
 func _ready() -> void:
 	bind_player_input_commands()

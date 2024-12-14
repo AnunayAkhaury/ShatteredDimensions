@@ -5,7 +5,7 @@ extends Control
 @onready var audio_stream_player_2d: AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready() -> void:
-	Global.run_gun = false
+	GlobalVars.run_gun = false
 	if GlobalVars.prison_position.y < 350:
 		character.position = Vector2(GlobalVars.prison_position.x, 225)
 	else:

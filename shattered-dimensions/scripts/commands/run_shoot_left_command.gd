@@ -3,11 +3,6 @@ extends Command
 
 
 func execute(character: Character) -> Status:
-	#var input = -1 * character.movement_speed
-	#character.sprite.play("run_gun")
-	#character.velocity.x = character.movement_speed
-	#character.sprite.flip_h = true
-	#character.change_facing(Character.Facing.LEFT)
 	character.update_muzzle_position()
 	
 	var bullet_instance = character.bullet.instantiate() as Node2D

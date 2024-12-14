@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var player_node_path: NodePath
+
 @onready var timer: Timer = $Timer
 @onready var key_audio: AudioStreamPlayer2D = $KeyAudio
 

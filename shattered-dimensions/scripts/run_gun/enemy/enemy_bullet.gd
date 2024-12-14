@@ -6,6 +6,7 @@ class_name EnemyBullet
 var speed : int = 600
 var direction : int
 var damage_amount : int = 1
+
 func _physics_process(delta: float) -> void:
 	move_local_x(direction * speed * delta)
 

@@ -1,7 +1,7 @@
 extends Node2D
 
 func _on_timer_timeout() -> void:
-	if Global.run_gun:
+	if GlobalVars.run_gun:
 		get_tree().reload_current_scene()
 		HealthManager.reset_health()
 	queue_free()

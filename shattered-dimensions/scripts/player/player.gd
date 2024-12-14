@@ -115,12 +115,12 @@ func _physics_process(delta: float):
 		move_and_slide()
 		return
 		
-	if Global.run_gun:
+	if GlobalVars.run_gun:
 		jump_velocity_input = -445
 	else:
 		jump_velocity_input = -300
 		
-	if knockback_active and Global.run_gun:
+	if knockback_active and GlobalVars.run_gun:
 		move_and_slide()
 		_apply_gravity(delta)
 		return 
@@ -165,7 +165,7 @@ func _physics_process(delta: float):
 		add_sibling(cur_bullet)
 	
 	
-	if Input.is_action_just_pressed("shoot") and can_shoot and Global.run_gun:
+	if Input.is_action_just_pressed("shoot") and can_shoot and GlobalVars.run_gun:
 		if shoot_cooldown != 0:
 			can_shoot = false
 		if move_input != 0.0:
@@ -284,7 +284,6 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 		velocity = knockback_direction * knockback_force
 		knockback_active = true
 		knockback_timer.start(0.33)
-		#HitAnimationPlayer.play("hit_flash")
 		damge_audio.play()
 		HealthManager.decrease_health(body.damage_amount)
 	if HealthManager.current_health <= 0:
@@ -327,7 +326,6 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		velocity = knockback_direction * knockback_force
 		knockback_active = true
 		knockback_timer.start(0.15)
-		#HitAnimationPlayer.play("hit_flash")
 		damge_audio.play()
 		HealthManager.decrease_health(area.damage_amount)
 			
@@ -338,7 +336,6 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		velocity = knockback_direction * knockback_force
 		knockback_active = true
 		knockback_timer.start(0.15)
-		#HitAnimationPlayer.play("hit_flash")
 		damge_audio.play()
 		HealthManager.decrease_health(node.damage_amount)
 	if HealthManager.current_health <= 0:

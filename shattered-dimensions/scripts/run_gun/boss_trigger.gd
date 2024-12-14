@@ -4,9 +4,11 @@ extends Area2D
 @export var player_camera: Camera2D
 @export var boss_node_path: NodePath
 @export var player_node_path: NodePath
+
 var player : CharacterBody2D
 var boss : CharacterBody2D
 var has_entered : bool = false
+
 func _ready() -> void:
 	player = get_node(player_node_path)
 	boss = get_node(boss_node_path)

@@ -26,6 +26,7 @@ var boss_summon_command : Command
 @export var damage_amount : int = 1
 @export var initial_facing: bool = false
 @export var player_node_path: NodePath
+
 @onready var animatedsprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitflashplayer : AnimationPlayer = $HitFlashPlayer
 @onready var enemy_damage_audio: AudioStreamPlayer2D = $EnemyDamageAudio
