@@ -2,7 +2,11 @@
 
 ## Play our Game
 
-Our game can be played at
+Our game can be played at the following link :  
+
+[Shattered Dimensions](https://avwarrier.itch.io/shattered-dimensions)
+
+Alternatively, if you would like to download the game for an offline version, you may install Godot and download a zip file of our repo.
 
 ## About the Game ##
 
