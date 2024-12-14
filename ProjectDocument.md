@@ -35,6 +35,18 @@ Move to the top right and collect the key. You deserve it!
 
 ### Run and Gun ###
 
+## **Level Overview**  
+
+The **Run and Gun Level** in *Shattered Dimensions* combines fast-paced platforming and combat mechanics. The level is split into two distinct stages: a **skyline stage** and a **boss stage** set in a futuristic city. Players must navigate platforms, defeat enemies, and survive challenges to complete the level. The level's goal is to traverse platforms, avoid enemy attacks, kill enemies, and beat the final boss.
+
+## **Stage 1: Skyline**  
+The player starts high above a futuristic city, jumping across rooftops and floating platforms while engaging enemies. Enemies fire projectiles, requiring careful movement and shooting. Power-ups like **health refills** and **weapon upgrades** are scattered throughout the stage to assist progression.  
+
+## **Stage 2: City and Boss Battle**  
+After completing the skyline, the player descends into the city for the final **boss fight**. This stage introduces two new enemy types and additional challenges.  
+The level culminates in a **boss fight** against a mechanic with multiple attack phases. The player must dodge lasers, avoid drones, and time their shots to defeat the boss.  
+
+
 ### Car Level ###
 
 The objective of the car level is to drive to the endpoint in order to obtain the key while escaping all obstacles along the way and killing enough enemies in order to retrieve weapons that will allow you to unlock the key. The scene starts off with a car chase, followed by a mini police battle. The car then has to continue driving, ensuring not to drive over spikes, kill enough enemies, and protect your health by getting the health power ups and/or the fuel power ups to help them survive. There are basic move right and left commands to the car, which are controlled by A,D or the arrows. The player can shoot by using click, and if they earned a power up bullet, they can use shift to toggle between a normal bullet and the power up. The player takes damage from bullets being shot by enemies, from crashing with a car, or driving over spikes. The player health bar, remaining lives, kill count, and bullet power up enabled information are shown at the the top right and left corners of the screen.
@@ -260,25 +272,12 @@ I used AudioStreamPlayers in all the relevant levels for playing audio
 
 ---
 
-## **Level Overview**  
-
-The **Run and Gun Level** in *Shattered Dimensions* combines fast-paced platforming and combat mechanics. The level is split into two distinct stages: a **skyline stage** and a **boss stage** set in a futuristic city. Players must navigate platforms, defeat enemies, and survive challenges to complete the level.  
-
-### **Stage 1: Skyline**  
-The player starts high above a futuristic city, jumping across rooftops and floating platforms while engaging enemies. Enemies fire projectiles, requiring careful movement and shooting. Power-ups like **health refills** and **weapon upgrades** are scattered throughout the stage to assist progression.  
-
-### **Stage 2: City and Boss Battle**  
-After completing the skyline, the player descends into the city for the final **boss fight**. This stage introduces two new enemy types and additional challenges.  
-The level culminates in a **boss fight** against a mechanic with multiple attack phases. The player must dodge lasers, avoid drones, and time their shots to defeat the boss.  
-
----
-
 ## **Player/Gun Movement/Physics**  
 
-The **Run and Gun Level** introduces shooting mechanics alongside core platforming controls, allowing the player to shoot while running, jumping, or standing still. This functionality enhances movement dynamics and integrates combat seamlessly.  
+The **Run and Gun Level** introduces shooting mechanics alongside core platforming controls, allowing players to shoot while running, jumping, or standing still. This functionality enhances movement dynamics and integrates combat seamlessly.  
 
 ### **Player Movement**  
-The player retains the standard platforming controls with an incresed jump height.
+The player retains the standard platforming controls with an increased jump height.
 Shooting is integrated seamlessly with movement, and the player can shoot:  
 
 - **Airborne**: Shoot mid-air without compromising control.  
@@ -288,7 +287,7 @@ Shooting is integrated seamlessly with movement, and the player can shoot:
 These mechanics are implemented using the **command pattern**, ensuring modularity and clean integration with the existing movement system.  
 
 ### **Shooting Mechanics**  
-Shooting is executed from a **muzzle point** attached to the player sprite. Bullets have their own logic, including:  
+Shooting is executed from a **muzzle point** attached to the player's sprite. Bullets have their own logic, including:  
 
 - **Cooldown Timer**:  
    The Timer node checks the firing rate and prevents the player from shooting until the cooldown period expires. This balances combat and prevents overuse of the shooting mechanic.
@@ -312,12 +311,12 @@ The primary physics changes involve integrating shooting with the existing movem
 
 ### Enemies/Obstacles
 
-All enemies in the **Run and Gun Level** derive from a **base `Character` class**, which is extended by a **base enemy class**. This allows for shared behaviors across enemies while enabling specific features for each type.  
+All enemies in the **Run and Gun Level** derive from a **base `Character` class**, extended by a **base enemy class**. This allows for shared behaviors across enemies while enabling specific features for each type.  
 
 #### General Enemy Features
 
 - **Collision Layers**:  
-  Enemies are assigned their own collision layer to prevent them from interacting with each other, ensuring only player-enemy interactions result in damage.
+  Enemies are assigned their collision layer to prevent them from interacting with each other, ensuring only player-enemy interactions result in damage.
 
 - **Damage Through Collision**:  
    Enemies can deal damage to the player through **physical collision**. This is handled using an `Area2D` trigger on both the player and enemy, which communicates with the **HealthManager** script to reduce health accordingly.
@@ -416,7 +415,7 @@ The boss’s behavior is implemented using the **Command Pattern**, allowing for
 
 2. **Projectile Attack**  
    - At set intervals, the boss performs a **projectile attack**, firing bullets periodically.  
-   - **Invulnerability**: During this attack, the boss cannot take damage.  
+   - **Invulnerability**: The boss cannot take damage during this attack.  
    - Managed using a **ShootCommand**, with bullet logic handled separately.
 
 3. **Melee Combo Attack**  
@@ -473,14 +472,6 @@ The boss’s behavior is implemented using the **Command Pattern**, allowing for
 
 ---
 
-### Command Pattern Usage
-
-The **Command Pattern** is used throughout the boss implementation to modularize its behavior:  
-- **MoveCommand**: Handles player tracking.  
-- **ShootCommand**: Manages periodic projectile firing.  
-- **MeleeAttackCommand**: Triggers the melee combo attack.  
-- **SummonCommand**: Spawns additional enemies during combat.  
-
 ### Power-Ups
 
 The **Power-Ups** in the Run and Gun Level enhance player abilities and are implemented using **Area2D signals** and unique **collision layers** to detect pickups. Each power-up provides a specific boost to the player, improving combat effectiveness or survivability.
@@ -503,9 +494,9 @@ The **Power-Ups** in the Run and Gun Level enhance player abilities and are impl
 #### Rapid Fire Power-Up
 
 - **Effect**: Removes the shooting cooldown, allowing the player to shoot continuously without delay.  
-- **Duration**: Lasts for a limited time before reverting to normal shooting mechanics.  
+- **Duration**: Lasts briefly before reverting to normal shooting mechanics.  
 - **Implementation**:  
-   - On pickup, the player’s shooting cooldown is temporarily set to zero.  
+   - On pickup, the player’s shooting cooldown is temporarily zero.  
    - A **timer** node tracks the duration of the power-up.  
    - Once the timer expires, the cooldown value is restored to its default setting.
 
@@ -561,9 +552,15 @@ The **Health Management System** ensures that both player and enemy health is co
    Enemies take damage through their **hitboxes** when hit by player bullets or attacks. Upon defeat, enemies play a **hit flash effect** and a **death animation** for visual feedback.
 
 - **Invulnerability**:  
-   Unlike the player, enemies do not gain invulnerability, making them susceptible to consecutive hits. But it is managed through the player shot cooldown.
+   Unlike the player, enemies do not gain invulnerability, making them susceptible to consecutive hits. But it is managed through the player-shot cooldown.
 
 ---
+### Related Class Content
+
+## Command Pattern Usage
+The **Command Pattern** is used throughout the boss implementations, player implementations, and durative commands for cutscene management. The skills I learned from exercise one were directly applied to creating the septic if commands for all the actions I wanted my player and my enemies to perform. All actions are based on the command system.
+
+## Path Planning - The movement and planning process for the enemies in the Run-and-Gun level was based on class concepts of Game AI, focusing on how, when, and where enemies act. Complex enemy types like turret bots, flying drones, and charging units required precise planning for behaviors such as state-based movement. The boss battles featured multi-phase behaviors and adaptive attack patterns, making them challenging and engaging. An example of this would be the implementation of the patrol system. 
 
 # **Run and Gun Game Assets Documentation**
 
@@ -809,7 +806,6 @@ Once all four keys are collected, the global script triggers the final cutscene.
 
 ![final_cutscene](https://github.com/user-attachments/assets/dce33d25-4674-4aba-8c02-5c5f97777648)
 
-
 **Boss Fight Cutscene**:  
    - I implemented a **custom cutscene** specifically for the **boss fight**.  
    - This uses two cameras:  
@@ -833,7 +829,9 @@ Gun Mechanics were covered extensively in the main **Run and Gun Level** section
 - Base Bullet Logic 
 - Customizable bullets with specific behaviors, such as speed, damage, and collision effects.  
 - Visual feedback through hit animations and sound effects.
-- 
+
+The narrative design was done so the game story follows and makes sense. The player is sent to prison for stealing diamonds. Once in prison, the player must clear four dimensions to escape the prison. The use of the locks signifies the completion of dimensions. After beating all 4 levels, the player escapes into an unknown place, where they will be met with a choice.
+
 ---
 
 ## Prison Lobby/Gameplay Testing
