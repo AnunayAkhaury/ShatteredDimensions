@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://i8mwtydj5tw2"]
+[gd_scene load_steps=4 format=3 uid="uid://cdbdu63ickasq"]
 
 [ext_resource type="Script" path="res://scripts/menu_screens/credits_label.gd" id="1_gfrmb"]
 [ext_resource type="AudioStream" uid="uid://dj7367n8hoewx" path="res://assets/8-bit RPG Music _ Victory Theme [ ezmp3.cc ].mp3" id="2_vf2t5"]

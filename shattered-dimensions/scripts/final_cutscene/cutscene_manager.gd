@@ -84,7 +84,7 @@ func run_next_command():
 		GlobalVars.carCompleted = false
 		GlobalVars.shooterCompleted = false
 		GlobalVars.spaceshipCompleted = false
-		get_tree().change_scene_to_file("res://scenes/menu_screens/credits.tscn")
+		get_tree().change_scene_to_file("res://scenes/menu_screens/game_menu.tscn")
 
 func _wait_for_command_completion(character):
 	while active_command and active_command.execute(character) == Command.Status.ACTIVE:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://cg6fpw1rgpq71"]
+[gd_scene load_steps=70 format=4 uid="uid://cg6fpw1rgpq71"]
 
 [ext_resource type="Texture2D" uid="uid://cpucqr5lldfid" path="res://assets/Fantasy Swamp Forest/Free/BG_1/BG_1.png" id="1_ls6fx"]
 [ext_resource type="PackedScene" uid="uid://bjb6qsjcxod2b" path="res://scenes/platformer/killzone.tscn" id="2_1p5oo"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://dstc1ue5wbdgo" path="res://scenes/platformer/level2/crusher.tscn" id="24_1hvt2"]
 [ext_resource type="PackedScene" uid="uid://b00thoqwoqjnq" path="res://scenes/platformer/next_world_door.tscn" id="25_l62ee"]
 [ext_resource type="Texture2D" uid="uid://l825pk3rvbeh" path="res://assets/PixelFantasy_Caves_1.0/mainlev_build.png" id="25_uvrl4"]
+[ext_resource type="Texture2D" uid="uid://d1un0nbat770q" path="res://assets/key.png" id="26_188w3"]
 [ext_resource type="PackedScene" uid="uid://bmoaon1yut05y" path="res://scenes/pause_menu.tscn" id="30_x2rw1"]
 [ext_resource type="AudioStream" uid="uid://dv31y7q52wnny" path="res://assets/Breezy's Mega Quest - 5 Stage 4.wav" id="30_xcob4"]
 
@@ -3214,6 +3215,11 @@ theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 10
 text = "Hit the checkpoints to save your progress"
 horizontal_alignment = 1
+
+[node name="Key" type="Sprite2D" parent="MapLayers"]
+position = Vector2(4528, 537)
+scale = Vector2(0.12207, 0.12207)
+texture = ExtResource("26_188w3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(340, 455)
