@@ -362,7 +362,8 @@ All enemies in the **Run and Gun Level** derive from a **base `Character` class*
      - Stops following if the player exits its "leash range."  
    - **Special Features**: Shooting animations and a custom projectile system.
   
-     
+![scout-ezgif com-optimize](https://github.com/user-attachments/assets/ea646d24-6637-493e-b3da-7fe12148875f)
+
 
 4. **Sentinel**  
    - **Description**: A ground-based enemy with patrol behavior and an **Area of Effect (AoE)** attack.  
@@ -426,6 +427,8 @@ The boss’s behavior is implemented using the **Command Pattern**, allowing for
 4. **Enemy Summons**  
    - The boss periodically summons **Sentinels** and **Scouts** to assist in combat.  
    - Summons are executed using a **SummonCommand** to spawn enemies dynamically.
+  
+   ![boss_fight-ezgif com-optimize](https://github.com/user-attachments/assets/a0dc1f75-4b89-4f7d-bbbb-cc0b016be196)
 
 ---
 
@@ -544,6 +547,8 @@ The **Health Management System** ensures that both player and enemy health is co
 
 - **Health Cap**:  
    The player’s maximum health is capped at **5 hearts**.
+
+![ShatteredDimensionsdeathanimation-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/9bfe5461-fa55-4281-b95c-a2e9f2da9992)
 
 ---
 
@@ -802,12 +807,17 @@ Once all four keys are collected, the global script triggers the final cutscene.
    - Upon selecting "Yes" and reaching the game’s end, I added a **credits screen** that rolls through team members and contributors.  
    - This was implemented using basic controls and signal connections.  
 
+![final_cutscene](https://github.com/user-attachments/assets/dce33d25-4674-4aba-8c02-5c5f97777648)
+
+
 **Boss Fight Cutscene**:  
    - I implemented a **custom cutscene** specifically for the **boss fight**.  
    - This uses two cameras:  
      - The camera **zooms in** on the boss when the encounter starts.  
      - The camera then **smoothly transitions** and zooms out to focus on both the boss and player, setting up the battle seamlessly.  
    - These transitions enhance the atmosphere and emphasize the significance of the boss fight.  
+
+![boss_cutscene-ezgif com-optimize](https://github.com/user-attachments/assets/70e8d736-8bcd-4cb0-8cf1-b4111e1736db)
 
 ### **Powerups**  
 Powerups were covered extensively in the main **Run and Gun Level** section, where I implemented:  
@@ -819,10 +829,11 @@ Each powerup used distinct collision layers and `Area2D` signals for pickup dete
 
 ### **Player/Enemy Gun Logic**  
 Gun Mechanics were covered extensively in the main **Run and Gun Level** section. The gun mechanics for both the player and enemies were implemented using:  
-- A **command-based shooting system**.  
+- A **command-based shooting system**.
+- Base Bullet Logic 
 - Customizable bullets with specific behaviors, such as speed, damage, and collision effects.  
-- Visual feedback through hit animations and sound effects.  
-
+- Visual feedback through hit animations and sound effects.
+- 
 ---
 
 ## Prison Lobby/Gameplay Testing
