@@ -812,11 +812,23 @@ Once all keys are unlocked, the player has won the game!
 
 ### Gameplay Testing
 
-Here is a link to the full results of our gameplay tests: *add link*
-
-Here is a link to the Google Form we used: *add link*
+Here is a link to the full results of our gameplay tests: [Link](https://docs.google.com/spreadsheets/d/1evfqT7JQ0pE8Bjc5lGcrNMGed5bM-aEcH1S_DhOPk9E/edit?usp=sharing)
 
 In addition to the results collected through the use of this Google Form, we also got a lot of feedback from our peers, TAs, and Professor from our game demo during the Final Festival. Since our games consists of several minigames that different team members were responsible for, internal testing also resulted in the discovery of a lot of bugs and necessary improvements to our overall game.
+
+*A lot of our reviewers gave us verbal feedback and filled out the form much later after playing, so their suggestions and improvements were already taken into consideration and implemented by the time they filled out the form.*
+
+**Findings:**
+
+- A lot of our players and reviewers found the platformer level to be too difficult and were not able to make it past the first level. This hindered their performance in the overall game because they need to beat all of the minigames. As a solution, the difficulty was decreased by removing some obstacles and spacing out components.
+
+- The difference in controls and objectives from minigame to minigame also made it difficult for players to switch between them. To allow better understanding of controls, instruction pages were added to the Spaceship and Platformer levels to allow playeres ample time to read and understand.
+
+- To allow for cohesion of controls throughout the games, the spaceship level was modified to shoot arrows on a left mouse click instead of the space bar. The kill count requirement was also decreased from 5 to 4 since the number of UFOs the player sees is directly dependent upon their path through the level.
+
+- Our initial and final cutsscenes were engaging and efficiently communicated our storyline to our players. Every one of them understood the background and main objective of the game.
+
+- Overall, players found our user interface to be very engaging and expressed interest in playing multiple times to beat it.
 
 ## Narrative Design
 
