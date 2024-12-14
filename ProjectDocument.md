@@ -687,7 +687,7 @@ Below I have described the main features and functionality of my level, along wi
 
 - The component system discussed in class is employed to create a self contained **fire scene**. This scene contains the [functionality for a set of arrows to be released from the holder and fired across the screen](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/fire.gd#L27). 
 
-- Upon the press of the space bar, the spaceship [instantiates a new set of arrows](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/spaceship.gd#L111) that are loaded onto the spaceship and fired at the incoming UFOs. Each arrow is released at a different time in line with the release animation. 
+- Upon a left mouse click, the spaceship [instantiates a new set of arrows](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/spaceship.gd#L111) that are loaded onto the spaceship and fired at the incoming UFOs. Each arrow is released at a different time in line with the release animation. 
 
 - The most difficult part of this feature was to handle movement of the spaceship during the firing animation. I needed to ensure that I was [updating the position of the holder and arrows that were not yet fired](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/99a9b872f7da270022e0cc5cf6bac83ec8269963/shattered-dimensions/scripts/spaceship/spaceship.gd#L125) if the spaceship moved. This meant that each arrow had to function individually, independent of the others.
 
@@ -1173,6 +1173,27 @@ The prison setting of this main lobby allows the player access into all 4 dimens
 
 Once all keys are unlocked, the player has won the game!
 
+![IMG_4824](https://github.com/user-attachments/assets/72c18e99-e46c-426b-8d68-e18b7506062d)
+
+### Gameplay Testing
+
+Here is a link to the full results of our gameplay tests: [Link](https://docs.google.com/spreadsheets/d/1evfqT7JQ0pE8Bjc5lGcrNMGed5bM-aEcH1S_DhOPk9E/edit?usp=sharing)
+
+In addition to the results collected through the use of this Google Form, we also got a lot of feedback from our peers, TAs, and Professor from our game demo during the Final Festival. Since our games consists of several minigames that different team members were responsible for, internal testing also resulted in the discovery of a lot of bugs and necessary improvements to our overall game.
+
+*A lot of our reviewers gave us verbal feedback and filled out the form much later after playing, so their suggestions and improvements were already taken into consideration and implemented by the time they filled out the form.*
+
+**Findings:**
+
+- A lot of our players and reviewers found the platformer level to be too difficult and were not able to make it past the first level. This hindered their performance in the overall game because they need to beat all of the minigames. As a solution, the difficulty was decreased by removing some obstacles and spacing out components.
+
+- The difference in controls and objectives from minigame to minigame also made it difficult for players to switch between them. To allow better understanding of controls, instruction pages were added to the Spaceship and Platformer levels to allow playeres ample time to read and understand.
+
+- To allow for cohesion of controls throughout the games, the spaceship level was modified to shoot arrows on a left mouse click instead of the space bar. The kill count requirement was also decreased from 5 to 4 since the number of UFOs the player sees is directly dependent upon their path through the level.
+
+- Our initial and final cutsscenes were engaging and efficiently communicated our storyline to our players. Every one of them understood the background and main objective of the game.
+
+- Overall, players found our user interface to be very engaging and expressed interest in playing multiple times to beat it.
 
 ## Press Kit & Trailer
 
@@ -1194,20 +1215,3 @@ The achieved the first point by the following the storyline withing the trailer 
 In the press kit, I got an opportunity to showcase more images without having to follow a certain storyline. Here I chose the images based on aesthetic and what captures the feel of the game the best. I opted to put images of our best works and best scenes in order to draw the viewer's attention. I include one image of all 4 levels in the beginning of the press kit itself to display the 4 dimensions and give the viewer an idea of our game right awawy even before they read anything or see anything else.  
 
 In addition, the press kit includes our trailer, instructions on where to find our game in order to play, a general description and all the features of our game, documentation and source code, as well as information about the team members and their roles as well as contact information in order to encourage feedback.
-
-
-## Gameplay Testing
-
-Here is a link to the full results of our gameplay tests: *add link*
-
-Here is a link to the Google Form we used: *add link*
-
-In addition to the results collected through the use of this Google Form, we also got a lot of feedback from our peers, TAs, and Professor from our game demo during the Final Festival. Since our games consists of several minigames that different team members were responsible for, internal testing also resulted in the discovery of a lot of bugs and necessary improvements to our overall game.
-
-## Narrative Design
-
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
-
-## Game Feel and Polish
-
-**Document what you added to and how you tweaked your game to improve its game feel.**
