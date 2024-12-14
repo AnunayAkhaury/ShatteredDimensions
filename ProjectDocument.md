@@ -547,6 +547,42 @@ The **Health Management System** ensures that both player and enemy health is co
 
 ---
 
+# **Run and Gun Game Assets Documentation**
+
+## **Sound Effects and Music**
+
+| **Asset Name**               | **File Name**                     | **Source**                                                    | **License**                          | **Use Case**                            |
+|------------------------------|----------------------------------|-------------------------------------------------------------|-------------------------------------|----------------------------------------|
+| **Victory Scene Music**      | victory_scene_music.mp3          | [ViraMiller - Freesound](https://freesound.org)              | Attribution 4.0                     | Used for victory cutscenes and scenes. |
+| **Boss Death Music**         | boss_death_music.wav             | [LittleRobotS - Freesound](https://freesound.org)            | Attribution 4.0                     | Boss defeat music.                     |
+| **Boss Combo Attack Sound**  | boss_combo_attack.mp3            | [Artninja - Freesound](https://freesound.org)                | Attribution 4.0                     | Sound for intense boss combo attacks.  |
+| **Enemy Take Damage Sound**  | enemy_damage_retro.wav           | [stumpbutt - Freesound](https://freesound.org)               | Creative Commons 0                  | Retro damage sound for enemies.        |
+| **Boss Summon Sound**        | boss_summon.ogg                  | [luminousfridge - Freesound](https://freesound.org)          | Attribution 4.0                     | Boss spawn or summoning audio effect.  |
+| **Boss Gun Sound**           | boss_gun.wav                     | [Metzik - Freesound](https://freesound.org)                  | Attribution 4.0                     | Boss projectile sound.                 |
+| **Player Bullet Sound**      | player_bullet.wav                | [jordivburgel - Freesound](https://freesound.org)            | Creative Commons 0                  | Sound for player shooting bullets.     |
+| **Player Spawn Sound**       | player_spawn.ogg                 | [luminousfridge - Freesound](https://freesound.org)          | Attribution 4.0                     | Sound effect for spawning the player.  |
+| **Boss Level Background Sound** | boss_level_bg.wav            | [Wax_vibe - Freesound](https://freesound.org)                | Creative Commons 0                  | Background music for boss level.       |
+| **Enemy Damage Sound**       | robot_damage.mp3                 | [Novi - Freesound](https://freesound.org)                    | Creative Commons 0                  | Robot enemy damage sound effect.       |
+| **Player Death Sound**       | retro_death.wav                  | [BrickDeveloper - Freesound](https://freesound.org)          | Creative Commons 0                  | Player death sound effect.             |
+| **Power-Up Sound**           | level_up_cyberpunk.wav           | [SilverIllusionist - Freesound](https://freesound.org)       | Attribution 4.0                     | Sound effect for power-ups or upgrades.|
+| **Level 1 Background Sound** | level_one_bg.wav                 | [lindseysewell - Freesound](https://freesound.org)           | Creative Commons 0                  | Background atmosphere for Level 1.     |
+
+---
+
+## **Visual Assets**
+
+| **Asset Name**               | **File Name**                     | **Source**                                                    | **License**                          | **Use Case**                            |
+|------------------------------|----------------------------------|-------------------------------------------------------------|-------------------------------------|----------------------------------------|
+| **Mechanic Mike Base Pack**  | Mechanic_Mike.rar                | [Gabry Corti - itch.io](https://itch.io)                     | Personal & Commercial Use           | Player character animations.           |
+| **City Robot - Sentinel**    | Sentinel.rar                     | [Gabry Corti - itch.io](https://itch.io)                     | Personal & Commercial Use           | Boss Stage 1 enemy animations.         |
+| **City Robot - Scout**       | Scout.rar                        | [Gabry Corti - itch.io](https://itch.io)                     | Personal & Commercial Use           | Enemy animations for flying enemies.   |
+| **Legacy Collection**        | Legacy_Collection.zip            | [Ansimuz - itch.io](https://itch.io)                         | Personal & Commercial Use           | MechUnit and Bullet Animations and Boss Level Backround |
+| **Free Futuristic City**     | Free_Pixel_Art_Futuristic_City.zip | [edermunizz - itch.io](https://itch.io)                    | Creative Commons Attribution 4.0    | Background for boss stage and cutscene.|
+| **Old Hero Pixel Character** | Jotem.zip                        | [Atari Boy - itch.io](https://itch.io)                       | Personal & Commercial Use           | Final cutscene main character.         |
+| **Sewers Action Pack**       | Sewers_pack_files.zip            | [ansimuz - itch.io](https://itch.io)                         | Personal & Commercial Use           | Level assets including soldier art.    |
+| **Industrial Tileset**       | Industrial_Tileset_v1.2.zip      | [Atomic Realm - itch.io](https://itch.io)                    | Personal & Commercial Use w/ Credit | Tileset for Level 1.                   |
+
+---
 
 ## Spaceship Level
 
