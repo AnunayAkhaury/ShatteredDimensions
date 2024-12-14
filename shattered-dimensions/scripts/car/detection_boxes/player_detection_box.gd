@@ -28,8 +28,9 @@ func _on_area_entered(object: Area2D) -> void:
 		owner.health = clampi(owner.health + 25, 0, 100)
 		object.queue_free()
 		
-	if object is KeyCheckpoint:
+	if object is KeyCheckpoint and !owner._reached_key_checkpoint:
 		owner.movement_enabled = false
+		owner._reached_key_checkpoint = true
 		
 	if object is Key:
 		%BlingSound.play()

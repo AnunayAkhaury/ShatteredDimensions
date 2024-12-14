@@ -7,6 +7,7 @@ var _MIN_KILL_FOR_MISSILE = 4
 var _respawn_timer: Timer
 var _bullet_damage: float
 var _caught_by_police: bool
+var _reached_key_checkpoint: bool
 
 
 var tot_missiles: int
@@ -35,6 +36,7 @@ func _init() -> void:
 	_speed = 600
 	_max_speed = 40
 	_bullet_damage = 0
+	_reached_key_checkpoint = false
 	
 	_respawn_timer = Timer.new()
 	#_respawn_timer.autostart = true
