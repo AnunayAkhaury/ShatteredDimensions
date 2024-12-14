@@ -133,6 +133,47 @@ All assets are detailed below:
 
 [Fuel, Terrain](https://lucylavend.itch.io/physics-car-game-asset-pack): by LucyLavend licensed under Free for commercial use
 
+[Car Engine ](https://www.youtube.com/watch?v=NFS74djCgWw) : By Berlin Atmospheres free for personal use
+
+[Police Car](https://www.youtube.com/watch?v=FWNFxOk-fyY) : By Low Tech free for personal use 
+
+[Car hit ](https://www.youtube.com/watch?v=Yw7w_K3U-kg) : By Sound Library free for personal use 
+
+[Car crash](https://www.youtube.com/watch?v=wqIyAFchqB4) : By Sound Library free for personal use 
+
+[Tire Puncture](https://www.youtube.com/watch?v=c5LOgLR1UZM) : By Hanavok free for personal use
+
+[Parallax Background + jungle](https://jesse-m.itch.io/jungle-pack)
+- By Jesse M free for commercial use 
+- You can use the art provided by this asset pack for personal and commercial use.
+- You cannot redistribute this asset pack.
+
+
+[Enemies](https://luizmelo.itch.io/monsters-creatures-fantasy?download#google_vignette)
+- By Luiz Melo free for personal/commercial use under Creative Commons Zero
+- This package can be used in commercial and non-commercial projects
+
+[Prison Tileset](https://psychronic.itch.io/galacti-chrons-abusive-prison-tileset) : by Psychronic free for personal/commercial use
+
+[Diamond](https://drxwat.itch.io/pixel-art-diamond) : By Frontend pashlet free for personal/commercial use
+
+[Police Officer](https://free-game-assets.itch.io/free-2d-police-character-sprites ) : By craftpix.net free for personal/commercial use
+
+[Cutscene background](https://shiroze.itch.io/starry-night-parallax-background )
+- By Shiroz free for personal/commercial use
+- You can use these assets in commercial & non-commercial projects.
+- You can modify these assets.
+- You can not redistribute or resell, even if modified.
+- Credit required.
+
+[Key](https://frakassets.itch.io/free-rotating-key#google_vignette ) : Licensed Under Creative Commons free for personal/commercial use
+
+[spikes](https://gamedeveloperstudio.itch.io/floor-spikes ) : By robert brooks free for personal use
+
+[PhysicsCar ](https://lucylavend.itch.io/physics-car-game-asset-pack)
+- by LucyLavend free for commercial/personal use
+- You can: Use it in personal and commercial projects
+- You can't: Resell or redistribute the asset
 
 ## Platformer Level
 
