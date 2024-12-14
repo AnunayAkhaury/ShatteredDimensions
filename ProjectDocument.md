@@ -306,7 +306,7 @@ The primary physics changes involve integrating shooting with the existing movem
 2. Bullet trajectory and velocity adapt dynamically to the player’s position.  
 3. Shooting functionality integrates smoothly without disrupting movement physics.  
 
-These enhancements ensure fluid, responsive controls where platforming and combat work together seamlessly.  
+![Soldier](https://github.com/user-attachments/assets/b3135c6d-3b57-4f37-b922-4eada72af450)
 
 ---
 
@@ -334,6 +334,8 @@ All enemies in the **Run and Gun Level** derive from a **base `Character` class*
 - **Sound Effects**:  
   Enemies play specific sound effects when performing actions, such as shooting, getting hit, or dying, adding to the game’s polish.
 
+![PlayerDamage](https://github.com/user-attachments/assets/e0667722-169b-4b99-a20e-89eeabfdcde0)
+
 ---
 
 #### Individual Enemy Types
@@ -342,25 +344,33 @@ All enemies in the **Run and Gun Level** derive from a **base `Character` class*
    - **Description**: The most basic enemy type that patrols between two points.  
    - **Behavior**: Acts as a moving obstacle.  
 
+![MechUnit](https://github.com/user-attachments/assets/643a2993-f54e-44b3-9b62-13d89b07ef57)
+
 2. **Soldier**  
    - **Description**: A ground enemy capable of patrolling or shooting.  
    - **Behavior**:  
      - Patrols its designated area when not attacking.  
      - Periodically fires bullets at the player using the same bullet logic as the player.  
-   - **Special Features**: Unique bullet animations and impact effects.  
+   - **Special Features**: Unique bullet animations and impact effects.
+  
+![Soldier](https://github.com/user-attachments/assets/2866e620-8c7c-4f34-ad66-7c59dc2b02f9)
 
 3. **Scout**  
    - **Description**: A flying enemy that actively follows the player.  
    - **Behavior**:  
      - Tracks the player within a defined range and fires projectiles at intervals.  
      - Stops following if the player exits its "leash range."  
-   - **Special Features**: Shooting animations and a custom projectile system.  
+   - **Special Features**: Shooting animations and a custom projectile system.
+  
+     
 
 4. **Sentinel**  
    - **Description**: A ground-based enemy with patrol behavior and an **Area of Effect (AoE)** attack.  
    - **Behavior**:  
      - Patrols a region while maintaining a larger hitbox for its AoE attacks.  
      - Deals damage to the player if they enter its attack range.
+
+![sentinal](https://github.com/user-attachments/assets/645ebf6f-43e1-410f-835a-67429eb826bb)
 
 ---
 
@@ -445,6 +455,8 @@ The boss’s behavior is implemented using the **Command Pattern**, allowing for
 
 - **Death Animation**: Upon defeat, the boss plays a unique death animation, and the **Golden Key** spawns for the player to collect.
 
+![boss_death](https://github.com/user-attachments/assets/08a3ba53-55b7-46eb-b31b-7fe80e4ec6d2)
+
 ---
 
 #### Summary of Phases
@@ -466,12 +478,6 @@ The **Command Pattern** is used throughout the boss implementation to modularize
 - **MeleeAttackCommand**: Triggers the melee combo attack.  
 - **SummonCommand**: Spawns additional enemies during combat.  
 
-Using the **Command Pattern** ensures the boss logic is clean, modular, and reusable. Each behavior can be easily modified or extended without impacting the rest of the boss fight system.
-
----
-
-This multi-phase boss fight challenges the player to manage movement, dodging, and combat strategies. Successfully defeating the boss rewards the player with the **Golden Key** and progression to the next challenge.
-
 ### Power-Ups
 
 The **Power-Ups** in the Run and Gun Level enhance player abilities and are implemented using **Area2D signals** and unique **collision layers** to detect pickups. Each power-up provides a specific boost to the player, improving combat effectiveness or survivability.
@@ -486,7 +492,10 @@ The **Power-Ups** in the Run and Gun Level enhance player abilities and are impl
    - Upon entering the area, the player’s health value is incremented.  
    - A **signal** is emitted to update the health bar UI, ensuring immediate visual feedback.  
 
+![health_pickup](https://github.com/user-attachments/assets/ae92a41c-32dd-473a-ae66-462a9ea383dd)
+
 ---
+
 
 #### Rapid Fire Power-Up
 
@@ -496,6 +505,8 @@ The **Power-Ups** in the Run and Gun Level enhance player abilities and are impl
    - On pickup, the player’s shooting cooldown is temporarily set to zero.  
    - A **timer** node tracks the duration of the power-up.  
    - Once the timer expires, the cooldown value is restored to its default setting.
+
+![rapid_fire](https://github.com/user-attachments/assets/4c638073-28ed-4e30-af82-244ae4fc64f3)
 
 ---
 
@@ -509,6 +520,8 @@ The **Power-Ups** in the Run and Gun Level enhance player abilities and are impl
    - The power-up temporarily replaces the player’s bullet instance with a spiral bullet.  
    - A **timer** node reverts the bullet type to default after the effect ends.  
    - The spiral bullet uses its own animation and collision logic to simulate the unique behavior.
+
+![spiral_shot](https://github.com/user-attachments/assets/ae4ab54f-01af-4c2c-9848-e03ccfda8a52)
 
 ---
 
@@ -543,7 +556,7 @@ The **Health Management System** ensures that both player and enemy health is co
    Enemies take damage through their **hitboxes** when hit by player bullets or attacks. Upon defeat, enemies play a **hit flash effect** and a **death animation** for visual feedback.
 
 - **Invulnerability**:  
-   Enemies do not gain invulnerability, making them susceptible to consecutive hits, unlike the player. But is managed through the player shot cooldown
+   Unlike the player, enemies do not gain invulnerability, making them susceptible to consecutive hits. But it is managed through the player shot cooldown.
 
 ---
 
