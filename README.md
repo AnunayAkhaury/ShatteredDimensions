@@ -31,11 +31,11 @@ Here is a sneak peak of everything you'll get to experience with our game!
 
 ## Images ##
 
-| <img width="450" alt="prison" src="https://github.com/user-attachments/assets/6c81ced1-0108-47e5-bca0-70726aa0bee4" /> | <img width="450" alt="platform" src="https://github.com/user-attachments/assets/38f0844a-956c-45b5-83b5-37ea1e8f228d" /> |
+| <img width="350" alt="prison" src="https://github.com/user-attachments/assets/6c81ced1-0108-47e5-bca0-70726aa0bee4" /> | <img width="350" alt="platform" src="https://github.com/user-attachments/assets/38f0844a-956c-45b5-83b5-37ea1e8f228d" /> |
 
-| <img width="450" alt="ending" src="https://github.com/user-attachments/assets/e253a84d-393d-42c9-9c34-6854dea3cad7" /> | <img width="450" alt="car" src="https://github.com/user-attachments/assets/9679fa9d-080b-4c32-8ad2-3911481e0021" /> | 
+| <img width="350" alt="ending" src="https://github.com/user-attachments/assets/e253a84d-393d-42c9-9c34-6854dea3cad7" /> | <img width="350" alt="car" src="https://github.com/user-attachments/assets/9679fa9d-080b-4c32-8ad2-3911481e0021" /> | 
 
-| <img width="450" alt="shooter" src="https://github.com/user-attachments/assets/02ae4eaf-7584-4e69-9c10-9a08d05c1c6a" /> | <img width="450" alt="space" src="https://github.com/user-attachments/assets/7abf5ccc-6888-4a86-a3c5-46370a3f4c31" /> |
+| <img width="350" alt="shooter" src="https://github.com/user-attachments/assets/02ae4eaf-7584-4e69-9c10-9a08d05c1c6a" /> | <img width="350" alt="space" src="https://github.com/user-attachments/assets/7abf5ccc-6888-4a86-a3c5-46370a3f4c31" /> |
 
 ## Documentation and Source Code ##
 
