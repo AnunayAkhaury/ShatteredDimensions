@@ -128,7 +128,7 @@ All assets are detailed below:
 
 [Police Car](https://www.youtube.com/watch?v=FWNFxOk-fyY) : By Low Tech free for personal use 
 
-[Car hit ]([url](https://www.youtube.com/watch?v=Yw7w_K3U-kg)) : By Sound Library free for personal use 
+[Car hit ](https://www.youtube.com/watch?v=Yw7w_K3U-kg) : By Sound Library free for personal use 
 
 [Car crash](https://www.youtube.com/watch?v=wqIyAFchqB4) : By Sound Library free for personal use 
 
