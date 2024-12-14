@@ -15,7 +15,6 @@ func get_horizontal_distance_to_player(character: Character, player: Player) -> 
 
 
 func execute(character: Character) -> Status:
-	#var distance_to_player = get_horizontal_distance_to_player(character, player)
 	if not is_instance_valid(player) or not is_instance_valid(character):
 		return Status.DONE
 		

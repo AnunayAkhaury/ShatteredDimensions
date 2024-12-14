@@ -367,6 +367,7 @@ script = ExtResource("1_1w0xd")
 health = 100
 jump_velocity_input = -300
 platformer_level = 0
+on_platformer = false
 knockback_force = 300.0
 shoot_cooldown = 0.33
 

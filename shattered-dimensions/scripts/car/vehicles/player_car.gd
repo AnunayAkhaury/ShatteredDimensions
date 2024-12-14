@@ -128,7 +128,7 @@ func _shoot_missile() -> void:
 func respawn() -> void:
 	GlobalVars.car_lives -= 1
 	health = 100
-	if _caught_by_police:
+	if _caught_by_police and GlobalVars.car_lives > 0:
 		get_tree().change_scene_to_file("res://scenes/car/player_arrest.tscn")
 		_caught_by_police = false
 	else:

@@ -3,7 +3,7 @@ extends Control
 @onready var shooter_audio: AudioStreamPlayer2D = $ShooterAudio
 
 func _ready() -> void:
-	if Global.run_gun:
+	if GlobalVars.run_gun:
 		shooter_audio.play()
 	else:
 		audio_stream_player.play(74)

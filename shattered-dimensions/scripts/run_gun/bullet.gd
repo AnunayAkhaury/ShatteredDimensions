@@ -4,6 +4,7 @@ class_name BaseBullet
 @export var bullet_impact_effect: PackedScene = preload("res://scenes/run_gun/bullet_impact.tscn")
 @export var speed: int = 600
 @export var damage_amount: int = 1
+
 var direction : int
 
 var bullet_origin = Characters.Type.PLAYER

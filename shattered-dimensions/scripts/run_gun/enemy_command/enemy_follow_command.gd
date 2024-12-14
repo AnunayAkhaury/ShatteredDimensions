@@ -15,7 +15,6 @@ func get_horizontal_distance_to_player(character: Character, player: Player) -> 
 
 
 func execute(character: Character) -> Status:
-	#var distance_to_player = get_horizontal_distance_to_player(character, player)
 	var distance_to_player = character.global_position.distance_to(player.global_position)
 	if distance_to_player > character.leash_distance:
 		character.velocity = Vector2.ZERO

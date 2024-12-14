@@ -1,8 +1,10 @@
 class_name EnemyJumpCommand
 extends Command
 
+const jump_input = -445
+
 func execute(character: Character) -> Status:
-	var input = -445
+	var input = jump_input
 	character.velocity.y = input
 	
 	if character._horizontal_input != 0:

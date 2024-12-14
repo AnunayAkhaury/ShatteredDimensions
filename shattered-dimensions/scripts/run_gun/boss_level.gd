@@ -5,7 +5,7 @@ extends Node2D
 var death : bool = false
 
 func _ready():
-	Global.run_gun = true
+	GlobalVars.run_gun = true
 	character_body.collision_layer &= ~1  
 	character_body.collision_layer |= 2  
 	

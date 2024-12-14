@@ -10,9 +10,11 @@ var _dead:bool = false
 # VARIABLES FOR PLATFORMER
 var double_jump: bool = false
 @export var platformer_level: int
+@export var on_platformer: bool = false
 var lives: int = GlobalVars.lives
 var on_trampoline: bool = false
 var checkpoint_num: int = 0
+var death_process: bool = false
 var checkpoints: Array = [
 	[65, 589],
 	[967, 395],
@@ -87,8 +89,8 @@ func _ready():
 		unbind_player_input_commands()
 	#animation_tree.active = true
 	bind_player_input_commands()
-	if !Global.run_gun:
-		movement_speed = 160
+	if on_platformer:
+		movement_speed = 150
 	muzzle_position = muzzle.position
 	original_hit_box_shape = hitbox.shape.size.y
 	original_hit_box_y = hitbox.position.y
@@ -113,12 +115,12 @@ func _physics_process(delta: float):
 		move_and_slide()
 		return
 		
-	if Global.run_gun:
+	if GlobalVars.run_gun:
 		jump_velocity_input = -445
 	else:
 		jump_velocity_input = -300
 		
-	if knockback_active and Global.run_gun:
+	if knockback_active and GlobalVars.run_gun:
 		move_and_slide()
 		_apply_gravity(delta)
 		return 
@@ -163,7 +165,7 @@ func _physics_process(delta: float):
 		add_sibling(cur_bullet)
 	
 	
-	if Input.is_action_just_pressed("shoot") and can_shoot and Global.run_gun:
+	if Input.is_action_just_pressed("shoot") and can_shoot and GlobalVars.run_gun:
 		if shoot_cooldown != 0:
 			can_shoot = false
 		if move_input != 0.0:
@@ -199,10 +201,15 @@ func _physics_process(delta: float):
 func platformer_respawn():
 	if lives <= 0:
 		return
+	death_process = true
 	death_audio.play()
-	Engine.time_scale = 0.3
-	await get_tree().create_timer(0.2).timeout
-	Engine.time_scale = 1
+	var player_death_instance = player_death_effect.instantiate() as Node2D
+	player_death_instance.global_position = global_position
+	get_parent().add_child(player_death_instance)
+	
+	self.hide()
+	self.velocity = Vector2(0, 0)
+	
 	if platformer_level == 1:
 		position.x = 65
 		position.y = 595
@@ -211,7 +218,15 @@ func platformer_respawn():
 		position.y = checkpoints[checkpoint_num][1]
 	else:
 		position.x = 67
-		position.y = 590
+		position.y = 542
+		
+	self.unbind_player_input_commands()
+	await get_tree().create_timer(1).timeout
+	
+	self.bind_player_input_commands()
+	self.show()
+	death_process = false
+	player_death_instance.timeout()
 
 func bind_player_input_commands():
 	velocity.x = 0
@@ -270,7 +285,6 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 		velocity = knockback_direction * knockback_force
 		knockback_active = true
 		knockback_timer.start(0.33)
-		#HitAnimationPlayer.play("hit_flash")
 		damge_audio.play()
 		HealthManager.decrease_health(body.damage_amount)
 	if HealthManager.current_health <= 0:
@@ -313,7 +327,6 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		velocity = knockback_direction * knockback_force
 		knockback_active = true
 		knockback_timer.start(0.15)
-		#HitAnimationPlayer.play("hit_flash")
 		damge_audio.play()
 		HealthManager.decrease_health(area.damage_amount)
 			
@@ -324,7 +337,6 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		velocity = knockback_direction * knockback_force
 		knockback_active = true
 		knockback_timer.start(0.15)
-		#HitAnimationPlayer.play("hit_flash")
 		damge_audio.play()
 		HealthManager.decrease_health(node.damage_amount)
 	if HealthManager.current_health <= 0:

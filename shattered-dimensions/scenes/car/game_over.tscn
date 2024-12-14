@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://hdbdyp6hyvkd"]
 
 [ext_resource type="Script" path="res://scripts/car/other_screens/game_over.gd" id="1_k7jk5"]
-[ext_resource type="Texture2D" uid="uid://cd2wq8kis8ka5" path="res://assets/300 Characters Free! 128x128/pixelart_skull.png" id="2_3p481"]
+[ext_resource type="Texture2D" uid="uid://bbd76jlj4w4pb" path="res://assets/pixelart_skull.png" id="2_3p481"]
 
 [sub_resource type="Animation" id="Animation_accgs"]
 length = 0.001

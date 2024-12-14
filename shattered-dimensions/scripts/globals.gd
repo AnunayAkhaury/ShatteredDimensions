@@ -9,5 +9,6 @@ static var platformerCompleted = false
 static var carCompleted = false
 static var shooterCompleted = false
 static var spaceshipCompleted = false
+static var run_gun: bool = false
 
 static var prison_position = Vector2(478, 586)
