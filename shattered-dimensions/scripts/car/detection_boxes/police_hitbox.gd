@@ -8,8 +8,9 @@ func _init() -> void:
 	
 func _on_area_entered(object: Area2D) -> void:	
 	if GlobalVars.car_level_stat == 'Battle':
-		if object is Bullet and object.ammo_origin == Characters.Type.PLAYER:	
+		if object is Bullet and object.ammo_origin == Characters.Type.PLAYER:
 			if owner.health > 0:
+				$hit.play()
 				owner.health -= damage
 				if owner.health <= 0:
 					owner.health = 0

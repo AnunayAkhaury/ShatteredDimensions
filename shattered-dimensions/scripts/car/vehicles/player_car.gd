@@ -79,9 +79,6 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("shoot"):
 			_shoot()
 			
-		if Input.is_action_just_pressed("restart"):
-			health = 0
-			
 		if Input.is_action_just_pressed("pause"):
 			GlobalVars.car_level_stat = "Not on Car Level"
 			GlobalVars.car_lives = 5
