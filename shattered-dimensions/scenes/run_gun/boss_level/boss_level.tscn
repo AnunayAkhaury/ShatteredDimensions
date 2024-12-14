@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bmiuqcsf1lhm" path="res://assets/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="7_u8d23"]
 [ext_resource type="Texture2D" uid="uid://d168qiwc8d7hy" path="res://assets/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1B.png" id="8_o54wn"]
 [ext_resource type="PackedScene" uid="uid://bkniqhquw3wwh" path="res://scenes/run_gun/enemies/mechanic/mechanic_boss.tscn" id="9_34bb2"]
-[ext_resource type="Texture2D" uid="uid://qlv3ltljlwq4" path="res://assets/1 Tiles/Tileset.png" id="10_0evk3"]
+[ext_resource type="Texture2D" uid="uid://8ck4jp4owrwh" path="res://assets/1 Tiles/Tileset.png" id="10_0evk3"]
 [ext_resource type="PackedScene" uid="uid://tyap2cf7pl1d" path="res://scenes/run_gun/powerups/health_pickup.tscn" id="10_f7rs0"]
 [ext_resource type="PackedScene" uid="uid://ckf8i51m5c8qf" path="res://scenes/run_gun/player/health_bar/game_screen.tscn" id="11_gxnrk"]
 [ext_resource type="PackedScene" uid="uid://di5itfhkhx0q3" path="res://scenes/run_gun/enemies/sentinal.tscn" id="12_7p4p5"]
