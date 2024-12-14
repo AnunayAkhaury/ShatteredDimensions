@@ -701,7 +701,7 @@ Below I have described the main features and functionality of my level, along wi
 
 **Asteroids**
 
-- The spaceship is configured to bounce back after collision with an asteroid, creating a cooldown period during which user input is unbinded.
+- The spaceship is configured to [bounce back](https://github.com/AnunayAkhaury/ShatteredDimensions/blob/16101ef3f8f54ec0a67679d955aacb879d275447/shattered-dimensions/scripts/spaceship/spaceship.gd#L56) after collision with an asteroid, creating a cooldown period during which user input is unbinded.
   
 - The asteroids are of type RigidBody2D, so they are able to bounce off the spaceship and transition into an explosion upon collision. 
   
