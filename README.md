@@ -69,12 +69,8 @@ Sub Role: Cinematics (Initial Cutscene)
 
 Please feel free to contact any of our developers with any bug reports or inputs!
 
-[Abhimanyu Warrier](avwarrier@ucdavis.edu)
-
-[Satya Sanegapalli](ssanegapalli@ucdavis.edu)
-
-[Anunay Akhaury](?@ucdavis.edu)
-
-[SriLakshmi Panda](slpanda@ucdavis.edu) 
-
-[Janani Asokumar](?@ucdavis.edu)
+Abhimanyu Warrier: avwarrier@ucdavis.edu  
+Satya Sanegapalli: ssanegapalli@ucdavis.edu  
+Anunay Akhaury: aakhaury@ucdavis.edu  
+Sri Lakshmi Panda: slpanda@ucdavis.edu  
+Janani Asokumar: jasokumar@ucdavis.edu  
