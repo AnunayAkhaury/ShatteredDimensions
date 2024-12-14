@@ -13,3 +13,7 @@ func _process(delta: float) -> void:
 		global_position.y -= 100 * delta
 	else:
 		global_position.y += 100 * delta
+	
+	#if abs(global_position.y)
+	
+	print(global_position.y)
