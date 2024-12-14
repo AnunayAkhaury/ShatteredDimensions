@@ -20,8 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://ceq4aimroumar" path="res://scenes/run_gun/powerups/rapid_fire.tscn" id="16_n1ghw"]
 [ext_resource type="PackedScene" uid="uid://i63jkyqe4nn" path="res://scenes/run_gun/powerups/spiral_bullet_powerup/spiral_bullet_pickup.tscn" id="17_3ebtf"]
 [ext_resource type="PackedScene" uid="uid://bmoaon1yut05y" path="res://scenes/pause_menu.tscn" id="20_bah8t"]
-[ext_resource type="AudioStream" uid="uid://bkku2xi3gki3s" path="res://assets/Anunay's Sounds/512918__lindseysewell__cyberpunk-atmosphere.wav" id="21_6yft4"]
 [ext_resource type="AudioStream" uid="uid://bg427qs4oip4d" path="res://assets/Anunay's Sounds/death.wav" id="21_vhuwh"]
+[ext_resource type="AudioStream" uid="uid://b3b73y4orpn1b" path="res://assets/Futuristic Game Music - Copyright-Free Music for Sci-Fi Projects.mp3" id="22_ch0gr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5olc5"]
 texture = ExtResource("3_hax1a")
@@ -1029,7 +1029,7 @@ stream = ExtResource("21_vhuwh")
 max_distance = 9.22337e+18
 
 [node name="Level1Audio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("21_6yft4")
+stream = ExtResource("22_ch0gr")
 autoplay = true
 max_distance = 9.22337e+18
 max_polyphony = 2

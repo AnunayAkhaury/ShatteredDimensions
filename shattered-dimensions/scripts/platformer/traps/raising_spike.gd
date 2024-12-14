@@ -13,3 +13,6 @@ func _process(delta: float) -> void:
 		global_position.y -= 100 * delta
 	else:
 		global_position.y += 100 * delta
+
+	if (forwards and global_position.y < 200) or (not forwards and global_position.y > 700):
+		queue_free()
