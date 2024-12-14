@@ -6,7 +6,7 @@ Shattered Dimensions is a prison escape game focused on a space explorer who has
 ## Project Resources
 
 [Web-playable version of your game.](https://avwarrier.itch.io/shattered-dimensions)  
-[Trailor](https://youtube.com)  
+[Trailor](https://www.youtube.com/watch?v=-zDo1VSA-OQ&feature=youtu.be)  
 [Press Kit](https://dopresskit.com/)  
 [Proposal](https://docs.google.com/document/d/1xjGdmtULjXItcZ0VLk4QCZCKcBdBED-yvpBHiZQ-zjI/edit?usp=sharing)  
 
