@@ -1187,11 +1187,11 @@ In addition to the results collected through the use of this Google Form, we als
 
 - A lot of our players and reviewers found the platformer level to be too difficult and were not able to make it past the first level. This hindered their performance in the overall game because they need to beat all of the minigames. As a solution, the difficulty was decreased by removing some obstacles and spacing out components.
 
-- The difference in controls and objectives from minigame to minigame also made it difficult for players to switch between them. To allow better understanding of controls, instruction pages were added to the Spaceship and Platformer levels to allow playeres ample time to read and understand.
+- The difference in controls and objectives from minigame to minigame also made it difficult for players to switch between them. To allow better understanding of controls, instruction pages were added to the Spaceship and Platformer levels to allow players ample time to read and understand.
 
 - To allow for cohesion of controls throughout the games, the spaceship level was modified to shoot arrows on a left mouse click instead of the space bar. The kill count requirement was also decreased from 5 to 4 since the number of UFOs the player sees is directly dependent upon their path through the level.
 
-- Our initial and final cutsscenes were engaging and efficiently communicated our storyline to our players. Every one of them understood the background and main objective of the game.
+- Our initial and final cutscenes were engaging and efficiently communicated our storyline to our players. Every one of them understood the background and main objective of the game.
 
 - Overall, players found our user interface to be very engaging and expressed interest in playing multiple times to beat it.
 
