@@ -14,6 +14,9 @@ func _process(delta: float) -> void:
 	else:
 		global_position.y += 100 * delta
 	
-	#if abs(global_position.y)
+	if forwards and global_position.y < 200:
+		queue_free()
+	if not forwards and global_position.y > 700:
+		queue_free()
 	
 	print(global_position.y)
