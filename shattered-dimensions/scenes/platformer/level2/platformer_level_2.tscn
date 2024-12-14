@@ -28,8 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://b00thoqwoqjnq" path="res://scenes/platformer/next_world_door.tscn" id="25_l62ee"]
 [ext_resource type="Texture2D" uid="uid://l825pk3rvbeh" path="res://assets/PixelFantasy_Caves_1.0/mainlev_build.png" id="25_uvrl4"]
 [ext_resource type="Texture2D" uid="uid://d1un0nbat770q" path="res://assets/key.png" id="26_188w3"]
+[ext_resource type="AudioStream" uid="uid://g4k6q10dnedx" path="res://assets/8 Bit Dungeon.mp3" id="30_sgsvb"]
 [ext_resource type="PackedScene" uid="uid://bmoaon1yut05y" path="res://scenes/pause_menu.tscn" id="30_x2rw1"]
-[ext_resource type="AudioStream" uid="uid://dv31y7q52wnny" path="res://assets/Breezy's Mega Quest - 5 Stage 4.wav" id="30_xcob4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7avqj"]
 texture = ExtResource("2_i2xw3")
@@ -3254,6 +3254,6 @@ script = ExtResource("3_03beg")
 visible = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("30_xcob4")
+stream = ExtResource("30_sgsvb")
 volume_db = 2.0
 autoplay = true
