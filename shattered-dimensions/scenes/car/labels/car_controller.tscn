@@ -65,8 +65,8 @@ shoot  -  click to aim and shoot
 shoot missile - press shift to toggle on/off
 
 Kill 4 enemies = unlock 1 missile
-Save the missiles for blasting things!
-Beware of timed traps!"
+Save the missiles for blasting obstacles!
+Beware of traps!"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]

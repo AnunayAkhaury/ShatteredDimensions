@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://0n8jr3oavnss"]
+[gd_scene load_steps=115 format=3 uid="uid://0n8jr3oavnss"]
 
 [ext_resource type="Texture2D" uid="uid://blhgghbmad2fq" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/hurt/1_police_Hurt_000.png" id="1_0jk5b"]
 [ext_resource type="Script" path="res://scripts/car/enemy/police.gd" id="1_tuh3i"]
@@ -56,6 +56,7 @@
 [ext_resource type="Texture2D" uid="uid://6cx23ns7xmfe" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/walk/1_police_Walk_006.png" id="38_c1f5c"]
 [ext_resource type="Texture2D" uid="uid://ky4d8enovcll" path="res://assets/CarLevel/Free-2D-Police-Character-Sprites/1/walk/1_police_Walk_007.png" id="39_lo8vb"]
 [ext_resource type="Script" path="res://scripts/car/detection_boxes/police_hitbox.gd" id="47_d4qw4"]
+[ext_resource type="AudioStream" uid="uid://f41kr8a3prrn" path="res://assets/CarLevel/car_hit.mp3" id="58_3pmf7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jnp8w"]
 atlas = ExtResource("2_gb3lg")
@@ -498,6 +499,12 @@ script = ExtResource("47_d4qw4")
 position = Vector2(55, -55)
 scale = Vector2(60, 60)
 shape = SubResource("CapsuleShape2D_bvubj")
+
+[node name="hit" type="AudioStreamPlayer2D" parent="OfficerHitBox"]
+unique_name_in_owner = true
+scale = Vector2(1, 1)
+stream = ExtResource("58_3pmf7")
+volume_db = -5.333
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(55, -70)

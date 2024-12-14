@@ -374,7 +374,7 @@ shoot_cooldown = 0.33
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_7j168")
 sprite_frames = SubResource("SpriteFrames_xoxd8")
-animation = &"spin"
+animation = &"jump"
 autoplay = "idle"
 script = ExtResource("3_h0a6v")
 

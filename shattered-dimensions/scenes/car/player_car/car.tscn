@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bl2eeoldwnydu"]
+[gd_scene load_steps=33 format=3 uid="uid://bl2eeoldwnydu"]
 
 [ext_resource type="Script" path="res://scripts/car/vehicles/player_car.gd" id="1_0wm3u"]
 [ext_resource type="Texture2D" uid="uid://cydnsk6xymx31" path="res://assets/Super Grotto Escape Files/Assets/Characters/Player/spritesheets/player-duck.png" id="2_w5tmd"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://2xopgxxtn8pe" path="res://assets/CarLevel/tire_puncture.mp3" id="13_w2oya"]
 [ext_resource type="AudioStream" uid="uid://bgcx2bwxu2gl0" path="res://assets/CarLevel/PhysicsCarGameAssets/Audio/Coin.wav" id="14_1uv7v"]
 [ext_resource type="AudioStream" uid="uid://b4ggr4eope2nt" path="res://assets/CarLevel/PhysicsCarGameAssets/Audio/Fuel.wav" id="14_3qgmw"]
+[ext_resource type="AudioStream" uid="uid://rrw53vct2jol" path="res://assets/CarLevel/rocket_explosion.mp3" id="16_fjw15"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kw7ln"]
 atlas = ExtResource("2_w5tmd")
@@ -224,3 +225,8 @@ volume_db = 6.667
 unique_name_in_owner = true
 stream = ExtResource("14_3qgmw")
 volume_db = 3.333
+
+[node name="Missile" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("16_fjw15")
+volume_db = 3.319

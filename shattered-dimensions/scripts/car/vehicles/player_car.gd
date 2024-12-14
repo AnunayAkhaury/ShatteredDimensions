@@ -7,6 +7,7 @@ var _MIN_KILL_FOR_MISSILE = 4
 var _respawn_timer: Timer
 var _bullet_damage: float
 var _caught_by_police: bool
+var _reached_key_checkpoint: bool
 
 
 var tot_missiles: int
@@ -35,6 +36,7 @@ func _init() -> void:
 	_speed = 600
 	_max_speed = 40
 	_bullet_damage = 0
+	_reached_key_checkpoint = false
 	
 	_respawn_timer = Timer.new()
 	#_respawn_timer.autostart = true
@@ -79,9 +81,6 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("shoot"):
 			_shoot()
 			
-		if Input.is_action_just_pressed("restart"):
-			health = 0
-			
 		if Input.is_action_just_pressed("pause"):
 			GlobalVars.car_level_stat = "Not on Car Level"
 			GlobalVars.car_lives = 5
@@ -117,6 +116,7 @@ func _shoot() -> void:
 		add_sibling(cur_bullet)
 	
 func _shoot_missile() -> void:
+	%Missile.play()
 	var cur_bullet = missile.instantiate() as Missile
 	cur_bullet.ammo_origin = Characters.Type.PLAYER_CAR
 	cur_bullet.start_pos = position + Vector2(30, -90)
@@ -128,7 +128,7 @@ func _shoot_missile() -> void:
 func respawn() -> void:
 	GlobalVars.car_lives -= 1
 	health = 100
-	if _caught_by_police:
+	if _caught_by_police and GlobalVars.car_lives > 0:
 		get_tree().change_scene_to_file("res://scenes/car/player_arrest.tscn")
 		_caught_by_police = false
 	else:

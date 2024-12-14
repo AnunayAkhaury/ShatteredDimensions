@@ -7,7 +7,6 @@ func _init() -> void:
 	
 func _on_area_entered(object: Area2D) -> void:		
 	
-	
 	if object is Bullet and GlobalVars.car_level_stat != "Battle":
 		
 		var bullet = object
@@ -29,8 +28,9 @@ func _on_area_entered(object: Area2D) -> void:
 		owner.health = clampi(owner.health + 25, 0, 100)
 		object.queue_free()
 		
-	if object is KeyCheckpoint:
+	if object is KeyCheckpoint and !owner._reached_key_checkpoint:
 		owner.movement_enabled = false
+		owner._reached_key_checkpoint = true
 		
 	if object is Key:
 		%BlingSound.play()
@@ -43,7 +43,7 @@ func _on_area_entered(object: Area2D) -> void:
 		%TirePuncture.play()
 		owner.input_enabled = false
 		var player = $/root/CarLevel/CarPlayer
-		await get_tree().create_timer(4).timeout
+		await get_tree().create_timer(2).timeout
 		%Player.visible = false
 		GlobalVars.car_level_stat = "Battle"
 		player.visible = true

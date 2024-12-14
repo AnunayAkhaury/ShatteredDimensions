@@ -12,13 +12,17 @@ var character_type: Characters.Type = Characters.Type.ENEMY
 var _defeated_by_player = false
 
 
+func _ready() -> void:
+	%HealthBar.visible = false
 
 func _physics_process(delta: float) -> void:
 	if not _defeated_by_player:
 		shoot_timer -= delta
 		if shoot_timer <= 0 and _is_within_shoot_radius():
 			_shoot()
+			%EnemySound.play()
 			shoot_timer = SHOOT_INTERVAL
+		
 
 func _is_within_shoot_radius() -> bool:
 	return position.distance_to(car.position) <= shoot_radius

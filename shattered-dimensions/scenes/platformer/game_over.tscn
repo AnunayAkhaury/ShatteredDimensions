@@ -55,7 +55,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="GameOver" type="Control"]
+[node name="GameOver2" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_aj66r")
